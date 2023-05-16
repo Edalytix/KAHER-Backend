@@ -1,0 +1,18 @@
+version: "3.9"
+
+networks:
+  web:
+    external: true
+
+services:
+  app:
+    build:
+      context: .
+    restart: always
+    labels:
+      - traefik.http.routers.kaher-api.rule=Host(`kaher-api.edalytics.com`)
+      - traefik.http.routers.kaher-api.tls=true
+      - traefik.http.routers.kaher-api.tls.certresolver=lets-encrypt
+      - traefik.port=3000
+    networks:
+      - web
