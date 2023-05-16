@@ -1,0 +1,16 @@
+const express = require("express");
+const router = express.Router();
+
+const departmentController = require("../controllers").department;
+
+const middlewares = require("../middlewares");
+
+/*
+ * @desc /auth
+ */
+router.post("/department/add", departmentController.createDepartment);
+router.delete("/department/delete", departmentController.deleteDepartment);
+router.get("/department/findall", departmentController.findAllDepartments);
+router.patch("/department/update", departmentController.updateDepartment);
+
+module.exports = router;
