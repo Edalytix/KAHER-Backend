@@ -7,7 +7,7 @@ RUN npm install pm2 -g
 
 COPY package*.json ./
 
-RUN npm ci && npm cache clean --force
+RUN npm install
 
 RUN npm install
 
