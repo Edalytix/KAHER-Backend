@@ -1,6 +1,7 @@
 const dotenv = require("dotenv");
 const path = require("path");
 const database = require("./lib/database/index").database;
+const appConfig = require('./config/app.config.json');
 // dotenv configuration
 dotenv.config({
   path: path.join(__dirname, ".env"),
@@ -55,10 +56,10 @@ app.use(bodyParser.json()); // parse application/json
 
 // Utilize a more restrictive policy if needed
 const originURLS = [
-  appConfig.originUrl[process.env.NODE_ENV].https,
-  appConfig.originUrl[process.env.NODE_ENV].http,
-  appConfig.originUrl[process.env.NODE_ENV].www.https,
-  appConfig.originUrl[process.env.NODE_ENV].www.http,
+  // appConfig?.originUrl?[process.env.NODE_ENV]?.https,
+  // appConfig?.originUrl?[process.env.NODE_ENV]?.http,
+  // appConfig?.originUrl?[process.env.NODE_ENV]?.www?.https,
+  // appConfig?.originUrl?[process.env.NODE_ENV]?.www?.http,
   'http://localhost:3000',
   'https://kaher.edalytics.com',
   'http://kaher.edalytics.com'
@@ -68,7 +69,7 @@ const originURLS = [
 console.log('App', 'Allowed URLs', originURLS);
 
 app.use(cookieParser());
-app.use(logMorgan); // logger
+// logger
 
 // allow origins middlewares
 app.use(cors({

@@ -31,7 +31,7 @@ exports.createUser = async (req, res, next) => {
   } catch (error) {
     // console.log(error)
     next(error);
-  }
+  } 
 };
  
 exports.Login = async (req, res, next) => {
