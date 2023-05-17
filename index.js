@@ -54,7 +54,37 @@ app.use(bodyParser.urlencoded({ extended: true })); // parse application/x-www-f
 app.use(bodyParser.json()); // parse application/json
 
 // Utilize a more restrictive policy if needed
-app.use(cors());
+const originURLS = [
+  appConfig.originUrl[process.env.NODE_ENV].https,
+  appConfig.originUrl[process.env.NODE_ENV].http,
+  appConfig.originUrl[process.env.NODE_ENV].www.https,
+  appConfig.originUrl[process.env.NODE_ENV].www.http,
+  'http://localhost:3000',
+  'https://kaher.edalytics.com',
+  'http://kaher.edalytics.com'
+]
+
+//
+console.log('App', 'Allowed URLs', originURLS);
+
+app.use(cookieParser());
+app.use(logMorgan); // logger
+
+// allow origins middlewares
+app.use(cors({
+  origin: function (origin, callback) {
+      if (originURLS.indexOf(origin) !== -1) {
+          callback(null, true)
+      } else if (origin === undefined) {
+          callback(null, true)
+      } else {
+          callback(new Error('Not allowed by CORS:' + origin))
+      }
+  },
+  credentials: true,
+  methods: "GET,POST,PATCH,DELETE"
+}));
+
 
 if (process.env.NODE_ENV == "development") {
   app.use(logger("dev"));
