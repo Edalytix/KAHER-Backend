@@ -42,9 +42,7 @@ Object.keys(db).forEach((modelName) => {
     db[modelName].associate(db);
   }
 });
-console.log(db)
 db.mongoose = mongoosedb;
 db.models = db.mongoose.models;
-console.log("db is")
 module.exports = db;
  

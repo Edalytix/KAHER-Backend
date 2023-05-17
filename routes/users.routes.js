@@ -10,8 +10,9 @@ const middlewares = require("../middlewares");
  */
 router.post("/users/add", userController.createUser);
 router.post("/users/login", userController.Login);
+router.get("/users/get", userController.findUser);
 // router.delete("/users/delete", userController.deleteRoles);
-// router.get("/users/findall", userController.findAllRoles);
-// router.patch("/users/update", userController.updateRoles);
+router.get("/users/findall", userController.findAllUsers);
+router.patch("/users/update", userController.updateUser);
 
 module.exports = router;

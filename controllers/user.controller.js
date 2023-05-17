@@ -58,6 +58,58 @@ exports.Login = async (req, res, next) => {
   }
 };
 
+exports.findUser = async (req, res, next) => {
+  try {
+    const request = fromAdaptReq.adaptReq(req, res);
+    const result = await fromUseCase
+      .userDetails({
+        CreateError,
+        DataValidator,
+        logger, 
+        translate, 
+        crypto,
+        request,
+        db,
+        
+      })
+      .execute();
+
+    return res.status(201).json({
+      msg: result.data.res.msg,
+      data: result.data.res.data,
+    });
+  } catch (error) {
+    // console.log(error)
+    next(error);
+  }
+};
+
+exports.findAllUsers = async (req, res, next) => {
+  try {
+    const request = fromAdaptReq.adaptReq(req, res);
+    const result = await fromUseCase
+      .findAllUsers({
+        CreateError,
+        DataValidator,
+        logger, 
+        translate, 
+        crypto,
+        request,
+        db,
+        
+      })
+      .execute();
+
+    return res.status(201).json({
+      msg: result.data.res.msg,
+      data: result.data.res.data,
+    });
+  } catch (error) {
+    // console.log(error)
+    next(error);
+  }
+};
+
 exports.deleteUser = async (req, res, next) => {
   try {
     const request = fromAdaptReq.adaptReq(req, res);
@@ -88,7 +140,7 @@ exports.updateUser = async (req, res, next) => {
   try {
     const request = fromAdaptReq.adaptReq(req, res);
     const result = await fromUseCase
-      .updateUsers({
+      .updateUser({
         CreateError,
         DataValidator,
         logger, 
@@ -101,8 +153,8 @@ exports.updateUser = async (req, res, next) => {
       .execute();
 
     return res.status(201).json({
-      msg: result.msg,
-      data: result,
+      msg: result.data.res.msg,
+      data: result.data.res.data,
     });
   } catch (error) {
     // console.log(error)

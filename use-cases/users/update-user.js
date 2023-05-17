@@ -1,7 +1,7 @@
 const fromEntities = require("../../entity");
 
 
-exports.Create = ({
+exports.Update = ({
   CreateError,
   DataValidator,
   logger,
@@ -18,8 +18,8 @@ exports.Create = ({
         const email = request.locals.email;
         const userUID = request.locals.uid;
         const role = request.locals.role;
-        let lowLimit = request.queryParams.lowLimit;
-        console.log("role", role)
+        const id = request.queryParams.id;
+
 
         // let permission = ac.can(role).createOwn("mood");
 
@@ -32,28 +32,39 @@ exports.Create = ({
         // }
 
         let entity = (
-          await fromEntities.entities.Department.addDepartment({
-            CreateError,
-            DataValidator,
-            logger,
+            await fromEntities.entities.User.updateUser({
+              CreateError,
+              DataValidator,
+              logger,
+              translate,
+              crypto,
+              lang,
+              params: { ...request.body, userUID },
+            }).generate()
+          ).data.entity;
+     
+          if(entity.password)
+          {
+            const hashedPassword = (await crypto.PasswordHash({
+            CreateError, translate, logger,
+            password: entity.password
+        }).hashPassword()).data.hashedPassword;
+        entity.password = hashedPassword;
+      }
+   
+        
+
+            const UserFunction = db.methods.User({
             translate,
-            crypto,
+            logger,
+            CreateError,
             lang,
-            params: { ...request.body, userUID },
-          }).generate()
-        ).data.entity;
+            })
 
-const DepartmentFunction =db.methods.Department({
-  translate,
-  logger,
-  CreateError,
-  lang,
-})
-
-const res = await DepartmentFunction.create(entity)
+        const res = await UserFunction.update({id: id, params: entity});
         return {
           msg: translate(lang, "created_mood"),
-          data: { res},
+          data: { res },
         };
       } catch (error) {
         if (error instanceof CreateError) {

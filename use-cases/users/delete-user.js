@@ -1,7 +1,7 @@
 const fromEntities = require("../../entity");
 
 
-exports.Create = ({
+exports.Delete = ({
   CreateError,
   DataValidator,
   logger,
@@ -18,8 +18,8 @@ exports.Create = ({
         const email = request.locals.email;
         const userUID = request.locals.uid;
         const role = request.locals.role;
-        let lowLimit = request.queryParams.lowLimit;
-        console.log("role", role)
+        const id = request.queryParams.id;
+
 
         // let permission = ac.can(role).createOwn("mood");
 
@@ -31,29 +31,17 @@ exports.Create = ({
         //   throw new CreateError(translate(lang, "forbidden"), 403);
         // }
 
-        let entity = (
-          await fromEntities.entities.Department.addDepartment({
-            CreateError,
-            DataValidator,
-            logger,
+            const UserFunction = db.methods.User({
             translate,
-            crypto,
+            logger,
+            CreateError,
             lang,
-            params: { ...request.body, userUID },
-          }).generate()
-        ).data.entity;
+            })
 
-const DepartmentFunction =db.methods.Department({
-  translate,
-  logger,
-  CreateError,
-  lang,
-})
-
-const res = await DepartmentFunction.create(entity)
+        const res = await UserFunction.deleteById(id);
         return {
           msg: translate(lang, "created_mood"),
-          data: { res},
+          data: { res },
         };
       } catch (error) {
         if (error instanceof CreateError) {

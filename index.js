@@ -14,7 +14,6 @@ const express = require("express");
 const logger = require("morgan");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
-console.log("session is",session)
 const redisStore = require("connect-redis");
 const csrf = require("csurf");
 const helmet = require("helmet");
@@ -66,7 +65,6 @@ const originURLS = [
 ]
 
 //
-console.log('App', 'Allowed URLs', originURLS);
 
 app.use(cookieParser());
 // logger
