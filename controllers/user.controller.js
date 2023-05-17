@@ -7,7 +7,8 @@ const CreateError = require("../error/dp-error").CreateError;
 const logger = require("../utils/logger").logger;
 const db = require("../lib/database").database;
 const fromUseCase = require("../use-cases/users").userUseCases;
-
+const token = require("../lib/token").token;
+const store = require("../lib/store").store;
 
 
 exports.createUser = async (req, res, next) => {
@@ -35,12 +36,12 @@ exports.createUser = async (req, res, next) => {
     next(error);
   }
 };
-
-exports.findAllUsers = async (req, res, next) => {
+ 
+exports.Login = async (req, res, next) => {
   try {
     const request = fromAdaptReq.adaptReq(req, res);
     const result = await fromUseCase
-      .findAllUsers({
+      .login({
         CreateError,
         DataValidator,
         logger, 
@@ -48,13 +49,12 @@ exports.findAllUsers = async (req, res, next) => {
         crypto,
         request,
         db,
+        token,
+        store
       })
       .execute();
 
-    return res.status(201).json({
-      msg: result.msg,
-      data: result,
-    });
+    return res.status(201).json(result);
   } catch (error) {
     // console.log(error)
     next(error);

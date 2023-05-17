@@ -75,7 +75,7 @@ async function postLogin({
     // generate entity
     const lang = request.lang;
 
-    let entity = await fromEntities.entities.Auth.Login({
+    let entity = await fromEntities.entities.User.loginUser({
       CreateError,
       DataValidator,
       logger,
@@ -86,9 +86,11 @@ async function postLogin({
         ...request.body,
       },
     }).generate();
+
     entity = entity.data.entity;
 
-    const usersTable = db.methods.User({
+
+    const usersFunction = db.methods.User({
       translate,
       logger,
       CreateError,
@@ -97,25 +99,25 @@ async function postLogin({
 
     // find user
     const user = (
-      await usersTable.findByEmail({ email: entity.email, includeAll: true })
-    ).data.users;
+      await usersFunction.findByEmail({ email: entity.email})
+    ).data.user;
 
     if (user === null) {
       throw new CreateError(translate(lang, "invalid_login_credentials"), 404);
     }
 
-    if (parseInt(user.invalid_attempts) > parseInt(loginTrials)) {
-      throw new CreateError(translate(lang, "maximum_password_retries"));
-    }
+    // if (parseInt(user.invalid_attempts) > parseInt(loginTrials)) {
+    //   throw new CreateError(translate(lang, "maximum_password_retries"));
+    // }
     // check if the account is disabled
-    if (!user.is_active) {
+    if (user.status === 'inactive') {
       throw new CreateError(translate(lang, "account_disabled"), 403);
     }
 
     // force reset password
-    if (user.force_reset_password) {
-      throw new CreateError(translate(lang, "error_reset_password"), 303);
-    }
+    // if (user.force_reset_password) {
+    //   throw new CreateError(translate(lang, "error_reset_password"), 303);
+    // }
 
     const passwordHash = crypto.PasswordHash({
       CreateError,
@@ -128,50 +130,50 @@ async function postLogin({
       .data.valid;
 
     // invalid password
-    if (!verifyPassword) {
-      usersTable.updateByEmail({
-        email: user.email,
-        params: {
-          invalid_attempts: user.invalid_attempts + 1,
-        },
-      });
-      throw new CreateError(translate(lang, "invalid_login_credentials"), 401);
-    }
+    // if (!verifyPassword) {
+    //   usersFunction.updateByEmail({
+    //     email: user.email,
+    //     params: {
+    //       invalid_attempts: user.invalid_attempts + 1,
+    //     },
+    //   });
+    //   throw new CreateError(translate(lang, "invalid_login_credentials"), 401);
+    // }
 
     // reset the invalid attemptes
-    if (user.invalid_attempts !== 0) {
-      usersTable.updateByEmail({
-        email: user.email,
-        params: { invalid_attempts: 0 },
-      });
-    }
+    // if (user.invalid_attempts !== 0) {
+    //   usersFunction.updateByEmail({
+    //     email: user.email,
+    //     params: { invalid_attempts: 0 },
+    //   });
+    // }
 
     delete user.password;
 
     // assign roles
-    let role;
-    if (/[a-zA-Z:\/.]*(admin)[a-zA-Z:\/.]*/.test(request.locals.origin)) {
-      role = user.roles.superadmin ? "superadmin" : "admin";
-    } else {
-      if (!user.roles.doctor && !user.roles.patient) {
-        throw new CreateError(translate(lang, "error_account_role"), 400);
-      }
-      role = user.roles.doctor ? "doctor" : "patient";
-    }
+    // let role;
+    // if (/[a-zA-Z:\/.]*(admin)[a-zA-Z:\/.]*/.test(request.locals.origin)) {
+    //   role = user.roles.superadmin ? "superadmin" : "admin";
+    // } else {
+    //   if (!user.roles.doctor && !user.roles.patient) {
+    //     throw new CreateError(translate(lang, "error_account_role"), 400);
+    //   }
+    //   role = user.roles.doctor ? "doctor" : "patient";
+    // }
 
-    // register the device used for the logging in
-    let loginDevice = null;
-
+    // // register the device used for the logging in
+    // let loginDevice = null;
+    console.log(token)
     const tokenGenerator = token.jwt({ CreateError, translate, lang, logger });
-
+ 
     const bearerToken = (
       await tokenGenerator.generateBearerToken({
-        uid: user.uid,
+        uid: user.uuid,
         email: user.email,
-        firstname: user.firstname,
-        lastname: user.lastname,
+        firstname: user.firstName,
+        lastname: user.secondName,
         ua: request.locals.ua,
-        role: role,
+        role: user.role,
       })
     ).data.token;
 
@@ -182,7 +184,7 @@ async function postLogin({
         firstname: user.firstname,
         lastname: user.lastname,
         ua: request.locals.ua,
-        role: role,
+        role: user.role,
       })
     ).data.token;
 
@@ -197,11 +199,10 @@ async function postLogin({
     return {
       msg: translate(lang, "success"),
       data: {
-        storeToken,
         user: user,
         token: bearerToken,
         refresh_token: refreshToken,
-        devices: loginDevice,
+        // devices: loginDevice,
       },
     };
   } catch (error) {
@@ -222,7 +223,7 @@ async function getLogin({ CreateError, logger, translate, db, request }) {
       throw new CreateError(translate(lang, "invalid_details"));
     }
 
-    const usersTable = db.methods.User({
+    const usersFunction = db.methods.User({
       translate,
       logger,
       CreateError,
@@ -231,7 +232,7 @@ async function getLogin({ CreateError, logger, translate, db, request }) {
 
     // find user
     const user = (
-      await usersTable.findByUID({ uid: userUID, includeAll: false })
+      await usersFunction.findByUID({ uid: userUID, includeAll: false })
     ).data.users;
 
     if (user === null) {

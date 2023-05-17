@@ -112,7 +112,24 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
         throw new CreateError(translate(lang, "invalid_salute"), 422);
       }
     },
-    
+    password(x) {
+      x = String(x).trim();
+      if (
+        x.match(/[a-z]/g) &&
+        x.match(/[A-Z]/g) &&
+        x.match(/[0-9]/g) &&
+        x.match(/[^a-zA-Z\d]/g) &&
+        x.length >= 8 &&
+        x.length <= 30
+      ) {
+        return { msg: "Valid", data: { value: x } };
+      } else {
+        throw new CreateError(
+          translate(lang, "invalid_password_criteria"),
+          422
+        );
+      }
+    },
 
 
 
@@ -153,24 +170,6 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
       // } else {
       //     throw new CreateError(translate(lang, 'invalid_dob'), 422);
       // }
-    },
-    password(x) {
-      x = String(x).trim();
-      if (
-        x.match(/[a-z]/g) &&
-        x.match(/[A-Z]/g) &&
-        x.match(/[0-9]/g) &&
-        x.match(/[^a-zA-Z\d]/g) &&
-        x.length >= 8 &&
-        x.length <= 30
-      ) {
-        return { msg: "Valid", data: { value: x } };
-      } else {
-        throw new CreateError(
-          translate(lang, "invalid_password_criteria"),
-          422
-        );
-      }
     },
     phone(x) {
       if (/^[0-9]{1}[0-9]{6,16}$/.test(x)) {

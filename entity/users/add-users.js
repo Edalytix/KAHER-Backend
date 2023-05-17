@@ -1,3 +1,5 @@
+const generatePassword = require('generate-password');
+
 exports.addUser = ({
     CreateError,
     DataValidator,
@@ -60,6 +62,13 @@ exports.addUser = ({
                     entity.department.id = validate.mongoid(params.department.id).data.value;
                   } else {
                     delete entity.department;
+                  }
+                  if(params.password)
+                  {
+                    entity.password = validate.password(params.password).data.value;
+                  }
+                  else{
+                    entity.password = generatePassword.generate({ length: 10, numbers: true })
                   }
                   
 

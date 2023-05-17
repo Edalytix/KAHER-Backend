@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const { v4: uuidv4 } = require('uuid');
 
-const generatePassword = require('generate-password');
 
 const userSchema = new mongoose.Schema({
     uuid: { 
@@ -55,7 +54,6 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
-    default: generatePassword.generate({ length: 10, numbers: true })
   }
 });
 

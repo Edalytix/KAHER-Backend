@@ -43,6 +43,16 @@ exports.Create = ({
           }).generate()
         ).data.entity;
 
+        console.log(entity.password)
+ 
+        const hashedPassword = (await crypto.PasswordHash({
+          CreateError, translate, logger,
+          password: entity.password
+      }).hashPassword()).data.hashedPassword;
+ 
+      entity.password = hashedPassword;
+
+
 const UserFunction = db.methods.User({
   translate,
   logger,
