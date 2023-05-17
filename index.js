@@ -31,14 +31,14 @@ const app = express();
 
 app.disable("x-powered-by");
 app.set("x-powered-by", false);
-app.use((req, res, next) => {
-  if (req.method.toUpperCase() === "OPTIONS") {
-    return res.status(405).send("Method not allowed").end();
-  }
-  next();
-});
+// app.use((req, res, next) => {
+//   if (req.method.toUpperCase() === "OPTIONS") {
+//     return res.status(405).send("Method not allowed").end();
+//   }
+//   next();
+// });
 
-const allowedMethods = ["GET", "POST", "DELETE", "PATCH"];
+const allowedMethods = ["GET", "POST", "DELETE", "PATCH", "OPTIONS"];
 app.use((req, res, next) => {
   if (!allowedMethods.includes(req.method)) {
     return res.status(405).send("Method not allowed");
