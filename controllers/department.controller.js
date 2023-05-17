@@ -26,10 +26,9 @@ exports.createDepartment = async (req, res, next) => {
       })
       .execute();
 
-    return res.status(201).json({
-      msg: result.msg,
-      data: [result],
-    });
+    return res.status(201).json(
+      result.data.res,
+    );
   } catch (error) {
     // console.log(error)
     next(error);
@@ -51,10 +50,7 @@ exports.findAllDepartments = async (req, res, next) => {
       })
       .execute();
 
-    return res.status(201).json({
-      msg: result.msg,
-      data: result,
-    });
+    return res.status(201).json(result.data);
   } catch (error) {
     // console.log(error)
     next(error);
@@ -77,10 +73,7 @@ exports.deleteDepartment = async (req, res, next) => {
       })
       .execute();
 
-    return res.status(201).json({
-      msg: result.msg,
-      data: [result],
-    });
+    return res.status(201).json(result.data.res);
   } catch (error) {
     // console.log(error)
     next(error);
@@ -103,10 +96,7 @@ exports.updateDepartment = async (req, res, next) => {
       })
       .execute();
 
-    return res.status(201).json({
-      msg: result.msg,
-      data: result,
-    });
+    return res.status(201).json(result.data.res);
   } catch (error) {
     // console.log(error)
     next(error);

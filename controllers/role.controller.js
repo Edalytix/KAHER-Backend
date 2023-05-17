@@ -26,10 +26,7 @@ exports.createRoles = async (req, res, next) => {
       })
       .execute();
 
-    return res.status(201).json({
-      msg: result.msg,
-      data: [result],
-    });
+    return res.status(201).json(result.data.res);
   } catch (error) {
     // console.log(error)
     next(error);
@@ -51,10 +48,7 @@ exports.findAllRoles = async (req, res, next) => {
       })
       .execute();
 
-    return res.status(201).json({
-      msg: result.msg,
-      data: result,
-    });
+    return res.status(201).json(result.data);
   } catch (error) {
     // console.log(error)
     next(error);
@@ -77,10 +71,7 @@ exports.deleteRoles = async (req, res, next) => {
       })
       .execute();
 
-    return res.status(201).json({
-      msg: result.msg,
-      data: [result],
-    });
+    return res.status(201).json(result.data.res);
   } catch (error) {
     // console.log(error)
     next(error);
@@ -103,10 +94,7 @@ exports.updateRoles = async (req, res, next) => {
       })
       .execute();
 
-    return res.status(201).json({
-      msg: result.msg,
-      data: result,
-    });
+    return res.status(201).json(result.data.res);
   } catch (error) {
     // console.log(error)
     next(error);
