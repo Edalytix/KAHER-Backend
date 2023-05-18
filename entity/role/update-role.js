@@ -37,27 +37,27 @@ exports.updateRole = ({
                     delete entity.status;
                   }
                   if (params.permissions.workflows) {
-                    entity.permissions.workflows = validate.permissions(params.workflows).data.value;
+                    entity.permissions.workflows = validate.permissions(params.permissions.workflows).data.value;
                   }else{
                     delete entity.permissions.workflows;
                   }
                   if (params.permissions.users) {
-                    entity.permissions.users = validate.permissions(params.users).data.value;
+                    entity.permissions.users = validate.permissions(params.permissions.users).data.value;
                   }else{
                     delete entity.permissions.users;
                   }
                   if (params.permissions.forms) {
-                    entity.permissions.forms = validate.permissions(params.forms).data.value;
+                    entity.permissions.forms = validate.permissions(params.permissions.forms).data.value;
                   }else{
                     delete entity.permissions.forms;
                   }
                   if (params.permissions.applications) {
-                    entity.permissions.applications = validate.permissions(params.applications).data.value;
+                    entity.permissions.applications = validate.permissions(params.permissions.applications).data.value;
                   }else{
                     delete entity.permissions.applications;
                   }
                   if (params.permissions.departments) {
-                    entity.permissions.departments = validate.permissions(params.departments).data.value;
+                    entity.permissions.departments = validate.permissions(params.permissions.departments).data.value;
                   }else{
                     delete entity.permissions.departments;
                   }
