@@ -62,7 +62,6 @@ exports.updateRole = ({
                     delete entity.permissions.departments;
                   }
 
-
                 return {
                     msg: translate(lang, 'success'),
                     data: { entity }

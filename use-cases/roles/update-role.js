@@ -50,6 +50,19 @@ const RoleFunction =db.methods.Role({
   CreateError,
   lang,
 })
+const findrole = await RoleFunction.findById(id);
+const permissions = ["workflows",
+"users",
+"forms",
+"applications",
+"departments"]
+
+permissions.forEach(element => {
+  if(!entity.permissions[element])
+  {
+    entity.permissions[element] = findrole.data.role.permissions[element];
+  }
+});
 
 const res = await RoleFunction.update({id, params: entity})
         return {
