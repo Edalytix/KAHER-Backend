@@ -114,7 +114,7 @@ exports.deleteUser = async (req, res, next) => {
   try {
     const request = fromAdaptReq.adaptReq(req, res);
     const result = await fromUseCase
-      .deleteUsers({
+      .deleteUser({
         CreateError,
         DataValidator,
         logger, 
@@ -127,8 +127,8 @@ exports.deleteUser = async (req, res, next) => {
       .execute();
 
     return res.status(201).json({
-      msg: result.msg,
-      data: [result],
+      msg: result.data.res.msg,
+      data: result.data.res.data,
     });
   } catch (error) {
     // console.log(error)

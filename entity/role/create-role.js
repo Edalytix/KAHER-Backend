@@ -34,19 +34,19 @@ exports.addRole = ({
                   if (params.status) {
                     entity.status = validate.status(params.status).data.value;
                   }
-                  if (params.workflows) {
+                  if (params.permissions.workflows) {
                     entity.permissions.workflows = validate.permissions(params.workflows).data.value;
                   }
-                  if (params.users) {
+                  if (params.permissions.users) {
                     entity.permissions.users = validate.permissions(params.users).data.value;
                   }
-                  if (params.forms) {
+                  if (params.permissions.forms) {
                     entity.permissions.forms = validate.permissions(params.forms).data.value;
                   }
-                  if (params.applications) {
+                  if (params.permissions.applications) {
                     entity.permissions.applications = validate.permissions(params.applications).data.value;
                   }
-                  if (params.departments) {
+                  if (params.permissions.departments) {
                     entity.permissions.departments = validate.permissions(params.departments).data.value;
                   }
 

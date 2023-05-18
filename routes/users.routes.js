@@ -14,5 +14,7 @@ router.get("/users/get", userController.findUser);
 // router.delete("/users/delete", userController.deleteRoles);
 router.get("/users/findall", userController.findAllUsers);
 router.patch("/users/update", userController.updateUser);
+router.delete("/users/delete", userController.deleteUser);
+
 
 module.exports = router;

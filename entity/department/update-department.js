@@ -35,7 +35,7 @@ exports.updateDepartment = ({
                   if (params.users) {
                     const arr = []
                     params.users.forEach(element => {
-                       arr.push(validate.uuid(element).data.value);
+                       arr.push(validate.mongoid(element).data.value);
                     }); 
                     entity.users = arr;
                   }else {
@@ -45,7 +45,7 @@ exports.updateDepartment = ({
                   if (params.applications) {
                     const arr = []
                     params.applications.forEach(element => {
-                       arr.push(validate.uuid(element).data.value);
+                       arr.push(validate.mongoid(element).data.value);
                     }); 
                     entity.applications = arr;
                   }else {

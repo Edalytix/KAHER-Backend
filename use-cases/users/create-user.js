@@ -66,12 +66,11 @@ const res = await UserFunction.create(entity)
           data: { res},
         };
       } catch (error) {
+        console.log("message",error.message)
         if (error instanceof CreateError) {
           throw error;
         }
         logger.error(`Failed to signup: %s`, error);
-
-        throw new Error(error.message);
       }
     },
   });
