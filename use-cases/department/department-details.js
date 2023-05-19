@@ -41,7 +41,7 @@ exports.DepartmentDetails = ({
         const res = await DepartmentFunction.findById(id)
         return {
           msg: translate(lang, "created_mood"),
-          data: { res },
+          data:  res ,
         };
       } catch (error) {
         if (error instanceof CreateError) {

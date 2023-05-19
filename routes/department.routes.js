@@ -14,5 +14,6 @@ router.get("/department/findall", departmentController.findAllDepartments);
 router.patch("/department/update", departmentController.updateDepartment);
 router.patch("/department/adduser", departmentController.addUser);
 router.get("/department/find", departmentController.departmentDetails);
+router.get("/department/findusers", departmentController.listUsers);
 
 module.exports = router;

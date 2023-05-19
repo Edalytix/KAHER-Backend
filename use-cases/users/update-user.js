@@ -60,7 +60,17 @@ exports.Update = ({
             CreateError,
             lang,
             })
-
+            if(entity.department){
+            const DepartmentFunction = db.methods.Department({
+              translate,
+              logger,
+              CreateError,
+              lang,
+            })
+            const department = await DepartmentFunction.findById(entity.department.id);
+            entity.department.name = department.data.department.name;
+            console.log(entity)
+          }
         const res = await UserFunction.update({id: id, params: entity});
         return {
           msg: translate(lang, "created_mood"),

@@ -5,6 +5,7 @@ const fromUpdateDepartments = require("./update-department");
 const fromDepartmentDetails = require("./department-details");
 const fromAddUser = require("./add-user");
 const fromDepatmentDetails = require("./department-details");
+const fromListUser = require("./list-users");
 
 exports.departmentUseCases = {
     createDepartments: fromCreateDepartments.Create,
@@ -13,5 +14,6 @@ exports.departmentUseCases = {
     updateDepartments: fromUpdateDepartments.Update,
     departmentDetails: fromDepartmentDetails.DepartmentDetails,
     addUser: fromAddUser.AddUser,
-    depatmentDetails: fromDepatmentDetails.DepartmentDetails
+    depatmentDetails: fromDepatmentDetails.DepartmentDetails,
+    listUser: fromListUser.ListUsers
 };

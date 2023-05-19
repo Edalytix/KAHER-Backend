@@ -18,7 +18,8 @@ exports.FindAll = ({
         const email = request.locals.email;
         const userUID = request.locals.uid;
         const role = request.locals.role;
-        let lowLimit = request.queryParams.lowLimit;
+        const page = parseInt(request.queryParams.page) || 1;
+        const limit = parseInt(request.queryParams.limit) || 10;
 
 
         // let permission = ac.can(role).createOwn("mood");
@@ -38,7 +39,7 @@ const DepartmentFunction =db.methods.Department({
   lang,
 })
 
-    const res = await DepartmentFunction.findAll()
+    const res = await DepartmentFunction.findAll(page,limit)
         return {
           msg: translate(lang, "created_mood"),
           data:  res ,

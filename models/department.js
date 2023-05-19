@@ -16,7 +16,7 @@ const departmentSchema = new mongoose.Schema({
       default: []
     },
     users: {
-      type: [String],
+      type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
       default: []
     }
   });

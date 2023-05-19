@@ -1,5 +1,7 @@
 const fromEntities = require("../../entity");
-
+const pagination = require("../../services/pagination").getPaginatedResults;
+const models = require("../../lib/database/models").models;
+const User=models.User;
 
 exports.FindAllUsers = ({
   CreateError,
@@ -18,6 +20,8 @@ exports.FindAllUsers = ({
         const email = request.locals.email;
         const userUID = request.locals.uid;
         const role = request.locals.role;
+        const page = parseInt(request.queryParams.page) || 1;
+        const limit = parseInt(request.queryParams.limit) || 10;
 
 
         // let permission = ac.can(role).createOwn("mood");
@@ -36,8 +40,7 @@ exports.FindAllUsers = ({
             CreateError,
             lang,
             })
-
-        const res = await UserFunction.findAll()
+        const res = await UserFunction.findAll(page,limit)
         return {
           msg: translate(lang, "created_mood"),
           data: { res },

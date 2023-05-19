@@ -63,8 +63,7 @@ exports.updateUser = ({
                   }
 
                   if (params.department) {
-                    entity.department.name = validate.name(params.department.name).data.value;
-                    entity.department.id = validate.mongoid(params.department.id).data.value;
+                    entity.department.id = validate.mongoid(params.department).data.value;
                   } else {
                     delete entity.department;
                   }

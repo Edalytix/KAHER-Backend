@@ -1,5 +1,5 @@
 const fromEntities = require("../../entity");
-
+const mongoose = require("mongoose")
 
 exports.Create = ({
   CreateError,
@@ -60,6 +60,14 @@ const UserFunction = db.methods.User({
   lang,
 })
 
+const DepartmentFunction = db.methods.Department({
+  translate,
+  logger,
+  CreateError,
+  lang,
+})
+const department = await DepartmentFunction.findById(entity.department.id);
+entity.department.name = department.data.department.name;
 const res = await UserFunction.create(entity)
         return {
           msg: translate(lang, "created_mood"),

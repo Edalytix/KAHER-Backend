@@ -1,7 +1,7 @@
 const fromEntities = require("../../entity");
 
 
-exports.FindAll = ({
+exports.ListUsers = ({
   CreateError,
   DataValidator,
   logger,
@@ -18,8 +18,7 @@ exports.FindAll = ({
         const email = request.locals.email;
         const userUID = request.locals.uid;
         const role = request.locals.role;
-        const page = parseInt(request.queryParams.page) || 1;
-        const limit = parseInt(request.queryParams.limit) || 10;
+        const id = request.queryParams.id;
 
 
         // let permission = ac.can(role).createOwn("mood");
@@ -32,14 +31,14 @@ exports.FindAll = ({
         //   throw new CreateError(translate(lang, "forbidden"), 403);
         // }
 
-const RoleFunction =db.methods.Role({
-  translate,
-  logger,
-  CreateError,
-  lang,
-})
+            const DepartmentFunction = db.methods.Department({
+            translate,
+            logger,
+            CreateError,
+            lang,
+            })
 
-    const res = await RoleFunction.findAll(page,limit)
+        const res = await DepartmentFunction.findUsers(id)
         return {
           msg: translate(lang, "created_mood"),
           data:  res ,
