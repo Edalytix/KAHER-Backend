@@ -1,8 +1,7 @@
 const fromEntities = require("../../entity");
-const models = require("../../lib/database/models").models;
-const User=models.User;
 
-exports.FindAllUsers = ({
+
+exports.RemoveUser = ({
   CreateError,
   DataValidator,
   logger,
@@ -19,8 +18,7 @@ exports.FindAllUsers = ({
         const email = request.locals.email;
         const userUID = request.locals.uid;
         const role = request.locals.role;
-        const page = parseInt(request.queryParams.page) || 1;
-        const limit = parseInt(request.queryParams.limit) || 10;
+        const id = request.queryParams.id;
 
 
         // let permission = ac.can(role).createOwn("mood");
@@ -33,13 +31,15 @@ exports.FindAllUsers = ({
         //   throw new CreateError(translate(lang, "forbidden"), 403);
         // }
 
-            const UserFunction = db.methods.User({
+        const DepartmentFunction = db.methods.Department({
             translate,
             logger,
             CreateError,
             lang,
             })
-        const res = await UserFunction.findAll(page,limit)
+
+
+        let res = await DepartmentFunction.removeUser({id: id, userid: request.body.userid})
         return {
           msg: translate(lang, "created_mood"),
           data: { res },
@@ -48,6 +48,7 @@ exports.FindAllUsers = ({
         if (error instanceof CreateError) {
           throw error;
         }
+        console.log("error is", error)
         logger.error(`Failed to signup: %s`, error);
 
         throw new Error(error.message);

@@ -172,3 +172,25 @@ exports.listUsers = async (req, res, next) => {
     next(error);
   }
 };
+
+exports.removeUsers = async (req, res, next) => {
+  try {
+    const request = fromAdaptReq.adaptReq(req, res);
+    const result = await fromUseCase
+      .removeUser({
+        CreateError,
+        DataValidator,
+        logger, 
+        translate, 
+        crypto,
+        request,
+        db,
+      })
+      .execute();
+
+    return res.status(201).json(result.data);
+  } catch (error) {
+    // console.log(error)
+    next(error);
+  }
+};
