@@ -1,0 +1,31 @@
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const FormQuestionOptionSchema = new Schema({
+  id: { type: Number, required: true },
+  label: { type: String, required: true },
+  value: { type: String, required: true }
+});
+
+const FormQuestionSchema = new Schema({
+  question: { type: String, required: true },
+  type: {
+    type: String,
+    enum: ['string', 'file', 'number', 'date', 'singleChoice', 'multipleChoice', 'longString'],
+    required: true
+  },
+  required: { type: Boolean, required: true, default: false },
+  options: { type: [FormQuestionOptionSchema] }
+});
+
+const FormSchema = new Schema({
+  title: { type: String, required: true, unique: true },
+  createdAt: { type: Date, required: true, default: Date.now },
+  workflows: { type: [String], required: true },
+  questions:{ type:[FormQuestionSchema], required: true },
+  status: { type: String, enum: ['active', 'inactive'], default: 'inactive' }
+});
+ 
+const Form = mongoose.model('Form', FormSchema);
+module.exports = {FormQuestionOptionSchema,FormQuestionSchema}
+return Form;

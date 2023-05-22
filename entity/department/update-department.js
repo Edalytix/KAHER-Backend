@@ -37,7 +37,8 @@ exports.updateDepartment = ({
                     params.users.forEach(element => {
                        arr.push(validate.mongoid(element).data.value);
                     }); 
-                    entity.users = arr;
+                    const removeDuplicates = (arr) => [...new Set(arr)];
+                    entity.users = removeDuplicates(arr);
                   }else {
                     delete entity.users;
                   }

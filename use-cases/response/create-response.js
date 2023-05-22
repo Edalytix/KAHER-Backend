@@ -1,7 +1,7 @@
 const fromEntities = require("../../entity");
 
 
-exports.Delete = ({
+exports.Create = ({
   CreateError,
   DataValidator,
   logger,
@@ -18,9 +18,7 @@ exports.Delete = ({
         const email = request.locals.email;
         const userUID = request.locals.uid;
         const role = request.locals.role;
-        const id = request.queryParams.id;
         let lowLimit = request.queryParams.lowLimit;
-
 
         // let permission = ac.can(role).createOwn("mood");
 
@@ -32,22 +30,50 @@ exports.Delete = ({
         //   throw new CreateError(translate(lang, "forbidden"), 403);
         // }
 
-const DepartmentFunction =db.methods.Department({
+        let entity = (
+          await fromEntities.entities.Response.addResponse({
+            CreateError,
+            DataValidator,
+            logger,
+            translate,
+            crypto,
+            lang,
+            params: { ...request.body, userUID },
+          }).generate()
+        ).data.entity;
+
+const ResponseFunction =db.methods.Response({
   translate,
   logger,
   CreateError,
   lang,
 })
 
-const department = await DepartmentFunction.findById(id)
-if(!department.data.department){
-  throw new CreateError("Department not found", 403);
+const FormFunction =db.methods.Form({
+  translate,
+  logger,
+  CreateError,
+  lang,
+})
+
+const form = await FormFunction.findById(entity.fuid);
+
+if(!form)
+{
+  throw new CreateError("Bad request", 422); 
 }
-if(department.data.department.users.length===0){
-  throw new CreateError("Action not allowed", 403);
+const formQuestions = form.data.form.questions.map(obj => obj._id.toString());
+const bodyQuestions = entity.responses.map(obj => obj.quid);
+const isSubset = (bodyQuestions, formQuestions) => bodyQuestions.every(item => formQuestions.includes(item));
+if(!isSubset(bodyQuestions,formQuestions))
+ {
+  throw new CreateError("Bad request", 422);
+
 }
 
-const res = await DepartmentFunction.DataValidator(id)
+
+
+      const res = await ResponseFunction.create(entity)
         return {
           msg: translate(lang, "created_mood"),
           data: { res},

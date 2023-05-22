@@ -130,6 +130,126 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
         );
       }
     },
+    title(x) {
+      x = String(x);
+      if (/^\D{3,20}$/.test(x)) {
+        return { msg: "Valid", data: { value: x } };
+      } else {
+        throw new CreateError(translate(lang, "invalid_title"), 422);
+      }
+    },
+    timestamp(x) {
+      const dateString = new Date(x);
+      if (dateString === "Invalid Date") {
+        throw new CreateError(translate(lang, "invalid_timestamp"), 422);
+      }
+
+      const time = new Date(x).getTime();
+      if (isNaN(time)) {
+        throw new CreateError(translate(lang, "invalid_timestamp"), 422);
+      }
+
+      return {
+        msg: "Valid",
+        data: { value: moment(new Date(dateString)).toISOString() },
+      };
+    },
+    validateQuestion(x) {
+      x.question = String(x.question);
+      if (!/^\D{3,50}$/.test(x.question )) {
+        throw new CreateError(translate(lang, "invalid_title"), 422);
+      }
+      if ( typeof x.required !== 'boolean') {
+      throw new Error("Label and Value must be between 3 and 20 characters long");
+    }
+    return { msg: "Valid", data: { value: x } };
+    if(x.options)
+    {
+      x.options.forEach(element => {
+        this.validateFormQuestionOption(element)
+      });
+    }
+},
+responses(x)
+{
+  x.type = String(x.type).trim();
+      const options = ['string', 'file', 'number', 'date', 'singleChoice', 'multipleChoice', 'longstring'];
+      if (!options.includes(x.type)) {
+        throw new CreateError(translate(lang, "invalid_goal_status"), 422);
+      }
+      if(x.string){
+        this.questionResponseString(x.string)
+    }
+    if(x.longString){
+     this.questionResponseLongString(x.longString)
+     
+    }
+    if(x.number){
+      if (isNaN(x.number)) {
+        throw new CreateError(translate(lang, "invalid_title"), 422);
+      }
+    }
+    if(x.date)
+    {
+      var date = new Date(x.date);
+  if (isNaN(date.getTime())) {
+    throw new CreateError(translate(lang, "invalid_title"), 422);
+    }
+  }
+  if(x.singeleChoice)
+  {
+    this.validateFormQuestionOption(x.singeleChoice)
+  }
+  if(x.multipleChoice)
+  {
+    x.multipleChoice.forEach(element => {
+      this.validateFormQuestionOption(element)
+  });
+  }
+  return { msg: "Valid", data: { value: x } };
+},
+    questionResponseString(x) {
+      x = String(x);
+      if (/^\D{3,50}$/.test(x)) {
+        return { msg: "Valid", data: { value: x } };
+      } else {
+        throw new CreateError(translate(lang, "invalid_title"), 422);
+      }
+    },
+    questionResponseLongString(x) {
+      x = String(x);
+      if (/^\D{3,300}$/.test(x)) {
+        return { msg: "Valid", data: { value: x } };
+      } else {
+        throw new CreateError(translate(lang, "invalid_title"), 422);
+      }
+    },
+    validateFormQuestionOption(x) {
+      if (
+        typeof x !== "object" ||
+        x === null ||
+        typeof x.id !== "number" ||
+        typeof x.label !== "string" ||
+        typeof x.value !== "string"
+      ) {
+        throw new Error("Invalid input");
+      }
+    
+      const trimmedLabel = x.label.trim();
+      const trimmedValue = x.value.trim();
+    
+      if (trimmedLabel.length < 3 || trimmedLabel.length > 20 || 
+          trimmedValue.length < 3 || trimmedValue.length > 20) {
+        throw new Error("Label and Value must be between 3 and 20 characters long");
+      }
+      return { msg: "Valid", data: { value: x }};
+    },
+    boolean(x) {
+      x = Boolean(x);
+      return { msg: "Valid", data: { value: x } };
+    },
+
+
 
 
 
@@ -312,23 +432,6 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
       } else {
         throw new CreateError(translate(lang, "invalid_string"), 422);
       }
-    },
-    timestamp(x) {
-      const dateString = new Date(x);
-      if (dateString === "Invalid Date") {
-        throw new CreateError(translate(lang, "invalid_timestamp"), 422);
-      }
-
-      const time = new Date(x).getTime();
-
-      if (isNaN(time)) {
-        throw new CreateError(translate(lang, "invalid_timestamp"), 422);
-      }
-
-      return {
-        msg: "Valid",
-        data: { value: moment(new Date(dateString)).toISOString() },
-      };
     },
     categories(x) {
       if (Array.isArray(x)) {

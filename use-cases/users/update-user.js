@@ -20,6 +20,19 @@ exports.Update = ({
         const role = request.locals.role;
         const id = request.queryParams.id;
 
+                
+
+        const UserFunction = db.methods.User({
+          translate,
+          logger,
+          CreateError,
+          lang,
+          })
+        const user = await UserFunction.findById(id);
+        if(!user.data.user){
+             throw new CreateError("User not found", 403);
+           }
+
 
         // let permission = ac.can(role).createOwn("mood");
 
@@ -52,14 +65,6 @@ exports.Update = ({
         entity.password = hashedPassword;
       }
    
-        
-
-            const UserFunction = db.methods.User({
-            translate,
-            logger,
-            CreateError,
-            lang,
-            })
             if(entity.department){
             const DepartmentFunction = db.methods.Department({
               translate,
@@ -69,7 +74,6 @@ exports.Update = ({
             })
             const department = await DepartmentFunction.findById(entity.department.id);
             entity.department.name = department.data.department.name;
-            console.log(entity)
           }
         const res = await UserFunction.update({id: id, params: entity});
         return {
