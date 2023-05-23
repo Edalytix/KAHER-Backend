@@ -9,7 +9,7 @@ const middlewares = require("../middlewares");
  * @desc /auth
  */
 router.post("/users/add", middlewares.isLogged,userController.createUser);
-router.post("/users/login",middlewares.isLogged, userController.Login);
+router.post("/users/login", userController.Login);
 router.get("/users/get",middlewares.isLogged, userController.findUser);
 // router.delete("/users/delete", userController.deleteRoles);
 router.get("/users/findall",middlewares.isLogged, userController.findAllUsers);
