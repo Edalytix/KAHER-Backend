@@ -10,6 +10,7 @@ exports.FindAll = ({
   request,
   db,
   ac,
+  accessManager
 }) => {
   return Object.freeze({
     execute: async () => {
@@ -22,15 +23,19 @@ exports.FindAll = ({
         const limit = parseInt(request.queryParams.limit) || 10;
 
 
-        // let permission = ac.can(role).createOwn("mood");
-
-        // if (role === "admin" || role === "superadmin") {
-        //   permission = ac.can(role).createAny("mood");
-        // }
-
-        // if (!permission.granted) {
-        //   throw new CreateError(translate(lang, "forbidden"), 403);
-        // }
+        const acesssRes = await accessManager({
+          translate,
+          logger,
+          CreateError,
+          lang,
+          role,
+          db,
+          useCase: 'departments:view',
+        })
+        if(!acesssRes)
+        {
+          throw new CreateError(translate(lang, "forbidden"), 403);
+        }
 
 const DepartmentFunction =db.methods.Department({
   translate,

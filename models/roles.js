@@ -36,6 +36,11 @@ const roleSchema = new mongoose.Schema({
       type: String,
       enum: ['view', 'edit', 'none'],
       default: 'none'
+    },
+    roles: {
+      type: String,
+      enum: ['view', 'edit', 'none'],
+      default: 'none'
     }
   }
 });

@@ -20,7 +20,8 @@ exports.addRole = ({
                         users: 'none',
                         forms: 'none',
                         departments: 'none',
-                        applications: 'none'
+                        applications: 'none',
+                        roles: 'none'
                       }
 
                 };

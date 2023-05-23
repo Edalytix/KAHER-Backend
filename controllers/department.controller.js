@@ -7,7 +7,7 @@ const CreateError = require("../error/dp-error").CreateError;
 const logger = require("../utils/logger").logger;
 const db = require("../lib/database").database;
 const fromUseCase = require("../use-cases/department").departmentUseCases;
-
+const accessManager = require("../services/access-manager").accessManager;
 
 
 exports.createDepartment = async (req, res, next) => {
@@ -22,7 +22,7 @@ exports.createDepartment = async (req, res, next) => {
         crypto,
         request,
         db,
-        
+        accessManager
       })
       .execute();
 
@@ -47,6 +47,7 @@ exports.findAllDepartments = async (req, res, next) => {
         crypto,
         request,
         db,
+        accessManager
       })
       .execute();
 
@@ -69,7 +70,7 @@ exports.deleteDepartment = async (req, res, next) => {
         crypto,
         request,
         db,
-        
+        accessManager
       })
       .execute();
 
@@ -92,7 +93,7 @@ exports.updateDepartment = async (req, res, next) => {
         crypto,
         request,
         db,
-        
+        accessManager
       })
       .execute();
 
@@ -115,7 +116,7 @@ exports.addUser = async (req, res, next) => {
         crypto,
         request,
         db,
-        
+        accessManager
       })
       .execute();
 
@@ -141,6 +142,7 @@ exports.departmentDetails = async (req, res, next) => {
         crypto,
         request,
         db,
+        accessManager
       })
       .execute();
 
@@ -163,6 +165,7 @@ exports.listUsers = async (req, res, next) => {
         crypto,
         request,
         db,
+        accessManager
       })
       .execute();
 
@@ -185,6 +188,7 @@ exports.removeUsers = async (req, res, next) => {
         crypto,
         request,
         db,
+        accessManager
       })
       .execute();
 

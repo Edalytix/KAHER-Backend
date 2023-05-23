@@ -10,7 +10,7 @@ exports.Update = ({
   crypto,
   request,
   db,
-  ac,
+  accessManager,
 }) => {
   return Object.freeze({
     execute: async () => {
@@ -21,16 +21,19 @@ exports.Update = ({
         const role = request.locals.role;
         let id = request.queryParams.id;
 
-
-        // let permission = ac.can(role).createOwn("mood");
-
-        // if (role === "admin" || role === "superadmin") {
-        //   permission = ac.can(role).createAny("mood");
-        // }
-
-        // if (!permission.granted) {
-        //   throw new CreateError(translate(lang, "forbidden"), 403);
-        // }
+        const acesssRes = await accessManager({
+          translate,
+          logger,
+          CreateError,
+          lang,
+          role,
+          db,
+          useCase: 'departments:edit',
+        })
+        if(!acesssRes)
+        {
+          throw new CreateError(translate(lang, "forbidden"), 403);
+        }
 
         let entity = (
           await fromEntities.entities.Department.updateDepartment({

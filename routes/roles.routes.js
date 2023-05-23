@@ -8,10 +8,10 @@ const middlewares = require("../middlewares");
 /*
  * @desc /auth
  */
-router.post("/roles/add", roleController.createRoles);
-router.delete("/roles/delete", roleController.deleteRoles);
-router.get("/roles/findall", roleController.findAllRoles);
-router.patch("/roles/update", roleController.updateRoles);
-router.get("/roles/find", roleController.findRoleDetails);
+router.post("/roles/add", middlewares.isLogged,roleController.createRoles);
+router.delete("/roles/delete",middlewares.isLogged, roleController.deleteRoles);
+router.get("/roles/findall",middlewares.isLogged, roleController.findAllRoles);
+router.patch("/roles/update",middlewares.isLogged, roleController.updateRoles);
+router.get("/roles/find",middlewares.isLogged, roleController.findRoleDetails);
 
 module.exports = router;

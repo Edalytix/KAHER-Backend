@@ -9,7 +9,7 @@ const db = require("../lib/database").database;
 const fromUseCase = require("../use-cases/users").userUseCases;
 const token = require("../lib/token").token;
 const store = require("../lib/store").store;
-
+const accessManager = require("../services/access-manager").accessManager;
 
 exports.createUser = async (req, res, next) => {
   try {
@@ -23,7 +23,7 @@ exports.createUser = async (req, res, next) => {
         crypto,
         request,
         db,
-        
+        accessManager
       })
       .execute();
 
@@ -70,7 +70,7 @@ exports.findUser = async (req, res, next) => {
         crypto,
         request,
         db,
-        
+        accessManager
       })
       .execute();
 
@@ -96,7 +96,7 @@ exports.findAllUsers = async (req, res, next) => {
         crypto,
         request,
         db,
-        
+        accessManager
       })
       .execute();
 
@@ -122,7 +122,7 @@ exports.deleteUser = async (req, res, next) => {
         crypto,
         request,
         db,
-        
+        accessManager
       })
       .execute();
 
@@ -148,7 +148,7 @@ exports.updateUser = async (req, res, next) => {
         crypto,
         request,
         db,
-        
+        accessManager
       })
       .execute();
 

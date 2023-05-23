@@ -11,6 +11,7 @@ exports.Update = ({
   request,
   db,
   ac,
+  accessManager
 }) => {
   return Object.freeze({
     execute: async () => {
@@ -20,6 +21,20 @@ exports.Update = ({
         const userUID = request.locals.uid;
         const role = request.locals.role;
         let id = request.queryParams.id;
+
+        const acesssRes = await accessManager({
+          translate,
+          logger,
+          CreateError,
+          lang,
+          role,
+          db,
+          useCase: 'roles:edit',
+        })
+        if(!acesssRes)
+        {
+          throw new CreateError(translate(lang, "forbidden"), 403);
+        }
 
 
         // let permission = ac.can(role).createOwn("mood");

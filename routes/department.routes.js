@@ -8,13 +8,13 @@ const middlewares = require("../middlewares");
 /*
  * @desc /auth
  */
-router.post("/department/add", departmentController.createDepartment);
-router.delete("/department/delete", departmentController.deleteDepartment);
-router.get("/department/findall", departmentController.findAllDepartments);
-router.patch("/department/update", departmentController.updateDepartment);
-router.patch("/department/adduser", departmentController.addUser);
-router.get("/department/find", departmentController.departmentDetails);
-router.get("/department/findusers", departmentController.listUsers);
-router.patch("/department/removeuser", departmentController.removeUsers);
+router.post("/department/add",middlewares.isLogged, departmentController.createDepartment);
+router.delete("/department/delete",middlewares.isLogged, departmentController.deleteDepartment);
+router.get("/department/findall",middlewares.isLogged, departmentController.findAllDepartments);
+router.patch("/department/update",middlewares.isLogged, departmentController.updateDepartment);
+router.patch("/department/adduser",middlewares.isLogged, departmentController.addUser);
+router.get("/department/find",middlewares.isLogged, departmentController.departmentDetails);
+router.get("/department/findusers",middlewares.isLogged, departmentController.listUsers);
+router.patch("/department/removeuser",middlewares.isLogged, departmentController.removeUsers);
 
 module.exports = router;

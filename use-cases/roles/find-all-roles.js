@@ -10,6 +10,7 @@ exports.FindAll = ({
   request,
   db,
   ac,
+  accessManager
 }) => {
   return Object.freeze({
     execute: async () => {
@@ -20,6 +21,19 @@ exports.FindAll = ({
         const role = request.locals.role;
         const page = parseInt(request.queryParams.page) || 1;
         const limit = parseInt(request.queryParams.limit) || 10;
+        const acesssRes = await accessManager({
+          translate,
+          logger,
+          CreateError,
+          lang,
+          role,
+          db,
+          useCase: 'roles:view',
+        }) 
+        if(!acesssRes)
+        {
+          throw new CreateError(translate(lang, "forbidden"), 403);
+        }
 
 
         // let permission = ac.can(role).createOwn("mood");

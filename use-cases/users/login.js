@@ -168,7 +168,7 @@ async function postLogin({
  
     const bearerToken = (
       await tokenGenerator.generateBearerToken({
-        uid: user.uuid,
+        uid: user._id.toString(),
         email: user.email,
         firstname: user.firstName,
         lastname: user.secondName,
@@ -179,7 +179,7 @@ async function postLogin({
 
     const refreshToken = (
       await tokenGenerator.generateRefreshToken({
-        uid: user.uid,
+        uid: user._id.toString(),
         email: user.email,
         firstname: user.firstname,
         lastname: user.lastname,
@@ -192,10 +192,9 @@ async function postLogin({
       .Store({ lang, CreateError, translate, logger })
       .storeRefreshToken({
         token: refreshToken,
-        userUID: user.uid,
+        userUID: user._id.toString(),
         ua: request.locals.ua,
       });
-      
     return {
       msg: translate(lang, "success"),
       data: {

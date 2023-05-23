@@ -7,7 +7,7 @@ const CreateError = require("../error/dp-error").CreateError;
 const logger = require("../utils/logger").logger;
 const db = require("../lib/database").database;
 const fromUseCase = require("../use-cases/roles").roleUseCases;
-
+const accessManager = require("../services/access-manager").accessManager;
 
 
 exports.createRoles = async (req, res, next) => {
@@ -22,6 +22,7 @@ exports.createRoles = async (req, res, next) => {
         crypto,
         request,
         db,
+        accessManager
         
       })
       .execute();
@@ -45,6 +46,7 @@ exports.findAllRoles = async (req, res, next) => {
         crypto,
         request,
         db,
+        accessManager
       })
       .execute();
 
@@ -66,6 +68,7 @@ exports.findRoleDetails = async (req, res, next) => {
         crypto,
         request,
         db,
+        accessManager
       })
       .execute();
 
@@ -87,6 +90,7 @@ exports.deleteRoles = async (req, res, next) => {
         crypto,
         request,
         db,
+        accessManager
         
       })
       .execute();
@@ -110,7 +114,7 @@ exports.updateRoles = async (req, res, next) => {
         crypto,
         request,
         db,
-        
+        accessManager
       })
       .execute();
 
