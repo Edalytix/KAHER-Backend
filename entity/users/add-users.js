@@ -26,8 +26,13 @@ exports.addUser = ({
                     role: null,
                     email: null,
                     applications: [],
+                    employeeId: null
 
                 };
+
+
+                const getRandomString = (length) => Array.from({length}, () => String.fromCharCode(Math.floor(Math.random() * 26) + 97)).join('');
+
 
                 if (params.firstName) {
                     entity.firstName = validate.firstname(params.firstName).data.value;
@@ -40,6 +45,14 @@ exports.addUser = ({
                   } else {
                     delete entity.secondName;
                   }
+
+                  // if (params.employeeId) {
+                  //   entity.employeeId = validate.employeeId(params.employeeId).data.value;
+                  // } else {
+                  //   delete entity.employeeId;
+                  // }
+
+                  params.employeeId = getRandomString(10);
 
                   if (params.status) {
                     entity.status = validate.status(params.status).data.value;

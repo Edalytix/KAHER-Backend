@@ -3,7 +3,6 @@ const Schema = mongoose.Schema;
 
 const FormQuestionOptionSchema = new Schema({
   id: { type: Number, required: true },
-  label: { type: String, required: true },
   value: { type: String, required: true }
 });
 

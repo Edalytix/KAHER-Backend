@@ -1,7 +1,7 @@
 const fromEntities = require("../../entity");
 
 
-exports.Create = ({
+exports.Delete = ({
   CreateError,
   DataValidator,
   logger,
@@ -19,7 +19,9 @@ exports.Create = ({
         const email = request.locals.email;
         const userUID = request.locals.uid;
         const role = request.locals.role;
+        const id = request.queryParams.id;
         let lowLimit = request.queryParams.lowLimit;
+
 
         const acesssRes = await accessManager({
           translate,
@@ -34,17 +36,6 @@ exports.Create = ({
         {
           throw new CreateError(translate(lang, "forbidden"), 403);
         }
-        let entity = (
-          await fromEntities.entities.Form.addForm({
-            CreateError,
-            DataValidator,
-            logger,
-            translate,
-            crypto,
-            lang,
-            params: { ...request.body, userUID },
-          }).generate()
-        ).data.entity;
 
 const FormFunction =db.methods.Form({
   translate,
@@ -53,7 +44,15 @@ const FormFunction =db.methods.Form({
   lang,
 })
 
-const res = await FormFunction.create(entity)
+const department = await FormFunction.findById(id)
+if(!department.data.department){
+  throw new CreateError("Form not found", 403);
+}
+if(department.data.department.users.length===0){
+  throw new CreateError("Action not allowed", 403);
+}
+
+const res = await FormFunction.DataValidator(id)
         return {
           msg: translate(lang, "created_mood"),
           data: { res},

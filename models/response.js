@@ -29,7 +29,7 @@ const responseSchema = new mongoose.Schema({
   wuid:{
     type: { type: mongoose.Schema.Types.ObjectId,ref: 'Workflow'},
   },
-  wuid:{
+  auid:{
     type: { type: mongoose.Schema.Types.ObjectId,ref: 'Application'},
   },
   responses: [answerSchema],

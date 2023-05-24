@@ -36,6 +36,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  employeeId: { 
+    type: String,
+    required: true,
+  },
   applications: {
     type: [String],
     default: []

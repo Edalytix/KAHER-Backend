@@ -7,7 +7,7 @@ const CreateError = require("../error/dp-error").CreateError;
 const logger = require("../utils/logger").logger;
 const db = require("../lib/database").database;
 const fromUseCase = require("../use-cases/form").formUseCases;
-
+const accessManager = require("../services/access-manager").accessManager;
 
 
 exports.createForm = async (req, res, next) => {
@@ -22,7 +22,7 @@ exports.createForm = async (req, res, next) => {
         crypto,
         request,
         db,
-        
+        accessManager
       })
       .execute();
 
@@ -35,11 +35,11 @@ exports.createForm = async (req, res, next) => {
   }
 };
 
-exports.findAllDepartments = async (req, res, next) => {
+exports.findAllForms = async (req, res, next) => {
   try {
     const request = fromAdaptReq.adaptReq(req, res);
     const result = await fromUseCase
-      .findAllDepartments({
+      .findAllForms({
         CreateError,
         DataValidator,
         logger, 
@@ -47,6 +47,7 @@ exports.findAllDepartments = async (req, res, next) => {
         crypto,
         request,
         db,
+        accessManager
       })
       .execute();
 
@@ -57,11 +58,11 @@ exports.findAllDepartments = async (req, res, next) => {
   }
 };
 
-exports.deleteDepartment = async (req, res, next) => {
+exports.deleteForm = async (req, res, next) => {
   try {
     const request = fromAdaptReq.adaptReq(req, res);
     const result = await fromUseCase
-      .deleteDepartments({
+      .deleteForms({
         CreateError,
         DataValidator,
         logger, 
@@ -69,7 +70,7 @@ exports.deleteDepartment = async (req, res, next) => {
         crypto,
         request,
         db,
-        
+        accessManager
       })
       .execute();
 
@@ -80,11 +81,11 @@ exports.deleteDepartment = async (req, res, next) => {
   }
 };
 
-exports.updateDepartment = async (req, res, next) => {
+exports.updateForms = async (req, res, next) => {
   try {
     const request = fromAdaptReq.adaptReq(req, res);
     const result = await fromUseCase
-      .updateDepartments({
+      .updateForms({
         CreateError,
         DataValidator,
         logger, 
@@ -92,7 +93,7 @@ exports.updateDepartment = async (req, res, next) => {
         crypto,
         request,
         db,
-        
+        accessManager
       })
       .execute();
 
@@ -103,11 +104,12 @@ exports.updateDepartment = async (req, res, next) => {
   }
 };
 
-exports.addUser = async (req, res, next) => {
+
+exports.formDetails = async (req, res, next) => {
   try {
     const request = fromAdaptReq.adaptReq(req, res);
-    const result = await fromUseCase
-      .addUser({
+    const result = await fromUseCase.formDetails
+      ({
         CreateError,
         DataValidator,
         logger, 
@@ -115,76 +117,7 @@ exports.addUser = async (req, res, next) => {
         crypto,
         request,
         db,
-        
-      })
-      .execute();
-
-    return res.status(201).json({
-      msg: result.data.res.msg,
-      data: result.data.res.data,
-    });
-  } catch (error) {
-    // console.log(error)
-    next(error);
-  }
-};
-
-exports.departmentDetails = async (req, res, next) => {
-  try {
-    const request = fromAdaptReq.adaptReq(req, res);
-    const result = await fromUseCase
-      .departmentDetails({
-        CreateError,
-        DataValidator,
-        logger, 
-        translate, 
-        crypto,
-        request,
-        db,
-      })
-      .execute();
-
-    return res.status(201).json(result.data);
-  } catch (error) {
-    // console.log(error)
-    next(error);
-  }
-};
-
-exports.listUsers = async (req, res, next) => {
-  try {
-    const request = fromAdaptReq.adaptReq(req, res);
-    const result = await fromUseCase
-      .listUser({
-        CreateError,
-        DataValidator,
-        logger, 
-        translate, 
-        crypto,
-        request,
-        db,
-      })
-      .execute();
-
-    return res.status(201).json(result.data);
-  } catch (error) {
-    // console.log(error)
-    next(error);
-  }
-};
-
-exports.removeUsers = async (req, res, next) => {
-  try {
-    const request = fromAdaptReq.adaptReq(req, res);
-    const result = await fromUseCase
-      .removeUser({
-        CreateError,
-        DataValidator,
-        logger, 
-        translate, 
-        crypto,
-        request,
-        db,
+        accessManager
       })
       .execute();
 

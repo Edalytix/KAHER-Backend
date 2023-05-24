@@ -1,7 +1,8 @@
+
 const fromEntities = require("../../entity");
 
 
-exports.Create = ({
+exports.Update = ({
   CreateError,
   DataValidator,
   logger,
@@ -9,8 +10,7 @@ exports.Create = ({
   crypto,
   request,
   db,
-  ac,
-  accessManager
+  accessManager,
 }) => {
   return Object.freeze({
     execute: async () => {
@@ -19,7 +19,7 @@ exports.Create = ({
         const email = request.locals.email;
         const userUID = request.locals.uid;
         const role = request.locals.role;
-        let lowLimit = request.queryParams.lowLimit;
+        let id = request.queryParams.id;
 
         const acesssRes = await accessManager({
           translate,
@@ -28,14 +28,15 @@ exports.Create = ({
           lang,
           role,
           db,
-          useCase: 'forms:edit',
+          useCase: 'departments:edit',
         })
         if(!acesssRes)
         {
           throw new CreateError(translate(lang, "forbidden"), 403);
         }
+
         let entity = (
-          await fromEntities.entities.Form.addForm({
+          await fromEntities.entities.Form.updateForm({
             CreateError,
             DataValidator,
             logger,
@@ -53,7 +54,7 @@ const FormFunction =db.methods.Form({
   lang,
 })
 
-const res = await FormFunction.create(entity)
+const res = await FormFunction.update({id, params: entity})
         return {
           msg: translate(lang, "created_mood"),
           data: { res},
