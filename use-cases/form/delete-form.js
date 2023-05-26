@@ -44,15 +44,14 @@ const FormFunction =db.methods.Form({
   lang,
 })
 
-const department = await FormFunction.findById(id)
-if(!department.data.department){
+const form = await FormFunction.findById(id)
+console.log(form)
+if(!form.data.form){
   throw new CreateError("Form not found", 403);
 }
-if(department.data.department.users.length===0){
-  throw new CreateError("Action not allowed", 403);
-}
 
-const res = await FormFunction.DataValidator(id)
+
+const res = await FormFunction.deleteById(id)
         return {
           msg: translate(lang, "created_mood"),
           data: { res},
