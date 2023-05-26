@@ -3,13 +3,15 @@ const fromRole = require("./role.controller")
 const fromUser = require("./user.controller")
 const fromForm = require("./form.controller")
 const fromResponse = require(".//response.controller")
+const fromWorkflow = require("./workflow.controller")
 
 const controllers = {
     department: { ...fromDepartment },
     role: {...fromRole},
     user: {...fromUser},
     form: {...fromForm},
-    response: {...fromResponse}
+    response: {...fromResponse},
+    workflow: {...fromWorkflow}
   
 };
 

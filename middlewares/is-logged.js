@@ -12,9 +12,10 @@ module.exports.isLogged = async (req, res, next) => {
     const lang = res.locals.lang;
 
     // refresh token validation
-    const refreshToken =
-      req.cookies[refreshTokenCookieName] || req.cookies.refreshTokenCookieName;
+    // const refreshToken =
+    //   req.cookies[refreshTokenCookieName] || req.cookies.refreshTokenCookieName;
 
+    const refreshToken = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDY3NTFiMzkzN2M1OGJmNzg2NzEyMTYiLCJlbWFpbCI6InRlc3QwMUBlbWFpbC5jb20iLCJ1YSI6Ik1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS8xMTMuMC4wLjAgU2FmYXJpLzUzNy4zNiIsInJvbGUiOiJBZG1pbiBSb2xlIiwiaWF0IjoxNjg1MDcwNDYwLCJleHAiOjE2ODU0MTYwNjAsImlzcyI6ImthaGVyIn0.IBRRdUfQ9xQhi2KR48am4teT-hLSy8gGBbaP2rOBysok4JcPaCIuCR0pnlyeZfewR2IO-AD-a6xVoOl6Te_Nwm-f8SH45mbEZUjfyL8APoTX49305qHFMukNbJU3g25MWHNKUGlqBMMl-0jSS2ChXhmkprVewiRpqJ15sc1hh-HpAabw9kXLCn6n_ZyRXgTkXlcWA7Ro_uJ-Zx3TyoCnDlKZvxpjPk3SvTkNPSlmiv_vBK2kTEYkaGwh_Luut-8xbgVRktkXXfURCDE8izOEFs69Tl4ny_Snp1L2r8jL2bFDr2LNir_Lcan8OgFBZG1LrKKUGsNmxOMDSvzHti26Ug';
     if (refreshToken === undefined) {
       return res
         .status(401)

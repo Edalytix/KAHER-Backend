@@ -10,15 +10,15 @@ exports.accessManager = async ({role, useCase,translate,
         CreateError,
         lang,
         })
-console.log(role)
+
     const res = await RoleFunction.findByName(role)
     if(!res.data.role)
     {
         throw new CreateError('No such role exists.');
     }
     const [feature, access] = useCase.split(':');
-        const permission = res.data.role.permissions[feature];
-        console.log(res.data.role.permissions, feature, access)
-        return access === 'view' && (permission === 'view' ||permission === 'edit');
+    const permission = res.data.role.permissions[feature];
+   
+    return access === permission || (access === 'view' && (permission === 'view' ||permission === 'edit'));
     
   }

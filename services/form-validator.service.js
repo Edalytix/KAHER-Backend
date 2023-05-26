@@ -54,6 +54,15 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
         throw new CreateError(translate(lang, "invalid_goal_status"), 422);
       }
     },
+    level(x) {
+      x = String(x).trim();
+      const options = ["draft", "published"];
+      if (options.includes(x)) {
+        return { msg: "Valid", data: { value: x } };
+      } else {
+        throw new CreateError(translate(lang, "invalid_goal_status"), 422);
+      }
+    },
     permissions(x) {
       x = String(x).trim();
       const options = ['view', 'edit', 'none'];
@@ -247,6 +256,11 @@ responses(x)
     boolean(x) {
       x = Boolean(x);
       return { msg: "Valid", data: { value: x } };
+    },
+    number(x){
+      if (isNaN(x)) {
+        throw new CreateError(translate(lang, "invalid_title"), 422);
+      }
     },
 
 
