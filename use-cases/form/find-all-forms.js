@@ -37,12 +37,12 @@ exports.FindAll = ({
           throw new CreateError(translate(lang, "forbidden"), 403);
         }
 
-const FormFunction = db.methods.Form({
-  translate,
-  logger,
-  CreateError,
-  lang,
-})
+      const FormFunction = db.methods.Form({
+        translate,
+        logger,
+        CreateError,
+        lang,
+      })
 
 
     const res = await FormFunction.findAll(page,limit)

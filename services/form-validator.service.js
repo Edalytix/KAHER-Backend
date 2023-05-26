@@ -278,7 +278,7 @@ responses(x)
     title(x) {
       x = String(x);
       if (/^\D{3,20}$/.test(x)) {
-        return { msg: "Valid", data: { value: x } };
+        return { msg: "Valid", data: { value: x } }; 
       } else {
         throw new CreateError(translate(lang, "invalid_title"), 422);
       }

@@ -44,14 +44,14 @@ const FormFunction =db.methods.Form({
   lang,
 })
 
-const form = await FormFunction.findById(id)
-console.log(form)
-if(!form.data.form){
-  throw new CreateError("Form not found", 403);
-}
+      const form = await FormFunction.findById(id)
+
+      if(!form.data.form){
+        throw new CreateError("Form not found", 403);
+      }
 
 
-const res = await FormFunction.deleteById(id)
+    const res = await FormFunction.deleteById(id)
         return {
           msg: translate(lang, "created_mood"),
           data: { res},

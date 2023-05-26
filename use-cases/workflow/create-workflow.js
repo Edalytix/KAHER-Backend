@@ -46,14 +46,14 @@ exports.Create = ({
           }).generate()
         ).data.entity;
 
-const WorkflowFunction = db.methods.Workflow({
-  translate,
-  logger,
-  CreateError,
-  lang,
-})
+        const WorkflowFunction = db.methods.Workflow({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        })
 
-const res = await WorkflowFunction.create(entity)
+        const res = await WorkflowFunction.create(entity);
 
         return {
           msg: translate(lang, "created_mood"),
