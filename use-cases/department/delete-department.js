@@ -48,7 +48,7 @@ const department = await DepartmentFunction.findById(id)
 if(!department.data.department){
   throw new CreateError("Department not found", 403);
 }
-if(department.data.department.users.length===0){
+if(department.data.department.users.length>0){
   throw new CreateError("Action not allowed", 403);
 }
 
