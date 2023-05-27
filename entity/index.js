@@ -4,6 +4,7 @@ const fromUsers = require("./users");
 const fromForm = require("./form");
 const fromResponse = require("./response");
 const fromWorkflow = require("./workflow");
+const fromApplication = require("./application");
 
 exports.entities = {
   Department: { ...fromDepartment.Departments },
@@ -11,5 +12,6 @@ exports.entities = {
   User: {...fromUsers.Users},
   Form: {...fromForm.Forms},
   Response: {...fromResponse.Responses},
-  Workflow: {...fromWorkflow.Workflows}
+  Workflow: {...fromWorkflow.Workflows},
+  Application: {...fromApplication.Applications}
 };

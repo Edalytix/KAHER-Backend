@@ -63,6 +63,24 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
         throw new CreateError(translate(lang, "invalid_goal_status"), 422);
       }
     },
+    applicationlevel(x) {
+      x = String(x).trim();
+      const options =  ['approved', 'rejected', 'waiting'];
+      if (options.includes(x)) {
+        return { msg: "Valid", data: { value: x } };
+      } else {
+        throw new CreateError(translate(lang, "invalid_goal_status"), 422);
+      }
+    },
+    activitylevel(x) {
+      x = String(x).trim();
+      const options =   ['status change', 'comment'];
+      if (options.includes(x)) {
+        return { msg: "Valid", data: { value: x } };
+      } else {
+        throw new CreateError(translate(lang, "invalid_goal_status"), 422);
+      }
+    },
     permissions(x) {
       x = String(x).trim();
       const options = ['view', 'edit', 'none'];
@@ -145,6 +163,22 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
         return { msg: "Valid", data: { value: x } };
       } else {
         throw new CreateError(translate(lang, "invalid_title"), 422);
+      }
+    },
+    comment(x) {
+      x = String(x);
+      if (/^\D{3,300}$/.test(x)) {
+        return { msg: "Valid", data: { value: x } };
+      } else {
+        throw new CreateError(translate(lang, "invalid_firstname"), 422);
+      }
+    },
+    activity(x) {
+      x = String(x);
+      if (/^\D{3,200}$/.test(x)) {
+        return { msg: "Valid", data: { value: x } };
+      } else {
+        throw new CreateError(translate(lang, "invalid_firstname"), 422);
       }
     },
     timestamp(x) {

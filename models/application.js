@@ -36,7 +36,7 @@ const applicationSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  username: {
+  user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true,
@@ -80,7 +80,7 @@ const applicationSchema = new mongoose.Schema({
       required: true,
     },
   }],
-  activity: [{
+  activities: [{
     id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
@@ -89,6 +89,10 @@ const applicationSchema = new mongoose.Schema({
     date: {
       type: Date,
       default: Date.now,
+    },
+    level: {
+      type: String,
+      enum: ['status change', 'comment'],
     },
     activity: {
       type: String,
