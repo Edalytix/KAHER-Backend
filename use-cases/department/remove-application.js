@@ -1,7 +1,7 @@
 const fromEntities = require("../../entity");
 
 
-exports.FindAll = ({
+exports.RemoveApplication = ({
   CreateError,
   DataValidator,
   logger,
@@ -9,8 +9,7 @@ exports.FindAll = ({
   crypto,
   request,
   db,
-  ac,
-  accessManager
+  accessManager,
 }) => {
   return Object.freeze({
     execute: async () => {
@@ -19,8 +18,7 @@ exports.FindAll = ({
         const email = request.locals.email;
         const userUID = request.locals.uid;
         const role = request.locals.role;
-        const page = parseInt(request.queryParams.page)
-        const limit = parseInt(request.queryParams.limit)
+        const id = request.queryParams.id;
 
 
         const acesssRes = await accessManager({
@@ -30,29 +28,31 @@ exports.FindAll = ({
           lang,
           role,
           db,
-          useCase: 'departments:view',
+          useCase: 'departments:edit',
         })
         if(!acesssRes)
         {
           throw new CreateError(translate(lang, "forbidden"), 403);
         }
 
-const DepartmentFunction =db.methods.Department({
-  translate,
-  logger,
-  CreateError,
-  lang,
-})
+        const DepartmentFunction = db.methods.Department({
+            translate,
+            logger,
+            CreateError,
+            lang,
+            })
 
-    const res = await DepartmentFunction.findAll(page,limit)
+
+        let res = await DepartmentFunction.removeApplication({id: id, applicationid: request.body.applicationid})
         return {
           msg: translate(lang, "created_mood"),
-          data:  res ,
+          data: { res },
         };
       } catch (error) {
         if (error instanceof CreateError) {
           throw error;
         }
+        console.log("error is", error)
         logger.error(`Failed to signup: %s`, error);
 
         throw new Error(error.message);

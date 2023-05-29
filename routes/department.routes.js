@@ -16,5 +16,7 @@ router.patch("/department/adduser",middlewares.isLogged, departmentController.ad
 router.get("/department/find",middlewares.isLogged, departmentController.departmentDetails);
 router.get("/department/findusers",middlewares.isLogged, departmentController.listUsers);
 router.patch("/department/removeuser",middlewares.isLogged, departmentController.removeUsers);
+router.patch("/department/addapplication",middlewares.isLogged, departmentController.addApplication);
+router.patch("/department/removeapplication",middlewares.isLogged, departmentController.removeApplication);
 
 module.exports = router;

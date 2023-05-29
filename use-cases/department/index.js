@@ -7,6 +7,8 @@ const fromAddUser = require("./add-user");
 const fromDepatmentDetails = require("./department-details");
 const fromListUser = require("./list-users");
 const fromRemoveUser = require("./remove-user");
+const fromAddApplication = require("./add-application");
+const fromRemoveApplication = require("./remove-application");
 
 exports.departmentUseCases = {
     createDepartments: fromCreateDepartments.Create,
@@ -18,4 +20,6 @@ exports.departmentUseCases = {
     depatmentDetails: fromDepatmentDetails.DepartmentDetails,
     listUser: fromListUser.ListUsers,
     removeUser: fromRemoveUser.RemoveUser,
+    addApplication: fromAddApplication.AddApplication,
+    removeApplication: fromRemoveApplication.RemoveApplication,
 };

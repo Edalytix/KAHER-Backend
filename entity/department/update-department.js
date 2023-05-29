@@ -21,7 +21,7 @@ exports.updateDepartment = ({
                 };
 
                 if (params.name) {
-                    entity.name = validate.name(params.name).data.value;
+                    entity.name = validate.title(params.name).data.value;
                   } else {
                     delete entity.name;
                   }

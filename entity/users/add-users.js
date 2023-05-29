@@ -26,7 +26,8 @@ exports.addUser = ({
                     role: null,
                     email: null,
                     applications: [],
-                    employeeId: null
+                    employeeId: null,
+                    type: 'admin'
 
                 };
 
@@ -52,7 +53,7 @@ exports.addUser = ({
                   //   delete entity.employeeId;
                   // }
 
-                  params.employeeId = getRandomString(10);
+                  entity.employeeId = getRandomString(10);
 
                   if (params.status) {
                     entity.status = validate.status(params.status).data.value;
@@ -65,7 +66,7 @@ exports.addUser = ({
                   }
 
                   if (params.role) {
-                    entity.role = validate.name(params.role).data.value;
+                    entity.role = validate.mongoid(params.role).data.value;
                   } else {
                     delete entity.role;
                   }
@@ -75,6 +76,21 @@ exports.addUser = ({
                   } else {
                     delete entity.department;
                   }
+
+                  if (params.applications) {
+                    const arr = [];
+                    params.applications.forEach(element => {
+                      arr.push(validate.mongoid(element).data.value)
+                    });
+                    entity.applications = arr;
+                  } else {
+                    delete entity.applications;
+                  }
+
+                  if (params.type) {
+                    entity.type = validate.userType(params.type).data.value;
+                  }
+
                   if(params.password)
                   {
                     entity.password = validate.password(params.password).data.value;

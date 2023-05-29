@@ -19,8 +19,8 @@ exports.FindAll = ({
         const email = request.locals.email;
         const userUID = request.locals.uid;
         const role = request.locals.role;
-        const page = parseInt(request.queryParams.page) || 1;
-        const limit = parseInt(request.queryParams.limit) || 10;
+        const page = parseInt(request.queryParams.page)
+        const limit = parseInt(request.queryParams.limit) 
 
 
         const acesssRes = await accessManager({

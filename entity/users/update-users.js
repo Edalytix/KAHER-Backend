@@ -27,6 +27,7 @@ exports.updateUser = ({
                     role: null,
                     email: null,
                     applications: [],
+                    type: null
 
                 };
 
@@ -67,6 +68,23 @@ exports.updateUser = ({
                   } else {
                     delete entity.department;
                   }
+
+                  if (params.applications) {
+                    const arr = [];
+                    params.applications.forEach(element => {
+                      arr.push(validate.mongoid(element).data.value)
+                    });
+                    entity.applications = arr;
+                  } else {
+                    delete entity.applications;
+                  }
+                  
+                  if (params.type) {
+                    entity.type = validate.userType(params.type).data.value;
+                  } else {
+                    delete entity.type;
+                  }
+
                   if(params.password)
                   {
                     entity.password = validate.password(params.password).data.value;

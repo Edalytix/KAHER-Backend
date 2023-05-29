@@ -27,7 +27,7 @@ exports.updateRole = ({
                 };
 
                 if (params.name) {
-                    entity.name = validate.name(params.name).data.value;
+                    entity.name = validate.title(params.name).data.value;
                   } else {
                     delete entity.name;
                   }
@@ -61,6 +61,12 @@ exports.updateRole = ({
                     entity.permissions.departments = validate.permissions(params.permissions.departments).data.value;
                   }else{
                     delete entity.permissions.departments;
+                  }
+
+                  if (params.permissions.roles) {
+                    entity.permissions.roles = validate.permissions(params.permissions.roles).data.value;
+                  }else{
+                    delete entity.permissions.roles;
                   }
 
                 return {

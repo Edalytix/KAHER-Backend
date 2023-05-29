@@ -52,7 +52,7 @@ if(department.data.department.users.length>0){
   throw new CreateError("Action not allowed", 403);
 }
 
-const res = await DepartmentFunction.DataValidator(id)
+const res = await DepartmentFunction.deleteById(id)
         return {
           msg: translate(lang, "created_mood"),
           data: { res},

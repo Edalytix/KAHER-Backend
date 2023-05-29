@@ -33,21 +33,27 @@ const userSchema = new mongoose.Schema({
     required: false,
   },
   role: { 
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Role',
     required: true,
   },
   employeeId: { 
     type: String,
     required: true,
   },
-  applications: {
-    type: [String],
-    default: []
-  },
+  applications: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Application'
+  }],
   status: {
     type: String,
     enum: ['active', 'inactive'],
     default: 'active'
+  },
+  type: {
+    type: String,
+    enum: ['admin', 'user'],
+    default: 'admin'
   },
   email: {
     type: String,

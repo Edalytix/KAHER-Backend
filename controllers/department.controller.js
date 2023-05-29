@@ -198,3 +198,52 @@ exports.removeUsers = async (req, res, next) => {
     next(error);
   }
 };
+
+exports.addApplication = async (req, res, next) => {
+  try {
+    const request = fromAdaptReq.adaptReq(req, res);
+    const result = await fromUseCase
+      .addApplication({
+        CreateError,
+        DataValidator,
+        logger, 
+        translate, 
+        crypto,
+        request,
+        db,
+        accessManager
+      })
+      .execute();
+
+    return res.status(201).json({
+      msg: result.data.res.msg,
+      data: result.data.res.data,
+    });
+  } catch (error) {
+    // console.log(error)
+    next(error);
+  }
+};
+
+exports.removeApplication = async (req, res, next) => {
+  try {
+    const request = fromAdaptReq.adaptReq(req, res);
+    const result = await fromUseCase
+      .removeApplication({
+        CreateError,
+        DataValidator,
+        logger, 
+        translate, 
+        crypto,
+        request,
+        db,
+        accessManager
+      })
+      .execute();
+
+    return res.status(201).json(result.data);
+  } catch (error) {
+    // console.log(error)
+    next(error);
+  }
+};

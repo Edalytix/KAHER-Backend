@@ -47,6 +47,9 @@ exports.Update = ({
           }).generate()
         ).data.entity;
 
+        delete entity.users;
+        delete entity.applications
+
 const DepartmentFunction =db.methods.Department({
   translate,
   logger,
