@@ -163,7 +163,6 @@ async function postLogin({
 
     // // register the device used for the logging in
     // let loginDevice = null;
-    console.log(token)
     const tokenGenerator = token.jwt({ CreateError, translate, lang, logger });
  
     const bearerToken = (

@@ -58,7 +58,7 @@ exports.updateUser = ({
                   }
 
                   if (params.role) {
-                    entity.role = validate.name(params.role).data.value;
+                    entity.role = validate.mongoid(params.role).data.value;
                   } else {
                     delete entity.role;
                   }
