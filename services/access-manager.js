@@ -12,6 +12,7 @@ exports.accessManager = async ({role, useCase,translate,
         })
 
     const res = await RoleFunction.findByName(role)
+    console.log(role)
     if(!res.data.role)
     {
         throw new CreateError('No such role exists.');
