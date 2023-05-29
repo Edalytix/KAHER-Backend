@@ -66,11 +66,15 @@ exports.AddUser = ({
        {
         let element=entity.users[i];
             let user = await UserFunction.findById(element)
-            if(user.data.user===null || res.data.department.users.includes(user.data.user._id))
+
+            if(user.data.user===null)
             {
                 throw new CreateError(translate(lang, "invalid_uid"), 422);
             }
-            res.data.department.users.push(element)
+            else if( !res.data.department.users.includes(user.data.user._id))
+            {
+              res.data.department.users.push(element)
+            }
           }
 
          res = await DepartmentFunction.addUsers({id: id, params: res.data.department})

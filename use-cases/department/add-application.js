@@ -67,11 +67,15 @@ exports.AddApplication = ({
        {
         let element=entity.applications[i];
             let application = await ApplicationFunction.findById(element)
-            if(application.data.application===null || res.data.department?.applications.includes(application.data.application._id))
+            if(application.data.application===null)
             {
                 throw new CreateError(translate(lang, "invalid_uid"), 422);
             }
-            res.data.department.applications.push(element)
+            else if(!res.data.department?.applications.includes(application.data.application._id))
+            {
+              res.data.department.applications.push(element)
+            }
+            
           }
 
          res = await DepartmentFunction.addApplications({id: id, params: res.data.department})

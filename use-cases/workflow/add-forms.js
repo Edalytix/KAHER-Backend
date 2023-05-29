@@ -69,11 +69,15 @@ exports.AddForm = ({
         let element=uniqueArray[i];
             let form = await FormFunction.findById(element.form)
             const fieldArray = res.data.workflow?.forms.map(obj => obj.form);
-            if(form.data.form===null ||fieldArray.includes(form.data.form._id))
+            if(form.data.form===null)
             {
                 throw new CreateError(translate(lang, "invalid_uid"), 422);
             }
-            res.data.workflow.forms.push(element)
+            else if(!fieldArray.includes(form.data.form._id))
+            {
+              res.data.workflow.forms.push(element)
+            }
+            
           }
 
          res = await WorkflowFunction.addForms({id: id, params: res.data.workflow})
