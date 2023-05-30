@@ -82,7 +82,22 @@ const workflowSchema = new mongoose.Schema({
       required: true
     },
     approvalBy: {
-      type: mongoose.Schema.Types.ObjectId,
+      user:
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+      },
+      department:
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Department'
+      },
+      role:
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Role'
+      }
+      
     },
   }],
   createdAt: {

@@ -7,6 +7,7 @@ const FormQuestionOptionSchema = new Schema({
 });
 
 const FormQuestionSchema = new Schema({
+  sequence: { type: Number, required: true },
   question: { type: String, required: true },
   type: {
     type: String,

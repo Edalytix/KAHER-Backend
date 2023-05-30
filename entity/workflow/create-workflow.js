@@ -57,7 +57,15 @@ exports.createWorkflow = ({
                   if (params.approvals) {
                     const arr = [];
                     params.approvals.forEach(element => {
-                       validate.mongoid(element.approvalBy).data.value;
+                      if(element.approvalBy.user)
+                      {
+                        validate.mongoid(element.approvalBy.user).data.value;
+                      }
+                      else if(element.approvalBy.department)
+                      {
+                        validate.mongoid(element.approvalBy.department).data.value;
+                        validate.mongoid(element.approvalBy.role).data.value;
+                      }
                        arr.push(element)
                     });
                     entity.approvals = arr;
