@@ -12,7 +12,7 @@ module.exports.isLogged = async (req, res, next) => {
     const lang = res.locals.lang;
 
     //refresh token validation
-    console.log(req.cookies)
+    console.log(req.headers.authorization)
     const refreshToken =
       req.cookies[refreshTokenCookieName] || req.cookies.refreshTokenCookieName;
 
