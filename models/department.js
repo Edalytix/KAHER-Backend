@@ -12,7 +12,7 @@ const departmentSchema = new mongoose.Schema({
       default: 'active' 
     },
     applications: {
-      type: [String],
+      type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Application' }],
       default: []
     },
     users: {

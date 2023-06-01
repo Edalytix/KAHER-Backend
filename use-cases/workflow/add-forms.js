@@ -1,5 +1,5 @@
 const fromEntities = require("../../entity");
-
+const { ObjectId } = require('mongodb');
 
 exports.AddForm = ({
   CreateError,
@@ -68,12 +68,13 @@ exports.AddForm = ({
        {
         let element=uniqueArray[i];
             let form = await FormFunction.findById(element.form)
-            const fieldArray = res.data.workflow?.forms.map(obj => obj.form);
+            const fieldArray = res.data.workflow?.forms.map(obj => obj?.form?._id);
+            const checkAnyIdMatchesValue = (ids, value) => ids.some(id => new ObjectId(id).equals(new ObjectId(value)));
             if(form.data.form===null)
             {
                 throw new CreateError(translate(lang, "invalid_uid"), 422);
             }
-            else if(!fieldArray.includes(form.data.form._id))
+            else if(!checkAnyIdMatchesValue(fieldArray,form.data.form._id))
             {
               res.data.workflow.forms.push(element)
             }

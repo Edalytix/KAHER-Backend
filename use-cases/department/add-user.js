@@ -1,4 +1,5 @@
 const fromEntities = require("../../entity");
+const { ObjectId } = require('mongodb');
 
 
 exports.AddUser = ({
@@ -65,13 +66,14 @@ exports.AddUser = ({
         for(let i =0;i<entity.users.length;i++)
        {
         let element=entity.users[i];
+        const checkAnyIdMatchesValue = (ids, value) => ids.some(id => new ObjectId(id).equals(new ObjectId(value)));
             let user = await UserFunction.findById(element)
 
             if(user.data.user===null)
             {
                 throw new CreateError(translate(lang, "invalid_uid"), 422);
             }
-            else if( !res.data.department.users.includes(user.data.user._id))
+            else if( !checkAnyIdMatchesValue(res.data.department.users,user.data.user._id))
             {
               res.data.department.users.push(element)
             }

@@ -1,5 +1,5 @@
 const fromEntities = require("../../entity");
-
+const { ObjectId } = require('mongodb');
 
 exports.AddApplication = ({
   CreateError,
@@ -66,12 +66,13 @@ exports.AddApplication = ({
         for(let i =0;i<entity.applications.length;i++)
        {
         let element=entity.applications[i];
+        const checkAnyIdMatchesValue = (ids, value) => ids.some(id => new ObjectId(id).equals(new ObjectId(value)));
             let application = await ApplicationFunction.findById(element)
             if(application.data.application===null)
             {
                 throw new CreateError(translate(lang, "invalid_uid"), 422);
             }
-            else if(!res.data.department?.applications.includes(application.data.application._id))
+            else if(!checkAnyIdMatchesValue(res.data.department?.applications,application.data.application._id))
             {
               res.data.department.applications.push(element)
             }
