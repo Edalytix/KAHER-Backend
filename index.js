@@ -60,7 +60,6 @@ const originURLS = [
   // appConfig?.originUrl?[process.env.NODE_ENV]?.www?.https,
   // appConfig?.originUrl?[process.env.NODE_ENV]?.www?.http,
   'http://localhost:3000',
-  'https://localhost:3000',
   'https://kaher.edalytics.com',
   'http://kaher.edalytics.com'
 ]
@@ -72,7 +71,15 @@ app.use(cookieParser());
 
 // allow origins middlewares
 app.use(cors({
-  origin:  `https://kaher.edalytics.com`,
+  origin: function (origin, callback) {
+      if (originURLS.indexOf(origin) !== -1) {
+          callback(null, true)
+      } else if (origin === undefined) {
+          callback(null, true)
+      } else {
+          callback(new Error('Not allowed by CORS:' + origin))
+      }
+  },
   credentials: true,
   methods: "GET,POST,PATCH,DELETE"
 }));
