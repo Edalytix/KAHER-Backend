@@ -70,18 +70,14 @@ exports.AddForm = ({
             let form = await FormFunction.findById(element.form)
             const fieldArray = res.data.workflow?.forms.map(obj => obj?.form?._id);
             const checkAnyIdMatchesValue = (ids, value) => ids.some(id => new ObjectId(id).equals(new ObjectId(value)));
+
             if(form.data.form===null)
             {
                 throw new CreateError(translate(lang, "invalid_uid"), 422);
             }
-            else if(!checkAnyIdMatchesValue(fieldArray,form.data.form._id))
-            {
-              res.data.workflow.forms.push(element)
-            }
-            
           }
 
-         res = await WorkflowFunction.addForms({id: id, params: res.data.workflow})
+         res = await WorkflowFunction.addForms({id: id, params: {forms: uniqueArray}})
         return {
           msg: translate(lang, "created_mood"),
           data: { res },
