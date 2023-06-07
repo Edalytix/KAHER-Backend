@@ -208,7 +208,7 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
     },
     validateQuestion(x) {
       x.question = String(x.question);
-      if (!/^[a-zA-Z\d\s]{3,50}$/.test(x.question)) {
+      if (!/^[a-zA-Z\d\s?]{3,50}$/.test(x.question)) {
         throw new CreateError(translate(lang, "invalid_title"), 422);
       }
       if ( typeof x.required !== 'boolean') {
