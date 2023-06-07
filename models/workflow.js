@@ -99,6 +99,10 @@ const workflowSchema = new mongoose.Schema({
       }
       
     },
+    assignedAt: {
+      type: Date,
+      default: Date.now,
+    },
   }],
   createdAt: {
     type: Date,

@@ -15,5 +15,6 @@ router.patch("/application/update", middlewares.isLogged,applicationController.u
 router.get("/application/find", middlewares.isLogged,applicationController.applicationDetails);
 router.patch("/application/addform", middlewares.isLogged,applicationController.addForm);
 router.delete("/application/removeform", middlewares.isLogged,applicationController.removeForms);
+router.get("/application/getassigned",middlewares.isLogged, applicationController.getAssignedApplications);
 
 module.exports = router;

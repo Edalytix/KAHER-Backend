@@ -37,7 +37,6 @@ module.exports.isLogged = async (req, res, next) => {
     } catch (error) {
       return res.status(401).json({ msg: error.message, data: {} });
     }
-
     const refreshTokenData = (
       await keyStore
         .Store({
@@ -51,7 +50,6 @@ module.exports.isLogged = async (req, res, next) => {
           token: refreshToken,
         })
     ).data;
-
     if (refreshTokenData === null) {
       return res
         .status(401)
