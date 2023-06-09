@@ -21,6 +21,7 @@ exports.updateApplication = ({
                     workflow: null,
                     comments: [],
                     activities: [],
+                    currentApprover: null,
                 };
 
                 if (params.title) {
@@ -28,7 +29,7 @@ exports.updateApplication = ({
                   } else {
                     delete entity.title;
                   }
-
+                  
                   if (params.user) {
                     entity.user = validate.mongoid(params.user).data.value;
                   } else {
@@ -57,6 +58,12 @@ exports.updateApplication = ({
                     entity.level = validate.applicationlevel(params.level).data.value;
                   } else {
                     delete entity.level;
+                  }
+
+                  if (params.currentApprover) {
+                    entity.currentApprover = validate.number(params.currentApprover).data.value;
+                  } else {
+                    delete entity.currentApprover;
                   }
 
                   if (params.comments) {

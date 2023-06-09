@@ -14,6 +14,9 @@ exports.addResponse = ({
 
                 let entity = {
                     fuid: null,
+                    wuid:null,
+                    uid:null,
+                    auid: null,
                     createdAt: Date.now(),
                     uid: null,
                     responses: []
@@ -23,6 +26,16 @@ exports.addResponse = ({
                     entity.fuid = validate.mongoid(params.fuid).data.value;
                   } else {
                     delete entity.fuid;
+                  }
+                  if (params.auid) {
+                    entity.auid = validate.mongoid(params.auid).data.value;
+                  } else {
+                    delete entity.auid;
+                  }
+                  if (params.wuid) {
+                    entity.wuid = validate.mongoid(params.wuid).data.value;
+                  } else {
+                    delete entity.wuid;
                   }
                   if (params.uid) {
                     entity.uid = validate.mongoid(params.uid).data.value;

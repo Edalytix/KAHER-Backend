@@ -21,16 +21,16 @@ const answerSchema = new mongoose.Schema({
 // Define the schema for the Response collection
 const responseSchema = new mongoose.Schema({
   fuid: {
-    type: { type: mongoose.Schema.Types.ObjectId, ref: 'Form'},
+     type: mongoose.Schema.Types.ObjectId, ref: 'Form',
   },
   uid: {
-    type: { type: mongoose.Schema.Types.ObjectId,ref: 'User'},
+    type: mongoose.Schema.Types.ObjectId,ref: 'User',
   },
   wuid:{
-    type: { type: mongoose.Schema.Types.ObjectId,ref: 'Workflow'},
-  },
+    type: mongoose.Schema.Types.ObjectId,ref: 'Workflow',
+  }, 
   auid:{
-    type: { type: mongoose.Schema.Types.ObjectId,ref: 'Application'},
+     type: mongoose.Schema.Types.ObjectId,ref: 'Application',
   },
   responses: [answerSchema],
   createdAt: {

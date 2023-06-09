@@ -72,6 +72,10 @@ const workflowSchema = new mongoose.Schema({
       default: false
     }
   }],
+  currentApprover: {
+    type: Number,
+    default: 1
+  },
   approvals: [{
     sequence: {
       type: Number,
@@ -104,6 +108,12 @@ const workflowSchema = new mongoose.Schema({
       default: Date.now,
     },
   }],
+  totalApprovers: {
+    type: Number,
+    default: function() {
+      return this.approvals.length;
+    }
+  },
   createdAt: {
     type: Date,
     default: Date.now,

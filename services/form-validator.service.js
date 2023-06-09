@@ -1,7 +1,7 @@
 "use strict";
 const moment = require("moment");
 const mongoose = require('mongoose');
-
+const { ObjectId } = require('mongodb');
 
 
 /*
@@ -143,7 +143,7 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
     },
     mongoid(x) {
       if (mongoose.Types.ObjectId.isValid(x)){
-        return { msg: "Valid", data: { value: x } };
+        return { msg: "Valid", data: { value: new ObjectId(x) } };
       } else {
         throw new CreateError(translate(lang, "invalid_salute"), 422);
       }
@@ -225,7 +225,7 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
 responses(x)
 {
   x.type = String(x.type).trim();
-      const options = ['string', 'file', 'number', 'date', 'singleChoice', 'multipleChoice', 'longstring'];
+      const options = ['string', 'file', 'number', 'date', 'singleChoice', 'multipleChoice', 'longString'];
       if (!options.includes(x.type)) {
         throw new CreateError(translate(lang, "invalid_goal_status"), 422);
       }
