@@ -65,7 +65,7 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
     },
     applicationlevel(x) {
       x = String(x).trim();
-      const options =  ['approved', 'rejected', 'waiting'];
+      const options =  ['approved', 'rejected', 'waiting', 'draft'];
       if (options.includes(x)) {
         return { msg: "Valid", data: { value: x } };
       } else {
@@ -228,7 +228,7 @@ responses(x)
       const options = ['string', 'file', 'number', 'date', 'singleChoice', 'multipleChoice', 'longString'];
       if (!options.includes(x.type)) {
         throw new CreateError(translate(lang, "invalid_goal_status"), 422);
-      }
+      } 
       if(x.string){
         this.questionResponseString(x.string)
     }
