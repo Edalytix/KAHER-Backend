@@ -80,11 +80,11 @@ exports.deleteDepartment = async (req, res, next) => {
   }
 };
 
-exports.updateDepartment = async (req, res, next) => {
+exports.updateResponse = async (req, res, next) => {
   try {
     const request = fromAdaptReq.adaptReq(req, res);
     const result = await fromUseCase
-      .updateDepartments({
+      .updateResponses({
         CreateError,
         DataValidator,
         logger, 

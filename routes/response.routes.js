@@ -11,7 +11,7 @@ const middlewares = require("../middlewares");
 router.post("/response/add", formController.createResponse);
 // router.delete("/form/delete", formController.deleteDepartment);
 // router.get("/form/findall", formController.findAllDepartments);
-// router.patch("/form/update", formController.updateDepartment);
+ router.patch("/response/update", formController.updateResponse);
 // router.patch("/form/adduser", formController.addUser);
 // router.get("/form/find", formController.formDetails);
 // router.get("/form/findusers", formController.listUsers);
