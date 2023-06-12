@@ -270,7 +270,7 @@ responses(x)
     },
     questionResponseLongString(x) {
       x = String(x);
-      if (/^\D{3,300}$/.test(x)) {
+      if (/^\D{2,300}$/.test(x)) {
         return { msg: "Valid", data: { value: x } };
       } else {
         throw new CreateError(translate(lang, "invalid_title"), 422);
