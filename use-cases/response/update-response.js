@@ -42,6 +42,7 @@ exports.Update = ({
           }).generate()
         ).data.entity;
 
+
 const ResponseFunction =db.methods.Response({
   translate,
   logger,
