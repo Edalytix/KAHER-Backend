@@ -198,3 +198,49 @@ exports.getAssignedApplications = async (req, res, next) => {
     next(error);
   }
 };
+
+exports.submitApplications = async (req, res, next) => {
+  try {
+    const request = fromAdaptReq.adaptReq(req, res);
+    const result = await fromUseCase
+      .submitApplications({
+        CreateError,
+        DataValidator,
+        logger, 
+        translate, 
+        crypto,
+        request,
+        db,
+        accessManager
+      })
+      .execute();
+
+    return res.status(201).json(result.data.res);
+  } catch (error) {
+    // console.log(error)
+    next(error);
+  }
+};
+
+exports.addComment = async (req, res, next) => {
+  try {
+    const request = fromAdaptReq.adaptReq(req, res);
+    const result = await fromUseCase
+      .addComment({
+        CreateError,
+        DataValidator,
+        logger, 
+        translate, 
+        crypto,
+        request,
+        db,
+        accessManager
+      })
+      .execute();
+
+    return res.status(201).json(result.data.res);
+  } catch (error) {
+    // console.log(error)
+    next(error);
+  }
+};

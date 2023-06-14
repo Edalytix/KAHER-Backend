@@ -1,6 +1,7 @@
 const fromCreateApplications = require("./create-application");
-// const fromAddForms = require("./add-forms");
+const fromAddComment = require("./add-comment");
 // const fromDeleteForms = require("./delete-forms");
+const fromSubmitApplications = require("./submit-application");
 const fromDeleteApplications = require("./delete-application");
 const fromFindAllApplications = require("./find-all-applications");
 const fromUpdateApplications = require("./update-application");
@@ -9,9 +10,9 @@ const fromGetAssignedApplications = require("./get-assigned-applications");
 
 exports.applicationUseCases = {
     createApplications: fromCreateApplications.Create,
-    // addForms: fromAddForms.AddForm,
-    // deleteForms: fromDeleteForms.RemoveForm,
+    addComment: fromAddComment.AddComment,
     updateApplications: fromUpdateApplications.Update,
+    submitApplications: fromSubmitApplications.Submit,
     deleteApplications: fromDeleteApplications.Delete,
     findAllApplications: fromFindAllApplications.FindAll,
      ApplicationDetails: fromApplicationDetails.ApplicationDetails,
