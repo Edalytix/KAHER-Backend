@@ -18,6 +18,6 @@ router.delete("/application/removeform", middlewares.isLogged,applicationControl
 router.get("/application/getassigned",middlewares.isLogged, applicationController.getAssignedApplications);
 router.get("/application/submit",middlewares.isLogged, applicationController.submitApplications);
 router.post("/application/addcomment",middlewares.isLogged, applicationController.addComment);
-
+router.get("/application/getcomment",middlewares.isLogged, applicationController.getComment);
 
 module.exports = router;
