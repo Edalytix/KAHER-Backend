@@ -30,7 +30,7 @@ exports.FindAllOfUsers = ({
           lang,
           role,
           db,
-          useCase: 'workflows:view',
+          useCase: 'applications:view',
         })
         if(!acesssRes)
         {

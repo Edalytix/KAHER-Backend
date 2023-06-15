@@ -29,7 +29,7 @@ exports.WorkflowDetails = ({
           lang,
           role,
           db,
-          useCase: 'forms:view',
+          useCase: 'workflows:view',
         })
         if(!acesssRes)
         {
