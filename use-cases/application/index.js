@@ -1,6 +1,7 @@
 const fromCreateApplications = require("./create-application");
 const fromAddComment = require("./add-comment");
 const fromGetComment = require("./get-comments");
+const fromGetUserApplications =  require('./get-user-application');
 // const fromDeleteForms = require("./delete-forms");
 const fromSubmitApplications = require("./submit-application");
 const fromDeleteApplications = require("./delete-application");
@@ -18,5 +19,6 @@ exports.applicationUseCases = {
     deleteApplications: fromDeleteApplications.Delete,
     findAllApplications: fromFindAllApplications.FindAll,
      ApplicationDetails: fromApplicationDetails.ApplicationDetails,
-    getAssignedApplications: fromGetAssignedApplications.FindAssignedApps
+    getAssignedApplications: fromGetAssignedApplications.FindAssignedApps,
+    getUserApplications: fromGetUserApplications.FindAllOfUsers
 };
