@@ -176,7 +176,7 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
     },
     comment(x) {
       x = String(x);
-      if (/^\D{3,300}$/.test(x)) {
+      if (/^\D{1,300}$/.test(x)) {
         return { msg: "Valid", data: { value: x } };
       } else {
         throw new CreateError(translate(lang, "invalid_firstname"), 422);
