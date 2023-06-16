@@ -14,7 +14,9 @@ exports.addComment = ({
                 let entity = {
                     name: null,
                     uid: null,
-                    comment: null,
+                    content: null,
+                    type: null,
+                    referlink: []
                 };
 
                 if (params.name) {
@@ -29,10 +31,16 @@ exports.addComment = ({
                     delete entity.uid;
                   }
 
-                  if (params.comment) {
-                    entity.comment = validate.comment(params.comment).data.value;
+                  if (params.content) {
+                    entity.content = validate.content(params.content).data.value;
                   } else {
-                    delete entity.comment;
+                    delete entity.content;
+                  }
+
+                  if (params.type) {
+                    entity.type = validate.actionType(params.type).data.value;
+                  } else {
+                    delete entity.type;
                   }
 
                   

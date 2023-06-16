@@ -35,6 +35,18 @@ exports.Submit = ({
           throw new CreateError(translate(lang, "forbidden"), 403);
         }
 
+        const date = new Date();
+const options = {
+  timeZone: 'Asia/Kolkata',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: 'numeric',
+  hour12: true
+};
+const formattedDate = date.toLocaleString('en-US', options);
+
         let entity = (
           await fromEntities.entities.Application.UpdateApplication({
             CreateError,
@@ -46,6 +58,13 @@ exports.Submit = ({
             params: { ...request.body, userUID },
           }).generate()
         ).data.entity;
+        
+        const CommentFunction =db.methods.Comment({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        })
 
 const ApplicationFunction =db.methods.Application({
   translate,
@@ -55,7 +74,13 @@ const ApplicationFunction =db.methods.Application({
 })
 
 const res = await ApplicationFunction.submit({id, params: {status: 'active', level: 'waiting'}})
-
+const resAction = await CommentFunction.addComment({id: id, params: {
+  name: request.body.name,
+  uid: request.body.uid,
+  content: `${request.body.name} submitted the Application on ${formattedDate}.`,
+  type: 'submission',
+  referlink: []
+}})
         return {
           msg: translate(lang, "created_mood"),
           data: { res},

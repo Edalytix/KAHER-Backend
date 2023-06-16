@@ -16,7 +16,7 @@ router.get("/application/find", middlewares.isLogged,applicationController.appli
 router.patch("/application/addform", middlewares.isLogged,applicationController.addForm);
 router.delete("/application/removeform", middlewares.isLogged,applicationController.removeForms);
 router.get("/application/getassigned",middlewares.isLogged, applicationController.getAssignedApplications);
-router.get("/application/submit",middlewares.isLogged, applicationController.submitApplications);
+router.post("/application/submit",middlewares.isLogged, applicationController.submitApplications);
 router.post("/application/addcomment",middlewares.isLogged, applicationController.addComment);
 router.get("/application/getcomment",middlewares.isLogged, applicationController.getComment);
 router.get("/application/userapplications",middlewares.isLogged, applicationController.getUserApplications);

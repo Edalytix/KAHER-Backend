@@ -174,12 +174,21 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
         throw new CreateError(translate(lang, "invalid_title"), 422);
       }
     },
-    comment(x) {
+    content(x) {
       x = String(x);
       if (/^\D{1,300}$/.test(x)) {
         return { msg: "Valid", data: { value: x } };
       } else {
         throw new CreateError(translate(lang, "invalid_firstname"), 422);
+      }
+    },
+    actionType(x) {
+      x = String(x).trim();
+      const options = ['activity', 'comment', 'approval'] ;
+      if (options.includes(x)) {
+        return { msg: "Valid", data: { value: x } };
+      } else {
+        throw new CreateError(translate(lang, "invalid_goal_status"), 422);
       }
     },
     activity(x) {
