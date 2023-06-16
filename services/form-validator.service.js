@@ -168,7 +168,7 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
     },
     title(x) {
       x = String(x);
-      if (/^[a-zA-Z\d ]{3,20}$/.test(x)) {
+      if (/^[a-zA-Z\d ]{3,30}$/.test(x)) {
         return { msg: "Valid", data: { value: x } }; 
       } else {
         throw new CreateError(translate(lang, "invalid_title"), 422);
