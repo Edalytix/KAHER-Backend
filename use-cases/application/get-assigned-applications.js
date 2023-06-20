@@ -50,7 +50,7 @@ exports.FindAssignedApps = ({
     const res = await ApplicationFunction.findAllAssignedApps(id)
         return {
           msg: translate(lang, "created_mood"),
-          data:  res ,
+          data:  {res} ,
         };
       } catch (error) {
         if (error instanceof CreateError) {

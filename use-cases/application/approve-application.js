@@ -57,7 +57,7 @@ const Workflow = (await WorkflowFunction.findById(res.data.application.workflow.
             if(Workflow.currentApprover === Workflow.totalApprovers)
             {
                 const res = await ApplicationFunction.update({id, params: {
-                    status: 'approved'
+                    level: 'approved'
                 }});
             }
             else
@@ -70,13 +70,13 @@ const Workflow = (await WorkflowFunction.findById(res.data.application.workflow.
         else if(request.body.approval==='rejected')
         {
             const res = await ApplicationFunction.update({id, params: {
-                status: 'rejected'
+                level: 'rejected'
             }});
         }
         else if(request.body.approval==='on-hold')
         {
             const res = await ApplicationFunction.update({id, params: {
-                status: 'on-hold'
+                level: 'on-hold'
             }});
         }
         else{

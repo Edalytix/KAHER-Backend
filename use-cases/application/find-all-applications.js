@@ -20,6 +20,7 @@ exports.FindAll = ({
         const userUID = request.locals.uid;
         const role = request.locals.role;
         const page = parseInt(request.queryParams.page) ;
+        const search = request.queryParams.search ;
         const limit = parseInt(request.queryParams.limit);
 
 
@@ -43,9 +44,9 @@ exports.FindAll = ({
         CreateError,
         lang,
       })
+console.log("search", search)
 
-
-    const res = await ApplicationFunction.findAll(page,limit)
+    const res = await ApplicationFunction.findAll(page,limit,search)
         return {
           msg: translate(lang, "created_mood"),
           data:  res ,
