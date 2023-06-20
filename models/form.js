@@ -23,9 +23,9 @@ const FormSchema = new Schema({
   createdAt: { type: Date, required: true, default: Date.now },
   workflows: { type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Workflow' }], required: true },
   questions:{ type:[FormQuestionSchema], required: true },
-  status: { type: String, enum: ['active', 'inactive'], default: 'inactive' }
+  status: { type: String, enum: ['active', 'inactive', 'draft'], default: 'inactive' }
 });
- 
+
 const Form = mongoose.model('Form', FormSchema);
 module.exports = {FormQuestionOptionSchema,FormQuestionSchema}
 return Form;

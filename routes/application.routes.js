@@ -4,6 +4,7 @@ const router = express.Router();
 const applicationController = require("../controllers").application;
 
 const middlewares = require("../middlewares");
+const appMiddlewares = require("../middlewares");
 
 /*
  * @desc /auth
@@ -20,5 +21,5 @@ router.post("/application/submit",middlewares.isLogged, applicationController.su
 router.post("/application/addcomment",middlewares.isLogged, applicationController.addComment);
 router.get("/application/getcomment",middlewares.isLogged, applicationController.getComment);
 router.get("/application/userapplications",middlewares.isLogged, applicationController.getUserApplications);
-
+router.post("/application/approvalupdate", appMiddlewares.isLogged, applicationController.approveApplication)
 module.exports = router;

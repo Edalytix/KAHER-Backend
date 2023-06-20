@@ -36,21 +36,15 @@ exports.ApprovalUpdate = ({
           throw new CreateError(translate(lang, "forbidden"), 403);
         }
 
-const ApplicationFunction =db.methods.Application({
-  translate,
-  logger,
-  CreateError,
-  lang,
-})
-
-        const approval = request.body.approval;
-        if(approval === 'approved')
-        {
-
-        }
-
-
-const res = await ApplicationFunction.update({id, params: entity})
+        const ApplicationFunction =db.methods.Application({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        })
+        
+        const res = await ApplicationFunction.findByID(id)
+        console.log(res)
 
         return {
           msg: translate(lang, "created_mood"),

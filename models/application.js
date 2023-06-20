@@ -48,7 +48,7 @@ const applicationSchema = new mongoose.Schema({
   },
   level: {
     type: String,
-    enum: ['approved', 'rejected', 'waiting', 'draft'],
+    enum: ['approved', 'rejected', 'waiting', 'on-hold', 'draft'],
     default: 'waiting',
   },
   department: {
