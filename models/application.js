@@ -1,3 +1,4 @@
+const Comment = require('./comment');
 /**
  * @typedef { import("mongoose").Schema } Schema
  * @typedef { import("mongoose").Model } Model
@@ -65,21 +66,21 @@ const applicationSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  comments: [{
-    id: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-      required: true,
-    },
-    date: {
-      type: Date,
-      default: Date.now,
-    },
-    comment: {
-      type: String,
-      required: true,
-    },
-  }],
+  // comments: [{
+  //   id: {
+  //     type: mongoose.Schema.Types.ObjectId,
+  //     ref: 'User',
+  //     required: true,
+  //   },
+  //   date: {
+  //     type: Date,
+  //     default: Date.now,
+  //   },
+  //   comment: {
+  //     type: String,
+  //     required: true,
+  //   },
+  // }],
   activities: [{
     id: {
       type: mongoose.Schema.Types.ObjectId,
@@ -94,12 +95,39 @@ const applicationSchema = new mongoose.Schema({
       type: String,
       enum: ['status change', 'comment'],
     },
+    comments: {
+      type: Number,
+      default: 0,
+    },
     activity: {
       type: String,
       required: true,
     },
   }],
 });
+
+applicationSchema.statics.aggregateWithActionsCount = function( callback) {
+  const Application = this;
+  
+  Application.aggregate([
+    {
+      $match: { _id: this._id }
+    },
+    {
+      $lookup: {
+        from: 'comments',
+        localField: '_id',
+        foreignField: 'applicationId',
+        as: 'comments'
+      }
+    },
+    {
+      $addFields: {
+        actionsCount: { $sum: '$comments.actions' }
+      }
+    }
+  ], callback);
+};
 
 /**
  * @typedef {Model<ApplicationDocument>} ApplicationModel
