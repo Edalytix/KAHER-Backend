@@ -21,6 +21,7 @@ exports.FindAll = ({
         const role = request.locals.role;
         const page = parseInt(request.queryParams.page)
         const limit = parseInt(request.queryParams.limit)
+        const search = request.queryParams.search ;
 
 
         const acesssRes = await accessManager({
@@ -44,7 +45,7 @@ const DepartmentFunction =db.methods.Department({
   lang,
 })
 
-    const res = await DepartmentFunction.findAll(page,limit)
+    const res = await DepartmentFunction.findAll(page,limit,search)
         return {
           msg: translate(lang, "created_mood"),
           data:  res ,

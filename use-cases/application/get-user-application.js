@@ -21,6 +21,7 @@ exports.FindAllOfUsers = ({
         const role = request.locals.role;
         const page = parseInt(request.queryParams.page) ;
         const limit = parseInt(request.queryParams.limit);
+        const search = request.queryParams.search ;
 
 
         const acesssRes = await accessManager({
@@ -45,7 +46,7 @@ exports.FindAllOfUsers = ({
       })
 
 
-    const res = await ApplicationFunction.findAllOfUsers(page,limit, userUID)
+    const res = await ApplicationFunction.findAllOfUsers(page,limit, userUID,search)
         return {
           msg: translate(lang, "created_mood"),
           data:  res ,

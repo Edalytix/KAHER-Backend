@@ -1,6 +1,6 @@
 
 const fromEntities = require("../../entity");
-
+const { ObjectId } = require('mongodb');
 
 exports.ApprovalUpdate = ({
   CreateError,
@@ -42,6 +42,13 @@ const ApplicationFunction =db.methods.Application({
   lang,
 })
 
+const UserFunction =db.methods.User({
+  translate,
+  logger,
+  CreateError,
+  lang,
+})
+
 const WorkflowFunction =db.methods.Workflow({
     translate,
     logger,
@@ -50,7 +57,39 @@ const WorkflowFunction =db.methods.Workflow({
   })
 
 const res = await ApplicationFunction.findById(id)
+
+let currentApprover = 0;
 const Workflow = (await WorkflowFunction.findById(res.data.application.workflow._id)).data.workflow;
+
+
+        for (const element of Workflow.approvals) {
+
+          if(element.approvalBy.user)
+          {
+            if(element.approvalBy.user._id.toString() == userUID.toString())
+            {
+              currentApprover=element.sequence;
+            }
+          }
+          else
+          {
+            const user = await UserFunction.findByParams({
+              _id: new ObjectId(userUID),
+               role: element.approvalBy.role._id,
+              'department.id': element.approvalBy.department._id.toString(),
+            })
+
+            if(user.data.length !== 0)
+            {
+              currentApprover=element.sequence;
+            }
+          }
+        };
+
+         if(currentApprover!==Workflow.currentApprover)
+         {
+           throw new CreateError(translate(lang, "forbidden"), 403);
+         }
 
         if(request.body.approval==='approved')
         {

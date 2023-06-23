@@ -21,7 +21,7 @@ exports.FindAllUsers = ({
         const role = request.locals.role;
         const page = parseInt(request.queryParams.page)
         const limit = parseInt(request.queryParams.limit) 
-
+        const search = request.queryParams.search ;
 
         const acesssRes = await accessManager({
           translate,
@@ -43,7 +43,7 @@ exports.FindAllUsers = ({
             CreateError,
             lang,
             })
-        const res = await UserFunction.findAll(page,limit)
+        const res = await UserFunction.findAll(page,limit,search)
         return {
           msg: translate(lang, "created_mood"),
           data: { res },
