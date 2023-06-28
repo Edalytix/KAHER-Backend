@@ -1,5 +1,4 @@
-const fromEntities = require("../../entity");
-
+const fromEntities = require('../../entity');
 
 exports.Create = ({
   CreateError,
@@ -10,7 +9,7 @@ exports.Create = ({
   request,
   db,
   ac,
-  accessManager
+  accessManager,
 }) => {
   return Object.freeze({
     execute: async () => {
@@ -20,7 +19,7 @@ exports.Create = ({
         const userUID = request.locals.uid;
         const role = request.locals.role;
         let lowLimit = request.queryParams.lowLimit;
-
+        console.log(role);
 
         const acesssRes = await accessManager({
           translate,
@@ -30,10 +29,9 @@ exports.Create = ({
           role,
           db,
           useCase: 'roles:edit',
-        })
-        if(!acesssRes)
-        {
-          throw new CreateError(translate(lang, "forbidden"), 403);
+        });
+        if (!acesssRes) {
+          throw new CreateError(translate(lang, 'forbidden'), 403);
         }
 
         let entity = (
@@ -48,19 +46,17 @@ exports.Create = ({
           }).generate()
         ).data.entity;
 
-const RoleFunction =db.methods.Role({
-  translate,
-  logger,
-  CreateError,
-  lang,
-})
+        const RoleFunction = db.methods.Role({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
 
-
-
-const res = await RoleFunction.create(entity)
+        const res = await RoleFunction.create(entity);
         return {
-          msg: translate(lang, "created_mood"),
-          data: { res},
+          msg: translate(lang, 'created_mood'),
+          data: { res },
         };
       } catch (error) {
         if (error instanceof CreateError) {

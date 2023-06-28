@@ -1,5 +1,4 @@
-const fromEntities = require("../../entity");
-
+const fromEntities = require('../../entity');
 
 exports.UserDetails = ({
   CreateError,
@@ -20,31 +19,20 @@ exports.UserDetails = ({
         const role = request.locals.role;
         const id = request.queryParams.id;
 
+        if (userUID !== id) {
+          throw new CreateError(translate(lang, 'forbidden'), 403);
+        }
 
-        const acesssRes = await accessManager({
+        const UserFunction = db.methods.User({
           translate,
           logger,
           CreateError,
           lang,
-          role,
-          db,
-          useCase: 'users:view',
-        })
-        if(!acesssRes)
-        {
-          throw new CreateError(translate(lang, "forbidden"), 403);
-        }
+        });
 
-            const UserFunction = db.methods.User({
-            translate,
-            logger,
-            CreateError,
-            lang,
-            })
-
-        const res = await UserFunction.findById(id)
+        const res = await UserFunction.findById(id);
         return {
-          msg: translate(lang, "created_mood"),
+          msg: translate(lang, 'created_mood'),
           data: { res },
         };
       } catch (error) {

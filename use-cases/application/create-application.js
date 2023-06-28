@@ -1,5 +1,4 @@
-const fromEntities = require("../../entity");
-
+const fromEntities = require('../../entity');
 
 exports.Create = ({
   CreateError,
@@ -10,7 +9,7 @@ exports.Create = ({
   request,
   db,
   ac,
-  accessManager
+  accessManager,
 }) => {
   return Object.freeze({
     execute: async () => {
@@ -19,7 +18,7 @@ exports.Create = ({
         const email = request.locals.email;
         const userUID = request.locals.uid;
         const role = request.locals.role;
-
+        console.log(role);
         const acesssRes = await accessManager({
           translate,
           logger,
@@ -28,10 +27,9 @@ exports.Create = ({
           role,
           db,
           useCase: 'applications:edit',
-        })
-        if(!acesssRes)
-        {
-          throw new CreateError(translate(lang, "forbidden"), 403);
+        });
+        if (!acesssRes) {
+          throw new CreateError(translate(lang, 'forbidden'), 403);
         }
         let entity = (
           await fromEntities.entities.Application.CreateApplication({
@@ -50,34 +48,35 @@ exports.Create = ({
           logger,
           CreateError,
           lang,
-        })
+        });
 
         const WorkflowFunction = db.methods.Workflow({
-            translate,
-            logger,
-            CreateError,
-            lang,
-          })
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
 
         const workflow = await WorkflowFunction.findById(entity.workflow);
 
-        if(workflow.data.workflow === null)  throw new CreateError(translate(lang, "invalid_uid"), 422);
+        if (workflow.data.workflow === null)
+          throw new CreateError(translate(lang, 'invalid_uid'), 422);
 
         const DepartmentFunction = db.methods.Department({
-            translate,
-            logger,
-            CreateError,
-            lang,
-          }) 
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
 
         const department = await DepartmentFunction.findById(entity.department);
-        if(department.data.department === null)  throw new CreateError(translate(lang, "invalid_uid"), 422);
-  
+        if (department.data.department === null)
+          throw new CreateError(translate(lang, 'invalid_uid'), 422);
 
         const res = await ApplicationFunction.create(entity);
 
         return {
-          msg: translate(lang, "created_mood"),
+          msg: translate(lang, 'created_mood'),
           data: { res },
         };
       } catch (error) {

@@ -46,73 +46,81 @@ const mongoose = require('mongoose');
 const workflowSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true
+    required: true,
   },
-  applications: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Application'
-  }],
+  applications: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Application',
+    },
+  ],
   status: {
     type: String,
     enum: ['active', 'inactive'],
-    default: 'active'
+    default: 'active',
   },
   level: {
     type: String,
     enum: ['draft', 'published'],
-    default: 'draft'
+    default: 'draft',
   },
-  forms: [{
-    form: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Form'
+  forms: [
+    {
+      form: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Form',
+      },
+      required: {
+        type: Boolean,
+        default: false,
+      },
     },
-    required: {
-      type: Boolean,
-      default: false
-    }
-  }],
+  ],
   currentApprover: {
     type: Number,
-    default: 1
+    default: 1,
   },
-  approvals: [{
-    sequence: {
-      type: Number,
-      required: true,
-    },
-    name: {
-      type: String,
-      required: true
-    },
-    approvalBy: {
-      user:
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+  approvals: [
+    {
+      sequence: {
+        type: Number,
+        required: true,
       },
-      department:
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Department'
+      name: {
+        type: String,
+        required: true,
       },
-      role:
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Role'
-      }
-      
+      approvalBy: {
+        user: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'User',
+        },
+        department: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'Department',
+        },
+        role: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'Role',
+        },
+      },
+      assignedAt: {
+        type: Date,
+        default: Date.now,
+      },
     },
-    assignedAt: {
-      type: Date,
-      default: Date.now,
-    },
-  }],
+  ],
   totalApprovers: {
     type: Number,
-    default: function() {
+    default: function () {
       return this.approvals.length;
-    }
+    },
+  },
+  totalApplications: {
+    type: Number,
+    default: function () {
+      return this.applications.length;
+    },
   },
   createdAt: {
     type: Date,
