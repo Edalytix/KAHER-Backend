@@ -1,6 +1,4 @@
-
-const fromEntities = require("../../entity");
-
+const fromEntities = require('../../entity');
 
 exports.GetComment = ({
   CreateError,
@@ -21,37 +19,36 @@ exports.GetComment = ({
         const role = request.locals.role;
         let id = request.queryParams.id;
 
-        const acesssRes = await accessManager({
+        // const acesssRes = await accessManager({
+        //   translate,
+        //   logger,
+        //   CreateError,
+        //   lang,
+        //   role,
+        //   db,
+        //   useCase: 'applications:edit',
+        // })
+        // if(!acesssRes)
+        // {
+        //   throw new CreateError(translate(lang, "forbidden"), 403);
+        // }
+
+        const CommentFunction = db.methods.Comment({
           translate,
           logger,
           CreateError,
           lang,
-          role,
-          db,
-          useCase: 'applications:edit',
-        })
-        if(!acesssRes)
-        {
-          throw new CreateError(translate(lang, "forbidden"), 403);
-        }
-
-        const CommentFunction =db.methods.Comment({
-            translate,
-            logger,
-            CreateError,
-            lang,
-          })
-        if(!acesssRes)
-        {
-          throw new CreateError(translate(lang, "forbidden"), 403);
+        });
+        if (!acesssRes) {
+          throw new CreateError(translate(lang, 'forbidden'), 403);
         }
 
         const comment = (await CommentFunction.findById(id)).data.comment;
-        console.log(comment)
+        console.log(comment);
 
         return {
-          msg: translate(lang, "created_mood"),
-          data: { comment},
+          msg: translate(lang, 'created_mood'),
+          data: { comment },
         };
       } catch (error) {
         if (error instanceof CreateError) {
