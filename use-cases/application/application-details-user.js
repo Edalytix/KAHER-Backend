@@ -34,10 +34,6 @@ exports.ApplicationDetails = ({
         //   throw new CreateError(translate(lang, "forbidden"), 403);
         // }
 
-        if (userUID !== id) {
-          throw new CreateError(translate(lang, 'forbidden'), 403);
-        }
-
         const ApplicationFunction = db.methods.Application({
           translate,
           logger,
