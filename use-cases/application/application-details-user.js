@@ -1,6 +1,6 @@
 const fromEntities = require('../../entity');
 
-exports.FindAll = ({
+exports.ApplicationDetails = ({
   CreateError,
   DataValidator,
   logger,
@@ -18,9 +18,7 @@ exports.FindAll = ({
         const email = request.locals.email;
         const userUID = request.locals.uid;
         const role = request.locals.role;
-        const page = parseInt(request.queryParams.page);
-        const limit = parseInt(request.queryParams.limit);
-        const search = request.queryParams.search;
+        const id = request.queryParams.id;
 
         // const acesssRes = await accessManager({
         //   translate,
@@ -29,21 +27,25 @@ exports.FindAll = ({
         //   lang,
         //   role,
         //   db,
-        //   useCase: 'workflows:view',
+        //   useCase: 'forms:view',
         // })
         // if(!acesssRes)
         // {
         //   throw new CreateError(translate(lang, "forbidden"), 403);
         // }
 
-        const WorkflowFunction = db.methods.Workflow({
+        if (userUID !== id) {
+          throw new CreateError(translate(lang, 'forbidden'), 403);
+        }
+
+        const ApplicationFunction = db.methods.Application({
           translate,
           logger,
           CreateError,
           lang,
         });
 
-        const res = await WorkflowFunction.findAll(page, limit, search);
+        const res = await ApplicationFunction.findById(id);
         return {
           msg: translate(lang, 'created_mood'),
           data: res,

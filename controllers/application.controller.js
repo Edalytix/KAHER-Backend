@@ -1,14 +1,13 @@
-const fromAdaptReq = require("../utils/adapt-req");
+const fromAdaptReq = require('../utils/adapt-req');
 // const ac = require("../roles");
-const translate = require("../i18n/msg");
-const crypto = require("../lib/crypto").crypto;
-const DataValidator = require("../services").Services.DataValidator;
-const CreateError = require("../error/dp-error").CreateError;
-const logger = require("../utils/logger").logger;
-const db = require("../lib/database").database;
-const fromUseCase = require("../use-cases/application").applicationUseCases
-const accessManager = require("../services/access-manager").accessManager;
-
+const translate = require('../i18n/msg');
+const crypto = require('../lib/crypto').crypto;
+const DataValidator = require('../services').Services.DataValidator;
+const CreateError = require('../error/dp-error').CreateError;
+const logger = require('../utils/logger').logger;
+const db = require('../lib/database').database;
+const fromUseCase = require('../use-cases/application').applicationUseCases;
+const accessManager = require('../services/access-manager').accessManager;
 
 exports.createApplication = async (req, res, next) => {
   try {
@@ -17,18 +16,16 @@ exports.createApplication = async (req, res, next) => {
       .createApplications({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
-        accessManager
+        accessManager,
       })
       .execute();
 
-    return res.status(201).json(
-      result.data.res,
-    );
+    return res.status(201).json(result.data.res);
   } catch (error) {
     // console.log(error)
     next(error);
@@ -42,12 +39,12 @@ exports.findAllApplications = async (req, res, next) => {
       .findAllApplications({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
-        accessManager
+        accessManager,
       })
       .execute();
 
@@ -65,12 +62,12 @@ exports.deleteApplication = async (req, res, next) => {
       .deleteApplications({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
-        accessManager
+        accessManager,
       })
       .execute();
 
@@ -81,19 +78,42 @@ exports.deleteApplication = async (req, res, next) => {
   }
 };
 
+exports.applicationDetailsForUser = async (req, res, next) => {
+  try {
+    const request = fromAdaptReq.adaptReq(req, res);
+    const result = await fromUseCase
+      .ApplicationDetailsForUser({
+        CreateError,
+        DataValidator,
+        logger,
+        translate,
+        crypto,
+        request,
+        db,
+        accessManager,
+      })
+      .execute();
+
+    return res.status(201).json(result.data);
+  } catch (error) {
+    // console.log(error)
+    next(error);
+  }
+};
+
 exports.applicationDetails = async (req, res, next) => {
   try {
     const request = fromAdaptReq.adaptReq(req, res);
     const result = await fromUseCase
-    .ApplicationDetails({
+      .ApplicationDetails({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
-        accessManager
+        accessManager,
       })
       .execute();
 
@@ -111,12 +131,12 @@ exports.addForm = async (req, res, next) => {
       .addForms({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
-        accessManager
+        accessManager,
       })
       .execute();
 
@@ -137,12 +157,12 @@ exports.removeForms = async (req, res, next) => {
       .deleteForms({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
-        accessManager
+        accessManager,
       })
       .execute();
 
@@ -160,12 +180,12 @@ exports.updateApplication = async (req, res, next) => {
       .updateApplications({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
-        accessManager
+        accessManager,
       })
       .execute();
 
@@ -183,12 +203,12 @@ exports.getAssignedApplications = async (req, res, next) => {
       .getAssignedApplications({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
-        accessManager
+        accessManager,
       })
       .execute();
 
@@ -206,12 +226,12 @@ exports.submitApplications = async (req, res, next) => {
       .submitApplications({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
-        accessManager
+        accessManager,
       })
       .execute();
 
@@ -229,12 +249,12 @@ exports.addComment = async (req, res, next) => {
       .addComment({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
-        accessManager
+        accessManager,
       })
       .execute();
 
@@ -252,12 +272,12 @@ exports.getComment = async (req, res, next) => {
       .getComment({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
-        accessManager
+        accessManager,
       })
       .execute();
 
@@ -275,12 +295,35 @@ exports.getUserApplications = async (req, res, next) => {
       .getUserApplications({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
-        accessManager
+        accessManager,
+      })
+      .execute();
+
+    return res.status(201).json(result.data);
+  } catch (error) {
+    // console.log(error)
+    next(error);
+  }
+};
+
+exports.getUserApplicationsViaAdmin = async (req, res, next) => {
+  try {
+    const request = fromAdaptReq.adaptReq(req, res);
+    const result = await fromUseCase
+      .getUserApplicationsViaAdmin({
+        CreateError,
+        DataValidator,
+        logger,
+        translate,
+        crypto,
+        request,
+        db,
+        accessManager,
       })
       .execute();
 
@@ -298,12 +341,12 @@ exports.approveApplication = async (req, res, next) => {
       .approveApplication({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
-        accessManager
+        accessManager,
       })
       .execute();
 
