@@ -1,6 +1,4 @@
-
-const fromEntities = require("../../entity");
-
+const fromEntities = require('../../entity');
 
 exports.AddComment = ({
   CreateError,
@@ -29,28 +27,27 @@ exports.AddComment = ({
           role,
           db,
           useCase: 'applications:edit',
-        })
-        if(!acesssRes)
-        {
-          throw new CreateError(translate(lang, "forbidden"), 403);
+        });
+        if (!acesssRes) {
+          throw new CreateError(translate(lang, 'forbidden'), 403);
         }
 
-        const CommentFunction =db.methods.Comment({
-            translate,
-            logger,
-            CreateError,
-            lang,
-          })
-        if(!acesssRes)
-        {
-          throw new CreateError(translate(lang, "forbidden"), 403);
-        }
+        const CommentFunction = db.methods.Comment({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
 
         const comment = (await CommentFunction.findById(id)).data.comment;
-        const permittedUsers = comment.tags.map(item => item.uid.toString());
 
-        if(!permittedUsers.includes(userUID)){
-            throw new CreateError(translate(lang, "forbidden"), 403);
+        if (comment === null) {
+          throw new CreateError('No comment found.', 403);
+        }
+        const permittedUsers = comment?.tags.map((item) => item.uid.toString());
+
+        if (!permittedUsers.includes(userUID)) {
+          throw new CreateError(translate(lang, 'forbidden'), 403);
         }
 
         let entity = (
@@ -64,12 +61,15 @@ exports.AddComment = ({
             params: { ...request.body, userUID, type: 'comment' },
           }).generate()
         ).data.entity;
- 
-        const res = await CommentFunction.addComment({id: id, params: entity})
+
+        const res = await CommentFunction.addComment({
+          id: id,
+          params: entity,
+        });
 
         return {
-          msg: translate(lang, "created_mood"),
-          data: { res},
+          msg: translate(lang, 'created_mood'),
+          data: { res },
         };
       } catch (error) {
         if (error instanceof CreateError) {

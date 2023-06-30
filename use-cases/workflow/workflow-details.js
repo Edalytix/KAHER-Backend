@@ -1,5 +1,4 @@
-const fromEntities = require("../../entity");
-
+const fromEntities = require('../../entity');
 
 exports.WorkflowDetails = ({
   CreateError,
@@ -10,7 +9,7 @@ exports.WorkflowDetails = ({
   request,
   db,
   ac,
-  accessManager
+  accessManager,
 }) => {
   return Object.freeze({
     execute: async () => {
@@ -21,32 +20,17 @@ exports.WorkflowDetails = ({
         const role = request.locals.role;
         const id = request.queryParams.id;
 
-
-        const acesssRes = await accessManager({
+        const WorkflowFunction = db.methods.Workflow({
           translate,
           logger,
           CreateError,
           lang,
-          role,
-          db,
-          useCase: 'workflows:view',
-        })
-        if(!acesssRes)
-        {
-          throw new CreateError(translate(lang, "forbidden"), 403);
-        }
+        });
 
-            const WorkflowFunction = db.methods.Workflow({
-            translate,
-            logger,
-            CreateError,
-            lang,
-            })
-
-        const res = await WorkflowFunction.findById(id)
+        const res = await WorkflowFunction.findById(id);
         return {
-          msg: translate(lang, "created_mood"),
-          data:  res ,
+          msg: translate(lang, 'created_mood'),
+          data: res,
         };
       } catch (error) {
         if (error instanceof CreateError) {
