@@ -19,7 +19,17 @@ exports.UserDetails = ({
         const role = request.locals.role;
         const id = request.queryParams.id;
 
-        if (userUID !== id) {
+        const acesssRes = await accessManager({
+          translate,
+          logger,
+          CreateError,
+          lang,
+          role,
+          db,
+          useCase: 'users:edit',
+        });
+
+        if (userUID !== id && !acesssRes) {
           throw new CreateError(translate(lang, 'forbidden'), 403);
         }
 
