@@ -315,7 +315,7 @@ exports.getUserApplicationsViaAdmin = async (req, res, next) => {
   try {
     const request = fromAdaptReq.adaptReq(req, res);
     const result = await fromUseCase
-      .getUserApplicationsViaAdmin({
+      .getAssignedViaAdminApplications({
         CreateError,
         DataValidator,
         logger,
