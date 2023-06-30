@@ -1,6 +1,4 @@
-
-const fromEntities = require("../../entity");
-
+const fromEntities = require('../../entity');
 
 exports.Update = ({
   CreateError,
@@ -21,19 +19,19 @@ exports.Update = ({
         const role = request.locals.role;
         let id = request.queryParams.id;
 
-        const acesssRes = await accessManager({
-          translate,
-          logger,
-          CreateError,
-          lang,
-          role,
-          db,
-          useCase: 'applications:edit',
-        })
-        if(!acesssRes)
-        {
-          throw new CreateError(translate(lang, "forbidden"), 403);
-        }
+        // const acesssRes = await accessManager({
+        //   translate,
+        //   logger,
+        //   CreateError,
+        //   lang,
+        //   role,
+        //   db,
+        //   useCase: 'applications:edit',
+        // })
+        // if(!acesssRes)
+        // {
+        //   throw new CreateError(translate(lang, "forbidden"), 403);
+        // }
 
         let entity = (
           await fromEntities.entities.Application.UpdateApplication({
@@ -47,18 +45,18 @@ exports.Update = ({
           }).generate()
         ).data.entity;
 
-const ApplicationFunction =db.methods.Application({
-  translate,
-  logger,
-  CreateError,
-  lang,
-})
+        const ApplicationFunction = db.methods.Application({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
 
-const res = await ApplicationFunction.update({id, params: entity})
+        const res = await ApplicationFunction.update({ id, params: entity });
 
         return {
-          msg: translate(lang, "created_mood"),
-          data: { res},
+          msg: translate(lang, 'created_mood'),
+          data: { res },
         };
       } catch (error) {
         if (error instanceof CreateError) {
