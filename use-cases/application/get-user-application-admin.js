@@ -32,9 +32,9 @@ exports.FindAllOfUsers = ({
           db,
           useCase: 'applications:view',
         });
-        if (!acesssRes) {
-          throw new CreateError(translate(lang, 'forbidden'), 403);
-        }
+        // if (!acesssRes) {
+        //   throw new CreateError(translate(lang, 'forbidden'), 403);
+        // }
 
         const ApplicationFunction = db.methods.Application({
           translate,

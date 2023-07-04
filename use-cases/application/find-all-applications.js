@@ -1,5 +1,4 @@
-const fromEntities = require("../../entity");
-
+const fromEntities = require('../../entity');
 
 exports.FindAll = ({
   CreateError,
@@ -10,7 +9,7 @@ exports.FindAll = ({
   request,
   db,
   ac,
-  accessManager
+  accessManager,
 }) => {
   return Object.freeze({
     execute: async () => {
@@ -19,10 +18,9 @@ exports.FindAll = ({
         const email = request.locals.email;
         const userUID = request.locals.uid;
         const role = request.locals.role;
-        const page = parseInt(request.queryParams.page) ;
-        const search = request.queryParams.search ;
+        const page = parseInt(request.queryParams.page);
+        const search = request.queryParams.search;
         const limit = parseInt(request.queryParams.limit);
-
 
         const acesssRes = await accessManager({
           translate,
@@ -31,25 +29,24 @@ exports.FindAll = ({
           lang,
           role,
           db,
-          useCase: 'workflows:view',
-        })
-        if(!acesssRes)
-        {
-          throw new CreateError(translate(lang, "forbidden"), 403);
+          useCase: 'applications:view',
+        });
+        if (!acesssRes) {
+          throw new CreateError(translate(lang, 'forbidden'), 403);
         }
 
-      const ApplicationFunction = db.methods.Application({
-        translate,
-        logger,
-        CreateError,
-        lang,
-      })
-console.log("search", search)
+        const ApplicationFunction = db.methods.Application({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
+        console.log('search', search);
 
-    const res = await ApplicationFunction.findAll(page,limit,search)
+        const res = await ApplicationFunction.findAll(page, limit, search);
         return {
-          msg: translate(lang, "created_mood"),
-          data:  res ,
+          msg: translate(lang, 'created_mood'),
+          data: res,
         };
       } catch (error) {
         if (error instanceof CreateError) {

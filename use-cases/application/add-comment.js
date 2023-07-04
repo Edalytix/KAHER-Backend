@@ -19,18 +19,18 @@ exports.AddComment = ({
         const role = request.locals.role;
         let id = request.queryParams.id;
 
-        const acesssRes = await accessManager({
-          translate,
-          logger,
-          CreateError,
-          lang,
-          role,
-          db,
-          useCase: 'applications:edit',
-        });
-        if (!acesssRes) {
-          throw new CreateError(translate(lang, 'forbidden'), 403);
-        }
+        // const acesssRes = await accessManager({
+        //   translate,
+        //   logger,
+        //   CreateError,
+        //   lang,
+        //   role,
+        //   db,
+        //   useCase: 'applications:edit',
+        // });
+        // if (!acesssRes) {
+        //   throw new CreateError(translate(lang, 'forbidden'), 403);
+        // }
 
         const CommentFunction = db.methods.Comment({
           translate,

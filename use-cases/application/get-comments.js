@@ -39,9 +39,9 @@ exports.GetComment = ({
           CreateError,
           lang,
         });
-        if (!acesssRes) {
-          throw new CreateError(translate(lang, 'forbidden'), 403);
-        }
+        // if (!acesssRes) {
+        //   throw new CreateError(translate(lang, 'forbidden'), 403);
+        // }
 
         const comment = (await CommentFunction.findById(id)).data.comment;
         console.log(comment);
