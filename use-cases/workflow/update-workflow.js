@@ -1,6 +1,5 @@
-
-const fromEntities = require("../../entity");
-
+const fromEntities = require('../../entity');
+const { Workflow } = require('../../lib/database/methods/workflow');
 
 exports.Update = ({
   CreateError,
@@ -29,10 +28,9 @@ exports.Update = ({
           role,
           db,
           useCase: 'workflows:edit',
-        })
-        if(!acesssRes)
-        {
-          throw new CreateError(translate(lang, "forbidden"), 403);
+        });
+        if (!acesssRes) {
+          throw new CreateError(translate(lang, 'forbidden'), 403);
         }
 
         let entity = (
@@ -47,19 +45,32 @@ exports.Update = ({
           }).generate()
         ).data.entity;
 
+        const WorkflowFunction = db.methods.Workflow({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
 
-const WorkflowFunction =db.methods.Workflow({
-  translate,
-  logger,
-  CreateError,
-  lang,
-})
+        const workflow = await WorkflowFunction.findById(id);
+        const newWorklow = {
+          ...workflow.data.workflow._doc,
+        };
+        delete newWorklow._id;
+        newWorklow.applications = [];
+        newWorklow.currentApprover = 1;
 
-const res = await WorkflowFunction.update({id, params: entity})
+        const newRes = await WorkflowFunction.create(newWorklow);
+        entity.version = 'older';
+
+        const res = await WorkflowFunction.update({
+          id,
+          params: entity,
+        });
 
         return {
-          msg: translate(lang, "created_mood"),
-          data: { res},
+          msg: translate(lang, 'created_mood'),
+          data: { res },
         };
       } catch (error) {
         if (error instanceof CreateError) {

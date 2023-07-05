@@ -1,5 +1,4 @@
-const fromEntities = require("../../entity");
-
+const fromEntities = require('../../entity');
 
 exports.Delete = ({
   CreateError,
@@ -10,7 +9,7 @@ exports.Delete = ({
   request,
   db,
   ac,
-  accessManager
+  accessManager,
 }) => {
   return Object.freeze({
     execute: async () => {
@@ -22,7 +21,6 @@ exports.Delete = ({
         const id = request.queryParams.id;
         let lowLimit = request.queryParams.lowLimit;
 
-
         const acesssRes = await accessManager({
           translate,
           logger,
@@ -31,30 +29,31 @@ exports.Delete = ({
           role,
           db,
           useCase: 'workflows:edit',
-        })
-        if(!acesssRes)
-        {
-          throw new CreateError(translate(lang, "forbidden"), 403);
+        });
+        if (!acesssRes) {
+          throw new CreateError(translate(lang, 'forbidden'), 403);
         }
 
-const WorkflowFunction =db.methods.Workflow({
-  translate,
-  logger,
-  CreateError,
-  lang,
-})
+        const WorkflowFunction = db.methods.Workflow({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
 
-      const workflow = await WorkflowFunction.findById(id)
+        const workflow = await WorkflowFunction.findById(id);
 
-      if(!workflow.data.workflow){
-        throw new CreateError("Workflow not found", 403);
-      }
+        if (!workflow.data.workflow) {
+          throw new CreateError('Workflow not found', 403);
+        }
 
-
-    const res = await WorkflowFunction.deleteById(id)
+        const res = await WorkflowFunction.update({
+          id,
+          params: { version: 'deleted' },
+        });
         return {
-          msg: translate(lang, "created_mood"),
-          data: { res},
+          msg: translate(lang, 'created_mood'),
+          data: { res },
         };
       } catch (error) {
         if (error instanceof CreateError) {

@@ -4,7 +4,7 @@
  */
 
 const mongoose = require('mongoose');
-
+const { v4: uuidv4 } = require('uuid');
 /**
  * Application reference
  * @typedef {Object} ApplicationRef
@@ -48,6 +48,12 @@ const workflowSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  uuid: {
+    type: String,
+    required: true,
+    unique: true,
+    default: uuidv4, // generate a new UUID when a user is created
+  },
   applications: [
     {
       type: mongoose.Schema.Types.ObjectId,
@@ -63,6 +69,11 @@ const workflowSchema = new mongoose.Schema({
     type: String,
     enum: ['draft', 'published'],
     default: 'draft',
+  },
+  version: {
+    type: String,
+    enum: ['older', 'latest', 'deleted'],
+    default: 'latest',
   },
   forms: [
     {
