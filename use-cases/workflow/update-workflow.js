@@ -60,12 +60,15 @@ exports.Update = ({
         newWorklow.applications = [];
         newWorklow.currentApprover = 1;
 
+        for (let key in entity) {
+          newWorklow[key] = entity[key];
+        }
+
         const newRes = await WorkflowFunction.create(newWorklow);
-        entity.version = 'older';
 
         const res = await WorkflowFunction.update({
           id,
-          params: entity,
+          params: { version: 'older' },
         });
 
         return {
