@@ -1,6 +1,4 @@
-
-const fromEntities = require("../../entity");
-
+const fromEntities = require('../../entity');
 
 exports.Submit = ({
   CreateError,
@@ -29,23 +27,22 @@ exports.Submit = ({
           role,
           db,
           useCase: 'applications:edit',
-        })
-        if(!acesssRes)
-        {
-          throw new CreateError(translate(lang, "forbidden"), 403);
+        });
+        if (!acesssRes) {
+          throw new CreateError(translate(lang, 'forbidden'), 403);
         }
 
         const date = new Date();
-const options = {
-  timeZone: 'Asia/Kolkata',
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-  hour: 'numeric',
-  minute: 'numeric',
-  hour12: true
-};
-const formattedDate = date.toLocaleString('en-US', options);
+        const options = {
+          timeZone: 'Asia/Kolkata',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          hour: 'numeric',
+          minute: 'numeric',
+          hour12: true,
+        };
+        const formattedDate = date.toLocaleString('en-US', options);
 
         let entity = (
           await fromEntities.entities.Application.UpdateApplication({
@@ -58,32 +55,56 @@ const formattedDate = date.toLocaleString('en-US', options);
             params: { ...request.body, userUID },
           }).generate()
         ).data.entity;
-        
-        const CommentFunction =db.methods.Comment({
+
+        const CommentFunction = db.methods.Comment({
           translate,
           logger,
           CreateError,
           lang,
-        })
+        });
 
-const ApplicationFunction =db.methods.Application({
-  translate,
-  logger,
-  CreateError,
-  lang,
-})
+        const WorkflowFunction = db.methods.Workflow({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
 
-const res = await ApplicationFunction.submit({id, params: {status: 'active', level: 'waiting'}})
-const resAction = await CommentFunction.addComment({id: id, params: {
-  name: request.body.name,
-  uid: request.body.uid,
-  content: `${request.body.name} submitted the Application on ${formattedDate}.`,
-  type: 'submission',
-  referlink: []
-}})
+        const ApplicationFunction = db.methods.Application({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
+
+        const application = (await ApplicationFunction.findById(id)).data
+          .application;
+
+        const workflow = (
+          await WorkflowFunction.findById(application.workflow._id)
+        ).data.workflow;
+
+        if (workflow.version !== 'latest') {
+          throw new CreateError(translate(lang, 'forbidden'), 403);
+        }
+
+        const res = await ApplicationFunction.submit({
+          id,
+          params: { status: 'active', level: 'waiting' },
+        });
+        const resAction = await CommentFunction.addComment({
+          id: id,
+          params: {
+            name: request.body.name,
+            uid: request.body.uid,
+            content: `${request.body.name} submitted the Application on ${formattedDate}.`,
+            type: 'submission',
+            referlink: [],
+          },
+        });
         return {
-          msg: translate(lang, "created_mood"),
-          data: { res},
+          msg: translate(lang, 'created_mood'),
+          data: { res },
         };
       } catch (error) {
         if (error instanceof CreateError) {
