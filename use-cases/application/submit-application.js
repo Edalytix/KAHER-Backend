@@ -85,7 +85,7 @@ exports.Submit = ({
         ).data.workflow;
 
         if (workflow.version !== 'latest') {
-          throw new CreateError(translate(lang, 'forbidden'), 403);
+          throw new CreateError(translate(lang, 'older_version'), 403);
         }
 
         const res = await ApplicationFunction.submit({

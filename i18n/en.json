@@ -25,6 +25,7 @@
   "token_required": "You are not logged in, please login and try again.",
   "login_required": "Your session is expired, please relogin.",
   "forbidden": "Resource is forbidden for this user/role.",
+  "older_version": "This version of the Workflow isn't active anymore. Use the newer version of the Workflow.",
   "delete_user": "User successfully deleted.",
   "updated_success": "Updated successfully.",
   "invalid_login_credentials": "Invalid credentials, please provide the valid credentials.",
