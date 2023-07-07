@@ -19,16 +19,17 @@ exports.Submit = ({
         const role = request.locals.role;
         let id = request.queryParams.id;
 
-        const acesssRes = await accessManager({
+        const ApplicationFunction = db.methods.Application({
           translate,
           logger,
           CreateError,
           lang,
-          role,
-          db,
-          useCase: 'applications:edit',
         });
-        if (!acesssRes) {
+
+        const application = (await ApplicationFunction.findById(id)).data
+          .application;
+        console.log(userUID, application.user._id.toString());
+        if (!application || userUID !== application.user.toString()) {
           throw new CreateError(translate(lang, 'forbidden'), 403);
         }
 
@@ -69,16 +70,6 @@ exports.Submit = ({
           CreateError,
           lang,
         });
-
-        const ApplicationFunction = db.methods.Application({
-          translate,
-          logger,
-          CreateError,
-          lang,
-        });
-
-        const application = (await ApplicationFunction.findById(id)).data
-          .application;
 
         const workflow = (
           await WorkflowFunction.findById(application.workflow._id)

@@ -73,7 +73,7 @@ exports.Update = ({
 
         return {
           msg: translate(lang, 'created_mood'),
-          data: { res },
+          data: { newRes },
         };
       } catch (error) {
         if (error instanceof CreateError) {
