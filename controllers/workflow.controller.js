@@ -1,14 +1,13 @@
-const fromAdaptReq = require("../utils/adapt-req");
+const fromAdaptReq = require('../utils/adapt-req');
 // const ac = require("../roles");
-const translate = require("../i18n/msg");
-const crypto = require("../lib/crypto").crypto;
-const DataValidator = require("../services").Services.DataValidator;
-const CreateError = require("../error/dp-error").CreateError;
-const logger = require("../utils/logger").logger;
-const db = require("../lib/database").database;
-const fromUseCase = require("../use-cases/workflow").workflowUseCases
-const accessManager = require("../services/access-manager").accessManager;
-
+const translate = require('../i18n/msg');
+const crypto = require('../lib/crypto').crypto;
+const DataValidator = require('../services').Services.DataValidator;
+const CreateError = require('../error/dp-error').CreateError;
+const logger = require('../utils/logger').logger;
+const db = require('../lib/database').database;
+const fromUseCase = require('../use-cases/workflow').workflowUseCases;
+const accessManager = require('../services/access-manager').accessManager;
 
 exports.createWorkflow = async (req, res, next) => {
   try {
@@ -17,18 +16,16 @@ exports.createWorkflow = async (req, res, next) => {
       .createWorkflows({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
-        accessManager
+        accessManager,
       })
       .execute();
 
-    return res.status(201).json(
-      result.data.res,
-    );
+    return res.status(201).json(result.data.res);
   } catch (error) {
     // console.log(error)
     next(error);
@@ -42,12 +39,12 @@ exports.findAllWorkflows = async (req, res, next) => {
       .findAllWorkflows({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
-        accessManager
+        accessManager,
       })
       .execute();
 
@@ -65,12 +62,12 @@ exports.deleteWorkflow = async (req, res, next) => {
       .deleteWorkflows({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
-        accessManager
+        accessManager,
       })
       .execute();
 
@@ -84,16 +81,16 @@ exports.deleteWorkflow = async (req, res, next) => {
 exports.workflowDetails = async (req, res, next) => {
   try {
     const request = fromAdaptReq.adaptReq(req, res);
-    const result = await fromUseCase.workflowDetails
-      ({
+    const result = await fromUseCase
+      .workflowDetails({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
-        accessManager
+        accessManager,
       })
       .execute();
 
@@ -111,18 +108,18 @@ exports.addForm = async (req, res, next) => {
       .addForms({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
-        accessManager
+        accessManager,
       })
       .execute();
 
     return res.status(201).json({
-      msg: result.data.res.msg,
-      data: result.data.res.data,
+      msg: result.data.newRes.msg,
+      data: result.data.newRes.data,
     });
   } catch (error) {
     // console.log(error)
@@ -137,12 +134,12 @@ exports.removeForms = async (req, res, next) => {
       .deleteForms({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
-        accessManager
+        accessManager,
       })
       .execute();
 
@@ -160,16 +157,19 @@ exports.updateWorkflow = async (req, res, next) => {
       .updateWorkflows({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
-        accessManager
+        accessManager,
       })
       .execute();
 
-    return res.status(201).json(result.data.res);
+    return res.status(201).json({
+      msg: result.data.newRes.msg,
+      data: result.data.newRes.data,
+    });
   } catch (error) {
     // console.log(error)
     next(error);

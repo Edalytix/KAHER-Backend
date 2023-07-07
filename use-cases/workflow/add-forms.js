@@ -86,7 +86,7 @@ exports.AddForm = ({
         newWorklow.applications = [];
         newWorklow.currentApprover = 1;
 
-        const newRes = (await WorkflowFunction.create(newWorklow)).data;
+        const newRes = await WorkflowFunction.create(newWorklow);
 
         const oldworkflow = await WorkflowFunction.update({
           id,
@@ -94,7 +94,7 @@ exports.AddForm = ({
         });
 
         res = await WorkflowFunction.addForms({
-          id: newRes._id,
+          id: newRes.data._id,
           params: { forms: uniqueArray },
         });
         return {
