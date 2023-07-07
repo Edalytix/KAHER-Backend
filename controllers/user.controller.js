@@ -1,15 +1,15 @@
-const fromAdaptReq = require("../utils/adapt-req");
+const fromAdaptReq = require('../utils/adapt-req');
 // const ac = require("../roles");
-const translate = require("../i18n/msg");
-const crypto = require("../lib/crypto").crypto;
-const DataValidator = require("../services").Services.DataValidator;
-const CreateError = require("../error/dp-error").CreateError;
-const logger = require("../utils/logger").logger;
-const db = require("../lib/database").database;
-const fromUseCase = require("../use-cases/users").userUseCases;
-const token = require("../lib/token").token;
-const store = require("../lib/store").store;
-const accessManager = require("../services/access-manager").accessManager;
+const translate = require('../i18n/msg');
+const crypto = require('../lib/crypto').crypto;
+const DataValidator = require('../services').Services.DataValidator;
+const CreateError = require('../error/dp-error').CreateError;
+const logger = require('../utils/logger').logger;
+const db = require('../lib/database').database;
+const fromUseCase = require('../use-cases/users').userUseCases;
+const token = require('../lib/token').token;
+const store = require('../lib/store').store;
+const accessManager = require('../services/access-manager').accessManager;
 
 exports.createUser = async (req, res, next) => {
   try {
@@ -18,12 +18,12 @@ exports.createUser = async (req, res, next) => {
       .createUsers({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
-        accessManager
+        accessManager,
       })
       .execute();
 
@@ -31,9 +31,9 @@ exports.createUser = async (req, res, next) => {
   } catch (error) {
     // console.log(error)
     next(error);
-  } 
+  }
 };
- 
+
 exports.Login = async (req, res, next) => {
   try {
     const request = fromAdaptReq.adaptReq(req, res);
@@ -41,13 +41,13 @@ exports.Login = async (req, res, next) => {
       .login({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
         token,
-        store
+        store,
       })
       .execute();
 
@@ -65,12 +65,12 @@ exports.findUser = async (req, res, next) => {
       .userDetails({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
-        accessManager
+        accessManager,
       })
       .execute();
 
@@ -91,12 +91,12 @@ exports.findAllUsers = async (req, res, next) => {
       .findAllUsers({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
-        accessManager
+        accessManager,
       })
       .execute();
 
@@ -117,12 +117,12 @@ exports.deleteUser = async (req, res, next) => {
       .deleteUser({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
-        accessManager
+        accessManager,
       })
       .execute();
 
@@ -143,12 +143,38 @@ exports.updateUser = async (req, res, next) => {
       .updateUser({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
-        accessManager
+        accessManager,
+      })
+      .execute();
+
+    return res.status(201).json({
+      msg: result.data.res.msg,
+      data: result.data.res.data,
+    });
+  } catch (error) {
+    // console.log(error)
+    next(error);
+  }
+};
+
+exports.uploadExcel = async (req, res, next) => {
+  try {
+    const request = fromAdaptReq.adaptReq(req, res);
+    const result = await fromUseCase
+      .uploadExcel({
+        CreateError,
+        DataValidator,
+        logger,
+        translate,
+        crypto,
+        request,
+        db,
+        accessManager,
       })
       .execute();
 
