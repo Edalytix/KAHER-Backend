@@ -20,16 +20,13 @@ exports.uploadFile = async ({ file }) => {
   };
   const filePath = '/../../lib/temp-file' + `/${file.filename}`;
 
-  minioClient.fPutObject(
-    bucketName,
-    objectName,
-    filePath,
-    metaData,
-    function (err, etag) {
-      if (err) {
-        return console.log(err);
-      }
-      console.log('File uploaded successfully.');
-    }
-  );
+  const submitFileDataResult = await minioClient
+    .putObject(bucketName, objectName, filePath, metaData)
+    .catch((e) => {
+      console.log('Error while creating object from file data: ', e);
+      throw e;
+    });
+
+  console.log('file is', submitFileDataResult);
+  return submitFileDataResult;
 };

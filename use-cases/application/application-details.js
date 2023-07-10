@@ -1,4 +1,5 @@
 const fromEntities = require('../../entity');
+const { ObjectId } = require('mongodb');
 
 exports.ApplicationDetails = ({
   CreateError,
@@ -78,7 +79,7 @@ exports.ApplicationDetails = ({
             }
           }
         }
-        if (currentApprover < res.data.application.workflow.currentApprover) {
+        if (currentApprover < res.data.application.currentApprover) {
           res.status = 'approved';
         } else {
           res.status = res.data.application.level;

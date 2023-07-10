@@ -58,7 +58,6 @@ exports.Update = ({
         };
         delete newWorklow._id;
         newWorklow.applications = [];
-        newWorklow.currentApprover = 1;
 
         for (let key in entity) {
           newWorklow[key] = entity[key];

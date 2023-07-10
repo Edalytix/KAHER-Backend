@@ -5,7 +5,22 @@ const applicationController = require('../controllers').application;
 
 const middlewares = require('../middlewares');
 const appMiddlewares = require('../middlewares');
+const path = require('path');
 
+const multer = require('multer');
+const multerStorage = multer({
+  storage: multer.diskStorage({
+    destination: (req, file, cb) => {
+      console.log(req.uid);
+      console.log(file);
+      cb(null, path.join(__dirname + '/../lib/temp-file'));
+    },
+    filename: (req, file, cb) => {
+      cb(null, req.uid + '_' + file.originalname);
+    },
+  }),
+  limits: { fileSize: 52428800 }, // 50 MB
+});
 /*
  * @desc /auth
  */
@@ -64,6 +79,12 @@ router.post(
 router.post(
   '/application/addcomment',
   middlewares.isLogged,
+  multerStorage.fields([
+    {
+      name: 'picture',
+      maxCount: 1,
+    },
+  ]),
   applicationController.addComment
 );
 router.get(

@@ -8,6 +8,7 @@ exports.AddComment = ({
   crypto,
   request,
   db,
+  uploadFile,
   accessManager,
 }) => {
   return Object.freeze({
@@ -50,6 +51,13 @@ exports.AddComment = ({
           throw new CreateError(translate(lang, 'forbidden'), 403);
         }
 
+        const picture = '';
+        if (request.body?.files?.picture) {
+          picture = await uploadFile({
+            file: request.body?.files?.picture[0],
+          });
+        }
+
         let entity = (
           await fromEntities.entities.Application.AddComment({
             CreateError,
@@ -58,7 +66,7 @@ exports.AddComment = ({
             translate,
             crypto,
             lang,
-            params: { ...request.body, userUID, type: 'comment' },
+            params: { ...request.body, userUID, type: 'comment', picture },
           }).generate()
         ).data.entity;
 

@@ -8,6 +8,7 @@ const logger = require('../utils/logger').logger;
 const db = require('../lib/database').database;
 const fromUseCase = require('../use-cases/application').applicationUseCases;
 const accessManager = require('../services/access-manager').accessManager;
+const uploadFile = require('../services/upload-file').uploadFile;
 
 exports.createApplication = async (req, res, next) => {
   try {
@@ -255,6 +256,7 @@ exports.addComment = async (req, res, next) => {
         request,
         db,
         accessManager,
+        uploadFile,
       })
       .execute();
 

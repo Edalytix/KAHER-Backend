@@ -1,6 +1,4 @@
-
-const fromEntities = require("../../entity");
-
+const fromEntities = require('../../entity');
 
 exports.Update = ({
   CreateError,
@@ -29,11 +27,17 @@ exports.Update = ({
           role,
           db,
           useCase: 'departments:edit',
-        })
-        if(!acesssRes)
-        {
-          throw new CreateError(translate(lang, "forbidden"), 403);
+        });
+        if (!acesssRes) {
+          throw new CreateError(translate(lang, 'forbidden'), 403);
         }
+
+        const FormFunction = db.methods.Form({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
 
         let entity = (
           await fromEntities.entities.Form.updateForm({
@@ -47,17 +51,31 @@ exports.Update = ({
           }).generate()
         ).data.entity;
 
-const FormFunction =db.methods.Form({
-  translate,
-  logger,
-  CreateError,
-  lang,
-})
+        if (entity.status === 'inactive') {
+          const form = await FormFunction.findById(id);
+          const WorkflowFunction = db.methods.Workflow({
+            translate,
+            logger,
+            CreateError,
+            lang,
+          });
 
-const res = await FormFunction.update({id, params: entity})
+          const workflows = await FormFunction.findAllWorkflows(
+            form.data.form.workflows
+          );
+
+          if (workflows.data.length > 0) {
+            throw new CreateError(
+              translate(lang, 'active_workflows_present'),
+              403
+            );
+          }
+        }
+
+        const res = await FormFunction.update({ id, params: entity });
         return {
-          msg: translate(lang, "created_mood"),
-          data: { res},
+          msg: translate(lang, 'created_mood'),
+          data: { res },
         };
       } catch (error) {
         if (error instanceof CreateError) {

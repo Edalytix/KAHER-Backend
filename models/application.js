@@ -52,6 +52,10 @@ const applicationSchema = new mongoose.Schema({
     enum: ['approved', 'rejected', 'waiting', 'on-hold', 'draft'],
     default: 'waiting',
   },
+  currentApprover: {
+    type: Number,
+    default: 1,
+  },
   department: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Department',
@@ -81,52 +85,57 @@ const applicationSchema = new mongoose.Schema({
   //     required: true,
   //   },
   // }],
-  activities: [{
-    id: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-      required: true,
+  activities: [
+    {
+      id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
+      },
+      date: {
+        type: Date,
+        default: Date.now,
+      },
+      level: {
+        type: String,
+        enum: ['status change', 'comment'],
+      },
+      comments: {
+        type: Number,
+        default: 0,
+      },
+      activity: {
+        type: String,
+        required: true,
+      },
     },
-    date: {
-      type: Date,
-      default: Date.now,
-    },
-    level: {
-      type: String,
-      enum: ['status change', 'comment'],
-    },
-    comments: {
-      type: Number,
-      default: 0,
-    },
-    activity: {
-      type: String,
-      required: true,
-    },
-  }],
+  ],
 });
 
-applicationSchema.statics.aggregateWithActionsCount = function( callback) {
+applicationSchema.statics.aggregateWithActionsCount = function (callback) {
   const Application = this;
-  
-  Application.aggregate([
-    {
-      $match: { _id: this._id }
-    },
-    {
-      $lookup: {
-        from: 'comments',
-        localField: '_id',
-        foreignField: 'applicationId',
-        as: 'comments'
-      }
-    },
-    {
-      $addFields: {
-        actionsCount: { $sum: '$comments.actions' }
-      }
-    }
-  ], callback);
+
+  Application.aggregate(
+    [
+      {
+        $match: { _id: this._id },
+      },
+      {
+        $lookup: {
+          from: 'comments',
+          localField: '_id',
+          foreignField: 'applicationId',
+          as: 'comments',
+        },
+      },
+      {
+        $addFields: {
+          actionsCount: { $sum: '$comments.actions' },
+        },
+      },
+    ],
+    callback
+  );
 };
 
 /**

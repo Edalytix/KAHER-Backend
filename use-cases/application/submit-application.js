@@ -29,6 +29,7 @@ exports.Submit = ({
         const application = (await ApplicationFunction.findById(id)).data
           .application;
 
+        console.log(userUID, application.user._id.toString());
         if (!application || userUID !== application.user._id.toString()) {
           throw new CreateError(translate(lang, 'forbidden'), 403);
         }

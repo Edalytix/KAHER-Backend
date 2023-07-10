@@ -55,6 +55,7 @@ exports.ApprovalUpdate = ({
         });
 
         const res = await ApplicationFunction.findById(id);
+        const application = res.data.application;
 
         let currentApprover = 0;
         const Workflow = (
@@ -65,6 +66,7 @@ exports.ApprovalUpdate = ({
           if (element.approvalBy.user) {
             if (element.approvalBy.user._id.toString() == userUID.toString()) {
               currentApprover = element.sequence;
+              break;
             }
           } else {
             const user = await UserFunction.findByParams({
@@ -75,11 +77,12 @@ exports.ApprovalUpdate = ({
 
             if (user.data.length !== 0) {
               currentApprover = element.sequence;
+              break;
             }
           }
         }
 
-        if (currentApprover !== Workflow.currentApprover) {
+        if (currentApprover !== application.currentApprover) {
           throw new CreateError(translate(lang, 'forbidden'), 403);
         }
 
@@ -92,7 +95,7 @@ exports.ApprovalUpdate = ({
         };
 
         if (request.body.approval === 'approved') {
-          if (Workflow.currentApprover === Workflow.totalApprovers) {
+          if (application.currentApprover === Workflow.totalApprovers) {
             const res = await ApplicationFunction.update({
               id,
               params: {
@@ -100,10 +103,11 @@ exports.ApprovalUpdate = ({
               },
             });
           } else {
-            const res = await WorkflowFunction.update({
-              id: Workflow._id,
+            const res = await ApplicationFunction.update({
+              id: application._id,
               params: {
-                currentApprover: Workflow.currentApprover + 1,
+                currentApprover: application.currentApprover + 1,
+                level: 'waiting',
               },
             });
           }

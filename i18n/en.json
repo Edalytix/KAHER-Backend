@@ -1,4 +1,6 @@
 {
+  "active_workflows_present": "This form has active Workflows associated with it.",
+
   "user_not_found": "User not found, please check ID and try again.",
   "required_uid": "User ID is required.",
   "required_token": "Notification token is required.",

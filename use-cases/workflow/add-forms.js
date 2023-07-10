@@ -84,7 +84,6 @@ exports.AddForm = ({
         };
         delete newWorklow._id;
         newWorklow.applications = [];
-        newWorklow.currentApprover = 1;
 
         const newRes = await WorkflowFunction.create(newWorklow);
 

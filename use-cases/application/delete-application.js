@@ -1,5 +1,4 @@
-const fromEntities = require("../../entity");
-
+const fromEntities = require('../../entity');
 
 exports.Delete = ({
   CreateError,
@@ -10,7 +9,7 @@ exports.Delete = ({
   request,
   db,
   ac,
-  accessManager
+  accessManager,
 }) => {
   return Object.freeze({
     execute: async () => {
@@ -22,39 +21,26 @@ exports.Delete = ({
         const id = request.queryParams.id;
         let lowLimit = request.queryParams.lowLimit;
 
-
-        const acesssRes = await accessManager({
+        const ApplicationFunction = db.methods.Application({
           translate,
           logger,
           CreateError,
           lang,
-          role,
-          db,
-          useCase: 'applications:edit',
-        })
-        if(!acesssRes)
-        {
-          throw new CreateError(translate(lang, "forbidden"), 403);
+        });
+
+        const application = await ApplicationFunction.findById(id);
+
+        if (
+          !application.data.application ||
+          userUID !== application.data.application.user._id.toString()
+        ) {
+          throw new CreateError(translate(lang, 'forbidden'), 403);
         }
 
-const ApplicationFunction =db.methods.Application({
-  translate,
-  logger,
-  CreateError,
-  lang,
-})
-
-      const application = await ApplicationFunction.findById(id)
-
-      if(!application.data.application){
-        throw new CreateError("Application not found", 403);
-      }
-
-
-    const res = await ApplicationFunction.deleteById(id)
+        const res = await ApplicationFunction.deleteById(id);
         return {
-          msg: translate(lang, "created_mood"),
-          data: { res},
+          msg: translate(lang, 'created_mood'),
+          data: { res },
         };
       } catch (error) {
         if (error instanceof CreateError) {

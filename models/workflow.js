@@ -87,10 +87,6 @@ const workflowSchema = new mongoose.Schema({
       },
     },
   ],
-  currentApprover: {
-    type: Number,
-    default: 1,
-  },
   approvals: [
     {
       sequence: {
