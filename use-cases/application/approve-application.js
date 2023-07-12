@@ -86,6 +86,15 @@ exports.ApprovalUpdate = ({
           throw new CreateError(translate(lang, 'forbidden'), 403);
         }
 
+        const StatusFunction = db.methods.Status({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
+
+        const status = (await StatusFunction.findById(id)).data.status;
+
         const actionBody = {
           name: null,
           uid: userUID,
@@ -102,6 +111,20 @@ exports.ApprovalUpdate = ({
                 level: 'approved',
               },
             });
+
+            let status = await StatusFunction.update(
+              id,
+              currentApprover,
+              'status',
+              'approved'
+            );
+
+            status = await StatusFunction.update(
+              id,
+              currentApprover + 1,
+              'status',
+              'approved'
+            );
           } else {
             const res = await ApplicationFunction.update({
               id: application._id,
@@ -110,6 +133,13 @@ exports.ApprovalUpdate = ({
                 level: 'waiting',
               },
             });
+
+            const status = await StatusFunction.update(
+              id,
+              currentApprover,
+              'status',
+              'approved'
+            );
           }
         } else if (request.body.approval === 'rejected') {
           const res = await ApplicationFunction.update({
@@ -118,6 +148,13 @@ exports.ApprovalUpdate = ({
               level: 'rejected',
             },
           });
+
+          const status = await StatusFunction.update(
+            id,
+            currentApprover,
+            'status',
+            'rejected'
+          );
         } else if (request.body.approval === 'on-hold') {
           const res = await ApplicationFunction.update({
             id,
@@ -125,6 +162,13 @@ exports.ApprovalUpdate = ({
               level: 'on-hold',
             },
           });
+
+          const status = await StatusFunction.update(
+            id,
+            currentApprover,
+            'status',
+            'on-hold'
+          );
         } else {
           throw new CreateError('Invalid operation', 403);
         }

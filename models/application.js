@@ -66,6 +66,10 @@ const applicationSchema = new mongoose.Schema({
     ref: 'Workflow',
     required: true,
   },
+  stages: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Status',
+  },
   createdAt: {
     type: Date,
     default: Date.now,

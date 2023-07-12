@@ -1,4 +1,5 @@
 const fromEntities = require('../../entity');
+const { ObjectId } = require('mongodb');
 
 exports.Submit = ({
   CreateError,
@@ -29,7 +30,6 @@ exports.Submit = ({
         const application = (await ApplicationFunction.findById(id)).data
           .application;
 
-        console.log(userUID, application.user._id.toString());
         if (!application || userUID !== application.user._id.toString()) {
           throw new CreateError(translate(lang, 'forbidden'), 403);
         }
@@ -79,11 +79,6 @@ exports.Submit = ({
         if (workflow.version !== 'latest') {
           throw new CreateError(translate(lang, 'older_version'), 403);
         }
-
-        const res = await ApplicationFunction.submit({
-          id,
-          params: { status: 'active', level: 'waiting' },
-        });
         const resAction = await CommentFunction.addComment({
           id: id,
           params: {
@@ -94,6 +89,50 @@ exports.Submit = ({
             referlink: [],
           },
         });
+
+        const stages = [
+          {
+            name: `${userUID} Submitted the Application`,
+            status: 'submitted',
+            updatedAt: formattedDate,
+          },
+        ];
+
+        for (let index = 0; index < workflow.approvals.length; index++) {
+          stages.push({
+            name: `Level ${index + 1} Approval`,
+            status: 'waiting',
+            updatedAt: formattedDate,
+          });
+        }
+
+        stages.push({
+          name: `Application Approved`,
+          status: 'waiting',
+          updatedAt: formattedDate,
+        });
+
+        const StatusFunction = db.methods.Status({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
+
+        const status = await StatusFunction.create({
+          applicationId: new ObjectId(id),
+          stages: stages,
+        });
+
+        const res = await ApplicationFunction.submit({
+          id,
+          params: {
+            status: 'active',
+            level: 'waiting',
+            stages: status.data.status._id,
+          },
+        });
+
         return {
           msg: translate(lang, 'created_mood'),
           data: { res },
