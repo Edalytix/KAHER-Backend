@@ -53,12 +53,6 @@ exports.Update = ({
 
         if (entity.status === 'inactive') {
           const form = await FormFunction.findById(id);
-          const WorkflowFunction = db.methods.Workflow({
-            translate,
-            logger,
-            CreateError,
-            lang,
-          });
 
           const workflows = await FormFunction.findAllWorkflows(
             form.data.form.workflows

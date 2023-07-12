@@ -1,9 +1,9 @@
-const CreateError = require("../error/dp-error").CreateError;
-const CONFIG = require("../config/app.config.json");
-const keyStore = require("../lib/store").store;
-const translate = require("../i18n/msg");
-const tokenHandler = require("../lib/token").token;
-const logger = require("../utils/logger").logger;
+const CreateError = require('../error/dp-error').CreateError;
+const CONFIG = require('../config/app.config.json');
+const keyStore = require('../lib/store').store;
+const translate = require('../i18n/msg');
+const tokenHandler = require('../lib/token').token;
+const logger = require('../utils/logger').logger;
 
 const refreshTokenCookieName = CONFIG.refreshToken.cookie.name;
 
@@ -13,13 +13,14 @@ module.exports.isLogged = async (req, res, next) => {
 
     //refresh token validation
     const refreshToken =
-      req.cookies[refreshTokenCookieName] || req.cookies.refreshTokenCookieName || req.headers.authorization.split('Bearer ').join("");
-
+      req.cookies[refreshTokenCookieName] ||
+      req.cookies.refreshTokenCookieName ||
+      req.headers.authorization.split('Bearer ').join('');
 
     if (refreshToken === undefined) {
       return res
         .status(401)
-        .json({ msg: translate(lang, "token_required"), data: {} });
+        .json({ msg: translate(lang, 'token_required'), data: {} });
     }
 
     const tokenMethods = tokenHandler.jwt({
@@ -37,6 +38,7 @@ module.exports.isLogged = async (req, res, next) => {
     } catch (error) {
       return res.status(401).json({ msg: error.message, data: {} });
     }
+    console.log('first');
     const refreshTokenData = (
       await keyStore
         .Store({
@@ -50,20 +52,21 @@ module.exports.isLogged = async (req, res, next) => {
           token: refreshToken,
         })
     ).data;
+    console.log('second');
     if (refreshTokenData === null) {
       return res
         .status(401)
-        .json({ msg: translate(lang, "login_required"), data: {} });
+        .json({ msg: translate(lang, 'login_required'), data: {} });
     }
 
     // auth token validation
-    const authHeader = req.get("authorization");
+    const authHeader = req.get('authorization');
     if (authHeader === undefined) {
       return res
         .status(401)
-        .json({ msg: translate(lang, "token_required"), data: {} });
+        .json({ msg: translate(lang, 'token_required'), data: {} });
     }
-    const bearerToken = authHeader.split(" ")[1];
+    const bearerToken = authHeader.split(' ')[1];
 
     let tokenStatus;
     try {
@@ -82,9 +85,9 @@ module.exports.isLogged = async (req, res, next) => {
     req.lang = res?.locals?.lang;
     return next();
   } catch (error) {
-    console.log("Error-while validating session", error);
-    return res 
+    console.log('Error-while validating session', error);
+    return res
       .status(500)
-      .json({ msg: translate(lang, "error_unknown"), data: {} });
+      .json({ msg: translate(lang, 'error_unknown'), data: {} });
   }
 };

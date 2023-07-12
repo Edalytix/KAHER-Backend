@@ -1,5 +1,4 @@
-const fromEntities = require("../../entity");
-
+const fromEntities = require('../../entity');
 
 exports.Delete = ({
   CreateError,
@@ -10,7 +9,7 @@ exports.Delete = ({
   request,
   db,
   ac,
-  accessManager
+  accessManager,
 }) => {
   return Object.freeze({
     execute: async () => {
@@ -22,7 +21,6 @@ exports.Delete = ({
         const id = request.queryParams.id;
         let lowLimit = request.queryParams.lowLimit;
 
-
         const acesssRes = await accessManager({
           translate,
           logger,
@@ -31,30 +29,39 @@ exports.Delete = ({
           role,
           db,
           useCase: 'forms:edit',
-        })
-        if(!acesssRes)
-        {
-          throw new CreateError(translate(lang, "forbidden"), 403);
+        });
+        // if (!acesssRes) {
+        //   throw new CreateError(translate(lang, 'forbidden'), 403);
+        // }
+
+        const FormFunction = db.methods.Form({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
+
+        const form = await FormFunction.findById(id);
+
+        if (!form.data.form) {
+          throw new CreateError('Form not found', 403);
         }
 
-const FormFunction =db.methods.Form({
-  translate,
-  logger,
-  CreateError,
-  lang,
-})
+        const workflows = await FormFunction.findAllWorkflows(
+          form.data.form.workflows
+        );
 
-      const form = await FormFunction.findById(id)
+        if (workflows.data.length > 0) {
+          throw new CreateError(
+            translate(lang, 'active_workflows_present'),
+            403
+          );
+        }
 
-      if(!form.data.form){
-        throw new CreateError("Form not found", 403);
-      }
-
-
-    const res = await FormFunction.deleteById(id)
+        const res = await FormFunction.deleteById(id);
         return {
-          msg: translate(lang, "created_mood"),
-          data: { res},
+          msg: translate(lang, 'created_mood'),
+          data: { res },
         };
       } catch (error) {
         if (error instanceof CreateError) {

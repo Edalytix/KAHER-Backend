@@ -47,9 +47,9 @@ exports.AddComment = ({
         }
         const permittedUsers = comment?.tags.map((item) => item.uid.toString());
 
-        if (!permittedUsers.includes(userUID)) {
-          throw new CreateError(translate(lang, 'forbidden'), 403);
-        }
+        // if (!permittedUsers.includes(userUID)) {
+        //   throw new CreateError(translate(lang, 'forbidden'), 403);
+        // }
 
         const picture = '';
         if (request.body?.files?.picture) {
