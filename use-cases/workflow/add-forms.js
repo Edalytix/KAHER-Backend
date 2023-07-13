@@ -64,38 +64,46 @@ exports.AddForm = ({
             self.findIndex((o) => o.form === obj.form) === index
         );
 
+        let newRes;
         let res = await WorkflowFunction.findById(id);
-        for (let i = 0; i < uniqueArray.length; i++) {
-          let element = uniqueArray[i];
-          let form = await FormFunction.findById(element.form);
-          const fieldArray = res.data.workflow?.forms.map(
-            (obj) => obj?.form?._id
-          );
-          const checkAnyIdMatchesValue = (ids, value) =>
-            ids.some((id) => new ObjectId(id).equals(new ObjectId(value)));
+        if (res.data.workflow.forms.length === 0) {
+          newRes = await WorkflowFunction.update({
+            id,
+            params: { forms: uniqueArray },
+          });
+        } else {
+          for (let i = 0; i < uniqueArray.length; i++) {
+            let element = uniqueArray[i];
+            let form = await FormFunction.findById(element.form);
+            const fieldArray = res.data.workflow?.forms.map(
+              (obj) => obj?.form?._id
+            );
+            const checkAnyIdMatchesValue = (ids, value) =>
+              ids.some((id) => new ObjectId(id).equals(new ObjectId(value)));
 
-          if (form.data.form === null) {
-            throw new CreateError(translate(lang, 'invalid_uid'), 422);
+            if (form.data.form === null) {
+              throw new CreateError(translate(lang, 'invalid_uid'), 422);
+            }
           }
+
+          const newWorklow = {
+            ...res.data.workflow._doc,
+          };
+          delete newWorklow._id;
+          newWorklow.applications = [];
+
+          newRes = await WorkflowFunction.create(newWorklow);
+
+          const oldworkflow = await WorkflowFunction.update({
+            id,
+            params: { version: 'older' },
+          });
+
+          res = await WorkflowFunction.addForms({
+            id: newRes.data._id,
+            params: { forms: uniqueArray },
+          });
         }
-
-        const newWorklow = {
-          ...res.data.workflow._doc,
-        };
-        delete newWorklow._id;
-        newWorklow.applications = [];
-
-        const newRes = await WorkflowFunction.create(newWorklow);
-
-        const oldworkflow = await WorkflowFunction.update({
-          id,
-          params: { version: 'older' },
-        });
-
-        res = await WorkflowFunction.addForms({
-          id: newRes.data._id,
-          params: { forms: uniqueArray },
-        });
         return {
           msg: translate(lang, 'created_mood'),
           data: { newRes },

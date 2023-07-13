@@ -51,9 +51,9 @@ exports.Update = ({
           }).generate()
         ).data.entity;
 
-        if (entity.status === 'inactive') {
-          const form = await FormFunction.findById(id);
+        const form = await FormFunction.findById(id);
 
+        if (entity.status === 'inactive') {
           const workflows = await FormFunction.findAllWorkflows(
             form.data.form.workflows
           );
@@ -66,10 +66,60 @@ exports.Update = ({
           }
         }
 
-        const res = await FormFunction.update({ id, params: entity });
+        const res = await FormFunction.update({
+          id,
+          params: { version: 'older', status: 'inactive' },
+        });
+        const newForm = {
+          ...form.data.form._doc,
+        };
+        delete newForm._id;
+
+        for (let key in entity) {
+          newForm[key] = entity[key];
+        }
+
+        const newWorkflowsForForm = [];
+        const WorkflowFunction = db.methods.Workflow({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
+
+        for (let index = 0; index < form.data.form.workflows.length; index++) {
+          const element = form.data.form.workflows[index];
+
+          const newWorklow = {
+            ...element._doc,
+          };
+          delete newWorklow._id;
+          newWorklow.applications = [];
+
+          for (let key in entity) {
+            newWorklow[key] = entity[key];
+          }
+
+          let idx = newWorklow.forms.findIndex(
+            (obj) => JSON.stringify(obj.form) === JSON.stringify(id)
+          );
+          newWorklow.forms[idx].form = id;
+
+          const newRes = await WorkflowFunction.create(newWorklow);
+
+          newWorkflowsForForm.push(newRes.data._id);
+
+          const res = await WorkflowFunction.update({
+            id: element._id,
+            params: { version: 'older' },
+          });
+        }
+
+        newForm.workflows = newWorkflowsForForm;
+        const newResponse = await FormFunction.create(newForm);
         return {
           msg: translate(lang, 'created_mood'),
-          data: { res },
+          data: { newResponse },
         };
       } catch (error) {
         if (error instanceof CreateError) {
