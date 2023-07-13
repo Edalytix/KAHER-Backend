@@ -30,9 +30,6 @@ exports.ApplicationDetails = ({
           db,
           useCase: 'forms:view',
         });
-        if (!acesssRes) {
-          throw new CreateError(translate(lang, 'forbidden'), 403);
-        }
 
         const ApplicationFunction = db.methods.Application({
           translate,
@@ -78,6 +75,10 @@ exports.ApplicationDetails = ({
               currentApprover = element.sequence;
             }
           }
+        }
+
+        if (!acesssRes || currentApprover === 0) {
+          throw new CreateError(translate(lang, 'forbidden'), 403);
         }
         if (currentApprover < res.data.application.currentApprover) {
           res.status = 'approved';
