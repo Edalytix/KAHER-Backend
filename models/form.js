@@ -28,7 +28,7 @@ const FormQuestionSchema = new Schema({
 });
 
 const FormSchema = new Schema({
-  title: { type: String, required: true, unique: true },
+  title: { type: String, required: true },
   createdAt: { type: Date, required: true, default: Date.now },
   workflows: {
     type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Workflow' }],

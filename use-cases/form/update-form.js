@@ -73,6 +73,7 @@ exports.Update = ({
         const newForm = {
           ...form.data.form._doc,
         };
+        newForm.version = 'latest';
         delete newForm._id;
 
         for (let key in entity) {
