@@ -1,5 +1,7 @@
 {
   "active_workflows_present": "This form has active Workflows associated with it.",
+  "duplicate_user": "User is already registered.",
+  "duplicate_form": "A form with the same name already exists/",
 
   "user_not_found": "User not found, please check ID and try again.",
   "required_uid": "User ID is required.",
@@ -21,7 +23,6 @@
   "success": "Success",
   "invalid_uid": "Invalid UID.",
   "duplicate_info": "Stroke Information is already created.",
-  "duplicate_user": "User is already registered.",
   "duplicate_userchallenge": "Challenge already taken.",
   "session_expired": "Your session is expired, please try to login again or refresh the page.",
   "token_required": "You are not logged in, please login and try again.",

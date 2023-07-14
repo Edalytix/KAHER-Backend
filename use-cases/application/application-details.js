@@ -77,7 +77,7 @@ exports.ApplicationDetails = ({
           }
         }
 
-        if (!acesssRes || currentApprover === 0) {
+        if (!acesssRes && currentApprover === 0) {
           throw new CreateError(translate(lang, 'forbidden'), 403);
         }
         if (currentApprover < res.data.application.currentApprover) {
