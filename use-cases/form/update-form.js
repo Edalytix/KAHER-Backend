@@ -81,6 +81,9 @@ exports.Update = ({
         }
 
         const newWorkflowsForForm = [];
+        newForm.workflows = [];
+        const newResponse = await FormFunction.create(newForm);
+
         const WorkflowFunction = db.methods.Workflow({
           translate,
           logger,
@@ -104,7 +107,8 @@ exports.Update = ({
           let idx = newWorklow.forms.findIndex(
             (obj) => JSON.stringify(obj.form) === JSON.stringify(id)
           );
-          newWorklow.forms[idx].form = id;
+
+          newWorklow.forms[idx].form = newResponse.data.form._id;
 
           const newRes = await WorkflowFunction.create(newWorklow);
 
@@ -116,11 +120,14 @@ exports.Update = ({
           });
         }
 
-        newForm.workflows = newWorkflowsForForm;
-        const newResponse = await FormFunction.create(newForm);
+        const updatedForm = await FormFunction.update({
+          id,
+          params: { workflows: newWorkflowsForForm },
+        });
+
         return {
           msg: translate(lang, 'created_mood'),
-          data: { newResponse },
+          data: { updatedForm },
         };
       } catch (error) {
         if (error instanceof CreateError) {

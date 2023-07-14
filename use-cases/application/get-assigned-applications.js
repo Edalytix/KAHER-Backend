@@ -23,6 +23,7 @@ exports.FindAssignedApps = ({
         const limit = parseInt(request.queryParams.limit);
         const id = request.queryParams.id;
         const search = request.queryParams.search;
+        const statusQuery = request.queryParams.status;
 
         // const acesssRes = await accessManager({
         //   translate,
@@ -45,7 +46,11 @@ exports.FindAssignedApps = ({
           lang,
         });
 
-        const res = await ApplicationFunction.findAllAssignedApps(id, search);
+        const res = await ApplicationFunction.findAllAssignedApps(
+          id,
+          search,
+          statusQuery
+        );
         return {
           msg: translate(lang, 'created_mood'),
           data: { res },

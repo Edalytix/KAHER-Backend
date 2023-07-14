@@ -22,6 +22,7 @@ exports.FindAllOfUsers = ({
         const page = parseInt(request.queryParams.page);
         const limit = parseInt(request.queryParams.limit);
         const search = request.queryParams.search;
+        const statusQuery = request.queryParams.status;
 
         const acesssRes = await accessManager({
           translate,
@@ -47,7 +48,8 @@ exports.FindAllOfUsers = ({
           page,
           limit,
           id,
-          search
+          search,
+          statusQuery
         );
         return {
           msg: translate(lang, 'created_mood'),
