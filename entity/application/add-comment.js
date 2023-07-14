@@ -44,10 +44,10 @@ exports.addComment = ({
         }
 
         if (params.picture) {
-          entity.referlink = {
-            type: 'picture',
-            link: validate.link(params.picture).data.value,
-          };
+          entity.referlink.push({
+            type: 'file-link',
+            link: params.picture,
+          });
         }
 
         return {

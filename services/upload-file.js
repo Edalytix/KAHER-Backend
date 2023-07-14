@@ -3,30 +3,38 @@ exports.uploadFile = async ({ file }) => {
 
   const minioClient = new Minio.Client({
     endPoint: 'storage.edalytics.com',
-    port: 9000,
-    useSSL: false,
+    port: 443,
+    useSSL: true,
     accessKey: 'edalyticsminio',
     secretKey: 'edalyticsminio#1215',
   });
-  const bucketName = 'file-images';
+
+  const bucketName = 'kaher';
 
   let fileName = file?.originalname?.split('.');
   fileName[0] = file?.originalname?.replace(/ /g, '_');
   fileName[1] = file?.mimetype?.split('/')[1];
 
-  const objectName = `${fileName[0]}_${new Date().getTime()}.${fileName[1]}`;
+  const objectName = `${fileName[0]}`;
   const metaData = {
-    'Content-Type': 'image/jpeg',
+    'Content-Type': file.mimetype,
   };
-  const filePath = '/../../lib/temp-file' + `/${file.filename}`;
 
-  const submitFileDataResult = await minioClient
+  const filePath = './../lib/temp-file' + `/${file.filename}`;
+
+  minioClient
     .putObject(bucketName, objectName, filePath, metaData)
     .catch((e) => {
       console.log('Error while creating object from file data: ', e);
       throw e;
     });
 
-  console.log('file is', submitFileDataResult);
-  return submitFileDataResult;
+  presignedUrl = await minioClient.presignedUrl(
+    'GET',
+    bucketName,
+    objectName,
+    24 * 60 * 60 * 7
+  );
+
+  return presignedUrl;
 };

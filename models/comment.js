@@ -25,7 +25,7 @@ const commentItemSchema = new mongoose.Schema({
   referlink: [
     {
       type: { type: String, enum: ['file-link, messagID'] },
-      value: { type: String },
+      link: { type: String },
     },
   ],
 });

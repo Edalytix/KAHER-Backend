@@ -51,7 +51,7 @@ exports.AddComment = ({
         //   throw new CreateError(translate(lang, 'forbidden'), 403);
         // }
 
-        const picture = '';
+        let picture = '';
         if (request.body?.files?.picture) {
           picture = await uploadFile({
             file: request.body?.files?.picture[0],
