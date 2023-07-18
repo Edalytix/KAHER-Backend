@@ -127,7 +127,7 @@ exports.Update = ({
 
         return {
           msg: translate(lang, 'created_mood'),
-          data: { updatedForm },
+          data: updatedForm,
         };
       } catch (error) {
         if (error instanceof CreateError) {
