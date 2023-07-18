@@ -46,7 +46,9 @@ exports.addComment = ({
         if (params.picture) {
           entity.referlink.push({
             type: 'file-link',
-            link: params.picture,
+            link: params.picture.url,
+            name: params.picture.name,
+            fileType: params.picture.type,
           });
         }
 

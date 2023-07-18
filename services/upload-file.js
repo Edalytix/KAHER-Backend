@@ -36,5 +36,5 @@ exports.uploadFile = async ({ file }) => {
     24 * 60 * 60 * 7
   );
 
-  return presignedUrl;
+  return { url: presignedUrl, name: file.originalname, type: file.mimetype };
 };

@@ -26,6 +26,8 @@ const commentItemSchema = new mongoose.Schema({
     {
       type: { type: String, enum: ['file-link, messagID'] },
       link: { type: String },
+      name: { type: String },
+      fileType: { type: String },
     },
   ],
 });
