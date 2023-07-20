@@ -167,7 +167,7 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
     },
     title(x) {
       x = String(x);
-      if (/^[\s\S]{3,30}$/.test(x)) {
+      if (/^[\s\S]{3,300}$/.test(x)) {
         return { msg: 'Valid', data: { value: x } };
       } else {
         throw new CreateError(translate(lang, 'invalid_title'), 422);
@@ -216,7 +216,7 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
     },
     validateQuestion(x) {
       x.question = String(x.question);
-      if (!/^[\s\S]{3,300}$/.test(x.question)) {
+      if (!/^[\s\S]{3,500}$/.test(x.question)) {
         throw new CreateError(translate(lang, 'invalid_title'), 422);
       }
       if (typeof x.required !== 'boolean') {
