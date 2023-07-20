@@ -1,14 +1,13 @@
-const fromAdaptReq = require("../utils/adapt-req");
+const fromAdaptReq = require('../utils/adapt-req');
 // const ac = require("../roles");
-const translate = require("../i18n/msg");
-const crypto = require("../lib/crypto").crypto;
-const DataValidator = require("../services").Services.DataValidator;
-const CreateError = require("../error/dp-error").CreateError;
-const logger = require("../utils/logger").logger;
-const db = require("../lib/database").database;
-const fromUseCase = require("../use-cases/response").responseUseCases;
-
-
+const translate = require('../i18n/msg');
+const crypto = require('../lib/crypto').crypto;
+const DataValidator = require('../services').Services.DataValidator;
+const CreateError = require('../error/dp-error').CreateError;
+const logger = require('../utils/logger').logger;
+const db = require('../lib/database').database;
+const fromUseCase = require('../use-cases/response').responseUseCases;
+const uploadFile = require('../services/upload-file').uploadFile;
 
 exports.createResponse = async (req, res, next) => {
   try {
@@ -17,18 +16,16 @@ exports.createResponse = async (req, res, next) => {
       .createResponses({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
-        
+        uploadFile,
       })
       .execute();
 
-    return res.status(201).json(
-      result.data.res,
-    );
+    return res.status(201).json(result.data.res);
   } catch (error) {
     // console.log(error)
     next(error);
@@ -42,8 +39,8 @@ exports.findAllDepartments = async (req, res, next) => {
       .findAllDepartments({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
@@ -64,12 +61,11 @@ exports.deleteDepartment = async (req, res, next) => {
       .deleteDepartments({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
-        
       })
       .execute();
 
@@ -87,12 +83,11 @@ exports.updateResponse = async (req, res, next) => {
       .updateResponses({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
-        
       })
       .execute();
 
@@ -110,12 +105,11 @@ exports.addUser = async (req, res, next) => {
       .addUser({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
-        
       })
       .execute();
 
@@ -136,8 +130,8 @@ exports.departmentDetails = async (req, res, next) => {
       .departmentDetails({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
@@ -158,8 +152,8 @@ exports.listUsers = async (req, res, next) => {
       .listUser({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,
@@ -180,8 +174,8 @@ exports.removeUsers = async (req, res, next) => {
       .removeUser({
         CreateError,
         DataValidator,
-        logger, 
-        translate, 
+        logger,
+        translate,
         crypto,
         request,
         db,

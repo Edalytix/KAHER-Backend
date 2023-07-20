@@ -51,7 +51,6 @@ const workflowSchema = new mongoose.Schema({
   uuid: {
     type: String,
     required: true,
-    unique: true,
     default: uuidv4, // generate a new UUID when a user is created
   },
   applications: [

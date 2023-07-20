@@ -1,5 +1,4 @@
-const fromEntities = require("../../entity");
-
+const fromEntities = require('../../entity');
 
 exports.Create = ({
   CreateError,
@@ -9,6 +8,7 @@ exports.Create = ({
   crypto,
   request,
   db,
+  uploadFile,
   ac,
 }) => {
   return Object.freeze({
@@ -30,6 +30,14 @@ exports.Create = ({
         //   throw new CreateError(translate(lang, "forbidden"), 403);
         // }
 
+        for (let index = 0; index < request.body.responses.length; index++) {
+          if (request.body.responses[index].type === 'file') {
+            request.body.responses[index].file = await uploadFile({
+              file: request.body.responses[index].file[0],
+            });
+          }
+        }
+
         let entity = (
           await fromEntities.entities.Response.addResponse({
             CreateError,
@@ -42,41 +50,39 @@ exports.Create = ({
           }).generate()
         ).data.entity;
 
-const ResponseFunction =db.methods.Response({
-  translate,
-  logger,
-  CreateError,
-  lang,
-})
+        const ResponseFunction = db.methods.Response({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
 
-const FormFunction =db.methods.Form({
-  translate,
-  logger,
-  CreateError,
-  lang,
-})
+        const FormFunction = db.methods.Form({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
 
-const form = await FormFunction.findById(entity.fuid);
+        const form = await FormFunction.findById(entity.fuid);
 
-if(!form)
-{
-  throw new CreateError("Bad request", 422); 
-}
-const formQuestions = form.data.form.questions.map(obj => obj._id.toString());
-const bodyQuestions = entity.responses.map(obj => obj.quid);
-const isSubset = (bodyQuestions, formQuestions) => bodyQuestions.every(item => formQuestions.includes(item));
-if(!isSubset(bodyQuestions,formQuestions))
- {
-  throw new CreateError("Bad request", 422);
+        if (!form) {
+          throw new CreateError('Bad request', 422);
+        }
+        const formQuestions = form.data.form.questions.map((obj) =>
+          obj._id.toString()
+        );
+        const bodyQuestions = entity.responses.map((obj) => obj.quid);
+        const isSubset = (bodyQuestions, formQuestions) =>
+          bodyQuestions.every((item) => formQuestions.includes(item));
+        if (!isSubset(bodyQuestions, formQuestions)) {
+          throw new CreateError('Bad request', 422);
+        }
 
-}
-
-
-
-      const res = await ResponseFunction.create(entity)
+        const res = await ResponseFunction.create(entity);
         return {
-          msg: translate(lang, "created_mood"),
-          data: { res},
+          msg: translate(lang, 'created_mood'),
+          data: { res },
         };
       } catch (error) {
         if (error instanceof CreateError) {

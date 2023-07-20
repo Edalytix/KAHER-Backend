@@ -100,7 +100,7 @@ exports.Submit = ({
 
         for (let index = 0; index < workflow.approvals.length; index++) {
           stages.push({
-            name: `Level ${index + 1} Approval`,
+            name: `${workflow.approvals[index].name} Approval`,
             status: 'waiting',
             updatedAt: formattedDate,
           });

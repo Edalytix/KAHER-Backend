@@ -20,10 +20,10 @@ exports.uploadFile = async ({ file }) => {
     'Content-Type': file.mimetype,
   };
 
-  const filePath = './../lib/temp-file' + `/${file.filename}`;
+  const filePath = './../KAHER-Backend/lib/temp-file' + `/${file.filename}`;
 
   minioClient
-    .putObject(bucketName, objectName, filePath, metaData)
+    .fPutObject(bucketName, objectName, filePath, metaData)
     .catch((e) => {
       console.log('Error while creating object from file data: ', e);
       throw e;
