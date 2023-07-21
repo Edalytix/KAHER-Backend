@@ -20,6 +20,8 @@ const FormQuestionSchema = new Schema({
       'singleChoice',
       'multipleChoice',
       'longString',
+      'department',
+      'user',
     ],
     required: true,
   },

@@ -183,7 +183,7 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
     },
     actionType(x) {
       x = String(x).trim();
-      const options = ['activity', 'comment', 'approval'];
+      const options = ['activity', 'comment', 'approval', 'rejection'];
       if (options.includes(x)) {
         return { msg: 'Valid', data: { value: x } };
       } else {

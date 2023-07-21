@@ -66,7 +66,7 @@ exports.AddComment = ({
             translate,
             crypto,
             lang,
-            params: { ...request.body, userUID, type: 'comment', picture },
+            params: { ...request.body, userUID, picture },
           }).generate()
         ).data.entity;
 
