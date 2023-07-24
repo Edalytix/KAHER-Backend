@@ -30,14 +30,6 @@ exports.Create = ({
         //   throw new CreateError(translate(lang, "forbidden"), 403);
         // }
 
-        for (let index = 0; index < request.body.responses.length; index++) {
-          if (request.body.responses[index].type === 'file') {
-            request.body.responses[index].file = await uploadFile({
-              file: request.body.responses[index].file[0],
-            });
-          }
-        }
-
         let entity = (
           await fromEntities.entities.Response.addResponse({
             CreateError,
