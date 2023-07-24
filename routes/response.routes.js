@@ -25,12 +25,16 @@ const multerStorage = multer({
  * @desc /auth
  */
 router.post('/response/add', formController.createResponse);
-// router.delete("/form/delete", formController.deleteDepartment);
-// router.get("/form/findall", formController.findAllDepartments);
+router.post(
+  '/response/addfile',
+  multerStorage.fields([
+    {
+      name: 'file',
+      maxCount: 1,
+    },
+  ]),
+  formController.addFile
+);
 router.patch('/response/update', formController.updateResponse);
-// router.patch("/form/adduser", formController.addUser);
-// router.get("/form/find", formController.formDetails);
-// router.get("/form/findusers", formController.listUsers);
-// router.patch("/form/removeuser", formController.removeUsers);
 
 module.exports = router;

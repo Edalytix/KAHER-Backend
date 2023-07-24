@@ -1,6 +1,6 @@
 const fromEntities = require('../../entity');
 
-exports.Update = ({
+exports.AddFile = ({
   CreateError,
   DataValidator,
   logger,
@@ -9,6 +9,7 @@ exports.Update = ({
   request,
   db,
   ac,
+  uploadFile,
 }) => {
   return Object.freeze({
     execute: async () => {
@@ -17,7 +18,8 @@ exports.Update = ({
         const email = request.locals.email;
         const userUID = request.locals.uid;
         const role = request.locals.role;
-        let lowLimit = request.queryParams.lowLimit;
+        let id = request.queryParams.id;
+        let qid = request.queryParams.qid;
 
         // let permission = ac.can(role).createOwn("mood");
 
@@ -29,17 +31,13 @@ exports.Update = ({
         //   throw new CreateError(translate(lang, "forbidden"), 403);
         // }
 
-        let entity = (
-          await fromEntities.entities.Response.updateResponse({
-            CreateError,
-            DataValidator,
-            logger,
-            translate,
-            crypto,
-            lang,
-            params: { ...request.body, userUID },
-          }).generate()
-        ).data.entity;
+        let file = '';
+        if (request.body?.files?.file) {
+          const obj = await uploadFile({
+            file: request.body?.files?.file[0],
+          });
+          file = obj.url;
+        }
 
         const ResponseFunction = db.methods.Response({
           translate,
@@ -48,29 +46,11 @@ exports.Update = ({
           lang,
         });
 
-        const FormFunction = db.methods.Form({
-          translate,
-          logger,
-          CreateError,
-          lang,
+        const res = await ResponseFunction.addFile({
+          id,
+          qid,
+          url: file,
         });
-
-        const form = await FormFunction.findById(entity.fuid);
-
-        if (!form) {
-          throw new CreateError('Bad request', 422);
-        }
-        const formQuestions = form.data.form.questions.map((obj) =>
-          obj._id.toString()
-        );
-        const bodyQuestions = entity.responses.map((obj) => obj.quid);
-        const isSubset = (bodyQuestions, formQuestions) =>
-          bodyQuestions.every((item) => formQuestions.includes(item));
-        if (!isSubset(bodyQuestions, formQuestions)) {
-          throw new CreateError('Bad request', 422);
-        }
-
-        const res = await ResponseFunction.update(entity);
         return {
           msg: translate(lang, 'created_mood'),
           data: { res },
