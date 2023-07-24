@@ -15,6 +15,11 @@ router.get('/users/get', middlewares.isLogged, userController.findUser);
 router.get('/users/findall', middlewares.isLogged, userController.findAllUsers);
 router.patch('/users/update', middlewares.isLogged, userController.updateUser);
 router.delete('/users/delete', middlewares.isLogged, userController.deleteUser);
+router.get(
+  '/users/findallforusers',
+  middlewares.isLogged,
+  userController.findAllUsersNoAuthorization
+);
 router.post(
   '/users/excel',
   middlewares.isLogged,

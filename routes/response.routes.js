@@ -30,7 +30,7 @@ router.post(
   multerStorage.fields([
     {
       name: 'file',
-      maxCount: 1,
+      maxCount: 20,
     },
   ]),
   formController.addFile

@@ -162,6 +162,32 @@ exports.updateUser = async (req, res, next) => {
   }
 };
 
+exports.findAllUsersNoAuthorization = async (req, res, next) => {
+  try {
+    const request = fromAdaptReq.adaptReq(req, res);
+    const result = await fromUseCase
+      .findAllUsersNoAuthorization({
+        CreateError,
+        DataValidator,
+        logger,
+        translate,
+        crypto,
+        request,
+        db,
+        accessManager,
+      })
+      .execute();
+
+    return res.status(201).json({
+      msg: result.data.res.msg,
+      data: result.data.res.data,
+    });
+  } catch (error) {
+    // console.log(error)
+    next(error);
+  }
+};
+
 exports.uploadExcel = async (req, res, next) => {
   try {
     const request = fromAdaptReq.adaptReq(req, res);

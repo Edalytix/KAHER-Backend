@@ -19,7 +19,6 @@ exports.AddFile = ({
         const userUID = request.locals.uid;
         const role = request.locals.role;
         let id = request.queryParams.id;
-        let qid = request.queryParams.qid;
 
         // let permission = ac.can(role).createOwn("mood");
 
@@ -31,14 +30,6 @@ exports.AddFile = ({
         //   throw new CreateError(translate(lang, "forbidden"), 403);
         // }
 
-        let file = '';
-        if (request.body?.files?.file) {
-          const obj = await uploadFile({
-            file: request.body?.files?.file[0],
-          });
-          file = obj.url;
-        }
-
         const ResponseFunction = db.methods.Response({
           translate,
           logger,
@@ -46,14 +37,28 @@ exports.AddFile = ({
           lang,
         });
 
-        const res = await ResponseFunction.addFile({
-          id,
-          qid,
-          url: file,
-        });
+        if (request.body?.files?.file) {
+          for (
+            let index = 0;
+            index < request.body?.files?.file.length;
+            index++
+          ) {
+            const element = request.body?.files?.file[index];
+            const obj = await uploadFile({
+              file: element,
+            });
+            const qid = element.originalname.substring(0, 24);
+            const res = await ResponseFunction.addFile({
+              id,
+              qid,
+              url: obj.url,
+            });
+          }
+        }
+
         return {
           msg: translate(lang, 'created_mood'),
-          data: { res },
+          data: { msg: 'Successfully uploaded' },
         };
       } catch (error) {
         if (error instanceof CreateError) {
