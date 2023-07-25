@@ -49,7 +49,7 @@ const applicationSchema = new mongoose.Schema({
   },
   level: {
     type: String,
-    enum: ['approved', 'rejected', 'waiting', 'on-hold', 'draft'],
+    enum: ['approved', 'rejected', 'waiting', 'on-hold', 'draft', 'rWaiting'],
     default: 'waiting',
   },
   currentApprover: {

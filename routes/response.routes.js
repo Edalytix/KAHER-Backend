@@ -10,8 +10,6 @@ const path = require('path');
 const multerStorage = multer({
   storage: multer.diskStorage({
     destination: (req, file, cb) => {
-      console.log(req.uid);
-      console.log(file);
       cb(null, path.join(__dirname + '/../lib/temp-file'));
     },
     filename: (req, file, cb) => {
@@ -24,9 +22,14 @@ const multerStorage = multer({
 /*
  * @desc /auth
  */
-router.post('/response/add', formController.createResponse);
+router.post(
+  '/response/add',
+  middlewares.isLogged,
+  formController.createResponse
+);
 router.post(
   '/response/addfile',
+  middlewares.isLogged,
   multerStorage.fields([
     {
       name: 'file',
@@ -35,6 +38,10 @@ router.post(
   ]),
   formController.addFile
 );
-router.patch('/response/update', formController.updateResponse);
+router.patch(
+  '/response/update',
+  middlewares.isLogged,
+  formController.updateResponse
+);
 
 module.exports = router;

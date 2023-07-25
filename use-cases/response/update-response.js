@@ -57,9 +57,10 @@ exports.Update = ({
 
         const form = await FormFunction.findById(entity.fuid);
 
-        if (!form) {
+        if (!form.data.form) {
           throw new CreateError('Bad request', 422);
         }
+
         const formQuestions = form.data.form.questions.map((obj) =>
           obj._id.toString()
         );

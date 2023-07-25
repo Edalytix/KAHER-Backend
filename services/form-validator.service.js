@@ -64,7 +64,7 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
     },
     applicationlevel(x) {
       x = String(x).trim();
-      const options = ['approved', 'rejected', 'waiting', 'draft'];
+      const options = ['approved', 'rejected', 'waiting', 'draft', 'rWaiting'];
       if (options.includes(x)) {
         return { msg: 'Valid', data: { value: x } };
       } else {

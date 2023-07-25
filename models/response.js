@@ -21,6 +21,8 @@ const answerSchema = new mongoose.Schema({
     required: true,
   },
   string: { type: String },
+  department: { type: String },
+  user: { type: String },
   longString: { type: String },
   file: { type: String },
   number: { type: Number },
