@@ -75,6 +75,7 @@ exports.UpdateRejected = ({
           id: request.body.auid,
           params: {
             level: 'rWaiting',
+            resubmission: true,
           },
         });
         return {
