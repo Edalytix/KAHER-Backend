@@ -20,6 +20,10 @@ exports.AddFile = ({
         const role = request.locals.role;
         let id = request.queryParams.id;
 
+        if (!id) {
+          throw new CreateError(translate(lang, 'invalid_input'), 403);
+        }
+
         // let permission = ac.can(role).createOwn("mood");
 
         // if (role === "admin" || role === "superadmin") {

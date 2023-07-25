@@ -2,6 +2,7 @@
   "active_workflows_present": "This form has active Workflows associated with it.",
   "duplicate_user": "User is already registered.",
   "duplicate_form": "A form with the same name already exists.",
+  "invalid_input": "Invalid input.",
 
   "user_not_found": "User not found, please check ID and try again.",
   "required_uid": "User ID is required.",
