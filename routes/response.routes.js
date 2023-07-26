@@ -43,5 +43,9 @@ router.patch(
   middlewares.isLogged,
   formController.updateResponse
 );
-
+router.patch(
+  '/response/editrejected',
+  middlewares.isLogged,
+  formController.updateRejected
+);
 module.exports = router;

@@ -48,12 +48,27 @@ exports.UpdateRejected = ({
           lang,
         });
 
+        const ApplicationFunction = db.methods.Application({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
+
         const FormFunction = db.methods.Form({
           translate,
           logger,
           CreateError,
           lang,
         });
+
+        const application = await ApplicationFunction.findById(
+          request.body.auid
+        );
+
+        if (application.data.application.level !== 'rejected') {
+          throw new CreateError(translate(lang, 'forbidden'), 403);
+        }
 
         const form = await FormFunction.findById(entity.fuid);
 
@@ -74,7 +89,7 @@ exports.UpdateRejected = ({
         const app = await ApplicationFunction.update({
           id: request.body.auid,
           params: {
-            level: 'rWaiting',
+            level: 'waiting',
             resubmission: true,
           },
         });
