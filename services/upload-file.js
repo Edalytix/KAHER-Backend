@@ -1,3 +1,5 @@
+const path = require('path');
+
 exports.uploadFile = async ({ file }) => {
   const Minio = require('minio');
 
@@ -20,7 +22,11 @@ exports.uploadFile = async ({ file }) => {
     'Content-Type': file.mimetype,
   };
 
-  const filePath = './../KAHER-Backend/lib/temp-file' + `/${file.filename}`;
+  const filePath = path.join(
+    __dirname + '/../lib/temp-file' + `/${file.filename}`
+  );
+
+  console.log(filePath);
 
   try {
     minioClient
