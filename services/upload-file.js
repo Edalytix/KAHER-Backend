@@ -22,19 +22,23 @@ exports.uploadFile = async ({ file }) => {
 
   const filePath = './../KAHER-Backend/lib/temp-file' + `/${file.filename}`;
 
-  minioClient
-    .fPutObject(bucketName, objectName, filePath, metaData)
-    .catch((e) => {
-      console.log('Error while creating object from file data: ', e);
-      throw e;
-    });
+  try {
+    minioClient
+      .fPutObject(bucketName, objectName, filePath, metaData)
+      .catch((e) => {
+        console.log('Error while creating object from file data: ', e);
+        throw e;
+      });
 
-  presignedUrl = await minioClient.presignedUrl(
-    'GET',
-    bucketName,
-    objectName,
-    24 * 60 * 60 * 7
-  );
+    presignedUrl = await minioClient.presignedUrl(
+      'GET',
+      bucketName,
+      objectName,
+      24 * 60 * 60 * 7
+    );
+  } catch (error) {
+    console.log('error is', error);
+  }
 
   return { url: presignedUrl, name: file.originalname, type: file.mimetype };
 };
