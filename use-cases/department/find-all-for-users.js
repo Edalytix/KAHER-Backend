@@ -19,19 +19,6 @@ exports.FindAll = ({
         const userUID = request.locals.uid;
         const role = request.locals.role;
 
-        const acesssRes = await accessManager({
-          translate,
-          logger,
-          CreateError,
-          lang,
-          role,
-          db,
-          useCase: 'departments:view',
-        });
-        if (!acesssRes) {
-          throw new CreateError(translate(lang, 'forbidden'), 403);
-        }
-
         const DepartmentFunction = db.methods.Department({
           translate,
           logger,
