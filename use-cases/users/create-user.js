@@ -18,7 +18,6 @@ exports.Create = ({
         const email = request.locals.email;
         const userUID = request.locals.uid;
         const role = request.locals.role;
-        console.log('first', userUID);
 
         const acesssRes = await accessManager({
           translate,

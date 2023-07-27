@@ -3,6 +3,7 @@
   "duplicate_user": "User is already registered.",
   "duplicate_form": "A form with the same name already exists.",
   "invalid_input": "Invalid input.",
+  "success": "Success",
 
   "user_not_found": "User not found, please check ID and try again.",
   "required_uid": "User ID is required.",
@@ -21,7 +22,6 @@
   "invalid_role_for_signup": "You cann't signup with the requested role. Contact support.",
   "error_unknown": "Unknown error, contact support.",
   "required_first_login": "First login is required.",
-  "success": "Success",
   "invalid_uid": "Invalid UID.",
   "duplicate_info": "Stroke Information is already created.",
   "duplicate_userchallenge": "Challenge already taken.",

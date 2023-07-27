@@ -1,6 +1,6 @@
 const fromEntities = require('../../entity');
 
-exports.FindAssignedApps = ({
+exports.ResubmitRejected = ({
   CreateError,
   DataValidator,
   logger,
@@ -9,7 +9,6 @@ exports.FindAssignedApps = ({
   request,
   db,
   ac,
-  accessManager,
 }) => {
   return Object.freeze({
     execute: async () => {
@@ -18,23 +17,16 @@ exports.FindAssignedApps = ({
         const email = request.locals.email;
         const userUID = request.locals.uid;
         const role = request.locals.role;
-        const page = parseInt(request.queryParams.page);
-        const limit = parseInt(request.queryParams.limit);
-        const id = request.queryParams.id;
-        const search = request.queryParams.search;
-        const statusQuery = request.queryParams.status;
+        const auid = request.queryParams.auid;
+        let lowLimit = request.queryParams.lowLimit;
 
-        // const acesssRes = await accessManager({
-        //   translate,
-        //   logger,
-        //   CreateError,
-        //   lang,
-        //   role,
-        //   db,
-        //   useCase: 'workflows:view',
-        // })
-        // if(!acesssRes)
-        // {
+        // let permission = ac.can(role).createOwn("mood");
+
+        // if (role === "admin" || role === "superadmin") {
+        //   permission = ac.can(role).createAny("mood");
+        // }
+
+        // if (!permission.granted) {
         //   throw new CreateError(translate(lang, "forbidden"), 403);
         // }
 
@@ -45,14 +37,22 @@ exports.FindAssignedApps = ({
           lang,
         });
 
-        const res = await ApplicationFunction.findAllAssignedApps(
-          id,
-          search,
-          statusQuery
-        );
+        const application = await ApplicationFunction.findById(auid);
+
+        if (application.data.application.level !== 'rejected') {
+          throw new CreateError(translate(lang, 'forbidden'), 403);
+        }
+
+        const app = await ApplicationFunction.update({
+          id: auid,
+          params: {
+            level: 'waiting',
+            resubmission: true,
+          },
+        });
         return {
-          msg: translate(lang, 'created_mood'),
-          data: { res },
+          msg: translate(lang, 'success'),
+          data: {},
         };
       } catch (error) {
         if (error instanceof CreateError) {

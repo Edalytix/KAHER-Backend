@@ -48,4 +48,10 @@ router.patch(
   middlewares.isLogged,
   formController.updateRejected
 );
+
+router.patch(
+  '/response/resubmitrejected',
+  middlewares.isLogged,
+  formController.resubmitRejected
+);
 module.exports = router;

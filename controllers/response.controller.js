@@ -98,3 +98,25 @@ exports.updateRejected = async (req, res, next) => {
     next(error);
   }
 };
+
+exports.resubmitRejected = async (req, res, next) => {
+  try {
+    const request = fromAdaptReq.adaptReq(req, res);
+    const result = await fromUseCase
+      .resubmitRejected({
+        CreateError,
+        DataValidator,
+        logger,
+        translate,
+        crypto,
+        request,
+        db,
+      })
+      .execute();
+
+    return res.status(201).json(result);
+  } catch (error) {
+    // console.log(error)
+    next(error);
+  }
+};
