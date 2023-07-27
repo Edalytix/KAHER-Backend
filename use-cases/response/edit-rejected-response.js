@@ -67,7 +67,7 @@ exports.UpdateRejected = ({
         );
 
         if (application.data.application.level !== 'rejected') {
-          throw new CreateError(translate(lang, 'forbidden'), 403);
+          throw new CreateError(translate(lang, 'invalid_request'), 403);
         }
 
         const form = await FormFunction.findById(entity.fuid);

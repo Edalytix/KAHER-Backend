@@ -37,6 +37,13 @@ exports.ResubmitRejected = ({
           lang,
         });
 
+        const StatusFunction = db.methods.Status({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
+
         const application = await ApplicationFunction.findById(auid);
 
         if (application.data.application.level !== 'rejected') {
@@ -50,6 +57,13 @@ exports.ResubmitRejected = ({
             resubmission: true,
           },
         });
+
+        let status = await StatusFunction.update(
+          auid,
+          application.data.application.currentApprover,
+          'status',
+          'waiting'
+        );
         return {
           msg: translate(lang, 'success'),
           data: {},

@@ -4,6 +4,7 @@
   "duplicate_form": "A form with the same name already exists.",
   "invalid_input": "Invalid input.",
   "success": "Success",
+  "invalid_request": "Invalid request. Please refresh the page and try again.",
 
   "user_not_found": "User not found, please check ID and try again.",
   "required_uid": "User ID is required.",
@@ -36,7 +37,6 @@
   "maximum_password_retries": "You have entered wrong password for maximum number of times, your account is blocked. Please contact customer support.",
   "account_disabled": "Your account is disabled please contact support.",
   "error_reset_password": "Reset password and try logging in again.",
-  "invalid_request": "Invalid request. Please refresh the page and try again.",
   "logout_success": "You have been logged out successfully.",
   "password_reset_account_found": "An email with One-Time Password has sent to your email address.",
   "otp_expired": "The One Time Password is expired/invalid please try again.",
