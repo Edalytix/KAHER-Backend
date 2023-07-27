@@ -86,13 +86,6 @@ exports.UpdateRejected = ({
         }
 
         const res = await ResponseFunction.update(entity);
-        const app = await ApplicationFunction.update({
-          id: request.body.auid,
-          params: {
-            level: 'waiting',
-            resubmission: true,
-          },
-        });
         return {
           msg: translate(lang, 'created_mood'),
           data: { res },
