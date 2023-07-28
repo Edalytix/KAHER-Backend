@@ -32,6 +32,15 @@ exports.Create = ({
           throw new CreateError(translate(lang, 'forbidden'), 403);
         }
 
+        const UserFunction = db.methods.User({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
+
+        const users = (await UserFunction.findAll()).data.total;
+
         let entity = (
           await fromEntities.entities.User.addUser({
             CreateError,
@@ -41,10 +50,9 @@ exports.Create = ({
             crypto,
             lang,
             params: { ...request.body, userUID },
+            num: users,
           }).generate()
         ).data.entity;
-
-        console.log(entity.password);
 
         const hashedPassword = (
           await crypto
@@ -58,13 +66,6 @@ exports.Create = ({
         ).data.hashedPassword;
 
         entity.password = hashedPassword;
-
-        const UserFunction = db.methods.User({
-          translate,
-          logger,
-          CreateError,
-          lang,
-        });
 
         const DepartmentFunction = db.methods.Department({
           translate,
