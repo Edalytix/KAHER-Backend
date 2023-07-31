@@ -32,4 +32,22 @@ router.post(
   userController.uploadExcel
 );
 
+router.get(
+  '/users/passwordreset',
+  middlewares.isLogged,
+  userController.PasswordReset
+);
+
+router.get(
+  '/users/passwordreset',
+  middlewares.isLogged,
+  userController.PasswordReset
+);
+
+router.post(
+  '/users/passwordreset',
+  middlewares.isLogged,
+  userController.PasswordReset
+);
+
 module.exports = router;

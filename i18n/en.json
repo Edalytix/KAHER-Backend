@@ -5,6 +5,8 @@
   "invalid_input": "Invalid input.",
   "success": "Success",
   "invalid_request": "Invalid request. Please refresh the page and try again.",
+  "success_otp_verified": "One Time Password is verified successfully.",
+  "otp_sent": "One Time Password is successfully sent.",
 
   "user_not_found": "User not found, please check ID and try again.",
   "required_uid": "User ID is required.",
@@ -41,7 +43,6 @@
   "password_reset_account_found": "An email with One-Time Password has sent to your email address.",
   "otp_expired": "The One Time Password is expired/invalid please try again.",
   "invalid_otp": "One Time Password entered is invalid. Please provide the valid OTP.",
-  "success_otp_verified": "One Time Password is verified successfully.",
   "account_not_found": "Account not found please enter valid email address",
   "invalid_old_password": "Invalid Old Password, please enter the correct password and try again.",
   "invalid_signup_details": "Invalid signup details, please check all the details. Please use a different e-mail address, if necessary contact appositas support.",

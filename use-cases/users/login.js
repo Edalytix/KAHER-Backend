@@ -1,5 +1,5 @@
-const fromEntities = require("../../entity");
-const config = require("../../config/app.config.json");
+const fromEntities = require('../../entity');
+const config = require('../../config/app.config.json');
 
 exports.Login = ({
   CreateError,
@@ -17,7 +17,7 @@ exports.Login = ({
     execute: async () => {
       try {
         switch (request.method) {
-          case "POST":
+          case 'POST':
             return await postLogin({
               CreateError,
               DataValidator,
@@ -30,7 +30,7 @@ exports.Login = ({
               loginTrials,
               token,
             });
-          case "GET":
+          case 'GET':
             return await getLogin({
               CreateError,
               DataValidator,
@@ -44,7 +44,7 @@ exports.Login = ({
             });
           default:
             throw new CreateError(
-              translate(request.lang, "method_not_implemented"),
+              translate(request.lang, 'method_not_implemented'),
               405
             );
         }
@@ -89,7 +89,6 @@ async function postLogin({
 
     entity = entity.data.entity;
 
-
     const usersFunction = db.methods.User({
       translate,
       logger,
@@ -98,12 +97,11 @@ async function postLogin({
     });
 
     // find user
-    const user = (
-      await usersFunction.findByEmail({ email: entity.email})
-    ).data.user;
+    const user = (await usersFunction.findByEmail({ email: entity.email })).data
+      .user;
 
     if (user === null) {
-      throw new CreateError(translate(lang, "invalid_login_credentials"), 404);
+      throw new CreateError(translate(lang, 'invalid_login_credentials'), 404);
     }
 
     // if (parseInt(user.invalid_attempts) > parseInt(loginTrials)) {
@@ -111,7 +109,7 @@ async function postLogin({
     // }
     // check if the account is disabled
     if (user.status === 'inactive') {
-      throw new CreateError(translate(lang, "account_disabled"), 403);
+      throw new CreateError(translate(lang, 'account_disabled'), 403);
     }
 
     // force reset password
@@ -128,6 +126,10 @@ async function postLogin({
 
     const verifyPassword = (await passwordHash.validatePassword(user.password))
       .data.valid;
+
+    if (!verifyPassword) {
+      throw new CreateError(translate(lang, 'invalid_login_credentials'), 303);
+    }
 
     // invalid password
     // if (!verifyPassword) {
@@ -164,7 +166,7 @@ async function postLogin({
     // // register the device used for the logging in
     // let loginDevice = null;
     const tokenGenerator = token.jwt({ CreateError, translate, lang, logger });
- 
+
     const bearerToken = (
       await tokenGenerator.generateBearerToken({
         uid: user._id.toString(),
@@ -195,7 +197,7 @@ async function postLogin({
         ua: request.locals.ua,
       });
     return {
-      msg: translate(lang, "success"),
+      msg: translate(lang, 'success'),
       data: {
         user: user,
         token: bearerToken,
@@ -207,7 +209,7 @@ async function postLogin({
     if (error instanceof CreateError) {
       throw error;
     }
-    logger.error("POST: Failed to login user", error);
+    logger.error('POST: Failed to login user', error);
     throw new Error(error.message);
   }
 }
@@ -218,7 +220,7 @@ async function getLogin({ CreateError, logger, translate, db, request }) {
     const userUID = request.locals.uid;
 
     if (userUID === undefined) {
-      throw new CreateError(translate(lang, "invalid_details"));
+      throw new CreateError(translate(lang, 'invalid_details'));
     }
 
     const usersFunction = db.methods.User({
@@ -234,18 +236,18 @@ async function getLogin({ CreateError, logger, translate, db, request }) {
     ).data.users;
 
     if (user === null) {
-      throw new CreateError(translate(lang, "account_not_found"), 404);
+      throw new CreateError(translate(lang, 'account_not_found'), 404);
     }
 
     return {
-      msg: translate(lang, "success"),
+      msg: translate(lang, 'success'),
       data: { user },
     };
   } catch (error) {
     if (error instanceof CreateError) {
       throw error;
     }
-    logger.error("GET: Failed to login user", error);
+    logger.error('GET: Failed to login user', error);
     throw new Error(error.message);
   }
 }

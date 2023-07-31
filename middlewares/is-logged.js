@@ -51,7 +51,6 @@ module.exports.isLogged = async (req, res, next) => {
           token: refreshToken,
         })
     ).data;
-    console.log('second');
     if (refreshTokenData === null) {
       return res
         .status(401)

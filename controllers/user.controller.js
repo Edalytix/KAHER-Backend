@@ -10,6 +10,7 @@ const fromUseCase = require('../use-cases/users').userUseCases;
 const token = require('../lib/token').token;
 const store = require('../lib/store').store;
 const accessManager = require('../services/access-manager').accessManager;
+const mailer = require('../services/send-mail').mailer;
 
 exports.createUser = async (req, res, next) => {
   try {
@@ -207,6 +208,34 @@ exports.uploadExcel = async (req, res, next) => {
     return res.status(201).json({
       msg: result.data.res.msg,
       data: result.data.res.data,
+    });
+  } catch (error) {
+    // console.log(error)
+    next(error);
+  }
+};
+
+exports.PasswordReset = async (req, res, next) => {
+  try {
+    const request = fromAdaptReq.adaptReq(req, res);
+    const result = await fromUseCase
+      .PasswordReset({
+        CreateError,
+        DataValidator,
+        logger,
+        translate,
+        crypto,
+        request,
+        db,
+        accessManager,
+        mailer,
+        store,
+      })
+      .execute();
+
+    return res.status(201).json({
+      msg: result.msg,
+      data: result.data,
     });
   } catch (error) {
     // console.log(error)

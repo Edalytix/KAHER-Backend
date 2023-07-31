@@ -1,5 +1,4 @@
-const fromEntities = require("../../entity");
-
+const fromEntities = require('../../entity');
 
 exports.Update = ({
   CreateError,
@@ -20,68 +19,71 @@ exports.Update = ({
         const role = request.locals.role;
         const id = request.queryParams.id;
 
-                
-
         const UserFunction = db.methods.User({
           translate,
           logger,
           CreateError,
           lang,
-          })
+        });
         const user = await UserFunction.findById(id);
-        if(!user.data.user){
-             throw new CreateError("User not found", 403);
-           }
+        if (!user.data.user) {
+          throw new CreateError('User not found', 403);
+        }
 
+        const acesssRes = await accessManager({
+          translate,
+          logger,
+          CreateError,
+          lang,
+          role,
+          db,
+          useCase: 'users:edit',
+        });
+        if (!acesssRes) {
+          throw new CreateError(translate(lang, 'forbidden'), 403);
+        }
 
-           const acesssRes = await accessManager({
+        let entity = (
+          await fromEntities.entities.User.updateUser({
+            CreateError,
+            DataValidator,
+            logger,
+            translate,
+            crypto,
+            lang,
+            params: { ...request.body, userUID },
+          }).generate()
+        ).data.entity;
+
+        if (entity.password) {
+          const hashedPassword = (
+            await crypto
+              .PasswordHash({
+                CreateError,
+                translate,
+                logger,
+                password: entity.password,
+              })
+              .hashPassword()
+          ).data.hashedPassword;
+          entity.password = hashedPassword;
+        }
+
+        if (entity.department) {
+          const DepartmentFunction = db.methods.Department({
             translate,
             logger,
             CreateError,
             lang,
-            role,
-            db,
-            useCase: 'users:edit',
-          })
-          if(!acesssRes)
-          {
-            throw new CreateError(translate(lang, "forbidden"), 403);
-          }
-
-        let entity = (
-            await fromEntities.entities.User.updateUser({
-              CreateError,
-              DataValidator,
-              logger,
-              translate,
-              crypto,
-              lang,
-              params: { ...request.body, userUID },
-            }).generate()
-          ).data.entity;
-     
-          if(entity.password)
-          {
-            const hashedPassword = (await crypto.PasswordHash({
-            CreateError, translate, logger,
-            password: entity.password
-        }).hashPassword()).data.hashedPassword;
-        entity.password = hashedPassword;
-      }
-   
-            if(entity.department){
-            const DepartmentFunction = db.methods.Department({
-              translate,
-              logger,
-              CreateError,
-              lang,
-            })
-            const department = await DepartmentFunction.findById(entity.department.id);
-            entity.department.name = department.data.department.name;
-          }
-        const res = await UserFunction.update({id: id, params: entity});
+          });
+          const department = await DepartmentFunction.findById(
+            entity.department.id
+          );
+          entity.department.name = department.data.department.name;
+        }
+        const res = await UserFunction.update({ id: id, params: entity });
         return {
-          msg: translate(lang, "created_mood"),
+          msg: translate(lang, 'created_mood'),
           data: { res },
         };
       } catch (error) {
