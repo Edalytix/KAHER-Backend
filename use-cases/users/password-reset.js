@@ -86,7 +86,7 @@ async function sendOTP({
 
     // find user
     const user = (
-      await usersFunction.findByEmail({ email: request.locals.email })
+      await usersFunction.findByEmail({ email: request.queryParams.email })
     ).data.user;
 
     if (user === null) {
@@ -106,7 +106,7 @@ async function sendOTP({
       lang,
       lang: request.locals.lang,
       params: {
-        to: 'testingkalpas@gmail.com',
+        to: request.queryParams.email,
         otp: otp,
         type: 'OTPSend',
       },
@@ -141,7 +141,7 @@ const verifyOTP = async ({
     const latestOTP = (
       await store
         .Store({ translate, logger, lang, CreateError })
-        .getResetOtp({ email: request.locals.email })
+        .getResetOtp({ email: request.body.email })
     ).data.otp;
 
     if (latestOTP === null) {
@@ -161,7 +161,7 @@ const verifyOTP = async ({
 
     // find user
     const user = (
-      await usersFunction.findByEmail({ email: request.locals.email })
+      await usersFunction.findByEmail({ email: request.body.email })
     ).data.user;
 
     let entity = (
