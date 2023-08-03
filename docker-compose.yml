@@ -3,6 +3,8 @@ version: "3.9"
 networks:
   web:
     external: true
+  internal:
+    external: false
 
 services:
   app:
@@ -16,3 +18,39 @@ services:
       - traefik.port=3000
     networks:
       - web
+
+  kaher-uat:
+    build:
+      context: .
+    container_name: kaher-uat
+    image: kaher-uat
+    restart: always
+    labels:
+      - traefik.http.routers.kaher-uapi.rule=Host(`kaher-uapi.edalytics.com`)
+      - traefik.http.routers.kaher-uapi.tls=true
+      - traefik.http.routers.kaher-uapi.tls.certresolver=lets-encrypt
+      - traefik.port=3000
+    networks:
+      - web
+
+  kaher-uredis:
+    image: bitnami/redis:latest
+    restart: always
+    container_name: kaher-uredis
+
+    environment:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      - ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+      - REDIS_REPLICATION_MODE=master
+
+    labels:
+      - "traefik.enable=true"
+      # routers
+      - "traefik.tcp.routers.kaher-uredis.rule=HostSNI(`*`)"
+      - "traefik.tcp.routers.kaher-uredis.entryPoints=kaher-uredis"
+      - "traefik.tcp.routers.kaher-uredis.service=kaher-uredis"
+      # services (needed for TCP)
+      - "traefik.tcp.services.kaher-uredis.loadbalancer.server.port=6379"
+    networks:
+      - internal

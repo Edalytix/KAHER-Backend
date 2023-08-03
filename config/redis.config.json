@@ -7,6 +7,10 @@
     "host": "161.97.112.144",
     "port": 6379
   },
+  "uat": {
+    "host": "kaher-uredis",
+    "port": 6379
+  },
   "production": {
     "host": "161.97.112.144",
     "port": 6379

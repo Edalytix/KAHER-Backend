@@ -5,11 +5,16 @@
         "password": "random",
         "database": "kcet"
     },
+    "uat": {
+        "host": "161.97.112.144:27017",
+        "username": "root",
+        "password": "random",
+        "database": "kaher-uat"
+    },
     "test": {
         "host": "161.97.112.144:27017",
         "username": "root",
         "password": "random",
         "database": "kcet"
     }
-
 }
