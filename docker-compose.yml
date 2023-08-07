@@ -5,7 +5,7 @@ networks:
     external: true
 
 services:
-  app:
+  kaher-bdev:
     build:
       context: .
     restart: always
