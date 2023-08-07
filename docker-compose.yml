@@ -16,3 +16,24 @@ services:
       - traefik.port=3000
     networks:
       - web
+  kaher-dredis:
+    image: bitnami/redis:latest
+    restart: always
+    container_name: kaher-dredis
+
+    environment:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      - ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+      - REDIS_REPLICATION_MODE=master
+
+    labels:
+      - "traefik.enable=true"
+      # routers
+      - "traefik.tcp.routers.kaher-dredis.rule=HostSNI(`*`)"
+      - "traefik.tcp.routers.kaher-dredis.entryPoints=appos-dredis"
+      - "traefik.tcp.routers.kaher-dredis.service=kaher-dredis"
+      # services (needed for TCP)
+      - "traefik.tcp.services.kaher-dredis.loadbalancer.server.port=6379"
+    networks:
+      - internal      
