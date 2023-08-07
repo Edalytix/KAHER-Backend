@@ -36,7 +36,7 @@ services:
       - "traefik.enable=true"
       # routers
       - "traefik.tcp.routers.kaher-dredis.rule=HostSNI(`*`)"
-      - "traefik.tcp.routers.kaher-dredis.entryPoints=appos-dredis"
+      - "traefik.tcp.routers.kaher-dredis.entryPoints=kaher-dredis"
       - "traefik.tcp.routers.kaher-dredis.service=kaher-dredis"
       # services (needed for TCP)
       - "traefik.tcp.services.kaher-dredis.loadbalancer.server.port=6379"
