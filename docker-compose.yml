@@ -19,6 +19,7 @@ services:
       - traefik.port=3000
     networks:
       - web
+      
   kaher-dredis:
     image: bitnami/redis:latest
     restart: always
