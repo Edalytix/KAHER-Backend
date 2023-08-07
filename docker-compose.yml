@@ -3,6 +3,8 @@ version: "3.9"
 networks:
   web:
     external: true
+  internal:
+    external: false
 
 services:
   kaher-bdev:
