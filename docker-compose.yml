@@ -11,7 +11,7 @@ services:
     build:
       context: .
     restart: always
-    container_name: kaher-dredis
+    container_name: kaher-bdev
     image: kaher-bdev
     labels:
       - traefik.http.routers.kaher-api.rule=Host(`kaher-api.edalytics.com`)
