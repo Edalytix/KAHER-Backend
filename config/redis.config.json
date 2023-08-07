@@ -4,7 +4,7 @@
     "port": 6379
   },
   "test": {
-    "host": "161.97.112.144",
+    "host": "kaher-dredis",
     "port": 6379
   },
   "production": {
