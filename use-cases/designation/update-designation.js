@@ -1,8 +1,6 @@
 const fromEntities = require('../../entity');
-const mongoose = require('mongoose');
-const excelUpload = require('../../services/excel-upload').excelUpload;
 
-exports.CreateUserExcel = ({
+exports.Update = ({
   CreateError,
   DataValidator,
   logger,
@@ -10,6 +8,7 @@ exports.CreateUserExcel = ({
   crypto,
   request,
   db,
+  ac,
   accessManager,
 }) => {
   return Object.freeze({
@@ -19,6 +18,7 @@ exports.CreateUserExcel = ({
         const email = request.locals.email;
         const userUID = request.locals.uid;
         const role = request.locals.role;
+        let id = request.queryParams.id;
 
         const acesssRes = await accessManager({
           translate,
@@ -27,24 +27,24 @@ exports.CreateUserExcel = ({
           lang,
           role,
           db,
-          useCase: 'users:edit',
+          useCase: 'roles:edit',
         });
         if (!acesssRes) {
           throw new CreateError(translate(lang, 'forbidden'), 403);
         }
 
-        const UserFunction = db.methods.User({
-          translate,
-          logger,
-          CreateError,
-          lang,
-        });
+        // let permission = ac.can(role).createOwn("mood");
 
-        const excel = request.body.files.excel;
-        const arr = excelUpload({ excel, fromEntities, UserFunction });
+        // if (role === "admin" || role === "superadmin") {
+        //   permission = ac.can(role).createAny("mood");
+        // }
+
+        // if (!permission.granted) {
+        //   throw new CreateError(translate(lang, "forbidden"), 403);
+        // }
 
         let entity = (
-          await fromEntities.entities.User.addUser({
+          await fromEntities.entities.User.updateDesignation({
             CreateError,
             DataValidator,
             logger,
@@ -55,45 +55,28 @@ exports.CreateUserExcel = ({
           }).generate()
         ).data.entity;
 
-        console.log(entity.password);
-
-        const hashedPassword = (
-          await crypto
-            .PasswordHash({
-              CreateError,
-              translate,
-              logger,
-              password: entity.password,
-            })
-            .hashPassword()
-        ).data.hashedPassword;
-
-        entity.password = hashedPassword;
-
-        const DepartmentFunction = db.methods.Department({
+        const DesignationFunction = db.methods.Designation({
           translate,
           logger,
           CreateError,
           lang,
         });
-        const department = await DepartmentFunction.findById(
-          entity.department.id
-        );
-        if (!department.data.department) {
-          throw new CreateError('Department not found', 403);
-        }
-        entity.department.name = department.data.department.name;
-        const res = await UserFunction.create(entity);
+
+        const res = await DesignationFunction.updateById({
+          id,
+          params: entity,
+        });
         return {
           msg: translate(lang, 'created_mood'),
           data: { res },
         };
       } catch (error) {
-        console.log('message', error.message);
         if (error instanceof CreateError) {
           throw error;
         }
         logger.error(`Failed to signup: %s`, error);
+
+        throw new Error(error.message);
       }
     },
   });

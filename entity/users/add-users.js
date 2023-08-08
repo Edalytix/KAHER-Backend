@@ -32,6 +32,8 @@ exports.addUser = ({
           applications: [],
           employeeId: createStringWithNumber(),
           type: 'admin',
+          designation: null,
+          institution: null,
         };
 
         if (params.firstName) {
@@ -66,6 +68,17 @@ exports.addUser = ({
           entity.department.id = validate.mongoid(params.department).data.value;
         } else {
           delete entity.department;
+        }
+
+        if (params.designation) {
+          entity.designation = validate.mongoid(params.designation).data.value;
+        } else {
+          delete entity.designation;
+        }
+        if (params.institution) {
+          entity.institution = validate.mongoid(params.institution).data.value;
+        } else {
+          delete entity.institution;
         }
 
         if (params.applications) {

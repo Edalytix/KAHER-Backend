@@ -2,9 +2,13 @@ const { createLogger } = require('logger');
 const CONFIG = require('../config/stripe.config.json');
 const stripe = require('stripe')(CONFIG.development.secret_key);
 
- 
 // Define a function to create a customer and charge them for a trial period using the provided payment method
-async function createCustomerAndCharge(email, paymentMethodId, trialPeriodDays, subscriptionPlanId) {
+async function createCustomerAndCharge(
+  email,
+  paymentMethodId,
+  trialPeriodDays,
+  subscriptionPlanId
+) {
   try {
     // Check if the customer has subscribed before
     const existingCustomer = await stripe.customers.list({
@@ -27,10 +31,14 @@ async function createCustomerAndCharge(email, paymentMethodId, trialPeriodDays, 
     });
 
     // Attach the payment method to the customer
-    await stripe.paymentMethods.attach(paymentMethodId, { customer: customer.id });
+    await stripe.paymentMethods.attach(paymentMethodId, {
+      customer: customer.id,
+    });
 
     // Set the payment method as the customer's default payment method
-    await stripe.customers.update(customer.id, { invoice_settings: { default_payment_method: paymentMethodId } });
+    await stripe.customers.update(customer.id, {
+      invoice_settings: { default_payment_method: paymentMethodId },
+    });
 
     // Create a subscription for the customer with the provided trial period and plan
     const subscription = await stripe.subscriptions.create({
@@ -39,7 +47,9 @@ async function createCustomerAndCharge(email, paymentMethodId, trialPeriodDays, 
       items: [{ plan: subscriptionPlanId }],
     });
 
-    console.log(`Customer ${customer.id} subscribed with trial period of ${trialPeriodDays} days using payment method ${paymentMethodId}`);
+    console.log(
+      `Customer ${customer.id} subscribed with trial period of ${trialPeriodDays} days using payment method ${paymentMethodId}`
+    );
 
     return customer;
   } catch (error) {
@@ -51,16 +61,15 @@ async function createCustomerAndCharge(email, paymentMethodId, trialPeriodDays, 
 // Define a function to charge a customer for their subscription after the trial period ends using the provided payment method
 async function chargeCustomer(email, paymentMethodId, subscriptionId) {
   try {
-
     //Get the customer
     const existingCustomer = await stripe.customers.list({
-        email: email,
-        limit: 1,
-      });
+      email: email,
+      limit: 1,
+    });
     // Get the customer's subscription
 
     const subscription = await stripe.subscriptions.retrieve(subscriptionId);
-console.log(existingCustomer)
+    console.log(existingCustomer);
     // Charge the customer for the subscription using the provided payment method
     const invoice = await stripe.invoices.create({
       customer: existingCustomer.data[0].id,
@@ -69,7 +78,9 @@ console.log(existingCustomer)
       auto_advance: true,
     });
 
-    console.log(`Customer ${existingCustomer.id} charged for subscription ${subscriptionId} using payment method ${paymentMethodId}`);
+    console.log(
+      `Customer ${existingCustomer.id} charged for subscription ${subscriptionId} using payment method ${paymentMethodId}`
+    );
 
     return invoice;
   } catch (error) {
@@ -110,26 +121,26 @@ console.log(existingCustomer)
 //     }, 604800000); // 7 days in milliseconds
 //   });
 
-
 // Define a function to create a PaymentMethod object for a credit card payment
-async function createCreditCardPaymentMethod(cardNumber, cardExpMonth, cardExpYear, cardCvc) {
+async function createCreditCardPaymentMethod(
+  cardNumber,
+  cardExpMonth,
+  cardExpYear,
+  cardCvc
+) {
   try {
-
     //Retrieve all Poducts and Subscription
-
 
     const products = await stripe.products.list();
     const subscriptions = await stripe.subscriptions.list();
 
     const productIds = products.data.map((product) => product.id);
-    const subscriptionIds = subscriptions.data.map((subscription) => subscription.id);
+    const subscriptionIds = subscriptions.data.map(
+      (subscription) => subscription.id
+    );
 
     console.log(`Product IDs: ${productIds}`);
     console.log(`Subscription IDs: ${subscriptionIds}`);
- 
-
-
-
 
     // Create a PaymentMethod object with the credit card details
     // const paymentMethod = await stripe.paymentMethods.create({
@@ -159,6 +170,8 @@ async function createCreditCardPaymentMethod(cardNumber, cardExpMonth, cardExpYe
 //     createCustomerAndCharge('test@example.com', paymentMethod.id, 7, '<subscription_plan_id>');
 //   });
 
- module.exports = {
-     createCreditCardPaymentMethod, createCustomerAndCharge, chargeCustomer
- }
+module.exports = {
+  createCreditCardPaymentMethod,
+  createCustomerAndCharge,
+  chargeCustomer,
+};
