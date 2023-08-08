@@ -29,4 +29,10 @@ router.patch(
   institutionController.updateInstitutions
 );
 
+router.get(
+  '/institution/find',
+  middlewares.isLogged,
+  institutionController.findInstitutionDetails
+);
+
 module.exports = router;

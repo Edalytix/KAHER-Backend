@@ -29,4 +29,9 @@ router.patch(
   designationController.updateDesignations
 );
 
+router.get(
+  '/designation/find',
+  middlewares.isLogged,
+  designationController.findDesignationDetails
+);
 module.exports = router;
