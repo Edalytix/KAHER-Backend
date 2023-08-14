@@ -202,6 +202,9 @@ exports.uploadExcel = async (req, res, next) => {
         request,
         db,
         accessManager,
+        mailer,
+        store,
+        token,
       })
       .execute();
 

@@ -11,6 +11,9 @@ exports.CreateUserExcel = ({
   request,
   db,
   accessManager,
+  mailer,
+  store,
+  token,
 }) => {
   return Object.freeze({
     execute: async () => {
@@ -19,6 +22,13 @@ exports.CreateUserExcel = ({
         const email = request.locals.email;
         const userUID = request.locals.uid;
         const role = request.locals.role;
+
+        const tokenGenerator = token.jwt({
+          CreateError,
+          translate,
+          lang,
+          logger,
+        });
 
         const acesssRes = await accessManager({
           translate,
@@ -40,53 +50,115 @@ exports.CreateUserExcel = ({
           lang,
         });
 
-        const excel = request.body.files.excel;
-        const arr = excelUpload({ excel, fromEntities, UserFunction });
-
-        let entity = (
-          await fromEntities.entities.User.addUser({
-            CreateError,
-            DataValidator,
-            logger,
-            translate,
-            crypto,
-            lang,
-            params: { ...request.body, userUID },
-          }).generate()
-        ).data.entity;
-
-        console.log(entity.password);
-
-        const hashedPassword = (
-          await crypto
-            .PasswordHash({
-              CreateError,
-              translate,
-              logger,
-              password: entity.password,
-            })
-            .hashPassword()
-        ).data.hashedPassword;
-
-        entity.password = hashedPassword;
-
-        const DepartmentFunction = db.methods.Department({
+        const DesignationFunction = db.methods.Designation({
           translate,
           logger,
           CreateError,
           lang,
         });
-        const department = await DepartmentFunction.findById(
-          entity.department.id
-        );
-        if (!department.data.department) {
-          throw new CreateError('Department not found', 403);
+
+        const InstitutionFunction = db.methods.Institution({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
+
+        const excel = request.body.files.excel;
+        const array = await excelUpload({
+          excel,
+          fromEntities,
+          UserFunction,
+          DesignationFunction,
+          InstitutionFunction,
+        });
+
+        for (let index = 0; index < array.length; index++) {
+          const element = array[index];
+          let user = await UserFunction.findByEmail({ email: element.email });
+
+          if (user.data.user !== null) {
+            continue;
+          }
+
+          let entity = (
+            await fromEntities.entities.User.addUser({
+              CreateError,
+              DataValidator,
+              logger,
+              translate,
+              crypto,
+              lang,
+              params: { ...element, userUID },
+            }).generate()
+          ).data.entity;
+
+          const hashedPassword = (
+            await crypto
+              .PasswordHash({
+                CreateError,
+                translate,
+                logger,
+                password: entity.password,
+              })
+              .hashPassword()
+          ).data.hashedPassword;
+
+          entity.password = hashedPassword;
+
+          const DepartmentFunction = db.methods.Department({
+            translate,
+            logger,
+            CreateError,
+            lang,
+          });
+
+          const department = await DepartmentFunction.findById(
+            entity.department.id
+          );
+          if (!department.data.department) {
+            throw new CreateError('Department not found', 403);
+          }
+          entity.department.name = department.data.department.name;
+
+          const refreshToken = (
+            await tokenGenerator.generateRefreshToken({
+              email: entity.email,
+              firstname: entity.firstName,
+              lastname: entity.secondName,
+              ua: request.locals.ua,
+            })
+          ).data.token;
+
+          const otp = getOTP(10);
+          const storeOtpStatus = await store
+            .Store({ translate, logger, lang, CreateError })
+            .storeResetOtp({ otp, email: entity.email });
+
+          //send mail with otp
+          const mail = await mailer({
+            CreateError,
+            translate,
+            logger,
+            lang,
+            lang: request.locals.lang,
+            params: {
+              to: entity.email,
+              otp: otp,
+              token: refreshToken,
+              type: 'SetPassword',
+            },
+          });
+          const res = await UserFunction.create(entity);
         }
-        entity.department.name = department.data.department.name;
-        const res = await UserFunction.create(entity);
         return {
           msg: translate(lang, 'created_mood'),
-          data: { res },
+          data: {
+            res: {
+              msg: 'Successfully uploaded',
+              data: {},
+            },
+          },
         };
       } catch (error) {
         console.log('message', error.message);
@@ -98,3 +170,16 @@ exports.CreateUserExcel = ({
     },
   });
 };
+
+function getOTP(len, charSet) {
+  len = 10 || len;
+  charSet =
+    charSet ||
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%*';
+  var randomString = '';
+  for (var i = 0; i < len; i++) {
+    var randomPoz = Math.floor(Math.random() * charSet.length);
+    randomString += charSet.substring(randomPoz, randomPoz + 1);
+  }
+  return randomString;
+}

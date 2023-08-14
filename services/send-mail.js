@@ -15,12 +15,12 @@ exports.mailer = async ({
 }) => {
   try {
     const transporter = nodemailer.createTransport({
-      host: 'mail.kledeemeduniversity.edu.in',
+      host: 'smtp.gmail.com',
       port: 465,
       secure: true, // true for 465, false for other ports
       auth: {
-        user: 'info@kledeemeduniversity.edu.in', // your email address
-        pass: 'Info@1234567', // your email password
+        user: 'kaherincentive@kledeemeduniversity.edu.in', // your email address
+        pass: 'yngxqzobhsznnjyh', // your email password
       },
     });
     const message = await templates[params.type](params);
