@@ -14,7 +14,6 @@ exports.excelUpload = async ({
   const workbook = XLSX.readFile(excel[0].path);
   const sheet = workbook.Sheets['Sheet0'];
   const rows = XLSX.utils.sheet_to_json(sheet);
-  console.log(rows);
 
   function getNames(fullName) {
     const spaceIndex = fullName.indexOf(' ');

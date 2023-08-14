@@ -23,7 +23,7 @@ module.exports = {
           <body>
             <h2>Your OTP for Kaher password reset</h2>
             <h2>${params.otp}</h2>
-            <a href=https://kaher.edalytics.com/account/forgot-password/otp/${params.token} target="_blank">
+            <a href=https://kaher.edalytics.com/account/forgot-password/otp?verify=${params.token} target="_blank">
             <button>Click Here</button>
           </a>
           </body>
