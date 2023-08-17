@@ -120,9 +120,11 @@ exports.CreateUserExcel = ({
             throw new CreateError('Department not found', 403);
           }
           entity.department.name = department.data.department.name;
+          const createduser = await UserFunction.create(entity);
 
           const refreshToken = (
             await tokenGenerator.generateRefreshToken({
+              _id: createduser.data.user._id,
               email: entity.email,
               firstname: entity.firstName,
               lastname: entity.secondName,
@@ -149,7 +151,6 @@ exports.CreateUserExcel = ({
               type: 'SetPassword',
             },
           });
-          const res = await UserFunction.create(entity);
         }
         return {
           msg: translate(lang, 'created_mood'),
