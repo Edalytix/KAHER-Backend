@@ -125,6 +125,7 @@ exports.CreateUserExcel = ({
           const refreshToken = (
             await tokenGenerator.generateRefreshToken({
               _id: createduser.data.user._id,
+              status: createduser.data.user.status,
               email: entity.email,
               firstname: entity.firstName,
               lastname: entity.secondName,
