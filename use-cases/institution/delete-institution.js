@@ -19,18 +19,6 @@ exports.Delete = ({
         const userUID = request.locals.uid;
         const role = request.locals.role;
         const id = request.queryParams.id;
-        const acesssRes = await accessManager({
-          translate,
-          logger,
-          CreateError,
-          lang,
-          role,
-          db,
-          useCase: 'roles:edit',
-        });
-        if (!acesssRes) {
-          throw new CreateError(translate(lang, 'forbidden'), 403);
-        }
 
         // let permission = ac.can(role).createOwn("mood");
 
@@ -48,6 +36,21 @@ exports.Delete = ({
           CreateError,
           lang,
         });
+
+        const UserFunction = db.methods.User({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
+
+        const users = await UserFunction.findByParams({
+          institution: id,
+        });
+
+        if (users.data.length > 0) {
+          throw new CreateError(translate(lang, 'forbidden_request'), 403);
+        }
 
         const res = await InstitutionFunction.deleteById({ id });
         return {

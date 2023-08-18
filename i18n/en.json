@@ -7,6 +7,7 @@
   "invalid_request": "Invalid request. Please refresh the page and try again.",
   "success_otp_verified": "One Time Password is verified successfully.",
   "otp_sent": "One Time Password is successfully sent.",
+  "forbidden_request": "Request can't be proceeded.",
 
   "user_not_found": "User not found, please check ID and try again.",
   "required_uid": "User ID is required.",

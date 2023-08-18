@@ -1,15 +1,20 @@
 {
-    "development": {
-        "host": "161.97.112.144:27017",
-        "username": "root",
-        "password": "random",
-        "database": "kcet"
-    },
-    "test": {
-        "host": "161.97.112.144:27017",
-        "username": "root",
-        "password": "random",
-        "database": "kcet"
-    }
-
+  "development": {
+    "host": "161.97.112.144:27017",
+    "username": "root",
+    "password": "random",
+    "database": "kcet"
+  },
+  "test": {
+    "host": "161.97.112.144:27017",
+    "username": "root",
+    "password": "random",
+    "database": "kcet"
+  },
+  "production": {
+    "host": "161.97.112.144:27017",
+    "username": "root",
+    "password": "random",
+    "database": "kcet"
+  }
 }
