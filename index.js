@@ -61,7 +61,9 @@ const originURLS = [
   // appConfig?.originUrl?[process.env.NODE_ENV]?.www?.http,
   'http://localhost:3000',
   'https://kaher.edalytics.com',
-  'http://kaher.edalytics.com'
+  'http://kaher.edalytics.com',
+  'https://approvals.kaher.edu.in',
+  'http://approvals.kaher.edu.in'
 ]
 
 //
