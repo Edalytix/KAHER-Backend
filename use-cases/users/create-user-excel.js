@@ -93,6 +93,8 @@ exports.CreateUserExcel = ({
             }).generate()
           ).data.entity;
 
+          entity.status = 'active';
+
           const hashedPassword = (
             await crypto
               .PasswordHash({
