@@ -117,6 +117,12 @@ exports.updateUser = ({
           entity.password = validate.password(params.password).data.value;
         }
 
+        if (params.profile_picture) {
+          entity.profile_picture = params.profile_picture;
+        } else {
+          delete entity.profile_picture;
+        }
+
         return {
           msg: translate(lang, 'success'),
           data: { entity },

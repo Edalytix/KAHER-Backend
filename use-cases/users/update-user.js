@@ -44,6 +44,15 @@ exports.Update = ({
           throw new CreateError(translate(lang, 'forbidden'), 403);
         }
 
+        let profile_picture = null;
+        if (request.body?.files?.profile_picture) {
+          const obj = await uploadFile({
+            file: request.body?.files?.profile_picture[0],
+          });
+          console.log(obj);
+          profile_picture = obj.url;
+        }
+
         let entity = (
           await fromEntities.entities.User.updateUser({
             CreateError,
@@ -52,18 +61,9 @@ exports.Update = ({
             translate,
             crypto,
             lang,
-            params: { ...request.body, userUID },
+            params: { ...request.body, profile_picture, userUID },
           }).generate()
         ).data.entity;
-
-        if (request.body?.files?.profile_picture) {
-          const obj = await uploadFile({
-            file: request.body?.files?.profile_picture[0],
-          });
-          console.log(obj);
-          entity.profile_picture = obj.url;
-        }
-        console.log(entity);
 
         if (entity.password) {
           const hashedPassword = (
