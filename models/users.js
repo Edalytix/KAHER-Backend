@@ -75,6 +75,17 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  accountNumber: {
+    type: Number,
+    required: false,
+  },
+  ifsc: {
+    type: String,
+    required: false,
+  },
+  profile_picture: {
+    type: String,
+  },
 });
 
 const User = mongoose.model('User', userSchema);

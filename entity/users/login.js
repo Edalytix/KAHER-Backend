@@ -1,53 +1,54 @@
 const generatePassword = require('generate-password');
 
 exports.login = ({
-    CreateError,
-    DataValidator,
-    logger,
-    translate,
-    crypto,
-    lang,
-    params
+  CreateError,
+  DataValidator,
+  logger,
+  translate,
+  crypto,
+  lang,
+  params,
 }) => {
-    return Object.freeze({
-        async generate() {
-            try {
-                const validate = DataValidator({ CreateError, lang, translate });
+  return Object.freeze({
+    async generate() {
+      try {
+        const validate = DataValidator({ CreateError, lang, translate });
 
-                let entity = {
-                    email: null,
-                    password: null,
+        let entity = {
+          email: null,
+          password: null,
+          employeeId: null,
+        };
 
-                };
-
-                  if (params.email) {
-                    entity.email = validate.email(params.email).data.value;
-                  } else {
-                    delete entity.email;
-                  }
-                  if(params.password)
-                  {
-                    // entity.password = validate.password(params.password).data.value;
-                    entity.password=params.password
-                  }
-                  else{
-                    delete entity.password;
-                  }
-                  
-
-                
-
-                return {
-                    msg: translate(lang, 'success'),
-                    data: { entity }
-                }
-            } catch (error) {
-                logger.error('Failed to create exercise entity: %s', error);
-                if (error instanceof CreateError) {
-                    throw error;
-                }
-                throw new Error(translate(lang, 'error_unknown'))
-            }
+        if (params.employeeId) {
+          entity.employeeId = params.employeeId;
+        } else {
+          delete entity.employeeId;
         }
-    })
-}
+
+        if (params.email) {
+          entity.email = validate.email(params.email).data.value;
+        } else {
+          delete entity.email;
+        }
+        if (params.password) {
+          // entity.password = validate.password(params.password).data.value;
+          entity.password = params.password;
+        } else {
+          delete entity.password;
+        }
+
+        return {
+          msg: translate(lang, 'success'),
+          data: { entity },
+        };
+      } catch (error) {
+        logger.error('Failed to create exercise entity: %s', error);
+        if (error instanceof CreateError) {
+          throw error;
+        }
+        throw new Error(translate(lang, 'error_unknown'));
+      }
+    },
+  });
+};

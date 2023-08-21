@@ -11,6 +11,7 @@ const token = require('../lib/token').token;
 const store = require('../lib/store').store;
 const accessManager = require('../services/access-manager').accessManager;
 const mailer = require('../services/send-mail').mailer;
+const uploadFile = require('../services/upload-file').uploadFile;
 
 exports.createUser = async (req, res, next) => {
   try {
@@ -25,6 +26,7 @@ exports.createUser = async (req, res, next) => {
         request,
         db,
         accessManager,
+        uploadFile,
       })
       .execute();
 
@@ -150,6 +152,7 @@ exports.updateUser = async (req, res, next) => {
         request,
         db,
         accessManager,
+        uploadFile,
       })
       .execute();
 

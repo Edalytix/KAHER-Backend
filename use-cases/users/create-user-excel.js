@@ -104,6 +104,8 @@ exports.CreateUserExcel = ({
               .hashPassword()
           ).data.hashedPassword;
 
+          const preSetPassword = entity.password;
+
           entity.password = hashedPassword;
 
           const DepartmentFunction = db.methods.Department({
@@ -133,10 +135,10 @@ exports.CreateUserExcel = ({
             })
           ).data.token;
 
-          const otp = getOTP(10);
-          const storeOtpStatus = await store
-            .Store({ translate, logger, lang, CreateError })
-            .storeResetOtp({ otp, email: entity.email });
+          // const otp = getOTP(10);
+          // const storeOtpStatus = await store
+          //   .Store({ translate, logger, lang, CreateError })
+          //   .storeResetOtp({ otp, email: entity.email });
 
           //send mail with otp
           const mail = await mailer({
@@ -147,7 +149,7 @@ exports.CreateUserExcel = ({
             lang: request.locals.lang,
             params: {
               to: entity.email,
-              otp: otp,
+              password: preSetPassword,
               token: refreshToken,
               type: 'SetPassword',
             },

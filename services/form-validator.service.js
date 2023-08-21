@@ -80,6 +80,14 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
         throw new CreateError(translate(lang, 'invalid_goal_status'), 422);
       }
     },
+    ifsc(x) {
+      x = String(x);
+      if (/^[\s\S]{6,15}$/.test(x)) {
+        return { msg: 'Valid', data: { value: x } };
+      } else {
+        throw new CreateError(translate(lang, 'invalid_ifsc'), 422);
+      }
+    },
     userType(x) {
       x = String(x).trim();
       const options = ['admin', 'user'];
@@ -315,7 +323,10 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
       if (isNaN(x)) {
         throw new CreateError(translate(lang, 'invalid_title'), 422);
       }
+      return { msg: 'Valid', data: { value: x } };
     },
+
+    //Breakdown
 
     salute(x) {
       if (/^(Mr\.|Mrs\.|other)$/.test(x)) {

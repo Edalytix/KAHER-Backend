@@ -19,12 +19,32 @@ const multerStorage = multer({
 /*
  * @desc /auth
  */
-router.post('/users/add', middlewares.isLogged, userController.createUser);
+router.post(
+  '/users/add',
+  middlewares.isLogged,
+  multerStorage.fields([
+    {
+      name: 'profile_picture',
+      maxCount: 1,
+    },
+  ]),
+  userController.createUser
+);
 router.post('/users/login', userController.Login);
 router.get('/users/get', middlewares.isLogged, userController.findUser);
 // router.delete("/users/delete", userController.deleteRoles);
 router.get('/users/findall', middlewares.isLogged, userController.findAllUsers);
-router.patch('/users/update', middlewares.isLogged, userController.updateUser);
+router.patch(
+  '/users/update',
+  middlewares.isLogged,
+  multerStorage.fields([
+    {
+      name: 'profile_picture',
+      maxCount: 1,
+    },
+  ]),
+  userController.updateUser
+);
 router.delete('/users/delete', middlewares.isLogged, userController.deleteUser);
 router.get(
   '/users/findallforusers',

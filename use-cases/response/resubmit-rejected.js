@@ -64,6 +64,33 @@ exports.ResubmitRejected = ({
           'status',
           'waiting'
         );
+
+        const CommentFunction = db.methods.Comment({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
+
+        const comment = (await CommentFunction.findById(auid)).data.comment;
+
+        if (comment === null) {
+          throw new CreateError('No comment found.', 403);
+        }
+
+        let resubmitMessage = {
+          name: 'User',
+          uid: userUID,
+          content: 'Your application is resubmitted!',
+          type: 'resubmit',
+          referlink: [],
+        };
+
+        const res = await CommentFunction.addComment({
+          id: auid,
+          params: resubmitMessage,
+        });
+
         return {
           msg: translate(lang, 'success'),
           data: {},

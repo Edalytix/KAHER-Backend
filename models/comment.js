@@ -17,7 +17,14 @@ const commentItemSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
-    enum: ['activity', 'comment', 'approval', 'submission', 'rejection'],
+    enum: [
+      'activity',
+      'comment',
+      'approval',
+      'submission',
+      'rejection',
+      'resubmit',
+    ],
   },
   createdAt: { type: Date, default: Date.now },
   uid: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },

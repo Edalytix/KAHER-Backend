@@ -97,8 +97,16 @@ async function postLogin({
     });
 
     // find user
-    const user = (await usersFunction.findByEmail({ email: entity.email })).data
-      .user;
+    let user = null;
+    if (entity.email) {
+      user = (await usersFunction.findByEmail({ email: entity.email })).data
+        .user;
+    }
+    if (entity.employeeId) {
+      user = (
+        await usersFunction.findByEmpyId({ employeeId: entity.employeeId })
+      ).data.user;
+    }
 
     if (user === null) {
       throw new CreateError(translate(lang, 'invalid_login_credentials'), 404);

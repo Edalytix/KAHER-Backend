@@ -45,6 +45,7 @@ exports.AddComment = ({
         if (comment === null) {
           throw new CreateError('No comment found.', 403);
         }
+
         const permittedUsers = comment?.tags.map((item) => item.uid.toString());
 
         // if (!permittedUsers.includes(userUID)) {

@@ -10,6 +10,7 @@ exports.Create = ({
   request,
   db,
   accessManager,
+  uploadFile,
 }) => {
   return Object.freeze({
     execute: async () => {
@@ -53,6 +54,13 @@ exports.Create = ({
             num: users,
           }).generate()
         ).data.entity;
+
+        // if (request.body?.files?.profile_picture) {
+        //   const obj = await uploadFile({
+        //     file: request.body?.files?.profile_picture[0],
+        //   });
+        //   entity.profile_picture = obj.url;
+        // }
 
         const hashedPassword = (
           await crypto

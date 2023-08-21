@@ -9,6 +9,7 @@ exports.Update = ({
   request,
   db,
   accessManager,
+  uploadFile,
 }) => {
   return Object.freeze({
     execute: async () => {
@@ -54,6 +55,15 @@ exports.Update = ({
             params: { ...request.body, userUID },
           }).generate()
         ).data.entity;
+
+        if (request.body?.files?.profile_picture) {
+          const obj = await uploadFile({
+            file: request.body?.files?.profile_picture[0],
+          });
+          console.log(obj);
+          entity.profile_picture = obj.url;
+        }
+        console.log(entity);
 
         if (entity.password) {
           const hashedPassword = (

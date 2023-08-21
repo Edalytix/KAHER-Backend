@@ -36,6 +36,9 @@ exports.addUser = ({
           type: 'admin',
           designation: null,
           institution: null,
+          accountNumber: null,
+          ifsc: null,
+          profile_picture: null,
         };
 
         if (params.firstName) {
@@ -81,6 +84,20 @@ exports.addUser = ({
           entity.institution = validate.mongoid(params.institution).data.value;
         } else {
           delete entity.institution;
+        }
+
+        if (params.accountNumber) {
+          entity.accountNumber = validate.number(
+            params.accountNumber
+          ).data.value;
+        } else {
+          delete entity.accountNumber;
+        }
+
+        if (params.ifsc) {
+          entity.ifsc = validate.ifsc(params.ifsc).data.value;
+        } else {
+          delete entity.ifsc;
         }
 
         if (params.applications) {
