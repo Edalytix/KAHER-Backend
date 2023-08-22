@@ -8,6 +8,7 @@
   "success_otp_verified": "One Time Password is verified successfully.",
   "otp_sent": "One Time Password is successfully sent.",
   "forbidden_request": "Request can't be proceeded.",
+  "updated_password_success": "Password successfully updated.",
 
   "user_not_found": "User not found, please check ID and try again.",
   "required_uid": "User ID is required.",
@@ -35,7 +36,6 @@
   "forbidden": "Resource is forbidden for this user/role.",
   "older_version": "This version of the Workflow isn't active anymore. Use the newer version of the Workflow.",
   "delete_user": "User successfully deleted.",
-  "updated_success": "Updated successfully.",
   "invalid_login_credentials": "Invalid credentials, please provide the valid credentials.",
   "maximum_password_retries": "You have entered wrong password for maximum number of times, your account is blocked. Please contact customer support.",
   "account_disabled": "Your account is disabled please contact support.",

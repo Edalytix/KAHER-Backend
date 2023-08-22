@@ -27,6 +27,8 @@ exports.createUser = async (req, res, next) => {
         db,
         accessManager,
         uploadFile,
+        mailer,
+        token,
       })
       .execute();
 

@@ -11,6 +11,8 @@ exports.Create = ({
   db,
   accessManager,
   uploadFile,
+  mailer,
+  token,
 }) => {
   return Object.freeze({
     execute: async () => {
@@ -32,6 +34,13 @@ exports.Create = ({
         if (!acesssRes) {
           throw new CreateError(translate(lang, 'forbidden'), 403);
         }
+
+        const tokenGenerator = token.jwt({
+          CreateError,
+          translate,
+          lang,
+          logger,
+        });
 
         const UserFunction = db.methods.User({
           translate,
@@ -73,6 +82,7 @@ exports.Create = ({
             .hashPassword()
         ).data.hashedPassword;
 
+        const preSetPassword = entity.password;
         entity.password = hashedPassword;
 
         const DepartmentFunction = db.methods.Department({
@@ -89,6 +99,31 @@ exports.Create = ({
         }
         entity.department.name = department.data.department.name;
         const res = await UserFunction.create(entity);
+
+        const refreshToken = (
+          await tokenGenerator.generateRefreshToken({
+            _id: res.data.user._id,
+            status: res.data.user.status,
+            email: entity.email,
+            firstname: entity.firstName,
+            lastname: entity.secondName,
+            ua: request.locals.ua,
+          })
+        ).data.token;
+
+        const mail = await mailer({
+          CreateError,
+          translate,
+          logger,
+          lang,
+          lang: request.locals.lang,
+          params: {
+            to: entity.email,
+            password: preSetPassword,
+            token: refreshToken,
+            type: 'SetPassword',
+          },
+        });
         return {
           msg: translate(lang, 'created_mood'),
           data: { res },

@@ -138,19 +138,19 @@ const verifyOTP = async ({
 }) => {
   try {
     const lang = request.lang;
-    const latestOTP = (
-      await store
-        .Store({ translate, logger, lang, CreateError })
-        .getResetOtp({ email: request.body.email })
-    ).data.otp;
+    let entity = await fromEntities.entities.User.resetPassword({
+      CreateError,
+      DataValidator,
+      logger,
+      translate,
+      crypto,
+      lang,
+      params: {
+        ...request.body,
+      },
+    }).generate();
 
-    if (latestOTP === null) {
-      throw new CreateError(translate(lang, 'otp_expired'), 404);
-    }
-
-    if (String(request.body.otp) !== String(latestOTP)) {
-      throw new CreateError(translate(lang, 'invalid_otp'), 401);
-    }
+    entity = entity.data.entity;
 
     const usersFunction = db.methods.User({
       translate,
@@ -160,11 +160,36 @@ const verifyOTP = async ({
     });
 
     // find user
-    const user = (
-      await usersFunction.findByEmail({ email: request.body.email })
-    ).data.user;
+    let user = null;
+    if (entity.email) {
+      user = (await usersFunction.findByEmail({ email: entity.email })).data
+        .user;
+    }
+    if (entity.employeeId) {
+      user = (
+        await usersFunction.findByEmpyId({ employeeId: entity.employeeId })
+      ).data.user;
+    }
 
-    let entity = (
+    if (user === null) {
+      throw new CreateError(translate(lang, 'invalid_login_credentials'), 404);
+    }
+
+    const passwordHash = crypto.PasswordHash({
+      CreateError,
+      translate,
+      logger,
+      password: entity.oldpassword,
+    });
+
+    const verifyPassword = (await passwordHash.validatePassword(user.password))
+      .data.valid;
+
+    if (!verifyPassword) {
+      throw new CreateError(translate(lang, 'invalid_login_credentials'), 303);
+    }
+
+    let updateEntity = (
       await fromEntities.entities.User.updateUser({
         CreateError,
         DataValidator,
@@ -176,24 +201,27 @@ const verifyOTP = async ({
       }).generate()
     ).data.entity;
 
-    if (entity.password) {
+    if (updateEntity.password) {
       const hashedPassword = (
         await crypto
           .PasswordHash({
             CreateError,
             translate,
             logger,
-            password: entity.password,
+            password: updateEntity.password,
           })
           .hashPassword()
       ).data.hashedPassword;
-      entity.password = hashedPassword;
+      updateEntity.password = hashedPassword;
     }
 
-    const res = await usersFunction.update({ id: user._id, params: entity });
+    const res = await usersFunction.update({
+      id: user._id,
+      params: updateEntity,
+    });
 
     return {
-      msg: translate(lang, 'success_otp_verified'),
+      msg: translate(lang, 'updated_password_success'),
       data: {},
     };
   } catch (error) {

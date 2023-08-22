@@ -5,6 +5,7 @@ const FromAddDesignation = require('./add-designation');
 const FromUpdateDesignation = require('./update-designation');
 const FromAddInstitution = require('./add-institution');
 const FromUpdateInstitution = require('./update-institution');
+const fromResetPassword = require('./reset-password');
 
 exports.Users = {
   addUser: FromAddUser.addUser,
@@ -14,4 +15,5 @@ exports.Users = {
   updateDesignation: FromUpdateDesignation.updateDesignation,
   addInstitution: FromAddInstitution.addInstitution,
   updateInstitution: FromUpdateInstitution.updateInstitution,
+  resetPassword: fromResetPassword.resetPassword,
 };
