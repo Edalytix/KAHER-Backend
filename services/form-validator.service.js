@@ -310,7 +310,7 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
 
       const trimmedValue = x.value.trim();
 
-      if (trimmedValue.length < 1 || trimmedValue.length > 20) {
+      if (trimmedValue.length < 1 || trimmedValue.length > 100) {
         throw new Error('Value must be between 1 and 20 characters long');
       }
       return { msg: 'Valid', data: { value: x } };
