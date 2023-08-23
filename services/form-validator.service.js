@@ -224,7 +224,7 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
     },
     validateQuestion(x) {
       x.question = String(x.question);
-      if (!/^[\s\S]{3,500}$/.test(x.question)) {
+      if (!/^[\s\S]{3,1000}$/.test(x.question)) {
         throw new CreateError(translate(lang, 'invalid_title'), 422);
       }
       if (typeof x.required !== 'boolean') {
@@ -284,7 +284,7 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
     },
     questionResponseString(x) {
       x = String(x);
-      if (/^[\s\S]{1,500}$/.test(x)) {
+      if (/^[\s\S]{1,1000}$/.test(x)) {
         return { msg: 'Valid', data: { value: x } };
       } else {
         throw new CreateError(translate(lang, 'invalid_title'), 422);
@@ -310,7 +310,7 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
 
       const trimmedValue = x.value.trim();
 
-      if (trimmedValue.length < 1 || trimmedValue.length > 100) {
+      if (trimmedValue.length < 1 || trimmedValue.length > 1000) {
         throw new Error('Value must be between 1 and 20 characters long');
       }
       return { msg: 'Valid', data: { value: x } };
