@@ -266,6 +266,7 @@ exports.PasswordReset = async (req, res, next) => {
         accessManager,
         mailer,
         store,
+        token,
       })
       .execute();
 

@@ -77,6 +77,13 @@ async function sendOTP({
     // generate entity
     const lang = request.lang;
 
+    const tokenGenerator = token.jwt({
+      CreateError,
+      translate,
+      lang,
+      logger,
+    });
+
     const usersFunction = db.methods.User({
       translate,
       logger,
@@ -98,6 +105,17 @@ async function sendOTP({
       .Store({ translate, logger, lang, CreateError })
       .storeResetOtp({ otp, email: user.email });
 
+    const refreshToken = (
+      await tokenGenerator.generateRefreshToken({
+        _id: user._id,
+        status: user.status,
+        email: user.email,
+        firstname: user.firstName,
+        lastname: user.secondName,
+        ua: request.locals.ua,
+      })
+    ).data.token;
+
     // send mail with otp
     const res = await mailer({
       CreateError,
@@ -108,6 +126,7 @@ async function sendOTP({
       params: {
         to: request.queryParams.email,
         otp: otp,
+        token: refreshToken,
         type: 'OTPSend',
       },
     });
