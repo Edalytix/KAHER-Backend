@@ -7,6 +7,7 @@ const fromUpdateUser = require('./update-user');
 const fromDeleteUser = require('./delete-user');
 const fromUploadExcel = require('./create-user-excel');
 const fromPasswordReset = require('./password-reset');
+const fromSetPassword = require('./set-password');
 
 exports.userUseCases = {
   createUsers: fromCreateUsers.Create,
@@ -19,4 +20,5 @@ exports.userUseCases = {
   findAllUsersNoAuthorization:
     fromFindAllUsersNoAuthorization.FindAllUsersNoAuthorization,
   PasswordReset: fromPasswordReset.PasswordReset,
+  SetPassword: fromSetPassword.SetPassword,
 };

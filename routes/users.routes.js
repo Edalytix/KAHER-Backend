@@ -66,5 +66,5 @@ router.post(
 router.get('/users/passwordreset', userController.PasswordReset);
 
 router.post('/users/passwordreset', userController.PasswordReset);
-
+router.post('/users/setpassword', userController.SetPassword);
 module.exports = router;
