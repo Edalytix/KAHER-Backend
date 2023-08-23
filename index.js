@@ -65,7 +65,7 @@ const originURLS = [
   'https://approvals.kaher.edu.in',
   'http://approvals.kaher.edu.in',
   'https://incentive.kaher.edu.in',
-'http://incentive.kaher.edu.in/'
+  'http://incentive.kaher.edu.in'
 ]
 
 //
