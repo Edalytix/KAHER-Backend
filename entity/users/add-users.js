@@ -39,6 +39,10 @@ exports.addUser = ({
           accountNumber: null,
           ifsc: null,
           profile_picture: null,
+          phoneNumber: null,
+          permAddress: null,
+          presAddress: null,
+          dob: null,
         };
 
         if (params.firstName) {
@@ -98,6 +102,30 @@ exports.addUser = ({
           entity.ifsc = validate.ifsc(params.ifsc).data.value;
         } else {
           delete entity.ifsc;
+        }
+
+        if (params.phoneNumber) {
+          entity.phoneNumber = validate.phone(params.phoneNumber).data.value;
+        } else {
+          delete entity.phoneNumber;
+        }
+
+        if (params.permAddress) {
+          entity.permAddress = validate.address(params.permAddress).data.value;
+        } else {
+          delete entity.permAddress;
+        }
+
+        if (params.presAddress) {
+          entity.presAddress = validate.address(params.presAddress).data.value;
+        } else {
+          delete entity.presAddress;
+        }
+
+        if (params.dob) {
+          entity.dob = validate.dob(params.dob).data.value;
+        } else {
+          delete entity.dob;
         }
 
         if (params.applications) {

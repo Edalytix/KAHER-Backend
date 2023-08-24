@@ -344,18 +344,13 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
       throw new CreateError(translate(lang, 'invalid_lang'), 422);
     },
     dob(x) {
-      // if (/^([0-9]{2}|[1-9]{1})\/([0-9]{2}|[1-9]{1})\/(19|20)[0-9]{2}$/.test(x)) {
-      const dateString = new Date(x).toLocaleDateString();
-      if (dateString === 'Invalid Date') {
-        throw new CreateError(translate(lang, 'invalid_dob_range'), 422);
+      if (
+        /^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/((19|20)\d{2})$/.test(x)
+      ) {
+        return { msg: 'Valid', data: { value: x } };
+      } else {
+        throw new CreateError(translate(lang, 'invalid_dob'), 422);
       }
-      return {
-        msg: 'Valid',
-        data: { value: moment(new Date(dateString)).format('YYYY-MM-DD') },
-      };
-      // } else {
-      //     throw new CreateError(translate(lang, 'invalid_dob'), 422);
-      // }
     },
     phone(x) {
       if (/^[0-9]{1}[0-9]{6,16}$/.test(x)) {

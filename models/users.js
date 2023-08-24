@@ -86,6 +86,22 @@ const userSchema = new mongoose.Schema({
   profile_picture: {
     type: String,
   },
+  phoneNumber: {
+    type: String,
+    required: false,
+  },
+  permAddress: {
+    type: String,
+    required: false,
+  },
+  presAddress: {
+    type: String,
+    required: false,
+  },
+  dob: {
+    type: String,
+    required: false,
+  },
 });
 
 const User = mongoose.model('User', userSchema);
