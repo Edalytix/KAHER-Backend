@@ -31,18 +31,18 @@ exports.Update = ({
           throw new CreateError('User not found', 403);
         }
 
-        const acesssRes = await accessManager({
-          translate,
-          logger,
-          CreateError,
-          lang,
-          role,
-          db,
-          useCase: 'users:edit',
-        });
-        if (!acesssRes) {
-          throw new CreateError(translate(lang, 'forbidden'), 403);
-        }
+        // const acesssRes = await accessManager({
+        //   translate,
+        //   logger,
+        //   CreateError,
+        //   lang,
+        //   role,
+        //   db,
+        //   useCase: 'users:edit',
+        // });
+        // if (!acesssRes) {
+        //   throw new CreateError(translate(lang, 'forbidden'), 403);
+        // }
 
         let profile_picture = null;
         if (request.body?.files?.profile_picture) {
