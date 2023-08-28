@@ -345,7 +345,9 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
     },
     dob(x) {
       if (
-        /^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/((19|20)\d{2})$/.test(x)
+        /^(?:\d{4}-\d{2}-\d{2}|\d{2}\/\d{2}\/\d{4}|\d{2}\/\d{2}\/\d{4})$/.test(
+          x
+        )
       ) {
         return { msg: 'Valid', data: { value: x } };
       } else {
