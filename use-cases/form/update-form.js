@@ -71,7 +71,7 @@ exports.Update = ({
           params: { version: 'older', status: 'inactive' },
         });
         const newForm = {
-          ...form.data.form._doc,
+          ...form.data.form,
         };
         newForm.version = 'latest';
         delete newForm._id;
@@ -95,7 +95,7 @@ exports.Update = ({
           const element = form.data.form.workflows[index];
 
           const newWorklow = {
-            ...element._doc,
+            ...element,
           };
           delete newWorklow._id;
           newWorklow.applications = [];
