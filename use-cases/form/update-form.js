@@ -73,11 +73,13 @@ exports.Update = ({
         const newForm = {
           ...form.data.form._doc,
         };
+        console.log('newForm', newForm);
         newForm.version = 'latest';
         delete newForm._id;
 
         for (let key in entity) {
           newForm[key] = entity[key];
+          console.log(entity[key]);
         }
 
         const newWorkflowsForForm = [];
@@ -95,8 +97,9 @@ exports.Update = ({
           const element = form.data.form.workflows[index];
 
           const newWorklow = {
-            ...element,
+            ...element._doc,
           };
+          console.log('newWorklow', newWorklow);
 
           delete newWorklow._id;
           newWorklow.applications = [];
@@ -108,7 +111,8 @@ exports.Update = ({
           let idx = newWorklow.forms.findIndex(
             (obj) => JSON.stringify(obj.form) === JSON.stringify(id)
           );
-
+          if (idx === -1)
+            throw new CreateError(translate(lang, 'forbidden'), 403);
           newWorklow.forms[idx].form = newResponse.data.form._id;
 
           const newRes = await WorkflowFunction.create(newWorklow);
@@ -122,7 +126,7 @@ exports.Update = ({
         }
 
         const updatedForm = await FormFunction.update({
-          id,
+          id: newResponse.data.form._id,
           params: { workflows: newWorkflowsForForm },
         });
 

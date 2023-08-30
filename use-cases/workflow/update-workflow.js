@@ -63,7 +63,7 @@ exports.Update = ({
           newWorklow[key] = entity[key];
         }
 
-        const newRes = await WorkflowFunction.create(newWorklow);
+        const newRes = await WorkflowFunction.createNewVersion(newWorklow);
 
         const res = await WorkflowFunction.update({
           id,
