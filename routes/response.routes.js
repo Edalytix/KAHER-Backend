@@ -16,7 +16,7 @@ const multerStorage = multer({
       cb(null, req.uid + '_' + file.originalname);
     },
   }),
-  limits: { fileSize: 52428800 }, // 50 MB
+  limits: { fileSize: 5242880 }, // 50 MB
 });
 
 /*
