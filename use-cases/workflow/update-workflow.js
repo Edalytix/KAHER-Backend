@@ -54,7 +54,7 @@ exports.Update = ({
 
         const workflow = await WorkflowFunction.findById(id);
         const newWorklow = {
-          ...workflow.data.workflow._doc,
+          ...workflow.data.workflow,
         };
         delete newWorklow._id;
         newWorklow.applications = [];
