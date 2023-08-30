@@ -87,7 +87,7 @@ exports.AddForm = ({
           }
 
           const newWorklow = {
-            ...res.data.workflow._doc,
+            ...res.data.workflow,
           };
           delete newWorklow._id;
           newWorklow.applications = [];
