@@ -53,13 +53,18 @@ exports.excelUpload = async ({
       10,
       element['Designation Name']
     );
-    if (designation.data.total === 0) {
-      designation = await DesignationFunction.create({
-        name: element['Designation Name'],
-      });
-      user.designation = designation.data.designation._id;
+    console.log(designation);
+    if (element['Designation Name'] === 'Assistant Professor(Grade I)') {
+      user.designation = '64f720166493e8fca30c46a7';
     } else {
-      user.designation = designation.data.data[0]._id;
+      if (designation.data.total === 0) {
+        designation = await DesignationFunction.create({
+          name: element['Designation Name'],
+        });
+        user.designation = designation.data.designation._id;
+      } else {
+        user.designation = designation.data.data[0]._id;
+      }
     }
 
     let institution = await InstitutionFunction.findAll(
