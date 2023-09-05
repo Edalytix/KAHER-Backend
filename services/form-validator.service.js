@@ -38,7 +38,7 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
     //Kaher App
     name(x) {
       x = String(x);
-      if (/^\D{3,20}$/.test(x)) {
+      if (/^\D{3,200}$/.test(x)) {
         return { msg: 'Valid', data: { value: x } };
       } else {
         throw new CreateError(translate(lang, 'invalid_firstname'), 422);

@@ -51,9 +51,10 @@ exports.Delete = ({
           id,
           params: { version: 'deleted' },
         });
+
         return {
           msg: translate(lang, 'created_mood'),
-          data: { res },
+          data: { res: { msg: 'Deleted workflow successfully', data: {} } },
         };
       } catch (error) {
         if (error instanceof CreateError) {

@@ -73,13 +73,12 @@ exports.Update = ({
         const newForm = {
           ...form.data.form._doc,
         };
-        console.log('newForm', newForm);
+
         newForm.version = 'latest';
         delete newForm._id;
 
         for (let key in entity) {
           newForm[key] = entity[key];
-          console.log(entity[key]);
         }
 
         const newWorkflowsForForm = [];
@@ -99,7 +98,6 @@ exports.Update = ({
           const newWorklow = {
             ...element._doc,
           };
-          console.log('newWorklow', newWorklow);
 
           delete newWorklow._id;
           newWorklow.applications = [];
