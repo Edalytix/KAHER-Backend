@@ -43,8 +43,8 @@ exports.excelUpload = async ({
     };
     user.firstName = getNames(element['Employee Name'])[0];
     user.secondName = getNames(element['Employee Name'])[1];
-    user.role = '649c662dd4635e64680216d9';
-    user.department.id = '649c0aa37c9cf16f464390fa';
+    user.role = '649c0b5e6c1df0c8be08df98';
+    user.department.id = '64f714fadd124fe8ad76ff5c';
     user.email = element['Email ID'];
     user.status = 'inactive';
 

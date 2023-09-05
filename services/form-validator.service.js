@@ -118,7 +118,7 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
     },
     firstname(x) {
       x = String(x);
-      if (/^\D{3,20}$/.test(x)) {
+      if (/^\D{1,100}$/.test(x)) {
         return { msg: 'Valid', data: { value: x } };
       } else {
         throw new CreateError(translate(lang, 'invalid_firstname'), 422);
@@ -126,7 +126,7 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
     },
     secondname(x) {
       x = String(x);
-      if (/^\D{1,20}$/.test(x)) {
+      if (/^\D{1,100}$/.test(x)) {
         return { msg: 'Valid', data: { value: x } };
       } else {
         throw new CreateError(translate(lang, 'invalid_secondname'), 422);
@@ -175,7 +175,7 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
     },
     title(x) {
       x = String(x);
-      if (/^[\s\S]{3,300}$/.test(x)) {
+      if (/^[\s\S]{2,300}$/.test(x)) {
         return { msg: 'Valid', data: { value: x } };
       } else {
         throw new CreateError(translate(lang, 'invalid_title'), 422);
