@@ -19,17 +19,27 @@ module.exports = {
     return {
       from: 'info@kledeemeduniversity.edu.in', // sender address
       to: params.to, // list of receivers
-      subject: 'Set your new password.', // Subject line
+      subject: 'Kaher Account created', // Subject line
       text: `Set new password using the credentials given below for the email ${params.to}`, // plain text body
       html: `
-          <body>
-            <h2>New Password given below:</h2>
-            <h2>${params.password}</h2>
-            <a href=https://kaher.edalytics.com/account/login?verify=${params.token} target="_blank">
-            <button>Click Here</button>
-          </a>
-          </body>
-        `, // html body
+      <body>
+      Hi
+
+      You’re account has been created on incentive.kaher.edu.in. Please find the credentials to login.
+      
+      <h2>${params.password}</h2>
+      <h2>${params.to}</h2>
+      <a href=https://kaher.edalytics.com/account/login?verify=${params.token} target="_blank"></a>
+      <button>Click Here</button>
+      <br>
+      <br>
+      Please reset your password on first login.
+      <br>
+      <br>
+      With Regards,
+      <br>
+      Team Kaher
+      </body>`, // html body
     };
   },
 };

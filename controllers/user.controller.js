@@ -223,6 +223,35 @@ exports.uploadExcel = async (req, res, next) => {
   }
 };
 
+exports.SendExcelEmail = async (req, res, next) => {
+  try {
+    const request = fromAdaptReq.adaptReq(req, res);
+    const result = await fromUseCase
+      .SendExcelEmail({
+        CreateError,
+        DataValidator,
+        logger,
+        translate,
+        crypto,
+        request,
+        db,
+        accessManager,
+        mailer,
+        store,
+        token,
+      })
+      .execute();
+
+    return res.status(201).json({
+      msg: result.data.res.msg,
+      data: result.data.res.data,
+    });
+  } catch (error) {
+    // console.log(error)
+    next(error);
+  }
+};
+
 exports.SetPassword = async (req, res, next) => {
   try {
     const request = fromAdaptReq.adaptReq(req, res);

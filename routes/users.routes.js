@@ -63,6 +63,18 @@ router.post(
   userController.uploadExcel
 );
 
+router.post(
+  '/users/excelemails',
+  middlewares.isLogged,
+  multerStorage.fields([
+    {
+      name: 'excel',
+      maxCount: 1,
+    },
+  ]),
+  userController.SendExcelEmail
+);
+
 router.get('/users/passwordreset', userController.PasswordReset);
 
 router.post('/users/passwordreset', userController.PasswordReset);
