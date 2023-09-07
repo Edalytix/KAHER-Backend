@@ -157,6 +157,7 @@ exports.CreateUserExcel = ({
             },
           });
         }
+
         return {
           msg: translate(lang, 'created_mood'),
           data: {

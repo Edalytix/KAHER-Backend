@@ -73,13 +73,18 @@ exports.SendExcelEmail = ({
           InstitutionFunction,
         });
 
-        for (let index = 0; index < array.length; index++) {
-          const element = array[index];
+        const users = await UserFunction.findAll(1, 900);
+        // console.log(users.data.data);
+        let i = 1;
+
+        for (let index = 0; index < users.data.data.length; index++) {
+          const element = users.data.data[index];
           let user = await UserFunction.findByEmail({ email: element.email });
 
           if (user.data.user === null) {
             continue;
           }
+          console.log(element.email);
           const hashedPassword = (
             await crypto
               .PasswordHash({
@@ -95,35 +100,36 @@ exports.SendExcelEmail = ({
             id: user.data.user._id,
             params: { password: hashedPassword },
           });
+          i = i + 1;
 
-          let entity = (
-            await fromEntities.entities.User.addUser({
-              CreateError,
-              DataValidator,
-              logger,
-              translate,
-              crypto,
-              lang,
-              params: { ...element, userUID },
-            }).generate()
-          ).data.entity;
+          //   let entity = (
+          //     await fromEntities.entities.User.addUser({
+          //       CreateError,
+          //       DataValidator,
+          //       logger,
+          //       translate,
+          //       crypto,
+          //       lang,
+          //       params: { ...element, userUID },
+          //     }).generate()
+          //   ).data.entity;
 
-          entity.status = 'active';
+          //   entity.status = 'active';
 
-          const preSetPassword = entity.password;
+          //   const preSetPassword = entity.password;
 
-          entity.password = hashedPassword;
+          //   entity.password = hashedPassword;
 
-          const refreshToken = (
-            await tokenGenerator.generateRefreshToken({
-              _id: user.data._id,
-              status: user.data.status,
-              email: user.data.email,
-              firstname: user.data.firstName,
-              lastname: user.data.secondName,
-              ua: request.locals.ua,
-            })
-          ).data.token;
+          //   const refreshToken = (
+          //     await tokenGenerator.generateRefreshToken({
+          //       _id: user.data._id,
+          //       status: user.data.status,
+          //       email: user.data.email,
+          //       firstname: user.data.firstName,
+          //       lastname: user.data.secondName,
+          //       ua: request.locals.ua,
+          //     })
+          //   ).data.token;
 
           // const otp = getOTP(10);
           // const storeOtpStatus = await store
@@ -131,20 +137,21 @@ exports.SendExcelEmail = ({
           //   .storeResetOtp({ otp, email: entity.email });
 
           //send mail with otp
-          const mail = await mailer({
-            CreateError,
-            translate,
-            logger,
-            lang,
-            lang: request.locals.lang,
-            params: {
-              to: entity.email,
-              password: 'kaher@1234',
-              token: refreshToken,
-              type: 'SetPassword',
-            },
-          });
+          //   const mail = await mailer({
+          //     CreateError,
+          //     translate,
+          //     logger,
+          //     lang,
+          //     lang: request.locals.lang,
+          //     params: {
+          //       to: entity.email,
+          //       password: 'kaher@1234',
+          //       token: refreshToken,
+          //       type: 'SetPassword',
+          //     },
+          //   });
         }
+        console.log(i);
         return {
           msg: translate(lang, 'created_mood'),
           data: {

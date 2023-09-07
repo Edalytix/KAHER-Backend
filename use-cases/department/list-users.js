@@ -1,5 +1,4 @@
-const fromEntities = require("../../entity");
-
+const fromEntities = require('../../entity');
 
 exports.ListUsers = ({
   CreateError,
@@ -19,9 +18,8 @@ exports.ListUsers = ({
         const userUID = request.locals.uid;
         const role = request.locals.role;
         const id = request.queryParams.id;
-        const page = parseInt(request.queryParams.page)
-        const limit = parseInt(request.queryParams.limit)
-
+        const page = parseInt(request.queryParams.page);
+        const limit = parseInt(request.queryParams.limit);
 
         const acesssRes = await accessManager({
           translate,
@@ -31,23 +29,22 @@ exports.ListUsers = ({
           role,
           db,
           useCase: 'departments:view',
-        })
-        if(!acesssRes)
-        {
-          throw new CreateError(translate(lang, "forbidden"), 403);
+        });
+        if (!acesssRes) {
+          throw new CreateError(translate(lang, 'forbidden'), 403);
         }
 
-            const DepartmentFunction = db.methods.Department({
-            translate,
-            logger,
-            CreateError,
-            lang,
-            })
+        const DepartmentFunction = db.methods.Department({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
 
-        const res = await DepartmentFunction.findUsers(id, page, limit)
+        const res = await DepartmentFunction.findUsers(id, page, limit);
         return {
-          msg: translate(lang, "created_mood"),
-          data:  res ,
+          msg: translate(lang, 'created_mood'),
+          data: res,
         };
       } catch (error) {
         if (error instanceof CreateError) {

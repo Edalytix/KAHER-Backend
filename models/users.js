@@ -63,7 +63,7 @@ const userSchema = new mongoose.Schema({
   type: {
     type: String,
     enum: ['admin', 'user'],
-    default: 'admin',
+    default: 'user',
   },
   email: {
     type: String,

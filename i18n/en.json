@@ -23,7 +23,7 @@
   "required_otp": "One Time Password is required.",
   "invalid_email": "Invalid email address.",
   "invalid_details": "Invalid details, please refresh the page and try again.",
-  "unknown_error_contact_support": "Unknown error, Please contact our support at info@kaher.de or by phone +49 (0) 8453 33499-13.",
+  "unknown_error_contact_support": "Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77",
   "invalid_password_criteria": "Password should contain at-least one capital letter, at-least one small letter, a special characters, a number and should be greater than 8 characters.",
   "success_password_updated": "Password for your account has been successfully updated.",
   "invalid_role_for_signup": "You cann't signup with the requested role. Contact support.",

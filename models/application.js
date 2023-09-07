@@ -47,6 +47,10 @@ const applicationSchema = new mongoose.Schema({
     enum: ['active', 'inactive'],
     default: 'active',
   },
+  order: {
+    type: Number,
+    unique: true,
+  },
   level: {
     type: String,
     enum: ['approved', 'rejected', 'waiting', 'on-hold', 'draft', 'rWaiting'],
@@ -78,6 +82,7 @@ const applicationSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+
   // comments: [{
   //   id: {
   //     type: mongoose.Schema.Types.ObjectId,
@@ -118,6 +123,22 @@ const applicationSchema = new mongoose.Schema({
       },
     },
   ],
+});
+
+applicationSchema.pre('save', async function (next) {
+  // Check if the "order" field is not provided by the user
+  if (this.isNew && typeof this.order !== 'number') {
+    try {
+      // Query the collection to count the total documents
+      const totalDocuments = await this.constructor.countDocuments();
+
+      // Set the "order" field to totalDocuments + 1
+      this.order = totalDocuments + 1;
+    } catch (err) {
+      return next(err);
+    }
+  }
+  next();
 });
 
 applicationSchema.statics.aggregateWithActionsCount = function (callback) {

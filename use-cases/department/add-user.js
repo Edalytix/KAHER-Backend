@@ -1,6 +1,5 @@
-const fromEntities = require("../../entity");
+const fromEntities = require('../../entity');
 const { ObjectId } = require('mongodb');
-
 
 exports.AddUser = ({
   CreateError,
@@ -10,7 +9,7 @@ exports.AddUser = ({
   crypto,
   request,
   db,
-  accessManager
+  accessManager,
 }) => {
   return Object.freeze({
     execute: async () => {
@@ -21,7 +20,6 @@ exports.AddUser = ({
         const role = request.locals.role;
         const id = request.queryParams.id;
 
-
         const acesssRes = await accessManager({
           translate,
           logger,
@@ -30,65 +28,69 @@ exports.AddUser = ({
           role,
           db,
           useCase: 'departments:edit',
-        })
-        if(!acesssRes)
-        {
-          throw new CreateError(translate(lang, "forbidden"), 403);
+        });
+        if (!acesssRes) {
+          throw new CreateError(translate(lang, 'forbidden'), 403);
         }
 
         const DepartmentFunction = db.methods.Department({
-            translate,
-            logger,
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
+
+        const UserFunction = db.methods.User({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
+
+        let entity = (
+          await fromEntities.entities.Department.updateDepartment({
             CreateError,
+            DataValidator,
+            logger,
+            translate,
+            crypto,
             lang,
-            })
-
-            const UserFunction = db.methods.User({
-                translate,
-                logger,
-                CreateError,
-                lang,
-                })
-
-            let entity = (
-                await fromEntities.entities.Department.updateDepartment({
-                  CreateError,
-                  DataValidator,
-                  logger,
-                  translate,
-                  crypto,
-                  lang,
-                  params: { ...request.body, userUID },
-                }).generate()
-              ).data.entity;
+            params: { ...request.body, userUID },
+          }).generate()
+        ).data.entity;
 
         let res = await DepartmentFunction.findById(id);
-        for(let i =0;i<entity.users.length;i++)
-       {
-        let element=entity.users[i];
-        const checkAnyIdMatchesValue = (ids, value) => ids.some(id => new ObjectId(id).equals(new ObjectId(value)));
-            let user = await UserFunction.findById(element)
+        for (let i = 0; i < entity.users.length; i++) {
+          let element = entity.users[i];
+          const checkAnyIdMatchesValue = (ids, value) =>
+            ids.some((id) => new ObjectId(id).equals(new ObjectId(value)));
+          let user = await UserFunction.findById(element);
 
-            if(user.data.user===null)
-            {
-                throw new CreateError(translate(lang, "invalid_uid"), 422);
-            }
-            else if( !checkAnyIdMatchesValue(res.data.department.users,user.data.user._id))
-            {
-              res.data.department.users.push(element)
-            }
+          if (user.data.user === null) {
+            throw new CreateError(translate(lang, 'invalid_uid'), 422);
+          } else if (
+            !checkAnyIdMatchesValue(
+              res.data.department.users,
+              user.data.user._id
+            )
+          ) {
+            res.data.department.users.push(element);
           }
+        }
 
-         res = await DepartmentFunction.addUsers({id: id, params: res.data.department})
+        res = await DepartmentFunction.addUsers({
+          id: id,
+          params: res.data.department,
+        });
         return {
-          msg: translate(lang, "created_mood"),
+          msg: translate(lang, 'created_mood'),
           data: { res },
         };
       } catch (error) {
         if (error instanceof CreateError) {
           throw error;
         }
-        console.log("error is", error)
+        console.log('error is', error);
         logger.error(`Failed to signup: %s`, error);
 
         throw new Error(error.message);
