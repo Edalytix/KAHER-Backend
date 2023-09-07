@@ -32,6 +32,10 @@ const FormQuestionSchema = new Schema({
 const FormSchema = new Schema({
   title: { type: String, required: true },
   createdAt: { type: Date, required: true, default: Date.now },
+  order: {
+    type: Number,
+    unique: true,
+  },
   workflows: {
     type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Workflow' }],
     required: true,
@@ -53,6 +57,22 @@ const FormSchema = new Schema({
     unique: true,
     default: uuidv4, // generate a new UUID when a user is created
   },
+});
+
+FormSchema.pre('save', async function (next) {
+  // Check if the "order" field is not provided by the user
+  if (this.isNew && typeof this.order !== 'number') {
+    try {
+      // Query the collection to count the total documents
+      const totalDocuments = await this.constructor.countDocuments();
+
+      // Set the "order" field to totalDocuments + 1
+      this.order = totalDocuments + 1;
+    } catch (err) {
+      return next(err);
+    }
+  }
+  next();
 });
 
 const Form = mongoose.model('Form', FormSchema);

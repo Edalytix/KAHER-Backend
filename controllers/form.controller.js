@@ -125,3 +125,26 @@ exports.formDetails = async (req, res, next) => {
     next(error);
   }
 };
+
+exports.changeOrder = async (req, res, next) => {
+  try {
+    const request = fromAdaptReq.adaptReq(req, res);
+    const result = await fromUseCase
+      .changeOrder({
+        CreateError,
+        DataValidator,
+        logger,
+        translate,
+        crypto,
+        request,
+        db,
+        accessManager,
+      })
+      .execute();
+
+    return res.status(201).json(result.data);
+  } catch (error) {
+    // console.log(error)
+    next(error);
+  }
+};

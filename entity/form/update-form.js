@@ -18,6 +18,7 @@ exports.updateForm = ({
           workflows: [],
           questions: [],
           status: 'inactive',
+          order: null,
         };
 
         if (params.title) {
@@ -41,6 +42,11 @@ exports.updateForm = ({
           delete entity.questions;
         }
 
+        if (params.order) {
+          entity.order = validate.number(params.order).data.value;
+        } else {
+          delete entity.order;
+        }
         return {
           msg: translate(lang, 'success'),
           data: { entity },
