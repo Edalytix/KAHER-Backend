@@ -66,7 +66,6 @@ const workflowSchema = new mongoose.Schema({
   },
   order: {
     type: Number,
-    unique: true,
   },
   level: {
     type: String,

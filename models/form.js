@@ -34,7 +34,6 @@ const FormSchema = new Schema({
   createdAt: { type: Date, required: true, default: Date.now },
   order: {
     type: Number,
-    unique: true,
   },
   workflows: {
     type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Workflow' }],
