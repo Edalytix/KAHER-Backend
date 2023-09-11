@@ -63,7 +63,7 @@ exports.ChangeOrder = ({
         });
 
         const finalRes = await WorkflowFunction.update({
-          id: finalWorkflow.data.workflow._id,
+          id: finalWorkflow?.data?.workflow?._id,
           params: { order: initialOrder },
         });
 
