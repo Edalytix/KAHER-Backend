@@ -79,4 +79,10 @@ router.get('/users/passwordreset', userController.PasswordReset);
 
 router.post('/users/passwordreset', userController.PasswordReset);
 router.post('/users/setpassword', userController.SetPassword);
+router.get(
+  '/users/findallexcel',
+  middlewares.isLogged,
+  userController.fromFindAllForExcel
+);
+
 module.exports = router;

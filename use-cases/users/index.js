@@ -9,6 +9,7 @@ const fromUploadExcel = require('./create-user-excel');
 const fromPasswordReset = require('./password-reset');
 const fromSetPassword = require('./set-password');
 const fromSendExcelEmail = require('./send-excel-emails');
+const fromFindAllForExcel = require('./find-all-users-excel');
 
 exports.userUseCases = {
   createUsers: fromCreateUsers.Create,
@@ -23,4 +24,5 @@ exports.userUseCases = {
   PasswordReset: fromPasswordReset.PasswordReset,
   SetPassword: fromSetPassword.SetPassword,
   SendExcelEmail: fromSendExcelEmail.SendExcelEmail,
+  fromFindAllForExcel: fromFindAllForExcel.findAllForExcel,
 };

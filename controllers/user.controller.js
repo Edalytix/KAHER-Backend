@@ -308,3 +308,29 @@ exports.PasswordReset = async (req, res, next) => {
     next(error);
   }
 };
+
+exports.fromFindAllForExcel = async (req, res, next) => {
+  try {
+    const request = fromAdaptReq.adaptReq(req, res);
+    const result = await fromUseCase
+      .fromFindAllForExcel({
+        CreateError,
+        DataValidator,
+        logger,
+        translate,
+        crypto,
+        request,
+        db,
+        accessManager,
+      })
+      .execute();
+
+    return res.status(201).json({
+      msg: result.data.res.msg,
+      data: result.data.res.data,
+    });
+  } catch (error) {
+    // console.log(error)
+    next(error);
+  }
+};
