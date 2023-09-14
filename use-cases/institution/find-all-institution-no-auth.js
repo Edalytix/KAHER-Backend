@@ -23,18 +23,18 @@ exports.FindAllNoAuth = ({
         const search = request.queryParams.search;
         const statusQuery = request.queryParams.status;
 
-        const acesssRes = await accessManager({
-          translate,
-          logger,
-          CreateError,
-          lang,
-          role,
-          db,
-          useCase: 'roles:view',
-        });
-        if (!acesssRes) {
-          throw new CreateError(translate(lang, 'forbidden'), 403);
-        }
+        // const acesssRes = await accessManager({
+        //   translate,
+        //   logger,
+        //   CreateError,
+        //   lang,
+        //   role,
+        //   db,
+        //   useCase: 'roles:view',
+        // });
+        // if (!acesssRes) {
+        //   throw new CreateError(translate(lang, 'forbidden'), 403);
+        // }
 
         // let permission = ac.can(role).createOwn("mood");
 
