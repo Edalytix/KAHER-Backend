@@ -35,4 +35,9 @@ router.get(
   institutionController.findInstitutionDetails
 );
 
+router.get(
+  '/institution/findallforusers',
+  middlewares.isLogged,
+  institutionController.findAllInstitutionsNoAuth
+);
 module.exports = router;

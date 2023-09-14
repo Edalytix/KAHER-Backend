@@ -34,4 +34,10 @@ router.get(
   middlewares.isLogged,
   designationController.findDesignationDetails
 );
+
+router.get(
+  '/designation/findallforusers',
+  middlewares.isLogged,
+  designationController.findAllDesignationsNoAuth
+);
 module.exports = router;

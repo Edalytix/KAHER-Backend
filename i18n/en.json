@@ -11,6 +11,7 @@
   "updated_password_success": "Password successfully updated.",
   "invalid_dob": "Invalid Date of Birth.",
   "invalid_phone": "Invalid Phone number.",
+  "invalid_department": "Department does not exists.",
 
   "user_not_found": "User not found, please check ID and try again.",
   "required_uid": "User ID is required.",
