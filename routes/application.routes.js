@@ -107,5 +107,10 @@ router.get(
   middlewares.isLogged,
   applicationController.getUserApplicationsViaAdmin
 );
+router.get(
+  '/application/reports',
+  middlewares.isLogged,
+  applicationController.getReports
+);
 
 module.exports = router;
