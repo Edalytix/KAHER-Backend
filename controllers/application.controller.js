@@ -8,6 +8,7 @@ const logger = require('../utils/logger').logger;
 const db = require('../lib/database').database;
 const fromUseCase = require('../use-cases/application').applicationUseCases;
 const accessManager = require('../services/access-manager').accessManager;
+const grantCalculator = require('../services/grant-calculator').grantCalculator;
 const uploadFile = require('../services/upload-file').uploadFile;
 
 exports.createApplication = async (req, res, next) => {
@@ -92,6 +93,7 @@ exports.applicationDetailsForUser = async (req, res, next) => {
         request,
         db,
         accessManager,
+        grantCalculator,
       })
       .execute();
 
@@ -115,6 +117,7 @@ exports.applicationDetails = async (req, res, next) => {
         request,
         db,
         accessManager,
+        grantCalculator,
       })
       .execute();
 

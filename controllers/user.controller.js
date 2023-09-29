@@ -334,3 +334,49 @@ exports.fromFindAllForExcel = async (req, res, next) => {
     next(error);
   }
 };
+
+exports.AdminDashboard = async (req, res, next) => {
+  try {
+    const request = fromAdaptReq.adaptReq(req, res);
+    const result = await fromUseCase
+      .AdminDashboard({
+        CreateError,
+        DataValidator,
+        logger,
+        translate,
+        crypto,
+        request,
+        db,
+        accessManager,
+      })
+      .execute();
+
+    return res.status(201).json(result);
+  } catch (error) {
+    // console.log(error)
+    next(error);
+  }
+};
+
+exports.ApproverDashboard = async (req, res, next) => {
+  try {
+    const request = fromAdaptReq.adaptReq(req, res);
+    const result = await fromUseCase
+      .ApproverDashboard({
+        CreateError,
+        DataValidator,
+        logger,
+        translate,
+        crypto,
+        request,
+        db,
+        accessManager,
+      })
+      .execute();
+
+    return res.status(201).json(result);
+  } catch (error) {
+    // console.log(error)
+    next(error);
+  }
+};

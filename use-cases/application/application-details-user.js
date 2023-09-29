@@ -10,6 +10,7 @@ exports.ApplicationDetails = ({
   db,
   ac,
   accessManager,
+  grantCalculator,
 }) => {
   return Object.freeze({
     execute: async () => {

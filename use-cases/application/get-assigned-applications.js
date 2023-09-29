@@ -50,6 +50,7 @@ exports.FindAssignedApps = ({
           search,
           statusQuery
         );
+        console.log(res);
         return {
           msg: translate(lang, 'created_mood'),
           data: { res },

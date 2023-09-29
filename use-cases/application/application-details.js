@@ -11,6 +11,7 @@ exports.ApplicationDetails = ({
   db,
   ac,
   accessManager,
+  grantCalculator,
 }) => {
   return Object.freeze({
     execute: async () => {
@@ -32,6 +33,13 @@ exports.ApplicationDetails = ({
         });
 
         const ApplicationFunction = db.methods.Application({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
+
+        const FormFunction = db.methods.Form({
           translate,
           logger,
           CreateError,
@@ -85,7 +93,20 @@ exports.ApplicationDetails = ({
         } else {
           res.status = res.data.application.level;
         }
-        res.status;
+        const grantAmount = await grantCalculator({
+          translate,
+          logger,
+          CreateError,
+          lang,
+          role,
+          db,
+          responses: res.data.application.workflow.forms[0].response.responses,
+          annexureId: res.data.application.workflow.forms[0].form._id,
+          FormFunction,
+        });
+        console.log(grantAmount);
+        res.data.application.grantAmount = grantAmount;
+
         return {
           msg: translate(lang, 'created_mood'),
           data: res,

@@ -84,5 +84,6 @@ router.get(
   middlewares.isLogged,
   userController.fromFindAllForExcel
 );
-
+router.get('/users/dashboard/admin', userController.AdminDashboard);
+router.get('/users/dashboard/approver', userController.ApproverDashboard);
 module.exports = router;

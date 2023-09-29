@@ -8,6 +8,7 @@ const logger = require('../utils/logger').logger;
 const db = require('../lib/database').database;
 const fromUseCase = require('../use-cases/response').responseUseCases;
 const uploadFile = require('../services/upload-file').uploadFile;
+const grantCalculator = require('../services/grant-calculator').grantCalculator;
 
 exports.createResponse = async (req, res, next) => {
   try {
@@ -22,6 +23,7 @@ exports.createResponse = async (req, res, next) => {
         request,
         db,
         uploadFile,
+        grantCalculator,
       })
       .execute();
 

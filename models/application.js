@@ -60,6 +60,10 @@ const applicationSchema = new mongoose.Schema({
     type: Number,
     default: 1,
   },
+  grantAmount: {
+    type: Number,
+    default: 0,
+  },
   department: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Department',

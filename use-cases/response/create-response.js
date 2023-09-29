@@ -8,6 +8,7 @@ exports.Create = ({
   crypto,
   request,
   db,
+  grantCalculator,
   uploadFile,
   ac,
 }) => {
@@ -42,6 +43,8 @@ exports.Create = ({
           }).generate()
         ).data.entity;
 
+        console.log(entity);
+
         const ResponseFunction = db.methods.Response({
           translate,
           logger,
@@ -50,6 +53,13 @@ exports.Create = ({
         });
 
         const FormFunction = db.methods.Form({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
+
+        const ApplicationFunction = db.methods.Application({
           translate,
           logger,
           CreateError,
@@ -72,6 +82,24 @@ exports.Create = ({
         }
 
         const res = await ResponseFunction.create(entity);
+
+        const grantAmount = await grantCalculator({
+          translate,
+          logger,
+          CreateError,
+          lang,
+          role,
+          db,
+          responses: entity.responses,
+          annexureId: entity.fuid,
+          FormFunction,
+        });
+
+        const applicationUpdate = await ApplicationFunction.update({
+          id: entity.auid,
+          params: { grantAmount },
+        });
+
         return {
           msg: translate(lang, 'created_mood'),
           data: { res },
