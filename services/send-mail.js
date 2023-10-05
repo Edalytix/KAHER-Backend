@@ -16,7 +16,7 @@ exports.mailer = async ({
   try {
     const transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
-      port: 465,
+      port: 587,
       secure: true, // true for 465, false for other ports
       auth: {
         user: 'kaherincentive@kledeemeduniversity.edu.in', // your email address
