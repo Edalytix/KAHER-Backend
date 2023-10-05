@@ -250,6 +250,7 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
         'number',
         'date',
         'singleChoice',
+        'dropDown',
         'multipleChoice',
         'longString',
         'department',

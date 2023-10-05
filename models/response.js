@@ -13,6 +13,7 @@ const answerSchema = new mongoose.Schema({
       'number',
       'date',
       'singleChoice',
+      'dropDown',
       'multipleChoice',
       'longString',
       'department',
@@ -28,6 +29,7 @@ const answerSchema = new mongoose.Schema({
   number: { type: Number },
   date: { type: Date },
   singleChoice: { type: FormModels.FormQuestionOptionSchema },
+  dropDown: { type: FormModels.FormQuestionOptionSchema },
   multipleChoice: { type: [FormModels.FormQuestionOptionSchema] },
 });
 // Define the schema for the Response collection

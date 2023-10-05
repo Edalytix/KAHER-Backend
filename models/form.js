@@ -19,6 +19,7 @@ const FormQuestionSchema = new Schema({
       'number',
       'date',
       'singleChoice',
+      'dropDown',
       'multipleChoice',
       'longString',
       'department',
