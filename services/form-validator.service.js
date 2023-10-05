@@ -227,6 +227,9 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
       if (!/^[\s\S]{3,1000}$/.test(x.question)) {
         throw new CreateError(translate(lang, 'invalid_title'), 422);
       }
+      if (!/^[\s\S]{0,1000}$/.test(x.label)) {
+        throw new CreateError(translate(lang, 'invalid_title'), 422);
+      }
       if (typeof x.required !== 'boolean') {
         throw new Error(
           'Label and Value must be between 3 and 20 characters long'

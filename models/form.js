@@ -10,6 +10,7 @@ const FormQuestionOptionSchema = new Schema({
 const FormQuestionSchema = new Schema({
   sequence: { type: Number, required: true },
   question: { type: String, required: true },
+  label: { type: String, required: false, default: '' },
   type: {
     type: String,
     enum: [

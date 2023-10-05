@@ -37,6 +37,7 @@ exports.updateUser = ({
           permAddress: null,
           presAddress: null,
           dob: null,
+          employeeId: params.employeeId,
         };
 
         if (params.firstName) {
