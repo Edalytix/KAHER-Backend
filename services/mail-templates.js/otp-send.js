@@ -1,3 +1,5 @@
+const hostUrls = require('../../config/app.config.json').host;
+const env = process.env.NODE_ENV || 'test';
 module.exports = {
   OTPSend: function Mail(params) {
     return {
@@ -9,7 +11,7 @@ module.exports = {
           <body>
             <h2>Your OTP for Kaher password reset</h2>
             <h2>${params.otp}</h2>
-            <a href=https://kaher.edalytics.com/account/forgot-password/otp?verify=${params.token} target="_blank">
+            <a href=${hostUrls[env]}/account/forgot-password/otp?verify=${params.token} target="_blank">
             <button>Click Here</button>
             </body>
         `, // html body
@@ -29,7 +31,7 @@ module.exports = {
       
       <h2>${params.password}</h2>
       <h2>${params.to}</h2>
-      <a href=https://kaher.edalytics.com/account/login?verify=${params.token} target="_blank"></a>
+      <a href=${hostUrls[env]}/account/login?verify=${params.token} target="_blank"></a>
       <button>Click Here</button>
       <br>
       <br>

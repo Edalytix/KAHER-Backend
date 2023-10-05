@@ -1,53 +1,57 @@
 {
-    "password": {
-      "salt": 12
+  "password": {
+    "salt": 12
+  },
+  "loginTrails": 10,
+  "bruteForceDuration": 10,
+  "numberOfBruteForceAttempts": 5,
+  "blockedDuration": 1800,
+  "emailLinkExpirationDuration": 18000,
+  "jwt": {
+    "keySize": "1024",
+    "privateKey": "/keys/private.key",
+    "publicKey": "/keys/public.key",
+    "issuer": "kaher",
+    "algorithm": "RS256"
+  },
+  "verificationToken": {
+    "jwtOptions": {
+      "expiry": "60min",
+      "tempExpiry": "1440min"
+    }
+  },
+  "bearerToken": {
+    "jwtOptions": {
+      "expiry": "4d"
+    }
+  },
+  "refreshToken": {
+    "jwtOptions": {
+      "expiry": "4d"
     },
-    "loginTrails": 10,
-    "bruteForceDuration": 10,
-    "numberOfBruteForceAttempts": 5,
-    "blockedDuration": 1800,
-    "emailLinkExpirationDuration": 18000,
-    "jwt": {
-      "keySize": "1024",
-      "privateKey": "/keys/private.key",
-      "publicKey": "/keys/public.key",
-      "issuer": "kaher",
-      "algorithm": "RS256"
+    "storage": {
+      "pathPrefix": "appos_dev:sess:",
+      "ttl": 172800
     },
-    "verificationToken": {
-      "jwtOptions": {
-        "expiry": "60min",
-        "tempExpiry": "1440min"
-      }
-    },
-    "bearerToken": {
-      "jwtOptions": {
-        "expiry": "4d"
-      }
-    },
-    "refreshToken": {
-      "jwtOptions": {
-        "expiry": "4d"
-      },
-      "storage": {
-        "pathPrefix": "appos_dev:sess:",
-        "ttl": 172800
-      },
-      "cookie": {
-        "name": "kaher_refresh",
-        "config": {
-          "maxAge": 86400000,
-          "httpOnly": true,
-          "secure": true,
-          "sameSite": "Strict"
-        }
-      }
-    },
-    "passwordReset": {
-      "storage": {
-        "ttl": 900,
-        "pathPrefix": "kaher:reset:"
+    "cookie": {
+      "name": "kaher_refresh",
+      "config": {
+        "maxAge": 86400000,
+        "httpOnly": true,
+        "secure": true,
+        "sameSite": "Strict"
       }
     }
+  },
+  "passwordReset": {
+    "storage": {
+      "ttl": 900,
+      "pathPrefix": "kaher:reset:"
+    }
+  },
+  "host": {
+    "development": "https://kaher.edalytics.com",
+    "test": "https://kaher.edalytics.com",
+    "production": "https://incentive.kaher.edu.in"
   }
-  
+}
