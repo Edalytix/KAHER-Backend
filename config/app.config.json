@@ -53,5 +53,11 @@
     "development": "https://kaher.edalytics.com",
     "test": "https://incentive.kaher.edu.in",
     "production": "https://incentive.kaher.edu.in"
+  },
+  "smtp": {
+    "host": "smtp.gmail.com",
+    "port": 587,
+    "user": "kaherincentive@kledeemeduniversity.edu.in",
+    "pass": "yngxqzobhsznnjyh"
   }
 }

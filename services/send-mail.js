@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer');
 const templates = require('./mail-templates.js/otp-send');
-
+const config = require('../config/app.config.json');
 exports.mailer = async ({
   CreateError,
   DataValidator,
@@ -15,12 +15,12 @@ exports.mailer = async ({
 }) => {
   try {
     const transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 587,
+      host: config.smtp.host,
+      port: config.smtp.port,
       secure: false, // true for 465, false for other ports
       auth: {
-        user: 'kaherincentive@kledeemeduniversity.edu.in', // your email address
-        pass: 'yngxqzobhsznnjyh', // your email password
+        user: config.smtp.user, // your email address
+        pass: config.smtp.pass, // your email password
       },
     });
     const message = await templates[params.type](params);
