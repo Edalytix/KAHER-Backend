@@ -20,18 +20,18 @@ exports.ApprovalUpdate = ({
         const role = request.locals.role;
         let id = request.queryParams.id;
 
-        const acesssRes = await accessManager({
-          translate,
-          logger,
-          CreateError,
-          lang,
-          role,
-          db,
-          useCase: 'applications:edit',
-        });
-        if (!acesssRes) {
-          throw new CreateError(translate(lang, 'forbidden'), 403);
-        }
+        // const acesssRes = await accessManager({
+        //   translate,
+        //   logger,
+        //   CreateError,
+        //   lang,
+        //   role,
+        //   db,
+        //   useCase: 'applications:edit',
+        // });
+        // if (!acesssRes) {
+        //   throw new CreateError(translate(lang, 'forbidden'), 403);
+        // }
 
         const ApplicationFunction = db.methods.Application({
           translate,
@@ -58,11 +58,14 @@ exports.ApprovalUpdate = ({
         const application = res.data.application;
 
         let currentApprover = 0;
+        let approveGrant = false;
+
         const Workflow = (
           await WorkflowFunction.findById(res.data.application.workflow._id)
         ).data.workflow;
 
         for (const element of Workflow.approvals) {
+          approveGrant = element.approveGrant;
           if (element.approvalBy.user) {
             if (element.approvalBy.user._id.toString() == userUID.toString()) {
               currentApprover = element.sequence;
@@ -111,6 +114,14 @@ exports.ApprovalUpdate = ({
                 level: 'approved',
               },
             });
+            if (approveGrant) {
+              const res = await ApplicationFunction.update({
+                id,
+                params: {
+                  approvedAmount: request.body.approvedAmount,
+                },
+              });
+            }
 
             let status = await StatusFunction.update(
               id,

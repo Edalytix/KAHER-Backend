@@ -91,6 +91,10 @@ const workflowSchema = new mongoose.Schema({
   ],
   approvals: [
     {
+      approveGrant: {
+        type: Boolean,
+        default: false,
+      },
       sequence: {
         type: Number,
         required: true,

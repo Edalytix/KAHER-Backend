@@ -82,6 +82,10 @@ const applicationSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  approvedAmount: {
+    type: Number,
+    required: false,
+  },
 
   // comments: [{
   //   id: {
