@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 const FormModels = require('./form');
 
+const FormQuestionOptionSchema = new mongoose.Schema({
+  id: { type: Number, required: false },
+  value: { type: String, required: false },
+});
 const answerSchema = new mongoose.Schema({
   quid: {
     type: mongoose.Schema.Types.ObjectId,
@@ -28,9 +32,9 @@ const answerSchema = new mongoose.Schema({
   file: { type: String },
   number: { type: Number },
   date: { type: Date },
-  singleChoice: { type: FormModels.FormQuestionOptionSchema },
-  dropDown: { type: FormModels.FormQuestionOptionSchema },
-  multipleChoice: { type: [FormModels.FormQuestionOptionSchema] },
+  singleChoice: { type: FormQuestionOptionSchema },
+  dropDown: { type: FormQuestionOptionSchema },
+  multipleChoice: { type: [FormQuestionOptionSchema] },
 });
 // Define the schema for the Response collection
 const responseSchema = new mongoose.Schema({
