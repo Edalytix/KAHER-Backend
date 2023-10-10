@@ -84,7 +84,6 @@ exports.ApprovalUpdate = ({
             }
           }
         }
-
         if (currentApprover !== application.currentApprover) {
           throw new CreateError(translate(lang, 'forbidden'), 403);
         }
@@ -107,6 +106,14 @@ exports.ApprovalUpdate = ({
         };
 
         if (request.body.approval === 'approved') {
+          if (approveGrant) {
+            const res = await ApplicationFunction.update({
+              id,
+              params: {
+                approvedAmount: request.body.approvedAmount,
+              },
+            });
+          }
           if (application.currentApprover === Workflow.totalApprovers) {
             const res = await ApplicationFunction.update({
               id,
@@ -114,14 +121,6 @@ exports.ApprovalUpdate = ({
                 level: 'approved',
               },
             });
-            if (approveGrant) {
-              const res = await ApplicationFunction.update({
-                id,
-                params: {
-                  approvedAmount: request.body.approvedAmount,
-                },
-              });
-            }
 
             let status = await StatusFunction.update(
               id,
