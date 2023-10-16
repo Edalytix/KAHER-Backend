@@ -45,7 +45,7 @@ exports.ApprovalUpdate = ({
           logger,
           CreateError,
           lang,
-        }); 
+        });
 
         const WorkflowFunction = db.methods.Workflow({
           translate,
@@ -88,23 +88,6 @@ exports.ApprovalUpdate = ({
         }
         if (currentApprover !== application.currentApprover) {
           throw new CreateError(translate(lang, 'forbidden'), 403);
-        }
-
-        const user = await UserFunction.findByParams({
-          _id: new ObjectId(userUID),
-        });
-
-        if (
-          currentApprover === application.currentApprover &&
-          currentApprover === 1
-        ) {
-          if (
-            user.data[0].department.name !== 'Principal Department' &&
-            user.data[0].department.name !== 'Finance Department' &&
-            user.data[0].department.id !== application.user.department.id
-          ) {
-            throw new CreateError(translate(lang, 'forbidden'), 403);
-          }
         }
 
         const StatusFunction = db.methods.Status({

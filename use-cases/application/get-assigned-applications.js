@@ -38,18 +38,37 @@ exports.FindAssignedApps = ({
         //   throw new CreateError(translate(lang, "forbidden"), 403);
         // }
 
-        const ApplicationFunction = db.methods.Application({
+        const UserFunction = db.methods.User({
           translate,
           logger,
           CreateError,
           lang,
         });
 
-        const res = await ApplicationFunction.findAllAssignedApps(
-          id,
-          search,
-          statusQuery
-        );
+        const user = await UserFunction.findById(userUID);
+
+        const ApplicationFunction = db.methods.Application({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
+        let res = {};
+        if (user.data.user.department.name === 'Principal Department') {
+          res = await ApplicationFunction.findAllAssignedAppsForInstitution(
+            id,
+            search,
+            statusQuery,
+            user.data.user.institution._id
+          );
+        } else {
+          res = await ApplicationFunction.findAllAssignedApps(
+            id,
+            search,
+            statusQuery
+          );
+        }
+
         return {
           msg: translate(lang, 'created_mood'),
           data: { res },
