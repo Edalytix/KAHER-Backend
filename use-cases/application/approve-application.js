@@ -45,7 +45,7 @@ exports.ApprovalUpdate = ({
           logger,
           CreateError,
           lang,
-        });
+        }); 
 
         const WorkflowFunction = db.methods.Workflow({
           translate,
