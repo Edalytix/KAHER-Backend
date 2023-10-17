@@ -1,0 +1,8 @@
+{
+  "endPoint": "storage.edalytics.com",
+  "port": 443,
+  "useSSL": true,
+  "accessKey": "edalyticsminio",
+  "secretKey": "edalyticsminio#1215",
+  "bucketName": "kaher"
+}

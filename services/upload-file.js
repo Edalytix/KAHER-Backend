@@ -1,17 +1,17 @@
 const path = require('path');
-
+const minioConfig = require('../config/minio.config.json');
 exports.uploadFile = async ({ file }) => {
   const Minio = require('minio');
 
   const minioClient = new Minio.Client({
-    endPoint: 'storage.edalytics.com',
-    port: 443,
-    useSSL: true,
-    accessKey: 'edalyticsminio',
-    secretKey: 'edalyticsminio#1215',
+    endPoint: minioConfig.endPoint,
+    port: minioConfig.port,
+    useSSL: minioConfig.useSSL,
+    accessKey: minioConfig.accessKey,
+    secretKey: minioConfig.secretKey,
   });
 
-  const bucketName = 'kaher';
+  const bucketName = minioConfig.bucketName;
 
   let fileName = file?.originalname?.split('.');
   fileName[0] = file?.originalname?.replace(/ /g, '_');
@@ -46,5 +46,10 @@ exports.uploadFile = async ({ file }) => {
     console.log('error is', error);
   }
 
-  return { url: presignedUrl, name: file.originalname, type: file.mimetype };
+  return {
+    url: presignedUrl,
+    name: file.originalname,
+    type: file.mimetype,
+    objectName,
+  };
 };

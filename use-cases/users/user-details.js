@@ -1,5 +1,5 @@
 const fromEntities = require('../../entity');
-
+const minioConfig = require('../../config/minio.config.json');
 exports.UserDetails = ({
   CreateError,
   DataValidator,
@@ -13,6 +13,17 @@ exports.UserDetails = ({
   return Object.freeze({
     execute: async () => {
       try {
+        console.log(minioConfig);
+        const Minio = require('minio');
+
+        const minioClient = new Minio.Client({
+          endPoint: minioConfig.endPoint,
+          port: minioConfig.port,
+          useSSL: minioConfig.useSSL,
+          accessKey: minioConfig.accessKey,
+          secretKey: minioConfig.secretKey,
+        });
+
         const lang = request.locals.lang;
         const email = request.locals.email;
         const userUID = request.locals.uid;
@@ -41,6 +52,16 @@ exports.UserDetails = ({
         });
 
         const res = await UserFunction.findById(id);
+
+        const presignedUrl = await minioClient.presignedUrl(
+          'GET',
+          minioConfig.bucketName,
+          res.data.user.profile_picture,
+          24 * 60 * 60 * 7
+        );
+
+        res.data.user.profile_picture = presignedUrl;
+
         return {
           msg: translate(lang, 'created_mood'),
           data: { res },

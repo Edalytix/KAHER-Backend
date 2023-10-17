@@ -50,7 +50,7 @@ exports.Update = ({
             file: request.body?.files?.profile_picture[0],
           });
           console.log(obj);
-          profile_picture = obj.url;
+          profile_picture = obj.objectName;
         }
 
         let entity = (

@@ -1,6 +1,7 @@
 const fromEntities = require('../../entity');
 const mongoose = require('mongoose');
-
+const Minio = require('minio');
+const minioConfig = require('../../config/minio.config.json');
 exports.Create = ({
   CreateError,
   DataValidator,
@@ -21,6 +22,14 @@ exports.Create = ({
         const email = request.locals.email;
         const userUID = request.locals.uid;
         const role = request.locals.role;
+
+        const minioClient = new Minio.Client({
+          endPoint: minioConfig.endPoint,
+          port: minioConfig.port,
+          useSSL: minioConfig.useSSL,
+          accessKey: minioConfig.accessKey,
+          secretKey: minioConfig.secretKey,
+        });
 
         const acesssRes = await accessManager({
           translate,
@@ -63,6 +72,48 @@ exports.Create = ({
             num: users,
           }).generate()
         ).data.entity;
+
+        const imagePath = './utils/user.png'; // Replace with the actual path to your image file
+
+        try {
+          minioClient
+            .fPutObject(
+              minioConfig.bucketName,
+              `${entity.email}_defaultpfp`,
+              imagePath,
+              {
+                'Content-Type': 'image/png',
+              }
+            )
+            .catch((e) => {
+              console.log('Error while creating object from file data: ', e);
+              throw e;
+            });
+
+          entity.profile_picture = `${entity.email}_defaultpfp`;
+        } catch (error) {
+          console.log('error is', error);
+        }
+        // fs.readFile(imagePath, async (err, data) => {
+        //   if (err) {
+        //     console.log(err);
+        //     console.error('Error reading the image file:', err);
+        //   } else {
+        //     // 'data' now contains the binary data of the image file
+        //     // You can process or use this data as needed
+        //     // For example, you can convert it to a base64-encoded string to use it in an HTML <img> tag
+        //     const base64Image = data.toString('base64');
+        //     //const imageDataUrl = `data:image/png;base64,${base64Image}`;
+        //     const obj = await uploadFile({
+        //       file: base64Image,
+        //     });
+        //     entity.profile_picture = obj.url;
+        //     console.log('Successfully read the image file.');
+        //     //console.log(imageDataUrl);
+
+        //     // Now you can use 'imageDataUrl' to display the image in your application or save it as needed.
+        //   }
+        // });
 
         // if (request.body?.files?.profile_picture) {
         //   const obj = await uploadFile({
