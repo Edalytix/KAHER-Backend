@@ -54,7 +54,7 @@ exports.ApplicationDetails = ({
 
         const res = await ApplicationFunction.findById(id);
 
-        let currentApprover = 0;
+        let currentApprover = 1;
         const Workflow = (
           await WorkflowFunction.findById(res.data.application.workflow._id)
         ).data.workflow;
@@ -80,6 +80,7 @@ exports.ApplicationDetails = ({
         if (!acesssRes && currentApprover === 0) {
           throw new CreateError(translate(lang, 'forbidden'), 403);
         }
+
         if (currentApprover < res.data.application.currentApprover) {
           res.status = 'approved';
         } else {
