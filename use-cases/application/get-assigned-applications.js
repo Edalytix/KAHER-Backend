@@ -56,14 +56,14 @@ exports.FindAssignedApps = ({
         let res = {};
         if (user.data.user.department.name === 'Principal Department') {
           res = await ApplicationFunction.findAllAssignedAppsForInstitution(
-            id,
+            userUID,
             search,
             statusQuery,
             user.data.user.institution._id
           );
         } else {
           res = await ApplicationFunction.findAllAssignedApps(
-            id,
+            userUID,
             search,
             statusQuery
           );
