@@ -2,7 +2,8 @@ const winston = require('winston');
 const path = require('path');
 const split = require('split');
 const morgan = require('morgan');
-
+const dotenv = require('dotenv');
+dotenv.config();
 // declare var process: any
 
 const { combine, timestamp, label, printf, errors } = winston.format;

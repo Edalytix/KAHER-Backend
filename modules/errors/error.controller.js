@@ -1,6 +1,7 @@
 /* eslint-disable no-return-assign */
 const AppError = require('./ApiError');
-
+const dotenv = require('dotenv');
+dotenv.config();
 const handleCastErrorDB = (err) => {
   const message = `Invalid ${err.path}: ${err.value}.`;
   return new AppError(message, 400);

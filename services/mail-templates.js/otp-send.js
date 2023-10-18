@@ -1,4 +1,6 @@
 const hostUrls = require('../../config/app.config.json').host;
+const dotenv = require('dotenv');
+dotenv.config();
 const env = process.env.NODE_ENV || 'test';
 module.exports = {
   OTPSend: function Mail(params) {
