@@ -5,15 +5,19 @@ const path = require('path');
 const dotenv = require('dotenv');
 dotenv.config();
 const basename = path.basename(__filename);
-const env = process.env.NODE_ENV || 'test';
+const env = process.env.NODE_ENV || 'development';
 
 const config = require(__dirname + '/../config/config.json')[env];
 const db = {};
 const logger = require('../utils/logger').logger;
 
 const mongoose = require('mongoose');
-const connectionURI = `mongodb+srv://mongodb:${config.password}@cluster0.7soe7k6.mongodb.net/?retryWrites=true&w=majority`;
-//const connectionURI = `mongodb://${config.username}:${config.password}@${config.host}`;
+let connectionURI = '';
+if (process.env.NODE_ENV === 'production') {
+  connectionURI = `mongodb+srv://mongodb:${config.password}@cluster0.7soe7k6.mongodb.net/kaher?retryWrites=true&w=majority`;
+} else {
+  connectionURI = `mongodb://${config.username}:${config.password}@${config.host}`;
+}
 mongoose.connect(connectionURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
