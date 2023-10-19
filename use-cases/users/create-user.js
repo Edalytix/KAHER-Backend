@@ -58,6 +58,24 @@ exports.Create = ({
           lang,
         });
 
+        const RoleFunction = db.methods.Role({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
+
+        const roleDetail = (await RoleFunction.findById(request.body.role)).data
+          .role.permissions;
+
+        const keys = Object.keys(roleDetail);
+
+        for (let key of keys) {
+          if (roleDetail[key] === 'edit') {
+            request.body.type = 'admin';
+          }
+        }
+
         const users = (await UserFunction.findAll()).data.total;
 
         let entity = (

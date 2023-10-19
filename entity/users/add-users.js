@@ -33,7 +33,7 @@ exports.addUser = ({
           employeeId: params.employeeId
             ? params.employeeId
             : createStringWithNumber(),
-          type: 'admin',
+          type: null,
           designation: null,
           institution: null,
           accountNumber: null,
