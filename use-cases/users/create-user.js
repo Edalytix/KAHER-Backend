@@ -70,6 +70,7 @@ exports.Create = ({
 
         const keys = Object.keys(roleDetail);
 
+        request.body.type = 'user';
         for (let key of keys) {
           if (roleDetail[key] === 'edit') {
             request.body.type = 'admin';
