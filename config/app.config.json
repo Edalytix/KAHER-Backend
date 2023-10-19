@@ -51,7 +51,7 @@
   },
   "host": {
     "development": "https://kaher.edalytics.com",
-    "test": "https://incentive.kaher.edu.in",
+    "test": "https://kaher.edalytics.com",
     "production": "https://incentive.kaher.edu.in"
   },
   "smtp": {

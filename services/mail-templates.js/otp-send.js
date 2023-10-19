@@ -1,7 +1,8 @@
 const hostUrls = require('../../config/app.config.json').host;
+console.log(hostUrls);
 const dotenv = require('dotenv');
 dotenv.config();
-const env = process.env.NODE_ENV || 'test';
+const env = process.env.NODE_ENV || 'development';
 module.exports = {
   OTPSend: function Mail(params) {
     return {
@@ -32,7 +33,7 @@ module.exports = {
       
       <h2>${params.password}</h2>
       <h2>${params.to}</h2>
-      <a href=${hostUrls[env]}/account/login target="_blank"class="button">Click Here</a>
+      <a href=${hostUrls[env]}/account/login target="_blank" class="button">Click Here</a>
       <br>
       <br>
       Please reset your password on first login.
