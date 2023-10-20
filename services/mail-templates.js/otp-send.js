@@ -32,7 +32,7 @@ module.exports = {
       
       <h2>${params.password}</h2>
       <h2>${params.to}</h2>
-      <a href=${hostUrls[env]}/account/login target="_blank" class="button">Click Here</a>
+      <a href=${hostUrls[env]}/account/login?verify=${params.token} target="_blank" class="button">Click Here</a>
       <br>
       <br>
       Please reset your password on first login.
