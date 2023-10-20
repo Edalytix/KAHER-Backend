@@ -10,6 +10,7 @@ const fromPasswordReset = require('./password-reset');
 const fromSetPassword = require('./set-password');
 const fromSendExcelEmail = require('./send-excel-emails');
 const fromFindAllForExcel = require('./find-all-users-excel');
+const fromBruteResetPassword = require('./brute-password-reset');
 
 exports.userUseCases = {
   createUsers: fromCreateUsers.Create,
@@ -25,4 +26,5 @@ exports.userUseCases = {
   SetPassword: fromSetPassword.SetPassword,
   SendExcelEmail: fromSendExcelEmail.SendExcelEmail,
   fromFindAllForExcel: fromFindAllForExcel.findAllForExcel,
+  BruteResetPassword: fromBruteResetPassword.BruteResetPassword,
 };

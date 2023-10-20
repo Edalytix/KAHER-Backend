@@ -13,7 +13,6 @@ exports.UserDetails = ({
   return Object.freeze({
     execute: async () => {
       try {
-        console.log(minioConfig);
         const Minio = require('minio');
 
         const minioClient = new Minio.Client({

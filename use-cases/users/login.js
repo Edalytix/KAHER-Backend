@@ -1,6 +1,7 @@
 const fromEntities = require('../../entity');
 const config = require('../../config/app.config.json');
-
+const Minio = require('minio');
+const minioConfig = require('../../config/minio.config.json');
 exports.Login = ({
   CreateError,
   DataValidator,
@@ -75,6 +76,14 @@ async function postLogin({
     // generate entity
     const lang = request.lang;
 
+    const minioClient = new Minio.Client({
+      endPoint: minioConfig.endPoint,
+      port: minioConfig.port,
+      useSSL: minioConfig.useSSL,
+      accessKey: minioConfig.accessKey,
+      secretKey: minioConfig.secretKey,
+    });
+
     let entity = await fromEntities.entities.User.loginUser({
       CreateError,
       DataValidator,
@@ -136,7 +145,7 @@ async function postLogin({
       .data.valid;
 
     if (!verifyPassword) {
-      throw new CreateError(translate(lang, 'invalid_login_credentials'), 303);
+      throw new CreateError(translate(lang, 'invalid_login_credentials'), 401);
     }
 
     // invalid password
@@ -204,6 +213,15 @@ async function postLogin({
         userUID: user._id.toString(),
         ua: request.locals.ua,
       });
+
+    const presignedUrl = await minioClient.presignedUrl(
+      'GET',
+      minioConfig.bucketName,
+      user.profile_picture,
+      24 * 60 * 60 * 7
+    );
+
+    user.profile_picture = presignedUrl;
     return {
       msg: translate(lang, 'success'),
       data: {

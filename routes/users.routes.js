@@ -79,6 +79,8 @@ router.get('/users/passwordreset', userController.PasswordReset);
 
 router.post('/users/passwordreset', userController.PasswordReset);
 router.post('/users/setpassword', userController.SetPassword);
+router.post('/users/bruteresetPassword', userController.BruteResetPassword);
+
 router.get(
   '/users/findallexcel',
   middlewares.isLogged,
