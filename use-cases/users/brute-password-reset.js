@@ -40,54 +40,54 @@ exports.BruteResetPassword = ({
         });
 
         // find user
-        let user = null;
-        if (entity.email) {
-          user = (await usersFunction.findByEmail({ email: entity.email })).data
-            .user;
-        }
-        if (entity.employeeId) {
-          user = (
-            await usersFunction.findByEmpyId({ employeeId: entity.employeeId })
-          ).data.user;
-        }
+        // let user = null;
+        // if (entity.email) {
+        //   user = (await usersFunction.findByEmail({ email: entity.email })).data
+        //     .user;
+        // }
+        // if (entity.employeeId) {
+        //   user = (
+        //     await usersFunction.findByEmpyId({ employeeId: entity.employeeId })
+        //   ).data.user;
+        // }
 
-        if (user === null) {
-          throw new CreateError(
-            translate(lang, 'invalid_login_credentials'),
-            404
-          );
-        }
+        // if (user === null) {
+        //   throw new CreateError(
+        //     translate(lang, 'invalid_login_credentials'),
+        //     404
+        //   );
+        // }
 
-        let updateEntity = (
-          await fromEntities.entities.User.updateUser({
-            CreateError,
-            DataValidator,
-            logger,
-            translate,
-            crypto,
-            lang,
-            params: { ...request.body, status: 'active' },
-          }).generate()
-        ).data.entity;
+        // let updateEntity = (
+        //   await fromEntities.entities.User.updateUser({
+        //     CreateError,
+        //     DataValidator,
+        //     logger,
+        //     translate,
+        //     crypto,
+        //     lang,
+        //     params: { ...request.body, status: 'active' },
+        //   }).generate()
+        // ).data.entity;
 
-        if (updateEntity.password) {
-          const hashedPassword = (
-            await crypto
-              .PasswordHash({
-                CreateError,
-                translate,
-                logger,
-                password: updateEntity.password,
-              })
-              .hashPassword()
-          ).data.hashedPassword;
-          updateEntity.password = hashedPassword;
-        }
+        // if (updateEntity.password) {
+        //   const hashedPassword = (
+        //     await crypto
+        //       .PasswordHash({
+        //         CreateError,
+        //         translate,
+        //         logger,
+        //         password: updateEntity.password,
+        //       })
+        //       .hashPassword()
+        //   ).data.hashedPassword;
+        //   updateEntity.password = hashedPassword;
+        // }
 
-        const res = await usersFunction.update({
-          id: user._id,
-          params: updateEntity,
-        });
+        // const res = await usersFunction.update({
+        //   id: user._id,
+        //   params: updateEntity,
+        // });
 
         return {
           msg: translate(lang, 'updated_password_success'),
