@@ -1,35 +1,36 @@
-const dotenv = require("dotenv");
-const path = require("path");
-const database = require("./lib/database/index").database;
+const dotenv = require('dotenv');
+const path = require('path');
+const database = require('./lib/database/index').database;
 const appConfig = require('./config/app.config.json');
 // dotenv configuration
 dotenv.config({
-  path: path.join(__dirname, ".env"),
+  path: path.join(__dirname, '.env'),
 });
 console.log(
   `******** Application started in ${process.env.NODE_ENV} mode ********`
 );
 
-const express = require("express");
-const logger = require("morgan");
-const cookieParser = require("cookie-parser");
-const session = require("express-session");
-const redisStore = require("connect-redis");
-const csrf = require("csurf");
-const helmet = require("helmet");
-const frameguard = require("frameguard");
-const cors = require("cors");
-const bodyParser = require("body-parser");
-const middlewares = require("./middlewares");
+const express = require('express');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+const redisStore = require('connect-redis');
+const csrf = require('csurf');
+const helmet = require('helmet');
+const frameguard = require('frameguard');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const middlewares = require('./middlewares');
 
-const routes = require("./routes");
+const routes = require('./routes');
 // error handler
-const errorHandler = require("./error/error-handler").errorHandler;
+const errorHandler = require('./error/error-handler').errorHandler;
 
 const app = express();
 
-app.disable("x-powered-by");
-app.set("x-powered-by", false);
+app.use('/files', express.static('lib/temp-file'));
+app.disable('x-powered-by');
+app.set('x-powered-by', false);
 // app.use((req, res, next) => {
 //   if (req.method.toUpperCase() === "OPTIONS") {
 //     return res.status(405).send("Method not allowed").end();
@@ -37,17 +38,17 @@ app.set("x-powered-by", false);
 //   next();
 // });
 
-const allowedMethods = ["GET", "POST", "DELETE", "PATCH", "OPTIONS"];
+const allowedMethods = ['GET', 'POST', 'DELETE', 'PATCH', 'OPTIONS'];
 app.use((req, res, next) => {
   if (!allowedMethods.includes(req.method)) {
-    return res.status(405).send("Method not allowed");
+    return res.status(405).send('Method not allowed');
   }
   next();
 });
 
 app.use(cookieParser());
 
-app.use(frameguard({ action: "deny" }));
+app.use(frameguard({ action: 'deny' }));
 app.use(helmet());
 
 app.use(bodyParser.urlencoded({ extended: true })); // parse application/x-www-form-urlencoded
@@ -65,8 +66,8 @@ const originURLS = [
   'https://approvals.kaher.edu.in',
   'http://approvals.kaher.edu.in',
   'https://incentive.kaher.edu.in',
-  'http://incentive.kaher.edu.in'
-]
+  'http://incentive.kaher.edu.in',
+];
 
 //
 
@@ -74,27 +75,28 @@ app.use(cookieParser());
 // logger
 
 // allow origins middlewares
-app.use(cors({
-  origin: function (origin, callback) {
+app.use(
+  cors({
+    origin: function (origin, callback) {
       if (originURLS.indexOf(origin) !== -1) {
-          callback(null, true)
+        callback(null, true);
       } else if (origin === undefined) {
-          callback(null, true)
+        callback(null, true);
       } else {
-          callback(new Error('Not allowed by CORS:' + origin))
+        callback(new Error('Not allowed by CORS:' + origin));
       }
-  },
-  credentials: true,
-  methods: "GET,POST,PATCH,DELETE"
-}));
+    },
+    credentials: true,
+    methods: 'GET,POST,PATCH,DELETE',
+  })
+);
 
-
-if (process.env.NODE_ENV == "development") {
-  app.use(logger("dev"));
+if (process.env.NODE_ENV == 'development') {
+  app.use(logger('dev'));
 }
 
 app.use(function (req, res, next) {
-  res.locals.ua = req.get("User-Agent");
+  res.locals.ua = req.get('User-Agent');
   next();
 });
 
@@ -105,16 +107,14 @@ app.use((req, res, next) => {
 });
 
 // checking application health
-app.use("/services/:language/:v/app-health-check", middlewares.checkHealth);
+app.use('/services/:language/:v/app-health-check', middlewares.checkHealth);
 
-routes
-app.use("/services/:language/v1", middlewares.setLanguage, routes);
-app.use("/public", express.static(path.join(__dirname, "UserAchievements")));
-
+routes;
+app.use('/services/:language/v1', middlewares.setLanguage, routes);
+app.use('/public', express.static(path.join(__dirname, 'UserAchievements')));
 
 app.use(errorHandler);
- 
-app.listen(process.env.PORT, () => {
-  console.log("Server up on " + process.env.PORT);
 
+app.listen(process.env.PORT, () => {
+  console.log('Server up on ' + process.env.PORT);
 });

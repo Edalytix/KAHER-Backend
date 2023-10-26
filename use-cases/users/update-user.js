@@ -49,8 +49,8 @@ exports.Update = ({
           const obj = await uploadFile({
             file: request.body?.files?.profile_picture[0],
           });
-          console.log(obj);
-          profile_picture = obj.objectName;
+
+          profile_picture = obj.url;
         }
 
         let entity = (
