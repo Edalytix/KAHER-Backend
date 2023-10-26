@@ -51,7 +51,7 @@
   },
   "host": {
     "development": "https://kaher.edalytics.com",
-    "test": "http://localhost:3001",
+    "test": "https://kaher.edalytics.com",
     "production": "https://incentive.kaher.edu.in"
   },
   "smtp": {
