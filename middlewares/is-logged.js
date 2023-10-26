@@ -9,7 +9,7 @@ const refreshTokenCookieName = CONFIG.refreshToken.cookie.name;
 
 module.exports.isLogged = async (req, res, next) => {
   try {
-    const lang = res.locals.lang;
+    const lang = res.locals.lang || 'en';
 
     //refresh token validation
     const refreshToken =
