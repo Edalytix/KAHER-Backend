@@ -52,15 +52,6 @@ exports.UserDetails = ({
 
         const res = await UserFunction.findById(id);
 
-        const presignedUrl = await minioClient.presignedUrl(
-          'GET',
-          minioConfig.bucketName,
-          res.data.user.profile_picture,
-          24 * 60 * 60 * 7
-        );
-
-        res.data.user.profile_picture = presignedUrl;
-
         return {
           msg: translate(lang, 'created_mood'),
           data: { res },

@@ -214,14 +214,6 @@ async function postLogin({
         ua: request.locals.ua,
       });
 
-    const presignedUrl = await minioClient.presignedUrl(
-      'GET',
-      minioConfig.bucketName,
-      user.profile_picture,
-      24 * 60 * 60 * 7
-    );
-
-    user.profile_picture = presignedUrl;
     return {
       msg: translate(lang, 'success'),
       data: {
