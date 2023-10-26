@@ -54,6 +54,11 @@
     "test": "https://kaher.edalytics.com",
     "production": "https://incentive.kaher.edu.in"
   },
+  "backend": {
+    "development": "https://kaher-api.edalytics.com",
+    "test": "https://kaher-api.edalytics.com",
+    "production": "https://incentive-api.kaher.edu.in"
+  },
   "smtp": {
     "host": "smtp.gmail.com",
     "port": 587,

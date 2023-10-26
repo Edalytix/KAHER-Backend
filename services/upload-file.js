@@ -1,6 +1,6 @@
 const path = require('path');
 const minioConfig = require('../config/minio.config.json');
-const hostUrls = require('../config/app.config.json').host;
+const hostUrls = require('../config/app.config.json').backend;
 const dotenv = require('dotenv');
 dotenv.config();
 const env = process.env.NODE_ENV || 'development';
