@@ -57,7 +57,7 @@ exports.Update = ({
           ...workflow.data.workflow,
         };
         delete newWorklow._id;
-        newWorklow.applications = [];
+        //newWorklow.applications = [];
 
         for (let key in entity) {
           newWorklow[key] = entity[key];
