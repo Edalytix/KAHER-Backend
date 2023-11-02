@@ -20,19 +20,6 @@ exports.AddComment = ({
         const role = request.locals.role;
         let id = request.queryParams.id;
 
-        // const acesssRes = await accessManager({
-        //   translate,
-        //   logger,
-        //   CreateError,
-        //   lang,
-        //   role,
-        //   db,
-        //   useCase: 'applications:edit',
-        // });
-        // if (!acesssRes) {
-        //   throw new CreateError(translate(lang, 'forbidden'), 403);
-        // }
-
         const CommentFunction = db.methods.Comment({
           translate,
           logger,
@@ -47,11 +34,9 @@ exports.AddComment = ({
         }
 
         const permittedUsers = comment?.tags.map((item) => item.uid.toString());
-
         // if (!permittedUsers.includes(userUID)) {
         //   throw new CreateError(translate(lang, 'forbidden'), 403);
         // }
-
         let picture = {};
         if (request.body?.files?.picture) {
           picture = await uploadFile({

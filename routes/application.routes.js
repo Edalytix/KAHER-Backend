@@ -113,4 +113,9 @@ router.get(
   applicationController.getReports
 );
 
+router.get(
+  '/application/applierreports',
+  middlewares.isLogged,
+  applicationController.getApplierReports
+);
 module.exports = router;
