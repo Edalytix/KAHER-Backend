@@ -90,7 +90,7 @@ exports.AddForm = ({
             ...res.data.workflow,
           };
           delete newWorklow._id;
-          newWorklow.applications = [];
+          //newWorklow.applications = [];
 
           newRes = await WorkflowFunction.create(newWorklow);
 
