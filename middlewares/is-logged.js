@@ -86,6 +86,6 @@ module.exports.isLogged = async (req, res, next) => {
     console.log('Error-while validating session', error);
     return res
       .status(500)
-      .json({ msg: translate(lang, 'error_unknown'), data: {} });
+      .json({ msg: translate('en', 'error_unknown'), data: {} });
   }
 };
