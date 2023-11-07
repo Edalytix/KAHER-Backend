@@ -19,6 +19,7 @@ exports.createApplication = ({
           level: 'draft',
           department: null,
           workflow: null,
+          workflowUid: null,
           comments: [],
           activities: [],
           createdAt: Date.now(),
@@ -47,6 +48,12 @@ exports.createApplication = ({
           entity.workflow = validate.mongoid(params.workflow).data.value;
         } else {
           delete entity.workflow;
+        }
+
+        if (params.workflowUid) {
+          entity.workflowUid = params.workflowUid;
+        } else {
+          delete entity.workflowUid;
         }
 
         if (params.status) {

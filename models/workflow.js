@@ -83,6 +83,10 @@ const workflowSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Form',
       },
+      formUid: {
+        type: String,
+        ref: 'Form',
+      },
       required: {
         type: Boolean,
         default: false,

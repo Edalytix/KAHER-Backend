@@ -19,6 +19,7 @@ exports.updateApplication = ({
           level: null,
           department: null,
           workflow: null,
+          workflowUid: null,
           comments: [],
           activities: [],
           currentApprover: null,
@@ -47,6 +48,12 @@ exports.updateApplication = ({
           entity.workflow = validate.mongoid(params.workflow).data.value;
         } else {
           delete entity.workflow;
+        }
+
+        if (params.workflowUid) {
+          entity.workflowUid = params.workflowUid.data.value;
+        } else {
+          delete entity.workflowUid;
         }
 
         if (params.status) {

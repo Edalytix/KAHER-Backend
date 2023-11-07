@@ -70,6 +70,11 @@ const applicationSchema = new mongoose.Schema({
     ref: 'Workflow',
     required: true,
   },
+  workflowUid: {
+    type: String,
+    ref: 'Workflow',
+    required: true,
+  },
   stages: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Status',
