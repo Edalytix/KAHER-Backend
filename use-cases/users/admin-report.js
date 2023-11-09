@@ -1,6 +1,6 @@
 const fromEntities = require('../../entity');
-
-exports.Create = ({
+const minioConfig = require('../../config/minio.config.json');
+exports.AdminReport = ({
   CreateError,
   DataValidator,
   logger,
@@ -8,17 +8,26 @@ exports.Create = ({
   crypto,
   request,
   db,
-  ac,
   accessManager,
 }) => {
   return Object.freeze({
     execute: async () => {
       try {
+        const Minio = require('minio');
+
+        const minioClient = new Minio.Client({
+          endPoint: minioConfig.endPoint,
+          port: minioConfig.port,
+          useSSL: minioConfig.useSSL,
+          accessKey: minioConfig.accessKey,
+          secretKey: minioConfig.secretKey,
+        });
+
         const lang = request.locals.lang;
         const email = request.locals.email;
         const userUID = request.locals.uid;
         const role = request.locals.role;
-        let lowLimit = request.queryParams.lowLimit;
+        const id = request.queryParams.id;
 
         const acesssRes = await accessManager({
           translate,
@@ -27,29 +36,12 @@ exports.Create = ({
           lang,
           role,
           db,
-          useCase: 'workflows:edit',
+          useCase: 'users:edit',
         });
-        if (!acesssRes) {
+
+        if (userUID !== id && !acesssRes) {
           throw new CreateError(translate(lang, 'forbidden'), 403);
         }
-        let entity = (
-          await fromEntities.entities.Workflow.CreateWorkflow({
-            CreateError,
-            DataValidator,
-            logger,
-            translate,
-            crypto,
-            lang,
-            params: { ...request.body, userUID },
-          }).generate()
-        ).data.entity;
-
-        const WorkflowFunction = db.methods.Workflow({
-          translate,
-          logger,
-          CreateError,
-          lang,
-        });
 
         const UserFunction = db.methods.User({
           translate,
@@ -58,14 +50,7 @@ exports.Create = ({
           lang,
         });
 
-        const res = await WorkflowFunction.create(entity);
-
-        entity.approvals.forEach(async (element) => {
-          const update = await UserFunction.addApplication(
-            element.approvalBy.user,
-            res.data._id
-          );
-        });
+        const res = await UserFunction.adminReport(id);
 
         return {
           msg: translate(lang, 'created_mood'),

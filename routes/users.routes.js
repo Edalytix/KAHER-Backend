@@ -87,4 +87,16 @@ router.get(
   userController.fromFindAllForExcel
 );
 
+router.get(
+  '/users/approverreport',
+  middlewares.isLogged,
+  userController.ApproverReport
+);
+
+router.get(
+  '/users/adminreport',
+  middlewares.isLogged,
+  userController.AdminReport
+);
+
 module.exports = router;

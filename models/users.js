@@ -102,6 +102,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
+  applications: {
+    type: Array,
+    default: [],
+  },
 });
 
 const User = mongoose.model('User', userSchema);

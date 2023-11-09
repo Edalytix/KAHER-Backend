@@ -1,6 +1,7 @@
 const fromEntities = require('../../entity');
+const { ObjectId } = require('mongodb');
 
-exports.Create = ({
+exports.findApproverReports = ({
   CreateError,
   DataValidator,
   logger,
@@ -18,7 +19,6 @@ exports.Create = ({
         const email = request.locals.email;
         const userUID = request.locals.uid;
         const role = request.locals.role;
-        let lowLimit = request.queryParams.lowLimit;
 
         const acesssRes = await accessManager({
           translate,
@@ -27,24 +27,10 @@ exports.Create = ({
           lang,
           role,
           db,
-          useCase: 'workflows:edit',
+          useCase: 'forms:view',
         });
-        if (!acesssRes) {
-          throw new CreateError(translate(lang, 'forbidden'), 403);
-        }
-        let entity = (
-          await fromEntities.entities.Workflow.CreateWorkflow({
-            CreateError,
-            DataValidator,
-            logger,
-            translate,
-            crypto,
-            lang,
-            params: { ...request.body, userUID },
-          }).generate()
-        ).data.entity;
 
-        const WorkflowFunction = db.methods.Workflow({
+        const ApplicationFunction = db.methods.Application({
           translate,
           logger,
           CreateError,
@@ -58,18 +44,15 @@ exports.Create = ({
           lang,
         });
 
-        const res = await WorkflowFunction.create(entity);
+        const user = await UserFunction.findById(userUID);
 
-        entity.approvals.forEach(async (element) => {
-          const update = await UserFunction.addApplication(
-            element.approvalBy.user,
-            res.data._id
-          );
-        });
+        const res = await UserFunction.approverReport(
+          user.data.user.applications
+        );
 
         return {
           msg: translate(lang, 'created_mood'),
-          data: { res },
+          data: res,
         };
       } catch (error) {
         if (error instanceof CreateError) {

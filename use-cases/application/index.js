@@ -13,6 +13,7 @@ const fromGetAssignedApplications = require('./get-assigned-applications');
 const fromGetAssignedViaAdminApplications = require('./get-user-application-admin');
 const fromFindReports = require('./find-reports');
 const fromFindApplierReports = require('./applier-report');
+const fromFinanceReports = require('./finance-report');
 
 exports.applicationUseCases = {
   createApplications: fromCreateApplications.Create,
@@ -31,4 +32,5 @@ exports.applicationUseCases = {
   approveApplication: fromApproveApplication.ApprovalUpdate,
   findReports: fromFindReports.findReports,
   findApplierReports: fromFindApplierReports.findApplierReports,
+  financeReports: fromFinanceReports.findApplierReports,
 };

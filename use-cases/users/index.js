@@ -11,6 +11,8 @@ const fromSetPassword = require('./set-password');
 const fromSendExcelEmail = require('./send-excel-emails');
 const fromFindAllForExcel = require('./find-all-users-excel');
 const fromBruteResetPassword = require('./brute-password-reset');
+const fromApproverReport = require('./approver-report');
+const fromAdminReport = require('./admin-report');
 
 exports.userUseCases = {
   createUsers: fromCreateUsers.Create,
@@ -27,4 +29,6 @@ exports.userUseCases = {
   SendExcelEmail: fromSendExcelEmail.SendExcelEmail,
   fromFindAllForExcel: fromFindAllForExcel.findAllForExcel,
   BruteResetPassword: fromBruteResetPassword.BruteResetPassword,
+  ApproverReport: fromApproverReport.findApproverReports,
+  AdminReport: fromAdminReport.AdminReport,
 };

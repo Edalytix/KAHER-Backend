@@ -360,3 +360,55 @@ exports.BruteResetPassword = async (req, res, next) => {
     next(error);
   }
 };
+
+exports.ApproverReport = async (req, res, next) => {
+  try {
+    const request = fromAdaptReq.adaptReq(req, res);
+    const result = await fromUseCase
+      .ApproverReport({
+        CreateError,
+        DataValidator,
+        logger,
+        translate,
+        crypto,
+        request,
+        db,
+        accessManager,
+      })
+      .execute();
+
+    return res.status(201).json({
+      msg: result.msg,
+      data: result.data,
+    });
+  } catch (error) {
+    // console.log(error)
+    next(error);
+  }
+};
+
+exports.AdminReport = async (req, res, next) => {
+  try {
+    const request = fromAdaptReq.adaptReq(req, res);
+    const result = await fromUseCase
+      .AdminReport({
+        CreateError,
+        DataValidator,
+        logger,
+        translate,
+        crypto,
+        request,
+        db,
+        accessManager,
+      })
+      .execute();
+
+    return res.status(201).json({
+      msg: result.msg,
+      data: result.data,
+    });
+  } catch (error) {
+    // console.log(error)
+    next(error);
+  }
+};
