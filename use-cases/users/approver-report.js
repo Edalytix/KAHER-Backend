@@ -46,9 +46,7 @@ exports.findApproverReports = ({
 
         const user = await UserFunction.findById(userUID);
 
-        const res = await UserFunction.approverReport(
-          user.data.user.applications
-        );
+        const res = await UserFunction.approverReport(user.data.user);
 
         return {
           msg: translate(lang, 'created_mood'),
