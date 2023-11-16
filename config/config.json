@@ -2,7 +2,7 @@
   "development": {
     "host": "161.97.112.144:27017",
     "username": "root",
-    "password": "je4YH4CWoup0Qpoy",
+    "password": "random",
     "database": "kcet"
   },
   "test": {

@@ -63,7 +63,7 @@ exports.Create = ({
         entity.approvals.forEach(async (element) => {
           const update = await UserFunction.addApplication(
             element.approvalBy.user,
-            res.data._id
+            res.data.uuid
           );
         });
 
