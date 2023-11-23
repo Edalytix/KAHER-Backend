@@ -7,9 +7,7 @@ dotenv.config();
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 
-const config = require(__dirname + '/../config/config.json')[
-  process.env.NODE_ENV
-];
+const config = require(__dirname + '/../config/config.json')['production'];
 const db = {};
 const logger = require('../utils/logger').logger;
 
