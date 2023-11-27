@@ -61,7 +61,7 @@
   },
   "smtp": {
     "host": "mail.kaher.edu.in",
-    "port": 587,
+    "port": 465,
     "user": "ess@kaher.edu.in",
     "pass": "7^ZsUlB0DlRKI3TX"
   }
