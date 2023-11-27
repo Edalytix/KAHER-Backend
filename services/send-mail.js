@@ -17,7 +17,7 @@ exports.mailer = async ({
     const transporter = nodemailer.createTransport({
       host: config.smtp.host,
       port: config.smtp.port,
-      secure: false, // true for 465, false for other ports
+      secure: true, // true for 465, false for other ports
       auth: {
         user: config.smtp.user, // your email address
         pass: config.smtp.pass, // your email password
