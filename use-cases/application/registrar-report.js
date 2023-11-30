@@ -1,7 +1,7 @@
 const fromEntities = require('../../entity');
 const { ObjectId } = require('mongodb');
 
-exports.financeReport = ({
+exports.registrarReport = ({
   CreateError,
   DataValidator,
   logger,
@@ -37,7 +37,7 @@ exports.financeReport = ({
           lang,
         });
 
-        const res = await ApplicationFunction.financeReport(userUID);
+        const res = await ApplicationFunction.registrarReport(userUID);
 
         return {
           msg: translate(lang, 'created_mood'),

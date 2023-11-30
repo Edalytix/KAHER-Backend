@@ -125,4 +125,10 @@ router.get(
   applicationController.financeReport
 );
 
+router.get(
+  '/application/registrarreport',
+  middlewares.isLogged,
+  applicationController.registrarReports
+);
+
 module.exports = router;
