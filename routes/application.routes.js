@@ -131,4 +131,6 @@ router.get(
   applicationController.registrarReports
 );
 
+router.get('/application/script', applicationController.applicationScript);
+
 module.exports = router;

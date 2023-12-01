@@ -22,6 +22,9 @@ exports.mailer = async ({
         user: config.smtp.user, // your email address
         pass: config.smtp.pass, // your email password
       },
+      tls: {
+        rejectUnauthorized: false,
+      },
     });
     const message = await templates[params.type](params);
 
