@@ -33,8 +33,10 @@ exports.mailer = async ({
 
     transporter.sendMail(message, async (error, info) => {
       if (error) {
+        logger.error(`Failed to email: %s`, error);
         console.log(error);
       } else {
+        logger.info(`Email sent: %s`, info.response);
         console.log('Email sent: ' + info.response);
       }
       let mailLog = new MailLog({
