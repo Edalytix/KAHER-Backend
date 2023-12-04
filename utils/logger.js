@@ -40,24 +40,12 @@ const logger = winston.createLogger({
     //
     new winston.transports.File({
       level: 'error',
-      filename: path.join(
-        process.mainModule.filename,
-        '..',
-        '..',
-        'logs',
-        'error.log'
-      ),
+      filename: 'error.log',
       maxsize: 5242880, // 50MB
       maxFiles: 100,
     }),
     new winston.transports.File({
-      filename: path.join(
-        process.mainModule.filename,
-        '..',
-        '..',
-        'logs',
-        'combined.log'
-      ),
+      filename: 'error.log',
       maxsize: 5242880, // 50MB
       maxFiles: 100,
     }),
