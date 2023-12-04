@@ -60,9 +60,9 @@
     "production": "https://incentive-api.kaher.edu.in"
   },
   "smtp": {
-    "host": "smtp.gmail.com",
+    "host": "mail.kaher.edu.in",
     "port": 465,
-    "user": "kaherincentive@kledeemeduniversity.edu.in",
-    "pass": "uwnddnnixaplnupu"
+    "user": "ess@kaher.edu.in",
+    "pass": "Ueuu-2vjq"
   }
 }
