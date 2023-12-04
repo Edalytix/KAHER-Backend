@@ -30,6 +30,12 @@ router.post(
   ]),
   userController.createUser
 );
+
+router.post(
+  '/mail-test',
+  userController.mailTest
+);
+
 router.post('/users/login', userController.Login);
 router.get('/users/get', middlewares.isLogged, userController.findUser);
 // router.delete("/users/delete", userController.deleteRoles);

@@ -39,6 +39,32 @@ exports.createUser = async (req, res, next) => {
   }
 };
 
+exports.mailTest = async (req, res, next) => {
+  try {
+    const request = fromAdaptReq.adaptReq(req, res);
+    const body = request.body;
+
+    const mail = await mailer({
+      CreateError,
+      translate,
+      logger,
+      lang: request.locals.lang,
+      params: {
+        to: body.email,
+        password: "preSetPassword",
+        token: "refreshToken",
+        type: 'SetPassword',
+      },
+    });
+
+    return res.status(201).json({
+      response: "success"
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 exports.Login = async (req, res, next) => {
   try {
     const request = fromAdaptReq.adaptReq(req, res);
