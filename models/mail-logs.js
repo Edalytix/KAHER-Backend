@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 
 const mailLogSchema = new mongoose.Schema({
+    email: {
+        type: String,
+    },
     error: {
         type: String,
     },

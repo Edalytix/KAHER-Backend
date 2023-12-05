@@ -40,6 +40,7 @@ exports.mailer = async ({
         console.log('Email sent: ' + info.response);
       }
       let mailLog = new MailLog({
+        email: params.to,
         error: JSON.stringify(error),
         info: JSON.stringify(info),
         response: JSON.stringify(info.response)
