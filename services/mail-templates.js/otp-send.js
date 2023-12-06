@@ -2,10 +2,12 @@ const hostUrls = require('../../config/app.config.json').host;
 const dotenv = require('dotenv');
 dotenv.config();
 const env = process.env.NODE_ENV || 'development';
+const config = require('../../config/app.config.json');
+
 module.exports = {
   OTPSend: function Mail(params) {
     return {
-      from: 'ess@kaher.edu.in', // sender address
+      from: config.smtp.user, // sender address
       to: params.to, // list of receivers
       subject: 'OTP for Password Reset', // Subject line
       text: `The OTP to reset the password for the account associated with the email ${params.to}`, // plain text body
@@ -20,7 +22,7 @@ module.exports = {
   },
   SetPassword: function Mail(params) {
     return {
-      from: 'ess@kaher.edu.in', // sender address
+      from: config.smtp.user, // sender address
       to: params.to, // list of receivers
       subject: 'Kaher Account created', // Subject line
       text: `Set new password using the credentials given below for the email ${params.to}`, // plain text body

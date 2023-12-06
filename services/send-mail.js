@@ -1,8 +1,6 @@
 const nodemailer = require('nodemailer');
 const templates = require('./mail-templates.js/otp-send');
 const config = require('../config/app.config.json');
-const models = require("../models").models;
-const MailLog = models.mailLog;
 
 exports.mailer = async ({
   CreateError,
@@ -39,13 +37,6 @@ exports.mailer = async ({
         logger.info(`Email sent: %s`, info.response);
         console.log('Email sent: ' + info.response);
       }
-      let mailLog = new MailLog({
-        email: params.to,
-        error: JSON.stringify(error),
-        info: JSON.stringify(info),
-        response: JSON.stringify(info.response)
-      });
-      await mailLog.save();
     });
     return {
       msg: translate(lang, 'created_mood'),
