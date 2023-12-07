@@ -61,6 +61,13 @@ exports.FindAssignedApps = ({
             statusQuery,
             user.data.user.institution._id
           );
+        } else if (user.data.user.department.name === 'Registrar') {
+          res = await ApplicationFunction.findAllAssignedAppsForRegistrar(
+            userUID,
+            search,
+            statusQuery,
+            user.data.user.institution._id
+          );
         } else {
           res = await ApplicationFunction.findAllAssignedApps(
             userUID,

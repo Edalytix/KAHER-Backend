@@ -2,3 +2,36 @@
 [2023-12-04T11:02:47.187Z] info: Failed to email: 250 OK id=1rA6it-001aqo-23
 [2023-12-04T11:06:46.099Z] info: Connecting to database: DEVELOPMENT
 [2023-12-04T11:07:57.361Z] info: Connecting to database: DEVELOPMENT
+[2023-12-07T10:08:08.427Z] info: Connecting to database: DEVELOPMENT
+[2023-12-07T10:26:10.968Z] info: Connecting to database: DEVELOPMENT
+[2023-12-07T10:29:19.243Z] info: Connecting to database: DEVELOPMENT
+[2023-12-07T10:34:16.261Z] info: Connecting to database: DEVELOPMENT
+[2023-12-07T10:35:32.641Z] info: Connecting to database: DEVELOPMENT
+[2023-12-07T11:13:26.480Z] info: Connecting to database: DEVELOPMENT
+[2023-12-07T11:13:45.452Z] info: Connecting to database: DEVELOPMENT
+[2023-12-07T16:50:32.886Z] info: Connecting to database: DEVELOPMENT
+[2023-12-07T16:51:40.477Z] info: Connecting to database: DEVELOPMENT
+[2023-12-07T16:52:49.279Z] info: Connecting to database: DEVELOPMENT
+[2023-12-07T16:53:00.033Z] info: Connecting to database: DEVELOPMENT
+[2023-12-07T16:53:13.674Z] info: Connecting to database: DEVELOPMENT
+[2023-12-07T16:56:39.117Z] info: Connecting to database: DEVELOPMENT
+[2023-12-07T16:57:02.101Z] info: Connecting to database: DEVELOPMENT
+[2023-12-07T16:59:14.128Z] error: Failed to signup: TypeError: Cannot read properties of undefined (reading 'length')
+    at Object.execute (E:\KAHER-Backend\use-cases\application\get-assigned-applications.js:72:49)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.getAssignedApplications (E:\KAHER-Backend\controllers\application.controller.js:203:20)
+[2023-12-07T16:59:14.128Z] error: Failed to signup: TypeError: Cannot read properties of undefined (reading 'length')
+    at Object.execute (E:\KAHER-Backend\use-cases\application\get-assigned-applications.js:72:49)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.getAssignedApplications (E:\KAHER-Backend\controllers\application.controller.js:203:20)
+[2023-12-07T16:59:31.062Z] info: Connecting to database: DEVELOPMENT
+[2023-12-07T16:59:43.909Z] info: Connecting to database: DEVELOPMENT
+[2023-12-07T17:00:00.483Z] info: Connecting to database: DEVELOPMENT
+[2023-12-07T17:00:22.316Z] info: Connecting to database: DEVELOPMENT
+[2023-12-07T17:00:28.658Z] info: Connecting to database: DEVELOPMENT
+[2023-12-07T17:00:49.584Z] info: Connecting to database: DEVELOPMENT
+[2023-12-07T17:01:03.871Z] info: Connecting to database: DEVELOPMENT
+[2023-12-07T17:01:15.219Z] info: Connecting to database: DEVELOPMENT
+[2023-12-07T17:01:21.372Z] info: Connecting to database: DEVELOPMENT
+[2023-12-07T17:01:25.080Z] info: Connecting to database: DEVELOPMENT
+[2023-12-07T17:03:19.359Z] info: Connecting to database: DEVELOPMENT
