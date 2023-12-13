@@ -65,6 +65,13 @@ exports.Update = ({
           }).generate()
         ).data.entity;
 
+        if (entity.email) {
+          const user = await UserFunction.findByEmail({ email: entity.email });
+          if (user.data.user) {
+            throw new CreateError(translate(lang, 'duplicate_user'), 403);
+          }
+        }
+
         if (entity.password) {
           const hashedPassword = (
             await crypto

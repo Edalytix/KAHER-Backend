@@ -172,3 +172,288 @@
 [2023-12-13T10:39:06.721Z] info: Connecting to database: DEVELOPMENT
 [2023-12-13T10:40:47.830Z] info: Connecting to database: DEVELOPMENT
 [2023-12-13T10:42:03.026Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T10:42:22.055Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:10:50.827Z] error: Failed to update user details: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: test.users index: email_1 dup key: { email: "principal@klepharm.edu" } MongoServerError: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: test.users index: email_1 dup key: { email: "principal@klepharm.edu" }
+    at Connection.onMessage (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:202:26)
+    at MessageStream.<anonymous> (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:61:60)
+    at MessageStream.emit (node:events:513:28)
+    at processIncomingData (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\message_stream.js:124:16)
+    at MessageStream._write (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\message_stream.js:33:9)
+    at writeOrBuffer (node:internal/streams/writable:392:12)
+    at _write (node:internal/streams/writable:333:10)
+    at Writable.write (node:internal/streams/writable:337:10)
+    at Socket.ondata (node:internal/streams/readable:766:22)
+    at Socket.emit (node:events:513:28) {
+  ok: 0,
+  code: 11000,
+  codeName: 'DuplicateKey',
+  keyPattern: [Object],
+  keyValue: [Object],
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2023-12-13T11:10:50.827Z] error: Failed to update user details: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: test.users index: email_1 dup key: { email: "principal@klepharm.edu" } MongoServerError: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: test.users index: email_1 dup key: { email: "principal@klepharm.edu" }
+    at Connection.onMessage (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:202:26)
+    at MessageStream.<anonymous> (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:61:60)
+    at MessageStream.emit (node:events:513:28)
+    at processIncomingData (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\message_stream.js:124:16)
+    at MessageStream._write (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\message_stream.js:33:9)
+    at writeOrBuffer (node:internal/streams/writable:392:12)
+    at _write (node:internal/streams/writable:333:10)
+    at Writable.write (node:internal/streams/writable:337:10)
+    at Socket.ondata (node:internal/streams/readable:766:22)
+    at Socket.emit (node:events:513:28) {
+  ok: 0,
+  code: 11000,
+  codeName: 'DuplicateKey',
+  keyPattern: [Object],
+  keyValue: [Object],
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2023-12-13T11:10:50.839Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.update (E:\KAHER-Backend\lib\database\methods\user.js:339:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\users\update-user.js:94:21)
+    at async exports.updateUser (E:\KAHER-Backend\controllers\user.controller.js:147:20)
+[2023-12-13T11:10:50.839Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.update (E:\KAHER-Backend\lib\database\methods\user.js:339:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\users\update-user.js:94:21)
+    at async exports.updateUser (E:\KAHER-Backend\controllers\user.controller.js:147:20)
+[2023-12-13T11:12:16.753Z] error: Failed to update user details: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: test.users index: email_1 dup key: { email: "principal@klepharm.edu" } MongoServerError: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: test.users index: email_1 dup key: { email: "principal@klepharm.edu" }
+    at Connection.onMessage (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:202:26)
+    at MessageStream.<anonymous> (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:61:60)
+    at MessageStream.emit (node:events:513:28)
+    at processIncomingData (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\message_stream.js:124:16)
+    at MessageStream._write (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\message_stream.js:33:9)
+    at writeOrBuffer (node:internal/streams/writable:392:12)
+    at _write (node:internal/streams/writable:333:10)
+    at Writable.write (node:internal/streams/writable:337:10)
+    at Socket.ondata (node:internal/streams/readable:766:22)
+    at Socket.emit (node:events:513:28) {
+  ok: 0,
+  code: 11000,
+  codeName: 'DuplicateKey',
+  keyPattern: [Object],
+  keyValue: [Object],
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2023-12-13T11:12:16.753Z] error: Failed to update user details: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: test.users index: email_1 dup key: { email: "principal@klepharm.edu" } MongoServerError: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: test.users index: email_1 dup key: { email: "principal@klepharm.edu" }
+    at Connection.onMessage (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:202:26)
+    at MessageStream.<anonymous> (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:61:60)
+    at MessageStream.emit (node:events:513:28)
+    at processIncomingData (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\message_stream.js:124:16)
+    at MessageStream._write (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\message_stream.js:33:9)
+    at writeOrBuffer (node:internal/streams/writable:392:12)
+    at _write (node:internal/streams/writable:333:10)
+    at Writable.write (node:internal/streams/writable:337:10)
+    at Socket.ondata (node:internal/streams/readable:766:22)
+    at Socket.emit (node:events:513:28) {
+  ok: 0,
+  code: 11000,
+  codeName: 'DuplicateKey',
+  keyPattern: [Object],
+  keyValue: [Object],
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2023-12-13T11:12:16.759Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.update (E:\KAHER-Backend\lib\database\methods\user.js:339:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\users\update-user.js:94:21)
+    at async exports.updateUser (E:\KAHER-Backend\controllers\user.controller.js:147:20)
+[2023-12-13T11:12:16.759Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.update (E:\KAHER-Backend\lib\database\methods\user.js:339:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\users\update-user.js:94:21)
+    at async exports.updateUser (E:\KAHER-Backend\controllers\user.controller.js:147:20)
+[2023-12-13T11:22:43.801Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:23:16.333Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:23:45.386Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:23:52.223Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:23:54.963Z] error: Failed to update user details: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: test.users index: email_1 dup key: { email: "principal@klepharm.edu" } MongoServerError: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: test.users index: email_1 dup key: { email: "principal@klepharm.edu" }
+    at Connection.onMessage (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:202:26)
+    at MessageStream.<anonymous> (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:61:60)
+    at MessageStream.emit (node:events:513:28)
+    at processIncomingData (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\message_stream.js:124:16)
+    at MessageStream._write (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\message_stream.js:33:9)
+    at writeOrBuffer (node:internal/streams/writable:392:12)
+    at _write (node:internal/streams/writable:333:10)
+    at Writable.write (node:internal/streams/writable:337:10)
+    at Socket.ondata (node:internal/streams/readable:766:22)
+    at Socket.emit (node:events:513:28) {
+  ok: 0,
+  code: 11000,
+  codeName: 'DuplicateKey',
+  keyPattern: [Object],
+  keyValue: [Object],
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2023-12-13T11:23:54.963Z] error: Failed to update user details: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: test.users index: email_1 dup key: { email: "principal@klepharm.edu" } MongoServerError: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: test.users index: email_1 dup key: { email: "principal@klepharm.edu" }
+    at Connection.onMessage (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:202:26)
+    at MessageStream.<anonymous> (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:61:60)
+    at MessageStream.emit (node:events:513:28)
+    at processIncomingData (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\message_stream.js:124:16)
+    at MessageStream._write (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\message_stream.js:33:9)
+    at writeOrBuffer (node:internal/streams/writable:392:12)
+    at _write (node:internal/streams/writable:333:10)
+    at Writable.write (node:internal/streams/writable:337:10)
+    at Socket.ondata (node:internal/streams/readable:766:22)
+    at Socket.emit (node:events:513:28) {
+  ok: 0,
+  code: 11000,
+  codeName: 'DuplicateKey',
+  keyPattern: [Object],
+  keyValue: [Object],
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2023-12-13T11:23:54.972Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.update (E:\KAHER-Backend\lib\database\methods\user.js:339:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\users\update-user.js:101:21)
+    at async exports.updateUser (E:\KAHER-Backend\controllers\user.controller.js:147:20)
+[2023-12-13T11:23:54.972Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.update (E:\KAHER-Backend\lib\database\methods\user.js:339:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\users\update-user.js:101:21)
+    at async exports.updateUser (E:\KAHER-Backend\controllers\user.controller.js:147:20)
+[2023-12-13T11:24:07.879Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:24:10.352Z] error: Failed to update user details: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: test.users index: email_1 dup key: { email: "principal@klepharm.edu" } MongoServerError: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: test.users index: email_1 dup key: { email: "principal@klepharm.edu" }
+    at Connection.onMessage (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:202:26)
+    at MessageStream.<anonymous> (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:61:60)
+    at MessageStream.emit (node:events:513:28)
+    at processIncomingData (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\message_stream.js:124:16)
+    at MessageStream._write (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\message_stream.js:33:9)
+    at writeOrBuffer (node:internal/streams/writable:392:12)
+    at _write (node:internal/streams/writable:333:10)
+    at Writable.write (node:internal/streams/writable:337:10)
+    at Socket.ondata (node:internal/streams/readable:766:22)
+    at Socket.emit (node:events:513:28) {
+  ok: 0,
+  code: 11000,
+  codeName: 'DuplicateKey',
+  keyPattern: [Object],
+  keyValue: [Object],
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2023-12-13T11:24:10.352Z] error: Failed to update user details: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: test.users index: email_1 dup key: { email: "principal@klepharm.edu" } MongoServerError: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: test.users index: email_1 dup key: { email: "principal@klepharm.edu" }
+    at Connection.onMessage (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:202:26)
+    at MessageStream.<anonymous> (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:61:60)
+    at MessageStream.emit (node:events:513:28)
+    at processIncomingData (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\message_stream.js:124:16)
+    at MessageStream._write (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\message_stream.js:33:9)
+    at writeOrBuffer (node:internal/streams/writable:392:12)
+    at _write (node:internal/streams/writable:333:10)
+    at Writable.write (node:internal/streams/writable:337:10)
+    at Socket.ondata (node:internal/streams/readable:766:22)
+    at Socket.emit (node:events:513:28) {
+  ok: 0,
+  code: 11000,
+  codeName: 'DuplicateKey',
+  keyPattern: [Object],
+  keyValue: [Object],
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2023-12-13T11:24:10.365Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.update (E:\KAHER-Backend\lib\database\methods\user.js:339:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\users\update-user.js:102:21)
+    at async exports.updateUser (E:\KAHER-Backend\controllers\user.controller.js:147:20)
+[2023-12-13T11:24:10.365Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.update (E:\KAHER-Backend\lib\database\methods\user.js:339:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\users\update-user.js:102:21)
+    at async exports.updateUser (E:\KAHER-Backend\controllers\user.controller.js:147:20)
+[2023-12-13T11:24:27.490Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:24:29.767Z] error: Failed to update user details: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: test.users index: email_1 dup key: { email: "principal@klepharm.edu" } MongoServerError: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: test.users index: email_1 dup key: { email: "principal@klepharm.edu" }
+    at Connection.onMessage (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:202:26)
+    at MessageStream.<anonymous> (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:61:60)
+    at MessageStream.emit (node:events:513:28)
+    at processIncomingData (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\message_stream.js:124:16)
+    at MessageStream._write (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\message_stream.js:33:9)
+    at writeOrBuffer (node:internal/streams/writable:392:12)
+    at _write (node:internal/streams/writable:333:10)
+    at Writable.write (node:internal/streams/writable:337:10)
+    at Socket.ondata (node:internal/streams/readable:766:22)
+    at Socket.emit (node:events:513:28) {
+  ok: 0,
+  code: 11000,
+  codeName: 'DuplicateKey',
+  keyPattern: [Object],
+  keyValue: [Object],
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2023-12-13T11:24:29.767Z] error: Failed to update user details: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: test.users index: email_1 dup key: { email: "principal@klepharm.edu" } MongoServerError: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: test.users index: email_1 dup key: { email: "principal@klepharm.edu" }
+    at Connection.onMessage (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:202:26)
+    at MessageStream.<anonymous> (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:61:60)
+    at MessageStream.emit (node:events:513:28)
+    at processIncomingData (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\message_stream.js:124:16)
+    at MessageStream._write (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\message_stream.js:33:9)
+    at writeOrBuffer (node:internal/streams/writable:392:12)
+    at _write (node:internal/streams/writable:333:10)
+    at Writable.write (node:internal/streams/writable:337:10)
+    at Socket.ondata (node:internal/streams/readable:766:22)
+    at Socket.emit (node:events:513:28) {
+  ok: 0,
+  code: 11000,
+  codeName: 'DuplicateKey',
+  keyPattern: [Object],
+  keyValue: [Object],
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2023-12-13T11:24:29.776Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.update (E:\KAHER-Backend\lib\database\methods\user.js:339:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\users\update-user.js:103:21)
+    at async exports.updateUser (E:\KAHER-Backend\controllers\user.controller.js:147:20)
+[2023-12-13T11:24:29.776Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.update (E:\KAHER-Backend\lib\database\methods\user.js:339:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\users\update-user.js:103:21)
+    at async exports.updateUser (E:\KAHER-Backend\controllers\user.controller.js:147:20)
+[2023-12-13T11:24:44.061Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:24:46.964Z] error: Failed to update user details: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: test.users index: email_1 dup key: { email: "principal@klepharm.edu" } MongoServerError: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: test.users index: email_1 dup key: { email: "principal@klepharm.edu" }
+    at Connection.onMessage (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:202:26)
+    at MessageStream.<anonymous> (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:61:60)
+    at MessageStream.emit (node:events:513:28)
+    at processIncomingData (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\message_stream.js:124:16)
+    at MessageStream._write (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\message_stream.js:33:9)
+    at writeOrBuffer (node:internal/streams/writable:392:12)
+    at _write (node:internal/streams/writable:333:10)
+    at Writable.write (node:internal/streams/writable:337:10)
+    at Socket.ondata (node:internal/streams/readable:766:22)
+    at Socket.emit (node:events:513:28) {
+  ok: 0,
+  code: 11000,
+  codeName: 'DuplicateKey',
+  keyPattern: [Object],
+  keyValue: [Object],
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2023-12-13T11:24:46.964Z] error: Failed to update user details: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: test.users index: email_1 dup key: { email: "principal@klepharm.edu" } MongoServerError: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: test.users index: email_1 dup key: { email: "principal@klepharm.edu" }
+    at Connection.onMessage (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:202:26)
+    at MessageStream.<anonymous> (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:61:60)
+    at MessageStream.emit (node:events:513:28)
+    at processIncomingData (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\message_stream.js:124:16)
+    at MessageStream._write (E:\KAHER-Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\message_stream.js:33:9)
+    at writeOrBuffer (node:internal/streams/writable:392:12)
+    at _write (node:internal/streams/writable:333:10)
+    at Writable.write (node:internal/streams/writable:337:10)
+    at Socket.ondata (node:internal/streams/readable:766:22)
+    at Socket.emit (node:events:513:28) {
+  ok: 0,
+  code: 11000,
+  codeName: 'DuplicateKey',
+  keyPattern: [Object],
+  keyValue: [Object],
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2023-12-13T11:24:46.977Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.update (E:\KAHER-Backend\lib\database\methods\user.js:339:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\users\update-user.js:104:21)
+    at async exports.updateUser (E:\KAHER-Backend\controllers\user.controller.js:147:20)
+[2023-12-13T11:24:46.977Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.update (E:\KAHER-Backend\lib\database\methods\user.js:339:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\users\update-user.js:104:21)
+    at async exports.updateUser (E:\KAHER-Backend\controllers\user.controller.js:147:20)
+[2023-12-13T11:25:31.094Z] info: Connecting to database: DEVELOPMENT
