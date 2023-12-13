@@ -84,8 +84,8 @@ module.exports = {
       text: `Your Application named ${params.applicationName} is Successfully Submitted.`, // plain text body
       html: `
       <body>
-      Dear ${params.applicantName}
-
+      Dear ${params.applicantName},
+      <br>
       Your Application named ${params.applicationName} is Successfully Submitted on ${dateString}.
       <br>
       <br>
@@ -105,8 +105,7 @@ module.exports = {
       <body>
       Dear ${params.approverName},
       <br>
-      Your have been added to a new application named ${params.applicationName} as Approver on ${params.date}.
-
+      Your have been added to a new application named ${params.applicationName} as Approver on ${dateString}.
       <br>
       With Regards,
       <br>
