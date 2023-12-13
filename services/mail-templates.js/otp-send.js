@@ -3,7 +3,37 @@ const dotenv = require('dotenv');
 dotenv.config();
 const env = process.env.NODE_ENV || 'development';
 const config = require('../../config/app.config.json');
+var currentDate = new Date();
 
+// Get individual components of the date (year, month, day, hours, minutes, seconds)
+var year = currentDate.getFullYear();
+var month = currentDate.getMonth() + 1; // Note: Months are zero-based, so we add 1
+var day = currentDate.getDate();
+var hours = currentDate.getHours();
+var minutes = currentDate.getMinutes();
+var seconds = currentDate.getSeconds();
+
+// Format the date as a string (e.g., "YYYY-MM-DD HH:mm:ss")
+var dateString =
+  year +
+  '-' +
+  padNumber(month) +
+  '-' +
+  padNumber(day) +
+  ' ' +
+  padNumber(hours) +
+  ':' +
+  padNumber(minutes) +
+  ':' +
+  padNumber(seconds);
+
+// Function to pad single-digit numbers with a leading zero
+function padNumber(num) {
+  return (num < 10 ? '0' : '') + num;
+}
+
+// Output the result
+console.log(dateString);
 module.exports = {
   OTPSend: function Mail(params) {
     return {
@@ -38,6 +68,162 @@ module.exports = {
       <br>
       <br>
       Please reset your password on first login.
+      <br>
+      <br>
+      With Regards,
+      <br>
+      Team Kaher
+      </body>`, // html body
+    };
+  },
+  SubmitApplicationForApplicant: function Mail(params) {
+    return {
+      from: config.smtp.user, // sender address
+      to: params.to, // list of receivers
+      subject: 'Your Application is Successfully Submitted', // Subject line
+      text: `Your Application named ${params.applicationName} is Successfully Submitted.`, // plain text body
+      html: `
+      <body>
+      Dear ${params.applicantName}
+
+      Your Application named ${params.applicationName} is Successfully Submitted on ${dateString}.
+      <br>
+      <br>
+      With Regards,
+      <br>
+      Team Kaher
+      </body>`, // html body
+    };
+  },
+  SubmitApplicationForApprover: function Mail(params) {
+    return {
+      from: config.smtp.user, // sender address
+      to: params.to, // list of receivers
+      subject: 'You have a new Application to approve.', // Subject line
+      text: `You have a new Application named ${params.applicationName} to approve.`, // plain text body
+      html: `
+      <body>
+      Dear ${params.approverName}
+
+      Your have been added to a new application named ${params.applicationName} as Approver on ${params.date}.
+
+      <br>
+      With Regards,
+      <br>
+      Team Kaher
+      </body>`, // html body
+    };
+  },
+  ApplicationStatusChangeForApprover: function Mail(params) {
+    return {
+      from: config.smtp.user, // sender address
+      to: params.to, // list of receivers
+      subject: 'Application Status has been Updated.', // Subject line
+      text: `Status has been Updated for Application named ${params.applicationName}.`, // plain text body
+      html: `
+      <body>
+      Dear ${params.approverName}
+
+      Status has been Updated for your Application named ${params.applicationName} on ${params.date}.
+
+      <br>
+      With Regards,
+      <br>
+      Team Kaher
+      </body>`, // html body
+    };
+  },
+  ApplicationStatusChangeForApplicant: function Mail(params) {
+    return {
+      from: config.smtp.user, // sender address
+      to: params.to, // list of receivers
+      subject: 'Application Status has been Updated.', // Subject line
+      text: `Status has been Updated for Application named ${params.applicationName}.`, // plain text body
+      html: `
+      <body>
+      Dear ${params.applicantName}
+
+      Status has been Updated for Application named ${params.applicationName} on ${params.date}.
+
+      <br>
+      With Regards,
+      <br>
+      Team Kaher
+      </body>`, // html body
+    };
+  },
+  ApplicationRejectedForApprover: function Mail(params) {
+    return {
+      from: config.smtp.user, // sender address
+      to: params.to, // list of receivers
+      subject: 'Application Rejected.', // Subject line
+      text: `Application named ${params.applicationName} Rejected.`, // plain text body
+      html: `
+      <body>
+      Dear ${params.approverName}
+
+      Application named ${params.applicationName} has been rejected by ${params.rejecterName} on ${params.date}.
+
+      <br>
+      With Regards,
+      <br>
+      Team Kaher
+      </body>`, // html body
+    };
+  },
+  ApplicationRejectedForApplicant: function Mail(params) {
+    return {
+      from: config.smtp.user, // sender address
+      to: params.to, // list of receivers
+      subject: 'Application Rejected.', // Subject line
+      text: `Application named ${params.applicationName} Rejected.`, // plain text body
+      html: `
+      <body>
+      Dear ${params.applicantName}
+
+      Your Application named ${params.applicationName} has been rejected by ${params.rejecterName} on ${params.date}.
+
+      <br>
+      With Regards,
+      <br>
+      Team Kaher
+      </body>`, // html body
+    };
+  },
+  ApplicationApprovedForApprover: function Mail(params) {
+    return {
+      from: config.smtp.user, // sender address
+      to: params.to, // list of receivers
+      subject: 'Application Approved.', // Subject line
+      text: `Application named ${params.applicationName} Approved.`, // plain text body
+      html: `
+      <body>
+      Dear ${params.approverName}
+
+      Application named ${params.applicationName} has been approved by ${params.approverName} on ${params.date}.
+      <br>
+      With total approved grant as ${params.approvedGrant},
+      <br>
+      <br>
+      With Regards,
+      <br>
+      Team Kaher
+      </body>`, // html body
+    };
+  },
+  ApplicationApprovedForApplicant: function Mail(params) {
+    return {
+      from: config.smtp.user, // sender address
+      to: params.to, // list of receivers
+      subject: 'Application Approved.', // Subject line
+      text: `Application named ${params.applicationName} Approved.`, // plain text body
+      html: `
+      <body>
+      Dear ${params.applicantName}
+
+      Your Application named ${params.applicationName} has been approved by ${params.rejecterName} on ${params.date}.
+      <br>
+      With total approved grant as ${params.approvedGrant},
       <br>
       <br>
       With Regards,

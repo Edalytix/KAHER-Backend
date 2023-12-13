@@ -10,6 +10,7 @@ exports.Submit = ({
   request,
   db,
   accessManager,
+  mailer,
 }) => {
   return Object.freeze({
     execute: async () => {
@@ -26,6 +27,15 @@ exports.Submit = ({
           CreateError,
           lang,
         });
+
+        const UserFunction = db.methods.User({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
+
+        const user = (await UserFunction.findById(userUID)).data.user;
 
         const application = (await ApplicationFunction.findById(id)).data
           .application;
@@ -132,6 +142,61 @@ exports.Submit = ({
             stages: status.data.status._id,
           },
         });
+
+        const mail = await mailer({
+          CreateError,
+          translate,
+          logger,
+          lang,
+          lang: request.locals.lang,
+          params: {
+            to: user.email,
+            applicationName: application.title,
+            applicantName: `${user.firstName} ${user.secondName}`,
+            type: 'SubmitApplicationForApplicant',
+          },
+        });
+
+        for (const element of workflow.approvals) {
+          if (element.approvalBy.user) {
+            const approver = (
+              await UserFunction.findById(element.approvalBy.user._id)
+            ).data.user;
+            const mail = await mailer({
+              CreateError,
+              translate,
+              logger,
+              lang,
+              lang: request.locals.lang,
+              params: {
+                to: approver.email,
+                applicationName: application.title,
+                applicantName: `${approver.firstName} ${approver.secondName}`,
+                type: 'SubmitApplicationForApplicant',
+              },
+            });
+          } else {
+            const approvers = await UserFunction.findByParams({
+              role: element.approvalBy.role._id,
+              'department.id': element.approvalBy.department._id.toString(),
+            });
+            approvers.data.forEach(async (element) => {
+              const mail = await mailer({
+                CreateError,
+                translate,
+                logger,
+                lang,
+                lang: request.locals.lang,
+                params: {
+                  to: element.email,
+                  applicationName: application.title,
+                  applicantName: `${element.firstName} ${element.secondName}`,
+                  type: 'SubmitApplicationForApplicant',
+                },
+              });
+            });
+          }
+        }
 
         return {
           msg: translate(lang, 'created_mood'),

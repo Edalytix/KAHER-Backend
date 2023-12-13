@@ -9,6 +9,7 @@ const db = require('../lib/database').database;
 const fromUseCase = require('../use-cases/application').applicationUseCases;
 const accessManager = require('../services/access-manager').accessManager;
 const uploadFile = require('../services/upload-file').uploadFile;
+const mailer = require('../services/send-mail').mailer;
 
 exports.createApplication = async (req, res, next) => {
   try {
@@ -186,6 +187,7 @@ exports.updateApplication = async (req, res, next) => {
         crypto,
         request,
         db,
+        mailer,
         accessManager,
       })
       .execute();
@@ -231,6 +233,7 @@ exports.submitApplications = async (req, res, next) => {
         translate,
         crypto,
         request,
+        mailer,
         db,
         accessManager,
       })
@@ -348,6 +351,7 @@ exports.approveApplication = async (req, res, next) => {
         crypto,
         request,
         db,
+        mailer,
         accessManager,
       })
       .execute();

@@ -35,3 +35,133 @@
 [2023-12-07T17:01:21.372Z] info: Connecting to database: DEVELOPMENT
 [2023-12-07T17:01:25.080Z] info: Connecting to database: DEVELOPMENT
 [2023-12-07T17:03:19.359Z] info: Connecting to database: DEVELOPMENT
+[2023-12-12T17:37:07.859Z] info: Connecting to database: DEVELOPMENT
+[2023-12-12T17:37:53.848Z] error: token verification expired
+[2023-12-12T17:37:53.848Z] error: token verification expired
+[2023-12-12T17:39:00.008Z] info: Email sent: 250 OK id=1rD6ij-00EvZa-0E
+[2023-12-12T17:40:23.738Z] error: Failed to find user by id: Cannot read properties of null (reading 'uuid') TypeError: Cannot read properties of null (reading 'uuid')
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:180:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\create-application.js:61:26)
+    at async exports.createApplication (E:\KAHER-Backend\controllers\application.controller.js:17:20)
+[2023-12-12T17:40:23.738Z] error: Failed to find user by id: Cannot read properties of null (reading 'uuid') TypeError: Cannot read properties of null (reading 'uuid')
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:180:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\create-application.js:61:26)
+    at async exports.createApplication (E:\KAHER-Backend\controllers\application.controller.js:17:20)
+[2023-12-12T17:40:23.746Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:234:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\create-application.js:61:26)
+    at async exports.createApplication (E:\KAHER-Backend\controllers\application.controller.js:17:20)
+[2023-12-12T17:40:23.746Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:234:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\create-application.js:61:26)
+    at async exports.createApplication (E:\KAHER-Backend\controllers\application.controller.js:17:20)
+[2023-12-12T17:42:37.628Z] error: Failed to email: Error: No recipients defined
+    at SMTPConnection._formatError (E:\KAHER-Backend\node_modules\nodemailer\lib\smtp-connection\index.js:790:19)
+    at SMTPConnection._setEnvelope (E:\KAHER-Backend\node_modules\nodemailer\lib\smtp-connection\index.js:1023:34)
+    at SMTPConnection.send (E:\KAHER-Backend\node_modules\nodemailer\lib\smtp-connection\index.js:621:14)
+    at sendMessage (E:\KAHER-Backend\node_modules\nodemailer\lib\smtp-transport\index.js:228:28)
+    at E:\KAHER-Backend\node_modules\nodemailer\lib\smtp-transport\index.js:286:25
+    at SMTPConnection._actionAUTHComplete (E:\KAHER-Backend\node_modules\nodemailer\lib\smtp-connection\index.js:1578:9)
+    at SMTPConnection.<anonymous> (E:\KAHER-Backend\node_modules\nodemailer\lib\smtp-connection\index.js:546:26)
+    at SMTPConnection._processResponse (E:\KAHER-Backend\node_modules\nodemailer\lib\smtp-connection\index.js:969:20)
+    at SMTPConnection._onData (E:\KAHER-Backend\node_modules\nodemailer\lib\smtp-connection\index.js:755:14)
+    at SMTPConnection._onSocketData (E:\KAHER-Backend\node_modules\nodemailer\lib\smtp-connection\index.js:193:44) {
+  code: 'EENVELOPE',
+  command: 'API'
+}
+[2023-12-12T17:42:37.628Z] error: Failed to email: Error: No recipients defined
+    at SMTPConnection._formatError (E:\KAHER-Backend\node_modules\nodemailer\lib\smtp-connection\index.js:790:19)
+    at SMTPConnection._setEnvelope (E:\KAHER-Backend\node_modules\nodemailer\lib\smtp-connection\index.js:1023:34)
+    at SMTPConnection.send (E:\KAHER-Backend\node_modules\nodemailer\lib\smtp-connection\index.js:621:14)
+    at sendMessage (E:\KAHER-Backend\node_modules\nodemailer\lib\smtp-transport\index.js:228:28)
+    at E:\KAHER-Backend\node_modules\nodemailer\lib\smtp-transport\index.js:286:25
+    at SMTPConnection._actionAUTHComplete (E:\KAHER-Backend\node_modules\nodemailer\lib\smtp-connection\index.js:1578:9)
+    at SMTPConnection.<anonymous> (E:\KAHER-Backend\node_modules\nodemailer\lib\smtp-connection\index.js:546:26)
+    at SMTPConnection._processResponse (E:\KAHER-Backend\node_modules\nodemailer\lib\smtp-connection\index.js:969:20)
+    at SMTPConnection._onData (E:\KAHER-Backend\node_modules\nodemailer\lib\smtp-connection\index.js:755:14)
+    at SMTPConnection._onSocketData (E:\KAHER-Backend\node_modules\nodemailer\lib\smtp-connection\index.js:193:44) {
+  code: 'EENVELOPE',
+  command: 'API'
+}
+[2023-12-12T17:43:11.694Z] info: Connecting to database: DEVELOPMENT
+[2023-12-12T17:43:22.973Z] info: Connecting to database: DEVELOPMENT
+[2023-12-12T17:43:28.621Z] info: Connecting to database: DEVELOPMENT
+[2023-12-12T17:45:02.268Z] info: Email sent: 250 OK id=1rD6oZ-00Ey2p-0p
+[2023-12-12T17:45:25.173Z] info: Connecting to database: DEVELOPMENT
+[2023-12-12T17:45:37.540Z] info: Connecting to database: DEVELOPMENT
+[2023-12-12T17:45:47.074Z] info: Email sent: 250 OK id=1rD6pI-00EyY6-07
+[2023-12-12T17:47:03.702Z] info: Connecting to database: DEVELOPMENT
+[2023-12-12T17:47:09.463Z] info: Connecting to database: DEVELOPMENT
+[2023-12-12T17:48:38.403Z] info: Email sent: 250 OK id=1rD6s3-00EzdY-1G
+[2023-12-12T17:50:02.215Z] info: Connecting to database: DEVELOPMENT
+[2023-12-12T17:50:16.549Z] info: Connecting to database: DEVELOPMENT
+[2023-12-12T17:50:44.095Z] info: Email sent: 250 OK id=1rD6u5-00F0RM-0C
+[2023-12-12T17:51:36.823Z] info: Connecting to database: DEVELOPMENT
+[2023-12-12T17:51:46.394Z] info: Email sent: 250 OK id=1rD6v5-00F0im-1F
+[2023-12-12T17:54:02.136Z] info: Connecting to database: DEVELOPMENT
+[2023-12-12T17:55:17.816Z] info: Connecting to database: DEVELOPMENT
+[2023-12-12T17:55:28.724Z] info: Connecting to database: DEVELOPMENT
+[2023-12-12T17:55:33.717Z] info: Connecting to database: DEVELOPMENT
+[2023-12-12T17:56:05.089Z] info: Connecting to database: DEVELOPMENT
+[2023-12-12T17:56:10.342Z] info: Connecting to database: DEVELOPMENT
+[2023-12-12T17:56:33.795Z] info: Connecting to database: DEVELOPMENT
+[2023-12-12T17:56:38.711Z] info: Connecting to database: DEVELOPMENT
+[2023-12-12T17:56:46.129Z] info: Connecting to database: DEVELOPMENT
+[2023-12-12T17:56:53.022Z] info: Connecting to database: DEVELOPMENT
+[2023-12-12T17:57:03.178Z] info: Connecting to database: DEVELOPMENT
+[2023-12-12T17:57:17.097Z] info: Connecting to database: DEVELOPMENT
+[2023-12-12T17:57:21.011Z] info: Connecting to database: DEVELOPMENT
+[2023-12-12T17:57:28.845Z] info: Connecting to database: DEVELOPMENT
+[2023-12-12T17:57:39.450Z] info: Email sent: 250 OK id=1rD70m-00F3BX-1O
+[2023-12-12T17:58:01.052Z] info: Connecting to database: DEVELOPMENT
+[2023-12-12T17:58:14.154Z] info: Email sent: 250 OK id=1rD71L-00F3dd-0Q
+[2023-12-12T17:58:55.631Z] info: Connecting to database: DEVELOPMENT
+[2023-12-12T17:59:11.605Z] info: Email sent: 250 OK id=1rD72G-00F4AE-1v
+[2023-12-12T18:08:22.086Z] info: Email sent: 250 OK id=1rD7B9-00FAKe-0L
+[2023-12-12T18:09:13.593Z] info: Connecting to database: DEVELOPMENT
+[2023-12-12T18:09:39.197Z] info: Email sent: 250 OK id=1rD7CO-00FAjQ-0b
+[2023-12-13T09:44:20.868Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T09:46:21.642Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T09:46:27.573Z] info: Email sent: 250 OK id=1rDLox-006pr7-1d
+[2023-12-13T09:46:53.958Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T09:47:03.320Z] info: Email sent: 250 OK id=1rDLpX-006qBK-0q
+[2023-12-13T09:47:22.196Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T09:47:35.821Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T09:47:54.906Z] info: Email sent: 250 OK id=1rDLqM-006qeM-2e
+[2023-12-13T09:48:45.054Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T09:48:53.477Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T09:49:16.156Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T09:49:28.063Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T09:49:35.376Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T09:49:50.468Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T09:50:07.173Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T09:50:29.320Z] error: Failed to signup: TypeError: approvers.forEach is not a function
+    at Object.execute (E:\KAHER-Backend\use-cases\application\submit-application.js:189:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.submitApplications (E:\KAHER-Backend\controllers\application.controller.js:228:20)
+[2023-12-13T09:50:29.320Z] error: Failed to signup: TypeError: approvers.forEach is not a function
+    at Object.execute (E:\KAHER-Backend\use-cases\application\submit-application.js:189:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.submitApplications (E:\KAHER-Backend\controllers\application.controller.js:228:20)
+[2023-12-13T09:50:30.414Z] info: Email sent: 250 OK id=1rDLss-006sKL-1B
+[2023-12-13T09:50:48.774Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T09:51:26.358Z] info: Email sent: 250 OK id=1rDLtm-006smN-10
+[2023-12-13T09:51:26.441Z] info: Email sent: 250 OK id=1rDLtm-006smO-1H
+[2023-12-13T09:51:26.450Z] info: Email sent: 250 OK id=1rDLtm-006smR-1K
+[2023-12-13T09:51:26.453Z] info: Email sent: 250 OK id=1rDLtm-006smQ-1K
+[2023-12-13T09:51:26.463Z] info: Email sent: 250 OK id=1rDLtm-006smP-1M
+[2023-12-13T09:51:26.473Z] info: Email sent: 250 OK id=1rDLtm-006smT-1O
+[2023-12-13T09:51:26.477Z] info: Email sent: 250 OK id=1rDLtm-006smS-1O
+[2023-12-13T09:51:26.504Z] info: Email sent: 250 OK id=1rDLtm-006smU-1U
+[2023-12-13T09:51:26.506Z] info: Email sent: 250 OK id=1rDLtm-006smV-1T
+[2023-12-13T09:51:26.521Z] info: Email sent: 250 OK id=1rDLtm-006smX-1X
+[2023-12-13T09:51:26.524Z] info: Email sent: 250 OK id=1rDLtm-006smW-1X
+[2023-12-13T09:51:26.535Z] info: Email sent: 250 OK id=1rDLtm-006smY-1a
+[2023-12-13T09:51:27.035Z] info: Email sent: 250 OK id=1rDLtm-006sml-3C
+[2023-12-13T09:51:27.543Z] info: Email sent: 250 OK id=1rDLtn-006snw-1b
+[2023-12-13T10:32:27.741Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T10:32:38.706Z] info: Connecting to database: DEVELOPMENT
