@@ -103,8 +103,8 @@ module.exports = {
       text: `You have a new Application named ${params.applicationName} to approve.`, // plain text body
       html: `
       <body>
-      Dear ${params.approverName}
-
+      Dear ${params.approverName},
+      <br>
       Your have been added to a new application named ${params.applicationName} as Approver on ${params.date}.
 
       <br>

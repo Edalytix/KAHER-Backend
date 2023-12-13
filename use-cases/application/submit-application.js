@@ -171,8 +171,8 @@ exports.Submit = ({
               params: {
                 to: approver.email,
                 applicationName: application.title,
-                applicantName: `${approver.firstName} ${approver.secondName}`,
-                type: 'SubmitApplicationForApplicant',
+                approverName: `${approver.firstName} ${approver.secondName}`,
+                type: 'SubmitApplicationForApprover',
               },
             });
           } else {
@@ -190,8 +190,8 @@ exports.Submit = ({
                 params: {
                   to: element.email,
                   applicationName: application.title,
-                  applicantName: `${element.firstName} ${element.secondName}`,
-                  type: 'SubmitApplicationForApplicant',
+                  approverName: `${element.firstName} ${element.secondName}`,
+                  type: 'SubmitApplicationForApprover',
                 },
               });
             });
