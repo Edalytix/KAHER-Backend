@@ -457,3 +457,51 @@
     at async Object.execute (E:\KAHER-Backend\use-cases\users\update-user.js:104:21)
     at async exports.updateUser (E:\KAHER-Backend\controllers\user.controller.js:147:20)
 [2023-12-13T11:25:31.094Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:25:46.726Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:34:00.453Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:36:50.879Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:37:22.085Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:37:27.821Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:38:31.094Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:39:10.338Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:39:26.911Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:39:50.567Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:40:15.304Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:41:07.254Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:41:34.921Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:41:42.430Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:41:45.533Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:42:16.877Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:42:34.148Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:42:54.883Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:43:21.753Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:43:26.210Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:43:47.274Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:43:56.961Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:44:06.868Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:45:16.401Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:45:42.001Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:46:02.073Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:46:14.904Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:46:36.786Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:46:58.779Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:47:45.802Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:48:38.839Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T11:48:54.105Z] info: Connecting to database: DEVELOPMENT
+[2023-12-13T12:23:47.279Z] info: Connecting to database: DEVELOPMENT
+[2023-12-14T09:07:15.657Z] info: Connecting to database: DEVELOPMENT
+[2023-12-14T09:07:16.748Z] error: Failed to signup: ReferenceError: acesssRes is not defined
+    at Object.execute (E:\KAHER-Backend\use-cases\users\admin-report.js:42:32)
+    at exports.AdminReport (E:\KAHER-Backend\controllers\user.controller.js:404:8)
+    at Layer.handle [as handle_request] (E:\KAHER-Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (E:\KAHER-Backend\node_modules\express\lib\router\route.js:144:13)
+    at module.exports.isLogged (E:\KAHER-Backend\middlewares\is-logged.js:84:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2023-12-14T09:07:16.748Z] error: Failed to signup: ReferenceError: acesssRes is not defined
+    at Object.execute (E:\KAHER-Backend\use-cases\users\admin-report.js:42:32)
+    at exports.AdminReport (E:\KAHER-Backend\controllers\user.controller.js:404:8)
+    at Layer.handle [as handle_request] (E:\KAHER-Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (E:\KAHER-Backend\node_modules\express\lib\router\route.js:144:13)
+    at module.exports.isLogged (E:\KAHER-Backend\middlewares\is-logged.js:84:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2023-12-14T09:07:36.648Z] info: Connecting to database: DEVELOPMENT

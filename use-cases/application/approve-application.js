@@ -107,6 +107,12 @@ exports.ApprovalUpdate = ({
           referlink: [],
         };
 
+        const loggedInApprover = (await UserFunction.findById(userUID)).data
+          .user;
+
+        const applicant = (await UserFunction.findById(application.user)).data
+          .user;
+
         if (request.body.approval === 'approved') {
           if (approveGrant) {
             const res = await ApplicationFunction.update({
@@ -137,6 +143,66 @@ exports.ApprovalUpdate = ({
               'status',
               'approved'
             );
+
+            const mail = await mailer({
+              CreateError,
+              translate,
+              logger,
+              lang,
+              lang: request.locals.lang,
+              params: {
+                to: applicant.email,
+                applicationName: application.title,
+                applicantName: `${applicant.firstName} ${applicant.secondName}`,
+                approvedAmount: application.approvedAmount,
+                type: 'ApplicationStatusChangeForApplicant',
+              },
+            });
+
+            for (const element of Workflow.approvals) {
+              if (element.approvalBy.user) {
+                const approver = (
+                  await UserFunction.findById(element.approvalBy.user._id)
+                ).data.user;
+                const mail = await mailer({
+                  CreateError,
+                  translate,
+                  logger,
+                  lang,
+                  lang: request.locals.lang,
+                  params: {
+                    to: approver.email,
+                    applicationName: application.title,
+                    approverName: `${approver.firstName} ${approver.secondName}`,
+                    approvedAmount: application.approvedAmount,
+                    type: 'ApplicationApprovedForApprover',
+                  },
+                });
+              } else {
+                const approvers = await UserFunction.findByParams({
+                  role: element.approvalBy.role._id,
+                  'department.id': element.approvalBy.department._id.toString(),
+                });
+                approvers.data.forEach(async (element) => {
+                  const mail = await mailer({
+                    CreateError,
+                    translate,
+                    logger,
+                    lang,
+                    lang: request.locals.lang,
+                    params: {
+                      params: {
+                        to: element.email,
+                        applicationName: application.title,
+                        approverName: `${element.firstName} ${element.secondName}`,
+                        approvedAmount: application.approvedAmount,
+                        type: 'ApplicationApprovedForApprover',
+                      },
+                    },
+                  });
+                });
+              }
+            }
           } else {
             const res = await ApplicationFunction.update({
               id: application._id,
@@ -152,6 +218,62 @@ exports.ApprovalUpdate = ({
               'status',
               'approved'
             );
+            const mail = await mailer({
+              CreateError,
+              translate,
+              logger,
+              lang,
+              lang: request.locals.lang,
+              params: {
+                to: applicant.email,
+                applicationName: application.title,
+                applicantName: `${applicant.firstName} ${applicant.secondName}`,
+                type: 'ApplicationStatusChangeForApplicant',
+              },
+            });
+
+            for (const element of Workflow.approvals) {
+              if (element.approvalBy.user) {
+                const approver = (
+                  await UserFunction.findById(element.approvalBy.user._id)
+                ).data.user;
+                const mail = await mailer({
+                  CreateError,
+                  translate,
+                  logger,
+                  lang,
+                  lang: request.locals.lang,
+                  params: {
+                    to: approver.email,
+                    applicationName: application.title,
+                    approverName: `${approver.firstName} ${approver.secondName}`,
+                    type: 'ApplicationStatusChangeForApprover',
+                  },
+                });
+              } else {
+                const approvers = await UserFunction.findByParams({
+                  role: element.approvalBy.role._id,
+                  'department.id': element.approvalBy.department._id.toString(),
+                });
+                approvers.data.forEach(async (element) => {
+                  const mail = await mailer({
+                    CreateError,
+                    translate,
+                    logger,
+                    lang,
+                    lang: request.locals.lang,
+                    params: {
+                      params: {
+                        to: element.email,
+                        applicationName: application.title,
+                        approverName: `${element.firstName} ${element.secondName}`,
+                        type: 'ApplicationStatusChangeForApprover',
+                      },
+                    },
+                  });
+                });
+              }
+            }
           }
         } else if (request.body.approval === 'rejected') {
           const res = await ApplicationFunction.update({
@@ -167,6 +289,15 @@ exports.ApprovalUpdate = ({
             'status',
             'rejected'
           );
+          const CommentFunction = db.methods.Comment({
+            translate,
+            logger,
+            CreateError,
+            lang,
+          });
+
+          const comment = (await CommentFunction.findById(id)).data.comment;
+          console.log(comment);
         } else if (request.body.approval === 'on-hold') {
           const res = await ApplicationFunction.update({
             id,

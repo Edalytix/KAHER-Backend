@@ -123,7 +123,7 @@ module.exports = {
       <body>
       Dear ${params.approverName}
 
-      Status has been Updated for your Application named ${params.applicationName} on ${params.date}.
+      Status has been Updated for your Application named ${params.applicationName} on ${dateString}.
 
       <br>
       With Regards,
@@ -142,7 +142,7 @@ module.exports = {
       <body>
       Dear ${params.applicantName}
 
-      Status has been Updated for Application named ${params.applicationName} on ${params.date}.
+      Status has been Updated for Application named ${params.applicationName} on ${dateString}.
 
       <br>
       With Regards,
@@ -161,7 +161,7 @@ module.exports = {
       <body>
       Dear ${params.approverName}
 
-      Application named ${params.applicationName} has been rejected by ${params.rejecterName} on ${params.date}.
+      Application named ${params.applicationName} has been rejected by ${params.rejecterName} on ${dateString}.
 
       <br>
       With Regards,
@@ -180,7 +180,7 @@ module.exports = {
       <body>
       Dear ${params.applicantName}
 
-      Your Application named ${params.applicationName} has been rejected by ${params.rejecterName} on ${params.date}.
+      Your Application named ${params.applicationName} has been rejected by ${params.rejecterName} on ${dateString}.
 
       <br>
       With Regards,
@@ -199,7 +199,7 @@ module.exports = {
       <body>
       Dear ${params.approverName}
 
-      Application named ${params.applicationName} has been approved by ${params.approverName} on ${params.date}.
+      Application named ${params.applicationName} has been approved by ${params.approverName} on ${dateString}.
       <br>
       With total approved grant as ${params.approvedGrant},
       <br>
@@ -220,9 +220,9 @@ module.exports = {
       <body>
       Dear ${params.applicantName}
 
-      Your Application named ${params.applicationName} has been approved by ${params.rejecterName} on ${params.date}.
+      Your Application named ${params.applicationName} has been approved by ${params.approverName} on ${dateString}.
       <br>
-      With total approved grant as ${params.approvedGrant},
+      With total approved grant as ${params.approvedAmount},
       <br>
       <br>
       With Regards,

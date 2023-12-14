@@ -29,19 +29,15 @@ exports.AdminReport = ({
         const role = request.locals.role;
         const id = request.queryParams.id;
 
-        const acesssRes = await accessManager({
-          translate,
-          logger,
-          CreateError,
-          lang,
-          role,
-          db,
-          useCase: 'users:edit',
-        });
-
-        if (userUID !== id && !acesssRes) {
-          throw new CreateError(translate(lang, 'forbidden'), 403);
-        }
+        // const acesssRes = await accessManager({
+        //   translate,
+        //   logger,
+        //   CreateError,
+        //   lang,
+        //   role,
+        //   db,
+        //   useCase: 'users:edit',
+        // });
 
         const UserFunction = db.methods.User({
           translate,
@@ -50,7 +46,7 @@ exports.AdminReport = ({
           lang,
         });
 
-        const res = await UserFunction.adminReport(id);
+        const res = await UserFunction.adminReport(userUID);
 
         return {
           msg: translate(lang, 'created_mood'),
