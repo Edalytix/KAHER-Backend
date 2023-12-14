@@ -520,3 +520,52 @@
 [2023-12-14T09:29:48.893Z] info: Connecting to database: DEVELOPMENT
 [2023-12-14T09:30:32.426Z] info: Connecting to database: DEVELOPMENT
 [2023-12-14T09:31:18.074Z] info: Connecting to database: DEVELOPMENT
+[2023-12-14T09:31:42.475Z] info: Connecting to database: DEVELOPMENT
+[2023-12-14T09:42:18.173Z] info: Connecting to database: DEVELOPMENT
+[2023-12-14T09:43:56.612Z] error: Failed to signup: TypeError: templates[params.type] is not a function
+    at exports.mailer (E:\KAHER-Backend\services\send-mail.js:30:49)
+    at E:\KAHER-Backend\use-cases\application\approve-application.js:267:38
+    at Array.forEach (<anonymous>)
+    at Object.execute (E:\KAHER-Backend\use-cases\application\approve-application.js:260:32)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.approveApplication (E:\KAHER-Backend\controllers\application.controller.js:345:20)
+[2023-12-14T09:43:56.612Z] error: Failed to signup: TypeError: templates[params.type] is not a function
+    at exports.mailer (E:\KAHER-Backend\services\send-mail.js:30:49)
+    at E:\KAHER-Backend\use-cases\application\approve-application.js:267:38
+    at Array.forEach (<anonymous>)
+    at Object.execute (E:\KAHER-Backend\use-cases\application\approve-application.js:260:32)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.approveApplication (E:\KAHER-Backend\controllers\application.controller.js:345:20)
+[2023-12-14T09:43:56.615Z] error: Failed to signup: TypeError: templates[params.type] is not a function
+    at exports.mailer (E:\KAHER-Backend\services\send-mail.js:30:49)
+    at E:\KAHER-Backend\use-cases\application\approve-application.js:267:38
+    at Array.forEach (<anonymous>)
+    at Object.execute (E:\KAHER-Backend\use-cases\application\approve-application.js:260:32)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.approveApplication (E:\KAHER-Backend\controllers\application.controller.js:345:20)
+[2023-12-14T09:43:56.615Z] error: Failed to signup: TypeError: templates[params.type] is not a function
+    at exports.mailer (E:\KAHER-Backend\services\send-mail.js:30:49)
+    at E:\KAHER-Backend\use-cases\application\approve-application.js:267:38
+    at Array.forEach (<anonymous>)
+    at Object.execute (E:\KAHER-Backend\use-cases\application\approve-application.js:260:32)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.approveApplication (E:\KAHER-Backend\controllers\application.controller.js:345:20)
+[2023-12-14T09:43:57.708Z] info: Email sent: 250 OK id=1rDiG6-003cSb-2q
+[2023-12-14T09:43:57.982Z] info: Email sent: 250 OK id=1rDiG7-003cSw-0a
+[2023-12-14T09:45:58.746Z] info: Connecting to database: DEVELOPMENT
+[2023-12-14T09:46:15.855Z] info: Connecting to database: DEVELOPMENT
+[2023-12-14T09:46:27.658Z] info: Connecting to database: DEVELOPMENT
+[2023-12-14T09:46:38.487Z] info: Connecting to database: DEVELOPMENT
+[2023-12-14T09:51:30.953Z] info: Email sent: 250 OK id=1rDiNQ-003k8m-0V
+[2023-12-14T09:51:30.974Z] info: Email sent: 250 OK id=1rDiNQ-003k91-0W
+[2023-12-14T09:51:31.013Z] info: Email sent: 250 OK id=1rDiNQ-003k8x-0h
+[2023-12-14T09:51:31.460Z] info: Email sent: 250 OK id=1rDiNQ-003k9Q-1z
+[2023-12-14T09:51:57.539Z] info: Connecting to database: DEVELOPMENT
+[2023-12-14T09:52:04.013Z] info: Connecting to database: DEVELOPMENT
+[2023-12-14T09:52:59.274Z] info: Email sent: 250 OK id=1rDiOq-003lEo-1L
+[2023-12-14T09:52:59.346Z] info: Email sent: 250 OK id=1rDiOq-003lEz-1c
+[2023-12-14T09:52:59.374Z] info: Email sent: 250 OK id=1rDiOq-003lF0-1f
+[2023-12-14T09:52:59.882Z] info: Email sent: 250 OK id=1rDiOr-003lFM-09
+[2023-12-14T09:57:04.338Z] info: Connecting to database: DEVELOPMENT
+[2023-12-14T09:57:10.908Z] info: Connecting to database: DEVELOPMENT
+[2023-12-14T09:58:32.648Z] info: Connecting to database: DEVELOPMENT

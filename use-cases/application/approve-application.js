@@ -156,7 +156,7 @@ exports.ApprovalUpdate = ({
                 applicationName: application.title,
                 applicantName: `${applicant.firstName} ${applicant.secondName}`,
                 approvedAmount: application.approvedAmount,
-                type: 'ApplicationStatusChangeForApplicant',
+                type: 'ApplicationApprovedForApplicant',
               },
             });
 
@@ -191,14 +191,13 @@ exports.ApprovalUpdate = ({
                     logger,
                     lang,
                     lang: request.locals.lang,
+
                     params: {
-                      params: {
-                        to: element.email,
-                        applicationName: application.title,
-                        approverName: `${element.firstName} ${element.secondName}`,
-                        approvedAmount: application.approvedAmount,
-                        type: 'ApplicationApprovedForApprover',
-                      },
+                      to: element.email,
+                      applicationName: application.title,
+                      approverName: `${element.firstName} ${element.secondName}`,
+                      approvedAmount: application.approvedAmount,
+                      type: 'ApplicationApprovedForApprover',
                     },
                   });
                 });
@@ -264,12 +263,10 @@ exports.ApprovalUpdate = ({
                     lang,
                     lang: request.locals.lang,
                     params: {
-                      params: {
-                        to: element.email,
-                        applicationName: application.title,
-                        approverName: `${element.firstName} ${element.secondName}`,
-                        type: 'ApplicationStatusChangeForApprover',
-                      },
+                      to: element.email,
+                      applicationName: application.title,
+                      approverName: `${element.firstName} ${element.secondName}`,
+                      type: 'ApplicationStatusChangeForApprover',
                     },
                   });
                 });
@@ -339,15 +336,14 @@ exports.ApprovalUpdate = ({
                   logger,
                   lang,
                   lang: request.locals.lang,
+
                   params: {
-                    params: {
-                      to: element.email,
-                      applicationName: application.title,
-                      approverName: `${element.firstName} ${element.secondName}`,
-                      rejecterName: `${loggedInApprover.firstName} ${loggedInApprover.secondName}`,
-                      rejectionReason: rejectedReason,
-                      type: 'ApplicationRejectedForApprover',
-                    },
+                    to: element.email,
+                    applicationName: application.title,
+                    approverName: `${element.firstName} ${element.secondName}`,
+                    rejecterName: `${loggedInApprover.firstName} ${loggedInApprover.secondName}`,
+                    rejectionReason: rejectedReason,
+                    type: 'ApplicationRejectedForApprover',
                   },
                 });
               });
