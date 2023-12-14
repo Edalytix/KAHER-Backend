@@ -10,6 +10,7 @@ exports.ApprovalUpdate = ({
   request,
   db,
   accessManager,
+  mailer,
 }) => {
   return Object.freeze({
     execute: async () => {
@@ -295,9 +296,63 @@ exports.ApprovalUpdate = ({
             CreateError,
             lang,
           });
+          let rejectedReason = '';
+          const comment = (await CommentFunction.findById(application._id)).data
+            .comment;
+          if (comment) {
+            comment.actions.forEach((element) => {
+              if (element.type === 'rejection') {
+                rejectedReason = element.content;
+              }
+            });
+          }
 
-          const comment = (await CommentFunction.findById(id)).data.comment;
-          console.log(comment);
+          for (const element of Workflow.approvals) {
+            if (element.approvalBy.user) {
+              const approver = (
+                await UserFunction.findById(element.approvalBy.user._id)
+              ).data.user;
+              const mail = await mailer({
+                CreateError,
+                translate,
+                logger,
+                lang,
+                lang: request.locals.lang,
+                params: {
+                  to: approver.email,
+                  applicationName: application.title,
+                  approverName: `${approver.firstName} ${approver.secondName}`,
+                  rejecterName: `${loggedInApprover.firstName} ${loggedInApprover.secondName}`,
+                  rejectionReason: rejectedReason,
+                  type: 'ApplicationRejectedForApprover',
+                },
+              });
+            } else {
+              const approvers = await UserFunction.findByParams({
+                role: element.approvalBy.role._id,
+                'department.id': element.approvalBy.department._id.toString(),
+              });
+              approvers.data.forEach(async (element) => {
+                const mail = await mailer({
+                  CreateError,
+                  translate,
+                  logger,
+                  lang,
+                  lang: request.locals.lang,
+                  params: {
+                    params: {
+                      to: element.email,
+                      applicationName: application.title,
+                      approverName: `${element.firstName} ${element.secondName}`,
+                      rejecterName: `${loggedInApprover.firstName} ${loggedInApprover.secondName}`,
+                      rejectionReason: rejectedReason,
+                      type: 'ApplicationRejectedForApprover',
+                    },
+                  },
+                });
+              });
+            }
+          }
         } else if (request.body.approval === 'on-hold') {
           const res = await ApplicationFunction.update({
             id,

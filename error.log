@@ -505,3 +505,18 @@
     at module.exports.isLogged (E:\KAHER-Backend\middlewares\is-logged.js:84:12)
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
 [2023-12-14T09:07:36.648Z] info: Connecting to database: DEVELOPMENT
+[2023-12-14T09:08:22.761Z] info: Connecting to database: DEVELOPMENT
+[2023-12-14T09:15:42.359Z] info: Connecting to database: DEVELOPMENT
+[2023-12-14T09:20:39.034Z] info: Connecting to database: DEVELOPMENT
+[2023-12-14T09:21:18.302Z] info: Connecting to database: DEVELOPMENT
+[2023-12-14T09:21:21.512Z] info: Connecting to database: DEVELOPMENT
+[2023-12-14T09:21:26.074Z] info: Connecting to database: DEVELOPMENT
+[2023-12-14T09:21:46.243Z] info: Connecting to database: DEVELOPMENT
+[2023-12-14T09:23:19.297Z] info: Connecting to database: DEVELOPMENT
+[2023-12-14T09:27:20.575Z] info: Connecting to database: DEVELOPMENT
+[2023-12-14T09:28:13.245Z] info: Connecting to database: DEVELOPMENT
+[2023-12-14T09:29:18.603Z] info: Connecting to database: DEVELOPMENT
+[2023-12-14T09:29:35.036Z] info: Connecting to database: DEVELOPMENT
+[2023-12-14T09:29:48.893Z] info: Connecting to database: DEVELOPMENT
+[2023-12-14T09:30:32.426Z] info: Connecting to database: DEVELOPMENT
+[2023-12-14T09:31:18.074Z] info: Connecting to database: DEVELOPMENT

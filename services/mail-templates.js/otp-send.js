@@ -161,7 +161,7 @@ module.exports = {
       <body>
       Dear ${params.approverName}
 
-      Application named ${params.applicationName} has been rejected by ${params.rejecterName} on ${dateString}.
+      Application named ${params.applicationName} has been rejected by ${params.rejecterName} on ${dateString} due to ${params.rejectionReason}
 
       <br>
       With Regards,
