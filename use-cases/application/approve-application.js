@@ -303,6 +303,21 @@ exports.ApprovalUpdate = ({
               }
             });
           }
+          const mail = await mailer({
+            CreateError,
+            translate,
+            logger,
+            lang,
+            lang: request.locals.lang,
+            params: {
+              to: applicant.email,
+              applicationName: application.title,
+              applicantName: `${applicant.firstName} ${applicant.secondName}`,
+              rejecterName: `${loggedInApprover.firstName} ${loggedInApprover.secondName}`,
+              rejectionReason: rejectedReason,
+              type: 'ApplicationRejectedForApplicant',
+            },
+          });
 
           for (const element of Workflow.approvals) {
             if (element.approvalBy.user) {

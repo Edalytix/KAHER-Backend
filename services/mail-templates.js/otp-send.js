@@ -180,7 +180,7 @@ module.exports = {
       <body>
       Dear ${params.applicantName}
 
-      Your Application titled ${params.applicationName} has been rejected by ${params.rejecterName} on ${dateString}.
+      Your Application titled ${params.applicationName} has been rejected by ${params.rejecterName} on ${dateString} due to ${params.rejectionReason}.
 
       <br>
       With Regards,
