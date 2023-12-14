@@ -228,7 +228,8 @@ module.exports = {
       With Regards,
       <br>
       Team Kaher
-      </body>`, // html body
+      </body>`, // html body,
+      attachments: params.attachments || []
     };
   },
 };

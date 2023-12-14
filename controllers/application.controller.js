@@ -10,6 +10,7 @@ const fromUseCase = require('../use-cases/application').applicationUseCases;
 const accessManager = require('../services/access-manager').accessManager;
 const uploadFile = require('../services/upload-file').uploadFile;
 const mailer = require('../services/send-mail').mailer;
+const docGenrator = require('../lib/doc-generate').docGenrator;
 
 exports.createApplication = async (req, res, next) => {
   try {
@@ -352,6 +353,7 @@ exports.approveApplication = async (req, res, next) => {
         request,
         db,
         mailer,
+        docGenrator,
         accessManager,
       })
       .execute();
