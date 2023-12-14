@@ -81,12 +81,12 @@ module.exports = {
       from: config.smtp.user, // sender address
       to: params.to, // list of receivers
       subject: 'Your Application is Successfully Submitted', // Subject line
-      text: `Your Application named ${params.applicationName} is Successfully Submitted.`, // plain text body
+      text: `Your Application titled ${params.applicationName} is Successfully Submitted.`, // plain text body
       html: `
       <body>
       Dear ${params.applicantName},
       <br>
-      Your Application named ${params.applicationName} is Successfully Submitted on ${dateString}.
+      Your Application titled ${params.applicationName} is Successfully Submitted on ${dateString}.
       <br>
       <br>
       With Regards,
@@ -100,12 +100,12 @@ module.exports = {
       from: config.smtp.user, // sender address
       to: params.to, // list of receivers
       subject: 'You have a new Application to approve.', // Subject line
-      text: `You have a new Application named ${params.applicationName} to approve.`, // plain text body
+      text: `You have a new Application titled ${params.applicationName} to approve.`, // plain text body
       html: `
       <body>
       Dear ${params.approverName},
       <br>
-      Your have been added to a new application named ${params.applicationName} as Approver on ${dateString}.
+      Your have been added to a new application titled ${params.applicationName} as Approver on ${dateString}.
       <br>
       With Regards,
       <br>
@@ -118,12 +118,12 @@ module.exports = {
       from: config.smtp.user, // sender address
       to: params.to, // list of receivers
       subject: 'Application Status has been Updated.', // Subject line
-      text: `Status has been Updated for Application named ${params.applicationName}.`, // plain text body
+      text: `Status has been Updated for Application titled ${params.applicationName}.`, // plain text body
       html: `
       <body>
       Dear ${params.approverName}
 
-      Status has been Updated for your Application named ${params.applicationName} on ${dateString}.
+      Status has been Updated for your Application titled ${params.applicationName} on ${dateString}.
 
       <br>
       With Regards,
@@ -137,12 +137,12 @@ module.exports = {
       from: config.smtp.user, // sender address
       to: params.to, // list of receivers
       subject: 'Application Status has been Updated.', // Subject line
-      text: `Status has been Updated for Application named ${params.applicationName}.`, // plain text body
+      text: `Status has been Updated for Application titled ${params.applicationName}.`, // plain text body
       html: `
       <body>
       Dear ${params.applicantName}
 
-      Status has been Updated for Application named ${params.applicationName} on ${dateString}.
+      Status has been Updated for Application titled ${params.applicationName} on ${dateString}.
 
       <br>
       With Regards,
@@ -156,12 +156,12 @@ module.exports = {
       from: config.smtp.user, // sender address
       to: params.to, // list of receivers
       subject: 'Application Rejected.', // Subject line
-      text: `Application named ${params.applicationName} Rejected.`, // plain text body
+      text: `Application titled ${params.applicationName} Rejected.`, // plain text body
       html: `
       <body>
       Dear ${params.approverName}
 
-      Application named ${params.applicationName} has been rejected by ${params.rejecterName} on ${dateString} due to ${params.rejectionReason}
+      Application titled ${params.applicationName} has been rejected by ${params.rejecterName} on ${dateString} due to ${params.rejectionReason}
 
       <br>
       With Regards,
@@ -175,12 +175,12 @@ module.exports = {
       from: config.smtp.user, // sender address
       to: params.to, // list of receivers
       subject: 'Application Rejected.', // Subject line
-      text: `Application named ${params.applicationName} Rejected.`, // plain text body
+      text: `Application titled ${params.applicationName} Rejected.`, // plain text body
       html: `
       <body>
       Dear ${params.applicantName}
 
-      Your Application named ${params.applicationName} has been rejected by ${params.rejecterName} on ${dateString}.
+      Your Application titled ${params.applicationName} has been rejected by ${params.rejecterName} on ${dateString}.
 
       <br>
       With Regards,
@@ -194,12 +194,12 @@ module.exports = {
       from: config.smtp.user, // sender address
       to: params.to, // list of receivers
       subject: 'Application Approved.', // Subject line
-      text: `Application named ${params.applicationName} Approved.`, // plain text body
+      text: `Application titled ${params.applicationName} Approved.`, // plain text body
       html: `
       <body>
       Dear ${params.approverName}
 
-      Application named ${params.applicationName} has been approved by ${params.approverName} on ${dateString}.
+      Application titled ${params.applicationName} has been approved by ${params.approverName} on ${dateString}.
       <br>
       With total approved grant as ${params.approvedGrant},
       <br>
@@ -215,12 +215,12 @@ module.exports = {
       from: config.smtp.user, // sender address
       to: params.to, // list of receivers
       subject: 'Application Approved.', // Subject line
-      text: `Application named ${params.applicationName} Approved.`, // plain text body
+      text: `Application titled ${params.applicationName} Approved.`, // plain text body
       html: `
       <body>
       Dear ${params.applicantName}
 
-      Your Application named ${params.applicationName} has been approved by ${params.approverName} on ${dateString}.
+      Your Application titled ${params.applicationName} has been approved by ${params.approverName} on ${dateString}.
       <br>
       With total approved grant as ${params.approvedAmount},
       <br>
