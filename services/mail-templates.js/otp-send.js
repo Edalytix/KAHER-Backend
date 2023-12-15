@@ -86,7 +86,7 @@ module.exports = {
       <body>
       Dear ${params.applicantName},
       <br>
-      Your Application titled ${params.applicationName} is Successfully Submitted on ${dateString}.
+      Your Application titled ${params.applicationName} for incentive ${params.workflowName} is Successfully Submitted on ${dateString}.
       <br>
       <br>
       With Regards,
@@ -105,7 +105,7 @@ module.exports = {
       <body>
       Dear ${params.approverName},
       <br>
-      Your have been added to a new application titled ${params.applicationName} as Approver on ${dateString}.
+      Your have been added to a new application titled ${params.applicationName} for incentive ${params.workflowName} as Approver on ${dateString}.
       <br>
       With Regards,
       <br>
@@ -121,9 +121,10 @@ module.exports = {
       text: `Status has been Updated for Application titled ${params.applicationName}.`, // plain text body
       html: `
       <body>
-      Dear ${params.approverName}
+      Dear ${params.approverName},
+      <br>
 
-      Status has been Updated for your Application titled ${params.applicationName} on ${dateString}.
+      Status has been Updated for your Application titled ${params.applicationName} for incentive ${params.workflowName} on ${dateString}.
 
       <br>
       With Regards,
@@ -140,9 +141,10 @@ module.exports = {
       text: `Status has been Updated for Application titled ${params.applicationName}.`, // plain text body
       html: `
       <body>
-      Dear ${params.applicantName}
+      Dear ${params.applicantName},
+      <br>
 
-      Status has been Updated for Application titled ${params.applicationName} on ${dateString}.
+      Status has been Updated for Application titled ${params.applicationName} for incentive ${params.workflowName} on ${dateString}.
 
       <br>
       With Regards,
@@ -159,9 +161,10 @@ module.exports = {
       text: `Application titled ${params.applicationName} Rejected.`, // plain text body
       html: `
       <body>
-      Dear ${params.approverName}
+      Dear ${params.approverName},
+      <br>
 
-      Application titled ${params.applicationName} has been rejected by ${params.rejecterName} on ${dateString} due to ${params.rejectionReason}
+      Application titled ${params.applicationName} for incentive ${params.workflowName} has been rejected by ${params.rejecterName} on ${dateString} due to ${params.rejectionReason}
 
       <br>
       With Regards,
@@ -178,9 +181,10 @@ module.exports = {
       text: `Application titled ${params.applicationName} Rejected.`, // plain text body
       html: `
       <body>
-      Dear ${params.applicantName}
+      Dear ${params.applicantName},
+      <br>
 
-      Your Application titled ${params.applicationName} has been rejected by ${params.rejecterName} on ${dateString} due to ${params.rejectionReason}.
+      Your Application titled ${params.applicationName} for incentive ${params.workflowName} has been rejected by ${params.rejecterName} on ${dateString} due to ${params.rejectionReason}.
 
       <br>
       With Regards,
@@ -197,9 +201,10 @@ module.exports = {
       text: `Application titled ${params.applicationName} Approved.`, // plain text body
       html: `
       <body>
-      Dear ${params.approverName}
+      Dear ${params.approverName},
+      <br>
 
-      Application titled ${params.applicationName} has been approved by ${params.approverName} on ${dateString}.
+      Application titled ${params.applicationName} for incentive ${params.workflowName} has been approved by ${params.approverName} on ${dateString}.
       <br>
       With total approved grant as ${params.approvedGrant},
       <br>
@@ -215,12 +220,13 @@ module.exports = {
       from: config.smtp.user, // sender address
       to: params.to, // list of receivers
       subject: 'Application Approved.', // Subject line
-      text: `Application titled ${params.applicationName} Approved.`, // plain text body
+      text: `Application titled ${params.applicationName}  Approved.`, // plain text body
       html: `
       <body>
-      Dear ${params.applicantName}
+      Dear ${params.applicantName},
+      <br>
 
-      Your Application titled ${params.applicationName} has been approved by ${params.approverName} on ${dateString}.
+      Your Application titled ${params.applicationName} for incentive ${params.workflowName} has been approved by ${params.approverName} on ${dateString}.
       <br>
       With total approved grant as ${params.approvedAmount},
       <br>
