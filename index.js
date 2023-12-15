@@ -113,6 +113,9 @@ routes;
 app.use('/services/:language/v1', middlewares.setLanguage, routes);
 app.use('/public', express.static(path.join(__dirname, 'UserAchievements')));
 
+app.get('/services/:language/v1/health', (req, res) => {
+  res.json({ status: 'OK', message: 'API is healthy' });
+});
 app.use(errorHandler);
 
 app.listen(process.env.PORT, () => {
