@@ -217,7 +217,7 @@ exports.ApprovalUpdate = ({
               });
 
               attachments.push({
-                filename: 'document.pdf',
+                filename: id + '.pdf',
                 content: genratedDoc.buffer,
               });
             }
