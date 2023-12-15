@@ -11,7 +11,7 @@ exports.ApprovalUpdate = ({
   db,
   accessManager,
   mailer,
-  docGenrator
+  docGenrator,
 }) => {
   return Object.freeze({
     execute: async () => {
@@ -147,23 +147,31 @@ exports.ApprovalUpdate = ({
               'approved'
             );
 
-            let attachments = []
+            let attachments = [];
             for (let form_data of application?.workflow?.forms || []) {
               let form = form_data?.form;
-              let response = form_data?.response
-              if (!form) continue
+              let response = form_data?.response;
+              if (!form) continue;
 
-              if (form?.title !== "FINANCIAL ASSISTANCE TO FACULTY MEMBERS FOR PRESENTATION / INVITED TALK / ORATION / GUEST SPEAKER / RESOURCE PERSON ONCE IN A THREE YEAR OUTSIDE INDIA") continue
+              if (
+                form?.title !==
+                'FINANCIAL ASSISTANCE TO FACULTY MEMBERS FOR PRESENTATION / INVITED TALK / ORATION / GUEST SPEAKER / RESOURCE PERSON ONCE IN A THREE YEAR OUTSIDE INDIA'
+              )
+                continue;
 
               let event_title_id = null;
               let event_place_id = null;
               let event_from_date_id = null;
               let event_to_date_id = null;
               for (let question_data of form?.questions || []) {
-                if (question_data.question == 'Title of the Event') event_title_id = String(question_data._id);
-                if (question_data.question == 'Place/Venue of the Event') event_place_id = String(question_data._id);
-                if (question_data.question == 'From Date -') event_from_date_id = String(question_data._id);
-                if (question_data.question == 'To Date -') event_to_date_id = String(question_data._id);
+                if (question_data.question == 'Title of the Event')
+                  event_title_id = String(question_data._id);
+                if (question_data.question == 'Place/Venue of the Event')
+                  event_place_id = String(question_data._id);
+                if (question_data.question == 'From Date -')
+                  event_from_date_id = String(question_data._id);
+                if (question_data.question == 'To Date -')
+                  event_to_date_id = String(question_data._id);
               }
 
               let event_title = null;
@@ -173,33 +181,45 @@ exports.ApprovalUpdate = ({
               for (let answer of response?.responses || []) {
                 if (answer?.quid == event_title_id) event_title = answer.string;
                 if (answer?.quid == event_place_id) event_place = answer.string;
-                if (answer?.quid == event_from_date_id) event_from_date = answer.date;
-                if (answer?.quid == event_to_date_id) event_to_date = answer.date;
+                if (answer?.quid == event_from_date_id)
+                  event_from_date = answer.date;
+                if (answer?.quid == event_to_date_id)
+                  event_to_date = answer.date;
               }
 
               const currentDate = new Date();
-              const options = { day: 'numeric', month: 'long', year: 'numeric' };
-              const formattedDate = new Intl.DateTimeFormat('en-US', options).format(currentDate);
+              const options = {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric',
+              };
+              const formattedDate = new Intl.DateTimeFormat(
+                'en-US',
+                options
+              ).format(currentDate);
 
-              let genratedDoc =
-                await docGenrator.
-                  financialAssistanceDoc({
-                    approved_date: formattedDate,
-                    college: applicant?.institution?.name,
-                    fullName: `${applicant.firstName} ${applicant.secondName}`,
-                    designation: applicant?.designation?.name,
-                    department: applicant?.department?.name,
-                    event_title: event_title,
-                    event_place: event_place,
-                    duration: event_from_date && event_to_date ? `from ${new Intl.DateTimeFormat('en-US', options).format(event_from_date)} to ${new Intl.DateTimeFormat('en-US', options).format(event_to_date)}` : null
-                  });
+              let genratedDoc = await docGenrator.financialAssistanceDoc({
+                approved_date: formattedDate,
+                college: applicant?.institution?.name,
+                fullName: `${applicant.firstName} ${applicant.secondName}`,
+                designation: applicant?.designation?.name,
+                department: applicant?.department?.name,
+                event_title: event_title,
+                event_place: event_place,
+                duration:
+                  event_from_date && event_to_date
+                    ? `from ${new Intl.DateTimeFormat('en-US', options).format(
+                        event_from_date
+                      )} to ${new Intl.DateTimeFormat('en-US', options).format(
+                        event_to_date
+                      )}`
+                    : null,
+              });
 
-              attachments.push(
-                {
-                  filename: 'document.pdf',
-                  content: genratedDoc.buffer,
-                },
-              );
+              attachments.push({
+                filename: 'document.pdf',
+                content: genratedDoc.buffer,
+              });
             }
 
             const mail = await mailer({
@@ -289,6 +309,7 @@ exports.ApprovalUpdate = ({
                 to: applicant.email,
                 applicationName: application.title,
                 workflowName: application.workflow.name,
+                currentApproverName: `${loggedInApprover.firstName} ${loggedInApprover.secondName}`,
                 applicantName: `${applicant.firstName} ${applicant.secondName}`,
                 type: 'ApplicationStatusChangeForApplicant',
               },
@@ -309,6 +330,7 @@ exports.ApprovalUpdate = ({
                     to: approver.email,
                     applicationName: application.title,
                     workflowName: application.workflow.name,
+                    currentApproverName: `${loggedInApprover.firstName} ${loggedInApprover.secondName}`,
                     approverName: `${approver.firstName} ${approver.secondName}`,
                     type: 'ApplicationStatusChangeForApprover',
                   },
@@ -329,6 +351,7 @@ exports.ApprovalUpdate = ({
                       to: element.email,
                       applicationName: application.title,
                       workflowName: application.workflow.name,
+                      currentApproverName: `${loggedInApprover.firstName} ${loggedInApprover.secondName}`,
                       approverName: `${element.firstName} ${element.secondName}`,
                       type: 'ApplicationStatusChangeForApprover',
                     },
