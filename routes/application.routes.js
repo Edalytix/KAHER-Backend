@@ -29,6 +29,8 @@ router.post(
   middlewares.isLogged,
   applicationController.createApplication
 );
+
+router.get('/app-health-check');
 router.delete(
   '/application/delete',
   middlewares.isLogged,
