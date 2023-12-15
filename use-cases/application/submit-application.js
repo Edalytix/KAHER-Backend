@@ -152,6 +152,7 @@ exports.Submit = ({
           params: {
             to: user.email,
             applicationName: application.title,
+            workflowName: application.workflow.name,
             applicantName: `${user.firstName} ${user.secondName}`,
             type: 'SubmitApplicationForApplicant',
           },
@@ -171,6 +172,7 @@ exports.Submit = ({
               params: {
                 to: approver.email,
                 applicationName: application.title,
+                workflowName: application.workflow.name,
                 approverName: `${approver.firstName} ${approver.secondName}`,
                 type: 'SubmitApplicationForApprover',
               },
@@ -190,6 +192,7 @@ exports.Submit = ({
                 params: {
                   to: element.email,
                   applicationName: application.title,
+                  workflowName: application.workflow.name,
                   approverName: `${element.firstName} ${element.secondName}`,
                   type: 'SubmitApplicationForApprover',
                 },

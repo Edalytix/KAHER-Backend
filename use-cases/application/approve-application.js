@@ -57,6 +57,7 @@ exports.ApprovalUpdate = ({
 
         const res = await ApplicationFunction.findById(id);
         const application = res.data.application;
+        console.log(application.workflow.name);
 
         let currentApprover = 0;
         let approveGrant = false;
@@ -154,6 +155,7 @@ exports.ApprovalUpdate = ({
               params: {
                 to: applicant.email,
                 applicationName: application.title,
+                workflowName: application.workflow.name,
                 applicantName: `${applicant.firstName} ${applicant.secondName}`,
                 approvedAmount: application.approvedAmount,
                 type: 'ApplicationApprovedForApplicant',
@@ -174,6 +176,7 @@ exports.ApprovalUpdate = ({
                   params: {
                     to: approver.email,
                     applicationName: application.title,
+                    workflowName: application.workflow.name,
                     approverName: `${approver.firstName} ${approver.secondName}`,
                     approvedAmount: application.approvedAmount,
                     type: 'ApplicationApprovedForApprover',
@@ -195,6 +198,7 @@ exports.ApprovalUpdate = ({
                     params: {
                       to: element.email,
                       applicationName: application.title,
+                      workflowName: application.workflow.name,
                       approverName: `${element.firstName} ${element.secondName}`,
                       approvedAmount: application.approvedAmount,
                       type: 'ApplicationApprovedForApprover',
@@ -227,6 +231,7 @@ exports.ApprovalUpdate = ({
               params: {
                 to: applicant.email,
                 applicationName: application.title,
+                workflowName: application.workflow.name,
                 applicantName: `${applicant.firstName} ${applicant.secondName}`,
                 type: 'ApplicationStatusChangeForApplicant',
               },
@@ -246,6 +251,7 @@ exports.ApprovalUpdate = ({
                   params: {
                     to: approver.email,
                     applicationName: application.title,
+                    workflowName: application.workflow.name,
                     approverName: `${approver.firstName} ${approver.secondName}`,
                     type: 'ApplicationStatusChangeForApprover',
                   },
@@ -265,6 +271,7 @@ exports.ApprovalUpdate = ({
                     params: {
                       to: element.email,
                       applicationName: application.title,
+                      workflowName: application.workflow.name,
                       approverName: `${element.firstName} ${element.secondName}`,
                       type: 'ApplicationStatusChangeForApprover',
                     },
@@ -312,6 +319,7 @@ exports.ApprovalUpdate = ({
             params: {
               to: applicant.email,
               applicationName: application.title,
+              workflowName: application.workflow.name,
               applicantName: `${applicant.firstName} ${applicant.secondName}`,
               rejecterName: `${loggedInApprover.firstName} ${loggedInApprover.secondName}`,
               rejectionReason: rejectedReason,
@@ -333,6 +341,7 @@ exports.ApprovalUpdate = ({
                 params: {
                   to: approver.email,
                   applicationName: application.title,
+                  workflowName: application.workflow.name,
                   approverName: `${approver.firstName} ${approver.secondName}`,
                   rejecterName: `${loggedInApprover.firstName} ${loggedInApprover.secondName}`,
                   rejectionReason: rejectedReason,
@@ -355,6 +364,7 @@ exports.ApprovalUpdate = ({
                   params: {
                     to: element.email,
                     applicationName: application.title,
+                    workflowName: application.workflow.name,
                     approverName: `${element.firstName} ${element.secondName}`,
                     rejecterName: `${loggedInApprover.firstName} ${loggedInApprover.secondName}`,
                     rejectionReason: rejectedReason,
