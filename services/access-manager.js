@@ -14,7 +14,6 @@ exports.accessManager = async ({
     CreateError,
     lang,
   });
-  console.log(role);
   const res = await RoleFunction.findById(role);
 
   if (!res.data.role) {

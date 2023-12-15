@@ -53,7 +53,6 @@ exports.excelUpload = async ({
       10,
       element['Designation Name']
     );
-    console.log(designation);
     if (element['Designation Name'] === 'Assistant Professor(Grade I)') {
       user.designation = '64f720166493e8fca30c46a7';
     } else {
