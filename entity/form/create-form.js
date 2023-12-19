@@ -33,7 +33,6 @@ exports.addForm = ({
         if (params.questions) {
           const arr = [];
           params.questions.forEach((element) => {
-            console.log(validate.validateQuestion(element));
             arr.push(validate.validateQuestion(element).data.value);
           });
           entity.questions = arr;

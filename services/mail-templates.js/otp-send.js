@@ -124,7 +124,7 @@ module.exports = {
       Dear ${params.approverName},
       <br>
 
-      Status has been Updated for your Application titled ${params.applicationName} for incentive ${params.workflowName} on ${dateString}.
+      Status has been Updated for your Application titled ${params.applicationName} for incentive ${params.workflowName} by ${params.currentApproverName} on ${dateString}.
 
       <br>
       With Regards,
@@ -144,7 +144,7 @@ module.exports = {
       Dear ${params.applicantName},
       <br>
 
-      Status has been Updated for Application titled ${params.applicationName} for incentive ${params.workflowName} on ${dateString}.
+      Status has been Updated for Application titled ${params.applicationName} for incentive ${params.workflowName} by ${params.currentApproverName} on ${dateString}.
 
       <br>
       With Regards,
@@ -235,7 +235,7 @@ module.exports = {
       <br>
       Team Kaher
       </body>`, // html body,
-      attachments: params.attachments || []
+      attachments: params.attachments || [],
     };
   },
 };
