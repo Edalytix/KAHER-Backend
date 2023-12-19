@@ -153,7 +153,7 @@ exports.ApprovalUpdate = ({
               let response = form_data?.response
               if (!form) continue
 
-              if (form?.title !== "FINANCIAL ASSISTANCE TO FACULTY MEMBERS FOR PRESENTATION / INVITED TALK / ORATION / GUEST SPEAKER / RESOURCE PERSON ONCE IN A THREE YEAR OUTSIDE INDIA") continue
+              if ((form?.title !== "FINANCIAL ASSISTANCE TO FACULTY MEMBERS FOR PRESENTATION / INVITED TALK / ORATION / GUEST SPEAKER / RESOURCE PERSON ONCE IN A THREE YEAR OUTSIDE INDIA") || (form?.title !== "FINANCIAL ASSISTANCE TO FACULTY MEMBERS FOR PRESENTATION / INVITED TALK / ORATION / GUEST SPEAKER / RESOURCE PERSON ONCE IN A YEAR WITHIN INDIA")) continue
 
               let event_title_id = null;
               let event_place_id = null;
