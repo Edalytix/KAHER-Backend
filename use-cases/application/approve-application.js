@@ -233,6 +233,7 @@ exports.ApprovalUpdate = ({
                 applicationName: application.title,
                 workflowName: application.workflow.name,
                 applicantName: `${applicant.firstName} ${applicant.secondName}`,
+                approverName: `${loggedInApprover.firstName} ${loggedInApprover.secondName}`,
                 approvedAmount: application.approvedAmount,
                 type: 'ApplicationApprovedForApplicant',
                 attachments: attachments,
