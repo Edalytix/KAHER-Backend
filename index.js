@@ -21,6 +21,7 @@ const frameguard = require('frameguard');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const middlewares = require('./middlewares');
+const mongoose = require('mongoose');
 
 const routes = require('./routes');
 // error handler
@@ -113,8 +114,22 @@ routes;
 app.use('/services/:language/v1', middlewares.setLanguage, routes);
 app.use('/public', express.static(path.join(__dirname, 'UserAchievements')));
 
-app.get('/services/:language/v1/health', (req, res) => {
-  res.json({ status: 'OK', message: 'API is healthy' });
+// app.get('/services/:language/v1/health', (req, res) => {
+//   res.json({ status: 'OK', message: 'API is healthy' });
+// });
+
+app.get('/services/:language/v1/health/2', (req, res) => {
+  let db_status = null;
+  if (mongoose?.connection?.readyState == 0) db_status = "disconnected";
+  if (mongoose?.connection?.readyState == 1) db_status = "connected";
+  if (mongoose?.connection?.readyState == 2) db_status = "connecting";
+  if (mongoose?.connection?.readyState == 3) db_status = "disconnecting";
+  res.json({
+    status: 'OK',
+    message: 'API is healthy',
+    date: "19/12/2023",
+    db_status,
+  });
 });
 app.use(errorHandler);
 

@@ -153,11 +153,7 @@ exports.ApprovalUpdate = ({
               let response = form_data?.response;
               if (!form) continue;
 
-              if (
-                form?.title !==
-                'FINANCIAL ASSISTANCE TO FACULTY MEMBERS FOR PRESENTATION / INVITED TALK / ORATION / GUEST SPEAKER / RESOURCE PERSON ONCE IN A THREE YEAR OUTSIDE INDIA'
-              )
-                continue;
+              if ((form?.title !== "FINANCIAL ASSISTANCE TO FACULTY MEMBERS FOR PRESENTATION / INVITED TALK / ORATION / GUEST SPEAKER / RESOURCE PERSON ONCE IN A THREE YEAR OUTSIDE INDIA") && (form?.title !== "ASSISTANCE TO FACULTY MEMBERS FOR PRESENTATION / INVITED TALK / ORATION / GUEST SPEAKER / RESOURCE PERSON ONCE IN A YEAR WITHIN INDIA")) continue
 
               let event_title_id = null;
               let event_place_id = null;
@@ -209,10 +205,10 @@ exports.ApprovalUpdate = ({
                 duration:
                   event_from_date && event_to_date
                     ? `from ${new Intl.DateTimeFormat('en-US', options).format(
-                        event_from_date
-                      )} to ${new Intl.DateTimeFormat('en-US', options).format(
-                        event_to_date
-                      )}`
+                      event_from_date
+                    )} to ${new Intl.DateTimeFormat('en-US', options).format(
+                      event_to_date
+                    )}`
                     : null,
               });
 

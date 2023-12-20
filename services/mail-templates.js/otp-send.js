@@ -227,9 +227,10 @@ module.exports = {
       <br>
 
       Your Application titled ${params.applicationName} for incentive ${params.workflowName} has been approved by ${params.approverName} on ${dateString}.
-      <br>
+      ${params.approvedAmount ? `<br>
       With total approved grant as ${params.approvedAmount},
-      <br>
+      <br>` : ""}
+      
       <br>
       With Regards,
       <br>
