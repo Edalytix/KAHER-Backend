@@ -640,3 +640,24 @@
 [2023-12-15T11:08:02.142Z] info: Connecting to database: PRODUCTION
 [2023-12-15T11:31:28.879Z] info: Connecting to database: DEVELOPMENT
 [2023-12-15T11:50:51.760Z] info: Connecting to database: DEVELOPMENT
+[2023-12-15T11:51:33.237Z] info: Connecting to database: DEVELOPMENT
+[2023-12-20T15:42:26.943Z] info: Connecting to database: DEVELOPMENT
+[2023-12-20T15:48:40.703Z] error: token verification expired
+[2023-12-20T15:48:40.703Z] error: token verification expired
+[2023-12-20T15:49:04.048Z] info: Connecting to database: DEVELOPMENT
+[2023-12-20T15:58:36.579Z] info: Connecting to database: DEVELOPMENT
+[2023-12-20T16:03:04.623Z] info: Connecting to database: DEVELOPMENT
+[2023-12-20T16:04:03.133Z] info: Connecting to database: DEVELOPMENT
+[2023-12-20T16:04:25.250Z] info: Connecting to database: DEVELOPMENT
+[2023-12-20T16:08:13.085Z] info: Connecting to database: DEVELOPMENT
+[2023-12-20T16:08:22.477Z] info: Connecting to database: DEVELOPMENT
+[2023-12-20T16:08:33.724Z] info: Connecting to database: DEVELOPMENT
+[2023-12-20T16:09:50.361Z] error: Failed to signup: ReferenceError: res is not defined
+    at Object.execute (E:\KAHER-Backend\use-cases\response\add-file.js:62:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.addFile (E:\KAHER-Backend\controllers\response.controller.js:38:20)
+[2023-12-20T16:09:50.361Z] error: Failed to signup: ReferenceError: res is not defined
+    at Object.execute (E:\KAHER-Backend\use-cases\response\add-file.js:62:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.addFile (E:\KAHER-Backend\controllers\response.controller.js:38:20)
+[2023-12-20T16:10:10.745Z] info: Connecting to database: DEVELOPMENT
