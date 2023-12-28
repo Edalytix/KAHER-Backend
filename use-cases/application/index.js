@@ -16,6 +16,7 @@ const fromFindApplierReports = require('./applier-report');
 const fromFinanceReports = require('./finance-report');
 const fromRegistrarReports = require('./registrar-report');
 const fromFindApplicationScript = require('./application-script');
+const fromVerifyDOI = require('./verify-doi');
 
 exports.applicationUseCases = {
   createApplications: fromCreateApplications.Create,
@@ -37,4 +38,5 @@ exports.applicationUseCases = {
   financeReports: fromFinanceReports.financeReport,
   registrarReports: fromRegistrarReports.registrarReport,
   ApplicationScript: fromFindApplicationScript.FindAll,
+  verifyDOI: fromVerifyDOI.VerifyDOI,
 };

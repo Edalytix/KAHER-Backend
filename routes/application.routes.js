@@ -135,4 +135,6 @@ router.get(
 
 router.get('/application/script', applicationController.applicationScript);
 
+router.post('/verify/doi', applicationController.verifyDOI);
+
 module.exports = router;

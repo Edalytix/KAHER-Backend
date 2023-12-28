@@ -22,10 +22,12 @@ const answerSchema = new mongoose.Schema({
       'longString',
       'department',
       'user',
+      'doi'
     ],
     required: true,
   },
   string: { type: String },
+  doi: { type: String },
   department: { type: mongoose.Schema.Types.ObjectId, ref: 'Department' },
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   longString: { type: String },

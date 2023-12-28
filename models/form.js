@@ -24,6 +24,7 @@ const FormQuestionSchema = new Schema({
       'longString',
       'department',
       'user',
+      'doi'
     ],
     required: true,
   },
