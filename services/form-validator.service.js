@@ -255,6 +255,7 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
         'longString',
         'department',
         'user',
+        'doi'
       ];
       if (!options.includes(x.type)) {
         throw new CreateError(translate(lang, 'invalid_goal_status'), 422);
