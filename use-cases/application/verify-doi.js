@@ -41,7 +41,7 @@ exports.VerifyDOI = ({
         if (res.valid) {
           const response = await ResponseFunction.findByField(
             {
-              doi: doi
+              "responses.doi": doi
             }
           );
           if (response?.data?.length === 0) {
