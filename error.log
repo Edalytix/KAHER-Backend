@@ -661,3 +661,12 @@
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
     at async exports.addFile (E:\KAHER-Backend\controllers\response.controller.js:38:20)
 [2023-12-20T16:10:10.745Z] info: Connecting to database: DEVELOPMENT
+[2023-12-20T17:20:37.128Z] info: Connecting to database: DEVELOPMENT
+[2023-12-20T17:21:00.876Z] info: Connecting to database: DEVELOPMENT
+[2024-01-02T16:23:39.122Z] info: Connecting to database: DEVELOPMENT
+[2024-01-02T16:29:05.009Z] info: Connecting to database: DEVELOPMENT
+[2024-01-02T16:29:20.671Z] info: Connecting to database: DEVELOPMENT
+[2024-01-02T16:30:49.833Z] info: Connecting to database: DEVELOPMENT
+[2024-01-02T16:32:35.936Z] info: Connecting to database: DEVELOPMENT
+[2024-01-02T16:33:04.196Z] info: Connecting to database: DEVELOPMENT
+[2024-01-02T16:36:33.913Z] info: Connecting to database: DEVELOPMENT
