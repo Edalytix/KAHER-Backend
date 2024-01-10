@@ -37,6 +37,7 @@ exports.FindAssignedApps = ({
         // {
         //   throw new CreateError(translate(lang, "forbidden"), 403);
         // }
+        //
 
         const UserFunction = db.methods.User({
           translate,
