@@ -16,8 +16,8 @@ const logger = require('../utils/logger').logger;
 const mongoose = require('mongoose');
 // let connectionURI = `mongodb+srv://mongodb:${config.password}@cluster0.7soe7k6.mongodb.net/kaher?retryWrites=true&w=majority`;
 let connectionURI = '';
-if (process.env.NODE_ENV === 'development') {
-  connectionURI = `mongodb+srv://mongodb:je4YH4CWoup0Qpoy@cluster0.7soe7k6.mongodb.net/kaher?retryWrites=true&w=majority`;
+if (process.env.NODE_ENV === 'produtcion') {
+  connectionURI = `mongodb+srv://mongodb:je4YH4CWoup0Qpoy@cluster0.7soe7k6.mongodb.net/?retryWrites=true&w=majority`;
 } else {
   connectionURI = `mongodb://${config.username}:${config.password}@${config.host}`;
 }
