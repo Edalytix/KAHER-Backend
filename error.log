@@ -685,3 +685,25 @@
 [2024-01-11T06:59:00.532Z] info: Connecting to database: DEVELOPMENT
 [2024-01-11T06:59:05.310Z] info: Connecting to database: DEVELOPMENT
 [2024-01-11T07:05:42.683Z] info: Connecting to database: DEVELOPMENT
+[2024-01-11T07:09:40.456Z] error: Failed to find application by id: objectIdArray is not defined ReferenceError: objectIdArray is not defined
+    at Object.findAllAssignedApps (E:\KAHER-Backend\lib\database\methods\application.js:684:26)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\get-assigned-applications.js:73:17)
+    at async exports.getAssignedApplications (E:\KAHER-Backend\controllers\application.controller.js:206:20)
+[2024-01-11T07:09:40.456Z] error: Failed to find application by id: objectIdArray is not defined ReferenceError: objectIdArray is not defined
+    at Object.findAllAssignedApps (E:\KAHER-Backend\lib\database\methods\application.js:684:26)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\get-assigned-applications.js:73:17)
+    at async exports.getAssignedApplications (E:\KAHER-Backend\controllers\application.controller.js:206:20)
+[2024-01-11T07:09:40.473Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findAllAssignedApps (E:\KAHER-Backend\lib\database\methods\application.js:712:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\get-assigned-applications.js:73:17)
+    at async exports.getAssignedApplications (E:\KAHER-Backend\controllers\application.controller.js:206:20)
+[2024-01-11T07:09:40.473Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findAllAssignedApps (E:\KAHER-Backend\lib\database\methods\application.js:712:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\get-assigned-applications.js:73:17)
+    at async exports.getAssignedApplications (E:\KAHER-Backend\controllers\application.controller.js:206:20)
+[2024-01-11T07:10:16.494Z] info: Connecting to database: DEVELOPMENT
+[2024-01-11T07:11:10.096Z] info: Connecting to database: DEVELOPMENT
