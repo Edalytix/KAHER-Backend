@@ -707,3 +707,7 @@
     at async exports.getAssignedApplications (E:\KAHER-Backend\controllers\application.controller.js:206:20)
 [2024-01-11T07:10:16.494Z] info: Connecting to database: DEVELOPMENT
 [2024-01-11T07:11:10.096Z] info: Connecting to database: DEVELOPMENT
+[2024-01-11T07:11:36.354Z] info: Connecting to database: DEVELOPMENT
+[2024-01-11T07:19:45.623Z] info: Connecting to database: DEVELOPMENT
+[2024-01-11T07:23:19.337Z] info: Connecting to database: DEVELOPMENT
+[2024-01-11T07:23:55.074Z] info: Connecting to database: DEVELOPMENT
