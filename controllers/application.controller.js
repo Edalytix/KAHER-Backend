@@ -502,3 +502,95 @@ exports.verifyDOI = async (req, res, next) => {
     next(error);
   }
 };
+
+exports.institutionReports = async (req, res, next) => {
+  try {
+    const request = fromAdaptReq.adaptReq(req, res);
+    const result = await fromUseCase
+      .findInstitutionReports({
+        CreateError,
+        DataValidator,
+        logger,
+        translate,
+        crypto,
+        request,
+        db,
+        accessManager,
+      })
+      .execute();
+
+    return res.status(201).json(result.data);
+  } catch (error) {
+    // console.log(error)
+    next(error);
+  }
+};
+
+exports.workflowReports = async (req, res, next) => {
+  try {
+    const request = fromAdaptReq.adaptReq(req, res);
+    const result = await fromUseCase
+      .findWorkflowReports({
+        CreateError,
+        DataValidator,
+        logger,
+        translate,
+        crypto,
+        request,
+        db,
+        accessManager,
+      })
+      .execute();
+
+    return res.status(201).json(result.data);
+  } catch (error) {
+    // console.log(error)
+    next(error);
+  }
+};
+
+exports.applicationApprovedReports = async (req, res, next) => {
+  try {
+    const request = fromAdaptReq.adaptReq(req, res);
+    const result = await fromUseCase
+      .findApplicationApprovedReports({
+        CreateError,
+        DataValidator,
+        logger,
+        translate,
+        crypto,
+        request,
+        db,
+        accessManager,
+      })
+      .execute();
+
+    return res.status(201).json(result.data);
+  } catch (error) {
+    // console.log(error)
+    next(error);
+  }
+};
+
+exports.applicationStatusReports = async (req, res, next) => {
+  try {
+    const request = fromAdaptReq.adaptReq(req, res);
+    const result = await fromUseCase
+      .findApplicationStatusReports({
+        CreateError,
+        DataValidator,
+        logger,
+        translate,
+        crypto,
+        request,
+        db,
+        accessManager,
+      })
+      .execute();
+
+    return res.status(201).json(result.data);
+  } catch (error) {
+    // console.log(error)
+    next(error);
+  }
+};

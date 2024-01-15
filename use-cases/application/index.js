@@ -17,6 +17,10 @@ const fromFinanceReports = require('./finance-report');
 const fromRegistrarReports = require('./registrar-report');
 const fromFindApplicationScript = require('./application-script');
 const fromVerifyDOI = require('./verify-doi');
+const fromInstitutionReports = require('./institution-report');
+const fromWorkflowReports = require('./workflow-report');
+const fromApplicationApprovedReports = require('./application-approved-report');
+const fromApplicationStatusReports = require('./application-status-report');
 
 exports.applicationUseCases = {
   createApplications: fromCreateApplications.Create,
@@ -39,4 +43,10 @@ exports.applicationUseCases = {
   registrarReports: fromRegistrarReports.registrarReport,
   ApplicationScript: fromFindApplicationScript.FindAll,
   verifyDOI: fromVerifyDOI.VerifyDOI,
+  findInstitutionReports: fromInstitutionReports.institutionReport,
+  findWorkflowReports: fromWorkflowReports.workflowReport,
+  findApplicationApprovedReports:
+    fromApplicationApprovedReports.applicationApprovedReport,
+  findApplicationStatusReports:
+    fromApplicationStatusReports.applicationStatusReport,
 };

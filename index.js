@@ -1,6 +1,7 @@
 const dotenv = require('dotenv');
 const path = require('path');
 const database = require('./lib/database/index').database;
+
 const appConfig = require('./config/app.config.json');
 // dotenv configuration
 dotenv.config({
@@ -110,7 +111,6 @@ app.use((req, res, next) => {
 // checking application health
 app.use('/services/:language/:v/app-health-check', middlewares.checkHealth);
 
-routes;
 app.use('/services/:language/v1', middlewares.setLanguage, routes);
 app.use('/public', express.static(path.join(__dirname, 'UserAchievements')));
 
@@ -120,14 +120,14 @@ app.use('/public', express.static(path.join(__dirname, 'UserAchievements')));
 
 app.get('/services/:language/v1/health/2', (req, res) => {
   let db_status = null;
-  if (mongoose?.connection?.readyState == 0) db_status = "disconnected";
-  if (mongoose?.connection?.readyState == 1) db_status = "connected";
-  if (mongoose?.connection?.readyState == 2) db_status = "connecting";
-  if (mongoose?.connection?.readyState == 3) db_status = "disconnecting";
+  if (mongoose?.connection?.readyState == 0) db_status = 'disconnected';
+  if (mongoose?.connection?.readyState == 1) db_status = 'connected';
+  if (mongoose?.connection?.readyState == 2) db_status = 'connecting';
+  if (mongoose?.connection?.readyState == 3) db_status = 'disconnecting';
   res.json({
     status: 'OK',
     message: 'API is healthy',
-    date: "19/12/2023",
+    date: '19/12/2023',
     db_status,
   });
 });

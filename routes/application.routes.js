@@ -137,4 +137,27 @@ router.get('/application/script', applicationController.applicationScript);
 
 router.post('/verify/doi', applicationController.verifyDOI);
 
+router.get(
+  '/application/institutionreport',
+  middlewares.isLogged,
+  applicationController.institutionReports
+);
+
+router.get(
+  '/application/workflowreport',
+  middlewares.isLogged,
+  applicationController.workflowReports
+);
+
+router.get(
+  '/application/applicationapprovedreport',
+  middlewares.isLogged,
+  applicationController.applicationApprovedReports
+);
+
+router.get(
+  '/application/applicationstatusreport',
+  middlewares.isLogged,
+  applicationController.applicationStatusReports
+);
 module.exports = router;
