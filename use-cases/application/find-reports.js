@@ -28,6 +28,9 @@ exports.findReports = ({
         const resubmission = request.queryParams.resubmission;
         const level = request.queryParams.level;
         const formId = request.queryParams.formId;
+        const pendingPrincipal = request.queryParams.pendingPrincipal || false;
+        const pendingFinance = request.queryParams.pendingFinance || false;
+        const pendingRegistrar = request.queryParams.pendingRegistrar || false;
 
         const acesssRes = await accessManager({
           translate,
@@ -56,6 +59,9 @@ exports.findReports = ({
           resubmission,
           level,
           formId,
+          pendingPrincipal,
+          pendingFinance,
+          pendingRegistrar,
         });
 
         return {

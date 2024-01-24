@@ -907,3 +907,85 @@
 [2024-01-14T09:19:48.380Z] info: Connecting to database: DEVELOPMENT
 [2024-01-14T09:23:22.814Z] info: Connecting to database: DEVELOPMENT
 [2024-01-14T09:23:53.124Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T19:54:10.328Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T19:56:44.383Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T19:57:08.355Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T19:57:38.664Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T19:57:52.890Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T19:58:12.146Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T19:59:09.903Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T20:00:40.735Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T20:01:14.832Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T20:01:52.205Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T20:02:58.153Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T20:03:14.434Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T20:03:22.096Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T20:04:12.392Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T20:04:22.416Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T20:06:22.442Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T20:07:22.439Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T20:08:24.011Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T20:09:25.831Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T20:09:48.775Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T20:10:05.896Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T20:10:35.663Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T20:10:40.059Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T20:10:44.445Z] error: Failed to find application by id: Assignment to constant variable. TypeError: Assignment to constant variable.
+    at Object.findReports (E:\KAHER-Backend\lib\database\methods\application.js:541:20)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\find-reports.js:49:21)
+    at async exports.getReports (E:\KAHER-Backend\controllers\application.controller.js:371:20)
+[2024-01-24T20:10:44.445Z] error: Failed to find application by id: Assignment to constant variable. TypeError: Assignment to constant variable.
+    at Object.findReports (E:\KAHER-Backend\lib\database\methods\application.js:541:20)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\find-reports.js:49:21)
+    at async exports.getReports (E:\KAHER-Backend\controllers\application.controller.js:371:20)
+[2024-01-24T20:10:44.451Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findReports (E:\KAHER-Backend\lib\database\methods\application.js:572:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\find-reports.js:49:21)
+    at async exports.getReports (E:\KAHER-Backend\controllers\application.controller.js:371:20)
+[2024-01-24T20:10:44.451Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findReports (E:\KAHER-Backend\lib\database\methods\application.js:572:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\find-reports.js:49:21)
+    at async exports.getReports (E:\KAHER-Backend\controllers\application.controller.js:371:20)
+[2024-01-24T20:11:01.080Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T20:11:05.055Z] error: Failed to find application by id: Cannot read properties of undefined (reading 'name') TypeError: Cannot read properties of undefined (reading 'name')
+    at E:\KAHER-Backend\lib\database\methods\application.js:549:17
+    at Array.forEach (<anonymous>)
+    at Object.findReports (E:\KAHER-Backend\lib\database\methods\application.js:545:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\find-reports.js:49:21)
+    at async exports.getReports (E:\KAHER-Backend\controllers\application.controller.js:371:20)
+[2024-01-24T20:11:05.055Z] error: Failed to find application by id: Cannot read properties of undefined (reading 'name') TypeError: Cannot read properties of undefined (reading 'name')
+    at E:\KAHER-Backend\lib\database\methods\application.js:549:17
+    at Array.forEach (<anonymous>)
+    at Object.findReports (E:\KAHER-Backend\lib\database\methods\application.js:545:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\find-reports.js:49:21)
+    at async exports.getReports (E:\KAHER-Backend\controllers\application.controller.js:371:20)
+[2024-01-24T20:11:05.061Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findReports (E:\KAHER-Backend\lib\database\methods\application.js:572:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\find-reports.js:49:21)
+    at async exports.getReports (E:\KAHER-Backend\controllers\application.controller.js:371:20)
+[2024-01-24T20:11:05.061Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findReports (E:\KAHER-Backend\lib\database\methods\application.js:572:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\find-reports.js:49:21)
+    at async exports.getReports (E:\KAHER-Backend\controllers\application.controller.js:371:20)
+[2024-01-24T20:11:32.199Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T20:12:05.679Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T20:12:25.858Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T20:12:53.154Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T20:13:17.465Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T20:14:20.546Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T20:14:33.346Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T20:14:49.312Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T20:15:33.249Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T20:17:29.984Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T20:18:23.648Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T20:18:39.446Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T20:19:10.636Z] info: Connecting to database: DEVELOPMENT
+[2024-01-24T20:19:19.962Z] info: Connecting to database: DEVELOPMENT
