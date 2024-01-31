@@ -160,5 +160,5 @@ router.get(
   middlewares.isLogged,
   applicationController.applicationStatusReports
 );
-//
+
 module.exports = router;
