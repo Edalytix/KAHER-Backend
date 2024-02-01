@@ -33,7 +33,7 @@ exports.createApplication = ({
         }
 
         if (params.user) {
-          entity.user = validate.mongoid(params.user).data.value;
+          entity.user = validate.mongoid(params.userUID).data.value;
         } else {
           delete entity.user;
         }

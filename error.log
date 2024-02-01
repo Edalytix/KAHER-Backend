@@ -989,3 +989,937 @@
 [2024-01-24T20:18:39.446Z] info: Connecting to database: DEVELOPMENT
 [2024-01-24T20:19:10.636Z] info: Connecting to database: DEVELOPMENT
 [2024-01-24T20:19:19.962Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T08:58:53.791Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:02:43.652Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:07:48.966Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:07:59.028Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:08:20.900Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:09:02.854Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:12:00.748Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:13:06.242Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:13:25.380Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:13:49.385Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:13:56.029Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:14:11.344Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:15:32.679Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:15:48.029Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:16:15.631Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:16:37.645Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:18:02.906Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:18:05.971Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:19:11.040Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:19:28.245Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:19:34.455Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:20:00.147Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:20:50.319Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:21:25.487Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:21:50.768Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:22:04.193Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:23:13.292Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:23:29.383Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:23:36.601Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:23:45.334Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:24:51.334Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:25:02.634Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:25:18.957Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:25:49.443Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:26:53.127Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:27:07.399Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:28:26.586Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:29:10.673Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:29:34.777Z] error: Failed to signup: TypeError: Cannot read properties of undefined (reading 'methods')
+    at exports.accessManager (E:\KAHER-Backend\services\access-manager.js:11:27)
+    at Object.execute (E:\KAHER-Backend\use-cases\workflow\create-workflow.js:23:33)
+    at exports.createWorkflow (E:\KAHER-Backend\controllers\workflow.controller.js:26:8)
+    at Layer.handle [as handle_request] (E:\KAHER-Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (E:\KAHER-Backend\node_modules\express\lib\router\route.js:144:13)
+    at module.exports.isLogged (E:\KAHER-Backend\middlewares\is-logged.js:84:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-02-01T09:29:34.777Z] error: Failed to signup: TypeError: Cannot read properties of undefined (reading 'methods')
+    at exports.accessManager (E:\KAHER-Backend\services\access-manager.js:11:27)
+    at Object.execute (E:\KAHER-Backend\use-cases\workflow\create-workflow.js:23:33)
+    at exports.createWorkflow (E:\KAHER-Backend\controllers\workflow.controller.js:26:8)
+    at Layer.handle [as handle_request] (E:\KAHER-Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (E:\KAHER-Backend\node_modules\express\lib\router\route.js:144:13)
+    at module.exports.isLogged (E:\KAHER-Backend\middlewares\is-logged.js:84:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-02-01T09:30:10.939Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:31:00.815Z] error: Failed to signup: TypeError: Cannot read properties of undefined (reading 'methods')
+    at exports.accessManager (E:\KAHER-Backend\services\access-manager.js:11:27)
+    at Object.execute (E:\KAHER-Backend\use-cases\workflow\create-workflow.js:23:33)
+    at exports.createWorkflow (E:\KAHER-Backend\controllers\workflow.controller.js:26:8)
+    at Layer.handle [as handle_request] (E:\KAHER-Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (E:\KAHER-Backend\node_modules\express\lib\router\route.js:144:13)
+    at module.exports.isLogged (E:\KAHER-Backend\middlewares\is-logged.js:84:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-02-01T09:31:00.815Z] error: Failed to signup: TypeError: Cannot read properties of undefined (reading 'methods')
+    at exports.accessManager (E:\KAHER-Backend\services\access-manager.js:11:27)
+    at Object.execute (E:\KAHER-Backend\use-cases\workflow\create-workflow.js:23:33)
+    at exports.createWorkflow (E:\KAHER-Backend\controllers\workflow.controller.js:26:8)
+    at Layer.handle [as handle_request] (E:\KAHER-Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (E:\KAHER-Backend\node_modules\express\lib\router\route.js:144:13)
+    at module.exports.isLogged (E:\KAHER-Backend\middlewares\is-logged.js:84:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-02-01T09:31:20.280Z] info: Connecting to database: PRODUCTION
+[2024-02-01T09:31:58.976Z] info: Connecting to database: PRODUCTION
+[2024-02-01T09:32:18.939Z] info: Connecting to database: PRODUCTION
+[2024-02-01T09:32:29.592Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:41:07.535Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:44:24.753Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:44:28.511Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:44:54.199Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:47:46.846Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:48:29.630Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:49:13.481Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:50:08.064Z] error: Failed to create user details: Cast to ObjectId failed for value "{
+  'department.id': {
+    _id: new ObjectId("6527ecbb3ac77b89a5166210"),
+    name: 'Principal Department',
+    status: 'active',
+    applications: [],
+    users: [
+      new ObjectId("6528d1341855c5b61655c880"),
+      new ObjectId("6528d1941855c5b61655c888"),
+      new ObjectId("6528d1b21855c5b61655c890"),
+      new ObjectId("6528d1e51855c5b61655c898"),
+      new ObjectId("6528d2021855c5b61655c8a0"),
+      new ObjectId("6528d2271855c5b61655c8a8"),
+      new ObjectId("6528d2491855c5b61655c8b0"),
+      new ObjectId("6528d2631855c5b61655c8b8"),
+      new ObjectId("6528d2b81855c5b61655c8c8"),
+      new ObjectId("6528d2d31855c5b61655c8d0"),
+      new ObjectId("6528d2f31855c5b61655c8d8"),
+      new ObjectId("654a0e0feaca672b5bd72d98"),
+      new ObjectId("654a0e7deaca672b5bd73028"),
+      new ObjectId("654b3891eaca672b5bd75b18"),
+      new ObjectId("6564934146f9c2f48293cce4"),
+      new ObjectId("656493bb46f9c2f48293ccf0"),
+      new ObjectId("6564a7b2b3a7fe94aec578a2"),
+      new ObjectId("6564a7f1b3a7fe94aec578ae"),
+      new ObjectId("6564abff5701c8d2cc39e29b"),
+      new ObjectId("6564adb814a5f905d6860c77"),
+      new ObjectId("6564ae9e5701c8d2cc39e2a7"),
+      new ObjectId("6564afa3660644d2e8a95630"),
+      new ObjectId("6564b0be2467b8082f16f2eb"),
+      new ObjectId("6564b19a660644d2e8a9563c"),
+      new ObjectId("6564b1d58034b8298d9037ee"),
+      new ObjectId("6564b2158034b8298d9037fa"),
+      new ObjectId("6564b2c818e0290ba91a6235"),
+      new ObjectId("6564b3062139366338427f12"),
+      new ObjectId("6564b40d97cc6436c254bc71"),
+      new ObjectId("6564b44197cc6436c254bc7d"),
+      new ObjectId("6564b46f97cc6436c254bc89"),
+      new ObjectId("6564b520808392c72e61f626"),
+      new ObjectId("6565de3497cc6436c254bc99"),
+      new ObjectId("6565de9a5ff39ccb4cf44283"),
+      new ObjectId("6565df0b5ff39ccb4cf4428f"),
+      new ObjectId("6565df241c1f17e00c83390b"),
+      new ObjectId("6565dfb8929c765c2cb60c7c"),
+      new ObjectId("656db150753ff2c2184594f7"),
+      new ObjectId("656db1cd86b8784f17343302"),
+      new ObjectId("656db35e537e5c17ffe74d56"),
+      new ObjectId("65789ab2797e51490f7eaed4"),
+      new ObjectId("65817e65ab35d4d8d6516240")
+    ],
+    __v: 0
+  },
+  role: {
+    permissions: {
+      workflows: 'none',
+      users: 'none',
+      forms: 'none',
+      departments: 'none',
+      applications: 'none',
+      roles: 'none'
+    },
+    _id: new ObjectId("6528cf993ac77b89a5169ea6"),
+    name: 'Principal',
+    status: 'active',
+    type: 'user',
+    __v: 0
+  },
+  institution: {
+    _id: new ObjectId("6527f1cf015f9b52c8b8167b"),
+    name: 'J N Medical College',
+    users: [],
+    __v: 0
+  }
+}" (type Object) at path "_id" for model "User" CastError: Cast to ObjectId failed for value "{
+  'department.id': {
+    _id: new ObjectId("6527ecbb3ac77b89a5166210"),
+    name: 'Principal Department',
+    status: 'active',
+    applications: [],
+    users: [
+      new ObjectId("6528d1341855c5b61655c880"),
+      new ObjectId("6528d1941855c5b61655c888"),
+      new ObjectId("6528d1b21855c5b61655c890"),
+      new ObjectId("6528d1e51855c5b61655c898"),
+      new ObjectId("6528d2021855c5b61655c8a0"),
+      new ObjectId("6528d2271855c5b61655c8a8"),
+      new ObjectId("6528d2491855c5b61655c8b0"),
+      new ObjectId("6528d2631855c5b61655c8b8"),
+      new ObjectId("6528d2b81855c5b61655c8c8"),
+      new ObjectId("6528d2d31855c5b61655c8d0"),
+      new ObjectId("6528d2f31855c5b61655c8d8"),
+      new ObjectId("654a0e0feaca672b5bd72d98"),
+      new ObjectId("654a0e7deaca672b5bd73028"),
+      new ObjectId("654b3891eaca672b5bd75b18"),
+      new ObjectId("6564934146f9c2f48293cce4"),
+      new ObjectId("656493bb46f9c2f48293ccf0"),
+      new ObjectId("6564a7b2b3a7fe94aec578a2"),
+      new ObjectId("6564a7f1b3a7fe94aec578ae"),
+      new ObjectId("6564abff5701c8d2cc39e29b"),
+      new ObjectId("6564adb814a5f905d6860c77"),
+      new ObjectId("6564ae9e5701c8d2cc39e2a7"),
+      new ObjectId("6564afa3660644d2e8a95630"),
+      new ObjectId("6564b0be2467b8082f16f2eb"),
+      new ObjectId("6564b19a660644d2e8a9563c"),
+      new ObjectId("6564b1d58034b8298d9037ee"),
+      new ObjectId("6564b2158034b8298d9037fa"),
+      new ObjectId("6564b2c818e0290ba91a6235"),
+      new ObjectId("6564b3062139366338427f12"),
+      new ObjectId("6564b40d97cc6436c254bc71"),
+      new ObjectId("6564b44197cc6436c254bc7d"),
+      new ObjectId("6564b46f97cc6436c254bc89"),
+      new ObjectId("6564b520808392c72e61f626"),
+      new ObjectId("6565de3497cc6436c254bc99"),
+      new ObjectId("6565de9a5ff39ccb4cf44283"),
+      new ObjectId("6565df0b5ff39ccb4cf4428f"),
+      new ObjectId("6565df241c1f17e00c83390b"),
+      new ObjectId("6565dfb8929c765c2cb60c7c"),
+      new ObjectId("656db150753ff2c2184594f7"),
+      new ObjectId("656db1cd86b8784f17343302"),
+      new ObjectId("656db35e537e5c17ffe74d56"),
+      new ObjectId("65789ab2797e51490f7eaed4"),
+      new ObjectId("65817e65ab35d4d8d6516240")
+    ],
+    __v: 0
+  },
+  role: {
+    permissions: {
+      workflows: 'none',
+      users: 'none',
+      forms: 'none',
+      departments: 'none',
+      applications: 'none',
+      roles: 'none'
+    },
+    _id: new ObjectId("6528cf993ac77b89a5169ea6"),
+    name: 'Principal',
+    status: 'active',
+    type: 'user',
+    __v: 0
+  },
+  institution: {
+    _id: new ObjectId("6527f1cf015f9b52c8b8167b"),
+    name: 'J N Medical College',
+    users: [],
+    __v: 0
+  }
+}" (type Object) at path "_id" for model "User"
+    at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:250:11)
+    at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+    at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+    at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:304:34)
+    at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+    at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+    at model.Query._findOneAndUpdate (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3303:8)
+    at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.addApplicationForPrincipal (E:\KAHER-Backend\lib\database\methods\user.js:433:24) {
+  stringValue: '"{\n' +
+    "  'department.id': {\n" +
+    '    _id: new ObjectId("6527ecbb3ac77b89a5166210"),\n' +
+    "    name: 'Principal Department',\n" +
+    "    status: 'active',\n" +
+    '    applications: [],\n' +
+    '    users: [\n' +
+    '      new ObjectId("6528d1341855c5b61655c880"),\n' +
+    '      new ObjectId("6528d1941855c5b61655c888"),\n' +
+    '      new ObjectId("6528d1b21855c5b61655c890"),\n' +
+    '      new ObjectId("6528d1e51855c5b61655c898"),\n' +
+    '      new ObjectId("6528d2021855c5b61655c8a0"),\n' +
+    '      new ObjectId("6528d2271855c5b61655c8a8"),\n' +
+    '      new ObjectId("6528d2491855c5b61655c8b0"),\n' +
+    '      new ObjectId("6528d2631855c5b61655c8b8"),\n' +
+    '      new ObjectId("6528d2b81855c5b61655c8c8"),\n' +
+    '      new ObjectId("6528d2d31855c5b61655c8d0"),\n' +
+    '      new ObjectId("6528d2f31855c5b61655c8d8"),\n' +
+    '      new ObjectId("654a0e0feaca672b5bd72d98"),\n' +
+    '      new ObjectId("654a0e7deaca672b5bd73028"),\n' +
+    '      new ObjectId("654b3891eaca672b5bd75b18"),\n' +
+    '      new ObjectId("6564934146f9c2f48293cce4"),\n' +
+    '      new ObjectId("656493bb46f9c2f48293ccf0"),\n' +
+    '      new ObjectId("6564a7b2b3a7fe94aec578a2"),\n' +
+    '      new ObjectId("6564a7f1b3a7fe94aec578ae"),\n' +
+    '      new ObjectId("6564abff5701c8d2cc39e29b"),\n' +
+    '      new ObjectId("6564adb814a5f905d6860c77"),\n' +
+    '      new ObjectId("6564ae9e5701c8d2cc39e2a7"),\n' +
+    '      new ObjectId("6564afa3660644d2e8a95630"),\n' +
+    '      new ObjectId("6564b0be2467b8082f16f2eb"),\n' +
+    '      new ObjectId("6564b19a660644d2e8a9563c"),\n' +
+    '      new ObjectId("6564b1d58034b8298d9037ee"),\n' +
+    '      new ObjectId("6564b2158034b8298d9037fa"),\n' +
+    '      new ObjectId("6564b2c818e0290ba91a6235"),\n' +
+    '      new ObjectId("6564b3062139366338427f12"),\n' +
+    '      new ObjectId("6564b40d97cc6436c254bc71"),\n' +
+    '      new ObjectId("6564b44197cc6436c254bc7d"),\n' +
+    '      new ObjectId("6564b46f97cc6436c254bc89"),\n' +
+    '      new ObjectId("6564b520808392c72e61f626"),\n' +
+    '      new ObjectId("6565de3497cc6436c254bc99"),\n' +
+    '      new ObjectId("6565de9a5ff39ccb4cf44283"),\n' +
+    '      new ObjectId("6565df0b5ff39ccb4cf4428f"),\n' +
+    '      new ObjectId("6565df241c1f17e00c83390b"),\n' +
+    '      new ObjectId("6565dfb8929c765c2cb60c7c"),\n' +
+    '      new ObjectId("656db150753ff2c2184594f7"),\n' +
+    '      new ObjectId("656db1cd86b8784f17343302"),\n' +
+    '      new ObjectId("656db35e537e5c17ffe74d56"),\n' +
+    '      new ObjectId("65789ab2797e51490f7eaed4"),\n' +
+    '      new ObjectId("65817e65ab35d4d8d6516240")\n' +
+    '    ],\n' +
+    '    __v: 0\n' +
+    '  },\n' +
+    '  role: {\n' +
+    '    permissions: {\n' +
+    "      workflows: 'none',\n" +
+    "      users: 'none',\n" +
+    "      forms: 'none',\n" +
+    "      departments: 'none',\n" +
+    "      applications: 'none',\n" +
+    "      roles: 'none'\n" +
+    '    },\n' +
+    '    _id: new ObjectId("6528cf993ac77b89a5169ea6"),\n' +
+    "    name: 'Principal',\n" +
+    "    status: 'active',\n" +
+    "    type: 'user',\n" +
+    '    __v: 0\n' +
+    '  },\n' +
+    '  institution: {\n' +
+    '    _id: new ObjectId("6527f1cf015f9b52c8b8167b"),\n' +
+    "    name: 'J N Medical College',\n" +
+    '    users: [],\n' +
+    '    __v: 0\n' +
+    '  }\n' +
+    '}"',
+  messageFormat: undefined,
+  kind: 'ObjectId',
+  value: [Object],
+  path: '_id',
+  reason: BSONError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new ObjectId (E:\KAHER-Backend\node_modules\bson\lib\bson.cjs:2055:23)
+      at castObjectId (E:\KAHER-Backend\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:248:12)
+      at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+      at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+      at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:304:34)
+      at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+      at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+      at model.Query._findOneAndUpdate (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3303:8)
+      at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28),
+  valueType: 'Object',
+  model: Model { User }
+}
+[2024-02-01T09:50:08.064Z] error: Failed to create user details: Cast to ObjectId failed for value "{
+  'department.id': {
+    _id: new ObjectId("6527ecbb3ac77b89a5166210"),
+    name: 'Principal Department',
+    status: 'active',
+    applications: [],
+    users: [
+      new ObjectId("6528d1341855c5b61655c880"),
+      new ObjectId("6528d1941855c5b61655c888"),
+      new ObjectId("6528d1b21855c5b61655c890"),
+      new ObjectId("6528d1e51855c5b61655c898"),
+      new ObjectId("6528d2021855c5b61655c8a0"),
+      new ObjectId("6528d2271855c5b61655c8a8"),
+      new ObjectId("6528d2491855c5b61655c8b0"),
+      new ObjectId("6528d2631855c5b61655c8b8"),
+      new ObjectId("6528d2b81855c5b61655c8c8"),
+      new ObjectId("6528d2d31855c5b61655c8d0"),
+      new ObjectId("6528d2f31855c5b61655c8d8"),
+      new ObjectId("654a0e0feaca672b5bd72d98"),
+      new ObjectId("654a0e7deaca672b5bd73028"),
+      new ObjectId("654b3891eaca672b5bd75b18"),
+      new ObjectId("6564934146f9c2f48293cce4"),
+      new ObjectId("656493bb46f9c2f48293ccf0"),
+      new ObjectId("6564a7b2b3a7fe94aec578a2"),
+      new ObjectId("6564a7f1b3a7fe94aec578ae"),
+      new ObjectId("6564abff5701c8d2cc39e29b"),
+      new ObjectId("6564adb814a5f905d6860c77"),
+      new ObjectId("6564ae9e5701c8d2cc39e2a7"),
+      new ObjectId("6564afa3660644d2e8a95630"),
+      new ObjectId("6564b0be2467b8082f16f2eb"),
+      new ObjectId("6564b19a660644d2e8a9563c"),
+      new ObjectId("6564b1d58034b8298d9037ee"),
+      new ObjectId("6564b2158034b8298d9037fa"),
+      new ObjectId("6564b2c818e0290ba91a6235"),
+      new ObjectId("6564b3062139366338427f12"),
+      new ObjectId("6564b40d97cc6436c254bc71"),
+      new ObjectId("6564b44197cc6436c254bc7d"),
+      new ObjectId("6564b46f97cc6436c254bc89"),
+      new ObjectId("6564b520808392c72e61f626"),
+      new ObjectId("6565de3497cc6436c254bc99"),
+      new ObjectId("6565de9a5ff39ccb4cf44283"),
+      new ObjectId("6565df0b5ff39ccb4cf4428f"),
+      new ObjectId("6565df241c1f17e00c83390b"),
+      new ObjectId("6565dfb8929c765c2cb60c7c"),
+      new ObjectId("656db150753ff2c2184594f7"),
+      new ObjectId("656db1cd86b8784f17343302"),
+      new ObjectId("656db35e537e5c17ffe74d56"),
+      new ObjectId("65789ab2797e51490f7eaed4"),
+      new ObjectId("65817e65ab35d4d8d6516240")
+    ],
+    __v: 0
+  },
+  role: {
+    permissions: {
+      workflows: 'none',
+      users: 'none',
+      forms: 'none',
+      departments: 'none',
+      applications: 'none',
+      roles: 'none'
+    },
+    _id: new ObjectId("6528cf993ac77b89a5169ea6"),
+    name: 'Principal',
+    status: 'active',
+    type: 'user',
+    __v: 0
+  },
+  institution: {
+    _id: new ObjectId("6527f1cf015f9b52c8b8167b"),
+    name: 'J N Medical College',
+    users: [],
+    __v: 0
+  }
+}" (type Object) at path "_id" for model "User" CastError: Cast to ObjectId failed for value "{
+  'department.id': {
+    _id: new ObjectId("6527ecbb3ac77b89a5166210"),
+    name: 'Principal Department',
+    status: 'active',
+    applications: [],
+    users: [
+      new ObjectId("6528d1341855c5b61655c880"),
+      new ObjectId("6528d1941855c5b61655c888"),
+      new ObjectId("6528d1b21855c5b61655c890"),
+      new ObjectId("6528d1e51855c5b61655c898"),
+      new ObjectId("6528d2021855c5b61655c8a0"),
+      new ObjectId("6528d2271855c5b61655c8a8"),
+      new ObjectId("6528d2491855c5b61655c8b0"),
+      new ObjectId("6528d2631855c5b61655c8b8"),
+      new ObjectId("6528d2b81855c5b61655c8c8"),
+      new ObjectId("6528d2d31855c5b61655c8d0"),
+      new ObjectId("6528d2f31855c5b61655c8d8"),
+      new ObjectId("654a0e0feaca672b5bd72d98"),
+      new ObjectId("654a0e7deaca672b5bd73028"),
+      new ObjectId("654b3891eaca672b5bd75b18"),
+      new ObjectId("6564934146f9c2f48293cce4"),
+      new ObjectId("656493bb46f9c2f48293ccf0"),
+      new ObjectId("6564a7b2b3a7fe94aec578a2"),
+      new ObjectId("6564a7f1b3a7fe94aec578ae"),
+      new ObjectId("6564abff5701c8d2cc39e29b"),
+      new ObjectId("6564adb814a5f905d6860c77"),
+      new ObjectId("6564ae9e5701c8d2cc39e2a7"),
+      new ObjectId("6564afa3660644d2e8a95630"),
+      new ObjectId("6564b0be2467b8082f16f2eb"),
+      new ObjectId("6564b19a660644d2e8a9563c"),
+      new ObjectId("6564b1d58034b8298d9037ee"),
+      new ObjectId("6564b2158034b8298d9037fa"),
+      new ObjectId("6564b2c818e0290ba91a6235"),
+      new ObjectId("6564b3062139366338427f12"),
+      new ObjectId("6564b40d97cc6436c254bc71"),
+      new ObjectId("6564b44197cc6436c254bc7d"),
+      new ObjectId("6564b46f97cc6436c254bc89"),
+      new ObjectId("6564b520808392c72e61f626"),
+      new ObjectId("6565de3497cc6436c254bc99"),
+      new ObjectId("6565de9a5ff39ccb4cf44283"),
+      new ObjectId("6565df0b5ff39ccb4cf4428f"),
+      new ObjectId("6565df241c1f17e00c83390b"),
+      new ObjectId("6565dfb8929c765c2cb60c7c"),
+      new ObjectId("656db150753ff2c2184594f7"),
+      new ObjectId("656db1cd86b8784f17343302"),
+      new ObjectId("656db35e537e5c17ffe74d56"),
+      new ObjectId("65789ab2797e51490f7eaed4"),
+      new ObjectId("65817e65ab35d4d8d6516240")
+    ],
+    __v: 0
+  },
+  role: {
+    permissions: {
+      workflows: 'none',
+      users: 'none',
+      forms: 'none',
+      departments: 'none',
+      applications: 'none',
+      roles: 'none'
+    },
+    _id: new ObjectId("6528cf993ac77b89a5169ea6"),
+    name: 'Principal',
+    status: 'active',
+    type: 'user',
+    __v: 0
+  },
+  institution: {
+    _id: new ObjectId("6527f1cf015f9b52c8b8167b"),
+    name: 'J N Medical College',
+    users: [],
+    __v: 0
+  }
+}" (type Object) at path "_id" for model "User"
+    at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:250:11)
+    at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+    at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+    at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:304:34)
+    at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+    at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+    at model.Query._findOneAndUpdate (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3303:8)
+    at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.addApplicationForPrincipal (E:\KAHER-Backend\lib\database\methods\user.js:433:24) {
+  stringValue: '"{\n' +
+    "  'department.id': {\n" +
+    '    _id: new ObjectId("6527ecbb3ac77b89a5166210"),\n' +
+    "    name: 'Principal Department',\n" +
+    "    status: 'active',\n" +
+    '    applications: [],\n' +
+    '    users: [\n' +
+    '      new ObjectId("6528d1341855c5b61655c880"),\n' +
+    '      new ObjectId("6528d1941855c5b61655c888"),\n' +
+    '      new ObjectId("6528d1b21855c5b61655c890"),\n' +
+    '      new ObjectId("6528d1e51855c5b61655c898"),\n' +
+    '      new ObjectId("6528d2021855c5b61655c8a0"),\n' +
+    '      new ObjectId("6528d2271855c5b61655c8a8"),\n' +
+    '      new ObjectId("6528d2491855c5b61655c8b0"),\n' +
+    '      new ObjectId("6528d2631855c5b61655c8b8"),\n' +
+    '      new ObjectId("6528d2b81855c5b61655c8c8"),\n' +
+    '      new ObjectId("6528d2d31855c5b61655c8d0"),\n' +
+    '      new ObjectId("6528d2f31855c5b61655c8d8"),\n' +
+    '      new ObjectId("654a0e0feaca672b5bd72d98"),\n' +
+    '      new ObjectId("654a0e7deaca672b5bd73028"),\n' +
+    '      new ObjectId("654b3891eaca672b5bd75b18"),\n' +
+    '      new ObjectId("6564934146f9c2f48293cce4"),\n' +
+    '      new ObjectId("656493bb46f9c2f48293ccf0"),\n' +
+    '      new ObjectId("6564a7b2b3a7fe94aec578a2"),\n' +
+    '      new ObjectId("6564a7f1b3a7fe94aec578ae"),\n' +
+    '      new ObjectId("6564abff5701c8d2cc39e29b"),\n' +
+    '      new ObjectId("6564adb814a5f905d6860c77"),\n' +
+    '      new ObjectId("6564ae9e5701c8d2cc39e2a7"),\n' +
+    '      new ObjectId("6564afa3660644d2e8a95630"),\n' +
+    '      new ObjectId("6564b0be2467b8082f16f2eb"),\n' +
+    '      new ObjectId("6564b19a660644d2e8a9563c"),\n' +
+    '      new ObjectId("6564b1d58034b8298d9037ee"),\n' +
+    '      new ObjectId("6564b2158034b8298d9037fa"),\n' +
+    '      new ObjectId("6564b2c818e0290ba91a6235"),\n' +
+    '      new ObjectId("6564b3062139366338427f12"),\n' +
+    '      new ObjectId("6564b40d97cc6436c254bc71"),\n' +
+    '      new ObjectId("6564b44197cc6436c254bc7d"),\n' +
+    '      new ObjectId("6564b46f97cc6436c254bc89"),\n' +
+    '      new ObjectId("6564b520808392c72e61f626"),\n' +
+    '      new ObjectId("6565de3497cc6436c254bc99"),\n' +
+    '      new ObjectId("6565de9a5ff39ccb4cf44283"),\n' +
+    '      new ObjectId("6565df0b5ff39ccb4cf4428f"),\n' +
+    '      new ObjectId("6565df241c1f17e00c83390b"),\n' +
+    '      new ObjectId("6565dfb8929c765c2cb60c7c"),\n' +
+    '      new ObjectId("656db150753ff2c2184594f7"),\n' +
+    '      new ObjectId("656db1cd86b8784f17343302"),\n' +
+    '      new ObjectId("656db35e537e5c17ffe74d56"),\n' +
+    '      new ObjectId("65789ab2797e51490f7eaed4"),\n' +
+    '      new ObjectId("65817e65ab35d4d8d6516240")\n' +
+    '    ],\n' +
+    '    __v: 0\n' +
+    '  },\n' +
+    '  role: {\n' +
+    '    permissions: {\n' +
+    "      workflows: 'none',\n" +
+    "      users: 'none',\n" +
+    "      forms: 'none',\n" +
+    "      departments: 'none',\n" +
+    "      applications: 'none',\n" +
+    "      roles: 'none'\n" +
+    '    },\n' +
+    '    _id: new ObjectId("6528cf993ac77b89a5169ea6"),\n' +
+    "    name: 'Principal',\n" +
+    "    status: 'active',\n" +
+    "    type: 'user',\n" +
+    '    __v: 0\n' +
+    '  },\n' +
+    '  institution: {\n' +
+    '    _id: new ObjectId("6527f1cf015f9b52c8b8167b"),\n' +
+    "    name: 'J N Medical College',\n" +
+    '    users: [],\n' +
+    '    __v: 0\n' +
+    '  }\n' +
+    '}"',
+  messageFormat: undefined,
+  kind: 'ObjectId',
+  value: [Object],
+  path: '_id',
+  reason: BSONError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new ObjectId (E:\KAHER-Backend\node_modules\bson\lib\bson.cjs:2055:23)
+      at castObjectId (E:\KAHER-Backend\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:248:12)
+      at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+      at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+      at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:304:34)
+      at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+      at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+      at model.Query._findOneAndUpdate (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3303:8)
+      at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28),
+  valueType: 'Object',
+  model: Model { User }
+}
+[2024-02-01T09:50:08.099Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.addApplicationForPrincipal (E:\KAHER-Backend\lib\database\methods\user.js:456:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\submit-application.js:96:28)
+    at async exports.submitApplications (E:\KAHER-Backend\controllers\application.controller.js:229:20)
+[2024-02-01T09:50:08.099Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.addApplicationForPrincipal (E:\KAHER-Backend\lib\database\methods\user.js:456:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\submit-application.js:96:28)
+    at async exports.submitApplications (E:\KAHER-Backend\controllers\application.controller.js:229:20)
+[2024-02-01T09:51:02.413Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:51:05.670Z] error: Failed to create user details: Cast to ObjectId failed for value "{
+  'department.id': new ObjectId("6527ecbb3ac77b89a5166210"),
+  role: new ObjectId("6528cf993ac77b89a5169ea6"),
+  institution: {
+    _id: new ObjectId("6527f1cf015f9b52c8b8167b"),
+    name: 'J N Medical College',
+    users: [],
+    __v: 0
+  }
+}" (type Object) at path "_id" for model "User" CastError: Cast to ObjectId failed for value "{
+  'department.id': new ObjectId("6527ecbb3ac77b89a5166210"),
+  role: new ObjectId("6528cf993ac77b89a5169ea6"),
+  institution: {
+    _id: new ObjectId("6527f1cf015f9b52c8b8167b"),
+    name: 'J N Medical College',
+    users: [],
+    __v: 0
+  }
+}" (type Object) at path "_id" for model "User"
+    at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:250:11)
+    at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+    at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+    at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:304:34)
+    at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+    at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+    at model.Query._findOneAndUpdate (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3303:8)
+    at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.addApplicationForPrincipal (E:\KAHER-Backend\lib\database\methods\user.js:433:24) {
+  stringValue: '"{\n' +
+    `  'department.id': new ObjectId("6527ecbb3ac77b89a5166210"),\n` +
+    '  role: new ObjectId("6528cf993ac77b89a5169ea6"),\n' +
+    '  institution: {\n' +
+    '    _id: new ObjectId("6527f1cf015f9b52c8b8167b"),\n' +
+    "    name: 'J N Medical College',\n" +
+    '    users: [],\n' +
+    '    __v: 0\n' +
+    '  }\n' +
+    '}"',
+  messageFormat: undefined,
+  kind: 'ObjectId',
+  value: [Object],
+  path: '_id',
+  reason: BSONError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new ObjectId (E:\KAHER-Backend\node_modules\bson\lib\bson.cjs:2055:23)
+      at castObjectId (E:\KAHER-Backend\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:248:12)
+      at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+      at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+      at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:304:34)
+      at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+      at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+      at model.Query._findOneAndUpdate (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3303:8)
+      at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28),
+  valueType: 'Object',
+  model: Model { User }
+}
+[2024-02-01T09:51:05.670Z] error: Failed to create user details: Cast to ObjectId failed for value "{
+  'department.id': new ObjectId("6527ecbb3ac77b89a5166210"),
+  role: new ObjectId("6528cf993ac77b89a5169ea6"),
+  institution: {
+    _id: new ObjectId("6527f1cf015f9b52c8b8167b"),
+    name: 'J N Medical College',
+    users: [],
+    __v: 0
+  }
+}" (type Object) at path "_id" for model "User" CastError: Cast to ObjectId failed for value "{
+  'department.id': new ObjectId("6527ecbb3ac77b89a5166210"),
+  role: new ObjectId("6528cf993ac77b89a5169ea6"),
+  institution: {
+    _id: new ObjectId("6527f1cf015f9b52c8b8167b"),
+    name: 'J N Medical College',
+    users: [],
+    __v: 0
+  }
+}" (type Object) at path "_id" for model "User"
+    at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:250:11)
+    at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+    at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+    at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:304:34)
+    at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+    at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+    at model.Query._findOneAndUpdate (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3303:8)
+    at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.addApplicationForPrincipal (E:\KAHER-Backend\lib\database\methods\user.js:433:24) {
+  stringValue: '"{\n' +
+    `  'department.id': new ObjectId("6527ecbb3ac77b89a5166210"),\n` +
+    '  role: new ObjectId("6528cf993ac77b89a5169ea6"),\n' +
+    '  institution: {\n' +
+    '    _id: new ObjectId("6527f1cf015f9b52c8b8167b"),\n' +
+    "    name: 'J N Medical College',\n" +
+    '    users: [],\n' +
+    '    __v: 0\n' +
+    '  }\n' +
+    '}"',
+  messageFormat: undefined,
+  kind: 'ObjectId',
+  value: [Object],
+  path: '_id',
+  reason: BSONError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new ObjectId (E:\KAHER-Backend\node_modules\bson\lib\bson.cjs:2055:23)
+      at castObjectId (E:\KAHER-Backend\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:248:12)
+      at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+      at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+      at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:304:34)
+      at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+      at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+      at model.Query._findOneAndUpdate (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3303:8)
+      at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28),
+  valueType: 'Object',
+  model: Model { User }
+}
+[2024-02-01T09:51:05.679Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.addApplicationForPrincipal (E:\KAHER-Backend\lib\database\methods\user.js:456:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\submit-application.js:96:28)
+    at async exports.submitApplications (E:\KAHER-Backend\controllers\application.controller.js:229:20)
+[2024-02-01T09:51:05.679Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.addApplicationForPrincipal (E:\KAHER-Backend\lib\database\methods\user.js:456:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\submit-application.js:96:28)
+    at async exports.submitApplications (E:\KAHER-Backend\controllers\application.controller.js:229:20)
+[2024-02-01T09:51:19.888Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:51:28.593Z] error: Failed to create user details: Cast to ObjectId failed for value "{
+  'department.id': new ObjectId("6527ecbb3ac77b89a5166210"),
+  role: new ObjectId("6528cf993ac77b89a5169ea6"),
+  institution: new ObjectId("6527f1cf015f9b52c8b8167b")
+}" (type Object) at path "_id" for model "User" CastError: Cast to ObjectId failed for value "{
+  'department.id': new ObjectId("6527ecbb3ac77b89a5166210"),
+  role: new ObjectId("6528cf993ac77b89a5169ea6"),
+  institution: new ObjectId("6527f1cf015f9b52c8b8167b")
+}" (type Object) at path "_id" for model "User"
+    at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:250:11)
+    at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+    at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+    at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:304:34)
+    at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+    at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+    at model.Query._findOneAndUpdate (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3303:8)
+    at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.addApplicationForPrincipal (E:\KAHER-Backend\lib\database\methods\user.js:433:24) {
+  stringValue: '"{\n' +
+    `  'department.id': new ObjectId("6527ecbb3ac77b89a5166210"),\n` +
+    '  role: new ObjectId("6528cf993ac77b89a5169ea6"),\n' +
+    '  institution: new ObjectId("6527f1cf015f9b52c8b8167b")\n' +
+    '}"',
+  messageFormat: undefined,
+  kind: 'ObjectId',
+  value: [Object],
+  path: '_id',
+  reason: BSONError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new ObjectId (E:\KAHER-Backend\node_modules\bson\lib\bson.cjs:2055:23)
+      at castObjectId (E:\KAHER-Backend\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:248:12)
+      at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+      at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+      at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:304:34)
+      at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+      at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+      at model.Query._findOneAndUpdate (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3303:8)
+      at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28),
+  valueType: 'Object',
+  model: Model { User }
+}
+[2024-02-01T09:51:28.593Z] error: Failed to create user details: Cast to ObjectId failed for value "{
+  'department.id': new ObjectId("6527ecbb3ac77b89a5166210"),
+  role: new ObjectId("6528cf993ac77b89a5169ea6"),
+  institution: new ObjectId("6527f1cf015f9b52c8b8167b")
+}" (type Object) at path "_id" for model "User" CastError: Cast to ObjectId failed for value "{
+  'department.id': new ObjectId("6527ecbb3ac77b89a5166210"),
+  role: new ObjectId("6528cf993ac77b89a5169ea6"),
+  institution: new ObjectId("6527f1cf015f9b52c8b8167b")
+}" (type Object) at path "_id" for model "User"
+    at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:250:11)
+    at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+    at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+    at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:304:34)
+    at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+    at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+    at model.Query._findOneAndUpdate (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3303:8)
+    at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.addApplicationForPrincipal (E:\KAHER-Backend\lib\database\methods\user.js:433:24) {
+  stringValue: '"{\n' +
+    `  'department.id': new ObjectId("6527ecbb3ac77b89a5166210"),\n` +
+    '  role: new ObjectId("6528cf993ac77b89a5169ea6"),\n' +
+    '  institution: new ObjectId("6527f1cf015f9b52c8b8167b")\n' +
+    '}"',
+  messageFormat: undefined,
+  kind: 'ObjectId',
+  value: [Object],
+  path: '_id',
+  reason: BSONError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new ObjectId (E:\KAHER-Backend\node_modules\bson\lib\bson.cjs:2055:23)
+      at castObjectId (E:\KAHER-Backend\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:248:12)
+      at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+      at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+      at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:304:34)
+      at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+      at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+      at model.Query._findOneAndUpdate (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3303:8)
+      at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28),
+  valueType: 'Object',
+  model: Model { User }
+}
+[2024-02-01T09:51:28.603Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.addApplicationForPrincipal (E:\KAHER-Backend\lib\database\methods\user.js:456:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\submit-application.js:96:28)
+    at async exports.submitApplications (E:\KAHER-Backend\controllers\application.controller.js:229:20)
+[2024-02-01T09:51:28.603Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.addApplicationForPrincipal (E:\KAHER-Backend\lib\database\methods\user.js:456:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\submit-application.js:96:28)
+    at async exports.submitApplications (E:\KAHER-Backend\controllers\application.controller.js:229:20)
+[2024-02-01T09:52:11.454Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:52:16.171Z] error: Failed to create user details: Cast to ObjectId failed for value "{
+  'department.id': '6527ecbb3ac77b89a5166210',
+  role: new ObjectId("6528cf993ac77b89a5169ea6"),
+  institution: new ObjectId("6527f1cf015f9b52c8b8167b")
+}" (type Object) at path "_id" for model "User" CastError: Cast to ObjectId failed for value "{
+  'department.id': '6527ecbb3ac77b89a5166210',
+  role: new ObjectId("6528cf993ac77b89a5169ea6"),
+  institution: new ObjectId("6527f1cf015f9b52c8b8167b")
+}" (type Object) at path "_id" for model "User"
+    at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:250:11)
+    at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+    at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+    at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:304:34)
+    at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+    at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+    at model.Query._findOneAndUpdate (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3303:8)
+    at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.addApplicationForPrincipal (E:\KAHER-Backend\lib\database\methods\user.js:433:24) {
+  stringValue: '"{\n' +
+    "  'department.id': '6527ecbb3ac77b89a5166210',\n" +
+    '  role: new ObjectId("6528cf993ac77b89a5169ea6"),\n' +
+    '  institution: new ObjectId("6527f1cf015f9b52c8b8167b")\n' +
+    '}"',
+  messageFormat: undefined,
+  kind: 'ObjectId',
+  value: [Object],
+  path: '_id',
+  reason: BSONError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new ObjectId (E:\KAHER-Backend\node_modules\bson\lib\bson.cjs:2055:23)
+      at castObjectId (E:\KAHER-Backend\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:248:12)
+      at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+      at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+      at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:304:34)
+      at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+      at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+      at model.Query._findOneAndUpdate (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3303:8)
+      at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28),
+  valueType: 'Object',
+  model: Model { User }
+}
+[2024-02-01T09:52:16.171Z] error: Failed to create user details: Cast to ObjectId failed for value "{
+  'department.id': '6527ecbb3ac77b89a5166210',
+  role: new ObjectId("6528cf993ac77b89a5169ea6"),
+  institution: new ObjectId("6527f1cf015f9b52c8b8167b")
+}" (type Object) at path "_id" for model "User" CastError: Cast to ObjectId failed for value "{
+  'department.id': '6527ecbb3ac77b89a5166210',
+  role: new ObjectId("6528cf993ac77b89a5169ea6"),
+  institution: new ObjectId("6527f1cf015f9b52c8b8167b")
+}" (type Object) at path "_id" for model "User"
+    at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:250:11)
+    at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+    at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+    at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:304:34)
+    at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+    at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+    at model.Query._findOneAndUpdate (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3303:8)
+    at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.addApplicationForPrincipal (E:\KAHER-Backend\lib\database\methods\user.js:433:24) {
+  stringValue: '"{\n' +
+    "  'department.id': '6527ecbb3ac77b89a5166210',\n" +
+    '  role: new ObjectId("6528cf993ac77b89a5169ea6"),\n' +
+    '  institution: new ObjectId("6527f1cf015f9b52c8b8167b")\n' +
+    '}"',
+  messageFormat: undefined,
+  kind: 'ObjectId',
+  value: [Object],
+  path: '_id',
+  reason: BSONError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new ObjectId (E:\KAHER-Backend\node_modules\bson\lib\bson.cjs:2055:23)
+      at castObjectId (E:\KAHER-Backend\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:248:12)
+      at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+      at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+      at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:304:34)
+      at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+      at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+      at model.Query._findOneAndUpdate (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3303:8)
+      at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28),
+  valueType: 'Object',
+  model: Model { User }
+}
+[2024-02-01T09:52:16.194Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.addApplicationForPrincipal (E:\KAHER-Backend\lib\database\methods\user.js:456:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\submit-application.js:96:28)
+    at async exports.submitApplications (E:\KAHER-Backend\controllers\application.controller.js:229:20)
+[2024-02-01T09:52:16.194Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.addApplicationForPrincipal (E:\KAHER-Backend\lib\database\methods\user.js:456:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\submit-application.js:96:28)
+    at async exports.submitApplications (E:\KAHER-Backend\controllers\application.controller.js:229:20)
+[2024-02-01T09:55:24.289Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:55:28.576Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:55:34.957Z] error: Failed to signup: TypeError: Cannot read properties of undefined (reading '_id')
+    at Object.execute (E:\KAHER-Backend\use-cases\application\submit-application.js:195:45)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.submitApplications (E:\KAHER-Backend\controllers\application.controller.js:229:20)
+[2024-02-01T09:55:34.957Z] error: Failed to signup: TypeError: Cannot read properties of undefined (reading '_id')
+    at Object.execute (E:\KAHER-Backend\use-cases\application\submit-application.js:195:45)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.submitApplications (E:\KAHER-Backend\controllers\application.controller.js:229:20)
+[2024-02-01T09:55:40.802Z] info: Email sent: 250 OK id=1rVTnJ-008rgY-2e
+[2024-02-01T09:57:16.185Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:58:11.690Z] error: Failed to signup: TypeError: Cannot read properties of undefined (reading '_id')
+    at Object.execute (E:\KAHER-Backend\use-cases\application\submit-application.js:196:45)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.submitApplications (E:\KAHER-Backend\controllers\application.controller.js:229:20)
+[2024-02-01T09:58:11.690Z] error: Failed to signup: TypeError: Cannot read properties of undefined (reading '_id')
+    at Object.execute (E:\KAHER-Backend\use-cases\application\submit-application.js:196:45)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.submitApplications (E:\KAHER-Backend\controllers\application.controller.js:229:20)
+[2024-02-01T09:58:16.255Z] info: Email sent: 250 OK id=1rVTpp-008tmq-0q
+[2024-02-01T09:58:50.165Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:59:51.158Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T09:59:56.976Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T10:00:09.765Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T10:00:18.312Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T10:00:28.578Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T10:00:48.502Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T10:00:52.860Z] info: Connecting to database: DEVELOPMENT

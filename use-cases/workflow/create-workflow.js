@@ -61,10 +61,18 @@ exports.Create = ({
         const res = await WorkflowFunction.create(entity);
 
         entity.approvals.forEach(async (element) => {
-          const update = await UserFunction.addApplication(
-            element.approvalBy.user,
-            res.data.uuid
-          );
+          if (element.approvalBy.user) {
+            const update = await UserFunction.addApplication(
+              element.approvalBy.user,
+              res.data.uuid
+            );
+          } else if (element.name !== 'Principal Approver') {
+            const update = await UserFunction.addApplicationForNonPrincipal({
+              roleID: element.approvalBy.role,
+              departmentID: element.approvalBy.department,
+              applicationID: res.data.uuid,
+            });
+          }
         });
 
         return {

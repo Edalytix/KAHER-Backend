@@ -82,13 +82,25 @@ exports.Submit = ({
           lang,
         });
 
-        const workflow = (
+        let workflow = (
           await WorkflowFunction.findById(application.workflow._id)
         ).data.workflow;
 
         if (workflow.version !== 'latest') {
           throw new CreateError(translate(lang, 'older_version'), 403);
         }
+
+        for (const element of workflow.approvals) {
+          if (element.name === 'Principal Approver') {
+            const update = await UserFunction.addApplicationForPrincipal({
+              roleID: element.approvalBy.role._id,
+              departmentID: element.approvalBy.department._id.toString(),
+              applicationID: workflow.uuid,
+              institutionID: user.institution._id,
+            });
+          }
+        }
+
         const resAction = await CommentFunction.addComment({
           id: id,
           params: {
@@ -179,8 +191,8 @@ exports.Submit = ({
             });
           } else {
             const approvers = await UserFunction.findByParams({
-              role: element.approvalBy.role._id,
-              'department.id': element.approvalBy.department._id.toString(),
+              role: element.approvalBy?.role?._id,
+              'department.id': element?.approvalBy?.department?._id.toString(),
             });
             approvers.data.forEach(async (element) => {
               const mail = await mailer({
