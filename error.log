@@ -1927,3 +1927,14 @@
 [2024-02-01T10:21:43.066Z] info: Connecting to database: DEVELOPMENT
 [2024-02-01T10:25:36.171Z] info: Connecting to database: DEVELOPMENT
 [2024-02-01T10:26:34.919Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T10:27:16.234Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T10:52:30.212Z] info: Connecting to database: DEVELOPMENT
+[2024-02-01T10:53:35.618Z] error: token verification error/tampered
+[2024-02-01T10:53:35.618Z] error: token verification error/tampered
+[2024-02-01T10:53:54.943Z] error: token verification error/tampered
+[2024-02-01T10:53:54.943Z] error: token verification error/tampered
+[2024-02-01T10:55:12.544Z] error: token verification error/tampered
+[2024-02-01T10:55:12.544Z] error: token verification error/tampered
+[2024-02-01T10:57:08.967Z] error: token verification error/tampered
+[2024-02-01T10:57:08.967Z] error: token verification error/tampered
+[2024-02-01T11:03:05.619Z] info: Connecting to database: PRODUCTION
