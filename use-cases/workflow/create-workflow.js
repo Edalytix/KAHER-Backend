@@ -66,7 +66,7 @@ exports.Create = ({
               element.approvalBy.user,
               res.data.uuid
             );
-          } else if (element.name !== 'Principal Approver') {
+          } else if (!element.name.includes('Principal')) {
             const update = await UserFunction.addApplicationForNonPrincipal({
               roleID: element.approvalBy.role,
               departmentID: element.approvalBy.department,

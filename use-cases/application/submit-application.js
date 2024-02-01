@@ -91,7 +91,7 @@ exports.Submit = ({
         }
 
         for (const element of workflow.approvals) {
-          if (element.name === 'Principal Approver') {
+          if (element.name.includes('Principal')) {
             const update = await UserFunction.addApplicationForPrincipal({
               roleID: element.approvalBy.role._id,
               departmentID: element.approvalBy.department._id.toString(),
