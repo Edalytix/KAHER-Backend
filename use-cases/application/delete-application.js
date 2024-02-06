@@ -29,10 +29,10 @@ exports.Delete = ({
         });
 
         const application = await ApplicationFunction.findById(id);
-
         if (
           !application.data.application ||
-          userUID !== application.data.application.user._id.toString()
+          (role.type !== 'admin' &&
+            userUID !== application.data.application.user._id.toString())
         ) {
           throw new CreateError(translate(lang, 'forbidden'), 403);
         }
