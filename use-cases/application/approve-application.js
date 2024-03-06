@@ -22,19 +22,6 @@ exports.ApprovalUpdate = ({
         const role = request.locals.role;
         let id = request.queryParams.id;
 
-        // const acesssRes = await accessManager({
-        //   translate,
-        //   logger,
-        //   CreateError,
-        //   lang,
-        //   role,
-        //   db,
-        //   useCase: 'applications:edit',
-        // });
-        // if (!acesssRes) {
-        //   throw new CreateError(translate(lang, 'forbidden'), 403);
-        // }
-
         const ApplicationFunction = db.methods.Application({
           translate,
           logger,
@@ -153,7 +140,13 @@ exports.ApprovalUpdate = ({
               let response = form_data?.response;
               if (!form) continue;
 
-              if ((form?.title !== "FINANCIAL ASSISTANCE TO FACULTY MEMBERS FOR PRESENTATION / INVITED TALK / ORATION / GUEST SPEAKER / RESOURCE PERSON ONCE IN A THREE YEAR OUTSIDE INDIA") && (form?.title !== "ASSISTANCE TO FACULTY MEMBERS FOR PRESENTATION / INVITED TALK / ORATION / GUEST SPEAKER / RESOURCE PERSON ONCE IN A YEAR WITHIN INDIA")) continue
+              if (
+                form?.title !==
+                  'FINANCIAL ASSISTANCE TO FACULTY MEMBERS FOR PRESENTATION / INVITED TALK / ORATION / GUEST SPEAKER / RESOURCE PERSON ONCE IN A THREE YEAR OUTSIDE INDIA' &&
+                form?.title !==
+                  'ASSISTANCE TO FACULTY MEMBERS FOR PRESENTATION / INVITED TALK / ORATION / GUEST SPEAKER / RESOURCE PERSON ONCE IN A YEAR WITHIN INDIA'
+              )
+                continue;
 
               let event_title_id = null;
               let event_place_id = null;
@@ -205,10 +198,10 @@ exports.ApprovalUpdate = ({
                 duration:
                   event_from_date && event_to_date
                     ? `from ${new Intl.DateTimeFormat('en-US', options).format(
-                      event_from_date
-                    )} to ${new Intl.DateTimeFormat('en-US', options).format(
-                      event_to_date
-                    )}`
+                        event_from_date
+                      )} to ${new Intl.DateTimeFormat('en-US', options).format(
+                        event_to_date
+                      )}`
                     : null,
               });
 
@@ -260,7 +253,7 @@ exports.ApprovalUpdate = ({
                 const approvers = await UserFunction.findByParams({
                   role: element.approvalBy.role._id,
                   'department.id': element.approvalBy.department._id.toString(),
-                  institution: applicant?.institution?._id
+                  institution: applicant?.institution?._id,
                 });
                 approvers.data.forEach(async (element) => {
                   const mail = await mailer({
@@ -337,7 +330,7 @@ exports.ApprovalUpdate = ({
                 const approvers = await UserFunction.findByParams({
                   role: element.approvalBy.role._id,
                   'department.id': element.approvalBy.department._id.toString(),
-                  institution: applicant?.institution?._id
+                  institution: applicant?.institution?._id,
                 });
                 approvers.data.forEach(async (element) => {
                   const mail = await mailer({
@@ -431,7 +424,7 @@ exports.ApprovalUpdate = ({
               const approvers = await UserFunction.findByParams({
                 role: element.approvalBy.role._id,
                 'department.id': element.approvalBy.department._id.toString(),
-                institution: applicant?.institution?._id
+                institution: applicant?.institution?._id,
               });
               approvers.data.forEach(async (element) => {
                 const mail = await mailer({

@@ -86,7 +86,13 @@ exports.ApplicationDetails = ({
         } else {
           res.status = res.data.application.level;
         }
-        res.status;
+
+        const lastApplication = await ApplicationFunction.findLastApplication(
+          res.data.application.user._id,
+          res.data.application.workflowUid
+        );
+
+        res.lastApplication = lastApplication.data.application;
         return {
           msg: translate(lang, 'created_mood'),
           data: res,

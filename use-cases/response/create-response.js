@@ -1,5 +1,5 @@
 const fromEntities = require('../../entity');
-
+const mongoose = require('mongoose');
 exports.Create = ({
   CreateError,
   DataValidator,
@@ -49,7 +49,21 @@ exports.Create = ({
           lang,
         });
 
+        const ApplicationFunction = db.methods.Application({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
+
         const FormFunction = db.methods.Form({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
+
+        const WorkflowFunction = db.methods.Workflow({
           translate,
           logger,
           CreateError,
@@ -61,12 +75,30 @@ exports.Create = ({
         if (!form) {
           throw new CreateError('Bad request', 422);
         }
-        const formQuestions = form.data.form.questions.map((obj) =>
+
+        const workflow = (await WorkflowFunction.findById(entity.wuid)).data
+          .workflow;
+
+        if (workflow.uuid === '73f7b925-4cfa-4c8e-b5a1-84df8d672fcd') {
+          entity.responses.forEach(async (element) => {
+            if (element.quid === '6520f35b396cd1e1f8585696') {
+              const application = await ApplicationFunction.findById(
+                new mongoose.Types.ObjectId(element.string)
+              );
+
+              if (!application.data.application)
+                throw new CreateError('Bad request', 422);
+            }
+          });
+        }
+        const formQuestions = form.data.form?.questions.map((obj) =>
           obj._id.toString()
         );
         const bodyQuestions = entity.responses.map((obj) => obj.quid);
+
         const isSubset = (bodyQuestions, formQuestions) =>
-          bodyQuestions.every((item) => formQuestions.includes(item));
+          bodyQuestions.every((item) => formQuestions?.includes(item));
+
         if (!isSubset(bodyQuestions, formQuestions)) {
           throw new CreateError('Bad request', 422);
         }
