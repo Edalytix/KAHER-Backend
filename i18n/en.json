@@ -12,6 +12,7 @@
   "invalid_dob": "Invalid Date of Birth.",
   "invalid_phone": "Invalid Phone number.",
   "invalid_department": "Department does not exists.",
+  "invalid_application": "The entered Applicatin ID is invalid or not apprved yet.",
 
   "user_not_found": "User not found, please check ID and try again.",
   "required_uid": "User ID is required.",

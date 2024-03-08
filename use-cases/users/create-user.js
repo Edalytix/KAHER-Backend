@@ -40,9 +40,9 @@ exports.Create = ({
           db,
           useCase: 'users:edit',
         });
-        if (!acesssRes) {
-          throw new CreateError(translate(lang, 'forbidden'), 403);
-        }
+        // if (!acesssRes) {
+        //   throw new CreateError(translate(lang, 'forbidden'), 403);
+        // }
 
         const tokenGenerator = token.jwt({
           CreateError,
@@ -113,33 +113,6 @@ exports.Create = ({
         } catch (error) {
           console.log('error is', error);
         }
-        // fs.readFile(imagePath, async (err, data) => {
-        //   if (err) {
-        //     console.log(err);
-        //     console.error('Error reading the image file:', err);
-        //   } else {
-        //     // 'data' now contains the binary data of the image file
-        //     // You can process or use this data as needed
-        //     // For example, you can convert it to a base64-encoded string to use it in an HTML <img> tag
-        //     const base64Image = data.toString('base64');
-        //     //const imageDataUrl = `data:image/png;base64,${base64Image}`;
-        //     const obj = await uploadFile({
-        //       file: base64Image,
-        //     });
-        //     entity.profile_picture = obj.url;
-        //     console.log('Successfully read the image file.');
-        //     //console.log(imageDataUrl);
-
-        //     // Now you can use 'imageDataUrl' to display the image in your application or save it as needed.
-        //   }
-        // });
-
-        // if (request.body?.files?.profile_picture) {
-        //   const obj = await uploadFile({
-        //     file: request.body?.files?.profile_picture[0],
-        //   });
-        //   entity.profile_picture = obj.url;
-        // }
 
         const hashedPassword = (
           await crypto
@@ -168,6 +141,38 @@ exports.Create = ({
           throw new CreateError('Department not found', 403);
         }
         entity.department.name = department.data.department.name;
+
+        const ApplicationFunction = db.methods.Application({
+          translate,
+          logger,
+          CreateError,
+          lang,
+        });
+
+        const applications = (await ApplicationFunction.findAll()).data.data;
+        console.log(applications);
+        const approverApplications = [];
+
+        for (let index = 0; index < applications.length; index++) {
+          const element = applications[index];
+
+          for (
+            let index = 0;
+            index < element.workflow.approvals.length;
+            index++
+          ) {
+            const approval = element.workflow.approvals[index];
+            if (
+              approval.approvalBy.department &&
+              approval.approvalBy.department.toString() ===
+                department.data.department._id.toString()
+            ) {
+              approverApplications.push(element._id);
+            }
+          }
+        }
+
+        entity.applications = approverApplications;
         const res = await UserFunction.create(entity);
 
         const refreshToken = (
@@ -194,6 +199,7 @@ exports.Create = ({
             type: 'SetPassword',
           },
         });
+
         return {
           msg: translate(lang, 'created_mood'),
           data: { res },

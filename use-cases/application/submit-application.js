@@ -44,6 +44,24 @@ exports.Submit = ({
           throw new CreateError(translate(lang, 'forbidden'), 403);
         }
 
+        if (
+          //This is the ID of the Reimbursment Application.
+          application.workflow.uuid === '73f7b925-4cfa-4c8e-b5a1-84df8d672fcc'
+        ) {
+          if (!application.workflow.forms[0].response.responses[0].string) {
+            throw new CreateError(translate(lang, 'invalid_application'), 403);
+          }
+          const appId =
+            application.workflow.forms[0].response.responses[0].string ||
+            '65e5b091c03f5c18e7b9f885';
+
+          const CheckApplication = (await ApplicationFunction.findById(appId))
+            .data.application;
+          if (CheckApplication.level !== 'approved') {
+            throw new CreateError(translate(lang, 'invalid_application'), 403);
+          }
+        }
+
         const date = new Date();
         const options = {
           timeZone: 'Asia/Kolkata',

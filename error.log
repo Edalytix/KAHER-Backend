@@ -1961,3 +1961,857 @@
 [2024-02-06T12:26:32.985Z] info: Connecting to database: PRODUCTION
 [2024-02-06T12:26:39.690Z] info: Connecting to database: PRODUCTION
 [2024-02-06T12:26:53.793Z] info: Connecting to database: PRODUCTION
+[2024-02-06T12:27:12.195Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:07:30.303Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:11:41.544Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:12:12.672Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:12:35.880Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:22:29.288Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:22:41.103Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:22:48.362Z] error: token verification expired
+[2024-02-26T14:22:48.362Z] error: token verification expired
+[2024-02-26T14:23:13.867Z] error: Failed to signup: TypeError: Cannot read properties of null (reading 'questions')
+    at Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:78:46)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-02-26T14:23:13.867Z] error: Failed to signup: TypeError: Cannot read properties of null (reading 'questions')
+    at Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:78:46)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-02-26T14:24:59.392Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:25:31.959Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:25:58.884Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:27:04.819Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:27:14.205Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:27:23.750Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:27:45.972Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:28:09.585Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:28:16.897Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:28:23.442Z] error: Failed to find application by id: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override. StrictPopulateError: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override.
+    at getModelsMapForPopulate (E:\KAHER-Backend\node_modules\mongoose\lib\helpers\populate\getModelsMapForPopulate.js:50:12)
+    at populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4346:21)
+    at _populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4306:5)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4278:5
+    at new Promise (<anonymous>)
+    at Function.populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4277:10)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2506:11
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3149:21
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+  path: 'users'
+}
+[2024-02-26T14:28:23.442Z] error: Failed to find application by id: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override. StrictPopulateError: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override.
+    at getModelsMapForPopulate (E:\KAHER-Backend\node_modules\mongoose\lib\helpers\populate\getModelsMapForPopulate.js:50:12)
+    at populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4346:21)
+    at _populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4306:5)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4278:5
+    at new Promise (<anonymous>)
+    at Function.populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4277:10)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2506:11
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3149:21
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+  path: 'users'
+}
+[2024-02-26T14:28:23.447Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:710:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:33)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:28:23.447Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:710:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:33)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:29:23.521Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:29:40.845Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:32:23.007Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:32:29.396Z] error: Failed to find application by id: Argument passed in does not match the accepted types BSONError: Argument passed in does not match the accepted types
+    at new ObjectId (E:\KAHER-Backend\node_modules\bson\lib\bson.cjs:2059:19)
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:685:17)
+    at Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:59)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:32:29.396Z] error: Failed to find application by id: Argument passed in does not match the accepted types BSONError: Argument passed in does not match the accepted types
+    at new ObjectId (E:\KAHER-Backend\node_modules\bson\lib\bson.cjs:2059:19)
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:685:17)
+    at Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:59)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:32:29.408Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:710:15)
+    at Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:59)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:32:29.408Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:710:15)
+    at Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:59)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:32:59.998Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:33:05.102Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:33:22.590Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:33:29.342Z] error: Failed to find application by id: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override. StrictPopulateError: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override.
+    at getModelsMapForPopulate (E:\KAHER-Backend\node_modules\mongoose\lib\helpers\populate\getModelsMapForPopulate.js:50:12)
+    at populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4346:21)
+    at _populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4306:5)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4278:5
+    at new Promise (<anonymous>)
+    at Function.populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4277:10)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2506:11
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3149:21
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+  path: 'users'
+}
+[2024-02-26T14:33:29.342Z] error: Failed to find application by id: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override. StrictPopulateError: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override.
+    at getModelsMapForPopulate (E:\KAHER-Backend\node_modules\mongoose\lib\helpers\populate\getModelsMapForPopulate.js:50:12)
+    at populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4346:21)
+    at _populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4306:5)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4278:5
+    at new Promise (<anonymous>)
+    at Function.populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4277:10)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2506:11
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3149:21
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+  path: 'users'
+}
+[2024-02-26T14:33:29.356Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:710:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:33)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:33:29.356Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:710:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:33)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:34:01.221Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:34:07.875Z] error: Failed to find application by id: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override. StrictPopulateError: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override.
+    at getModelsMapForPopulate (E:\KAHER-Backend\node_modules\mongoose\lib\helpers\populate\getModelsMapForPopulate.js:50:12)
+    at populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4346:21)
+    at _populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4306:5)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4278:5
+    at new Promise (<anonymous>)
+    at Function.populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4277:10)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2506:11
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3149:21
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+  path: 'users'
+}
+[2024-02-26T14:34:07.875Z] error: Failed to find application by id: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override. StrictPopulateError: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override.
+    at getModelsMapForPopulate (E:\KAHER-Backend\node_modules\mongoose\lib\helpers\populate\getModelsMapForPopulate.js:50:12)
+    at populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4346:21)
+    at _populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4306:5)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4278:5
+    at new Promise (<anonymous>)
+    at Function.populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4277:10)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2506:11
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3149:21
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+  path: 'users'
+}
+[2024-02-26T14:34:07.880Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:710:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:33)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:34:07.880Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:710:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:33)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:34:46.259Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:34:51.985Z] error: Failed to find application by id: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override. StrictPopulateError: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override.
+    at getModelsMapForPopulate (E:\KAHER-Backend\node_modules\mongoose\lib\helpers\populate\getModelsMapForPopulate.js:50:12)
+    at populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4346:21)
+    at _populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4306:5)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4278:5
+    at new Promise (<anonymous>)
+    at Function.populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4277:10)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2506:11
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3149:21
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+  path: 'users'
+}
+[2024-02-26T14:34:51.985Z] error: Failed to find application by id: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override. StrictPopulateError: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override.
+    at getModelsMapForPopulate (E:\KAHER-Backend\node_modules\mongoose\lib\helpers\populate\getModelsMapForPopulate.js:50:12)
+    at populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4346:21)
+    at _populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4306:5)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4278:5
+    at new Promise (<anonymous>)
+    at Function.populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4277:10)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2506:11
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3149:21
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+  path: 'users'
+}
+[2024-02-26T14:34:51.990Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:710:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:33)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:34:51.990Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:710:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:33)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:35:14.424Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:35:20.341Z] error: Failed to find application by id: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override. StrictPopulateError: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override.
+    at getModelsMapForPopulate (E:\KAHER-Backend\node_modules\mongoose\lib\helpers\populate\getModelsMapForPopulate.js:50:12)
+    at populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4346:21)
+    at _populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4306:5)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4278:5
+    at new Promise (<anonymous>)
+    at Function.populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4277:10)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2506:11
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3149:21
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+  path: 'users'
+}
+[2024-02-26T14:35:20.341Z] error: Failed to find application by id: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override. StrictPopulateError: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override.
+    at getModelsMapForPopulate (E:\KAHER-Backend\node_modules\mongoose\lib\helpers\populate\getModelsMapForPopulate.js:50:12)
+    at populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4346:21)
+    at _populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4306:5)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4278:5
+    at new Promise (<anonymous>)
+    at Function.populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4277:10)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2506:11
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3149:21
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+  path: 'users'
+}
+[2024-02-26T14:35:20.356Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:710:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:33)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:35:20.356Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:710:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:33)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:35:38.447Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:35:44.809Z] error: Failed to find application by id: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override. StrictPopulateError: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override.
+    at getModelsMapForPopulate (E:\KAHER-Backend\node_modules\mongoose\lib\helpers\populate\getModelsMapForPopulate.js:50:12)
+    at populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4346:21)
+    at _populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4306:5)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4278:5
+    at new Promise (<anonymous>)
+    at Function.populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4277:10)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2506:11
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3149:21
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+  path: 'users'
+}
+[2024-02-26T14:35:44.809Z] error: Failed to find application by id: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override. StrictPopulateError: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override.
+    at getModelsMapForPopulate (E:\KAHER-Backend\node_modules\mongoose\lib\helpers\populate\getModelsMapForPopulate.js:50:12)
+    at populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4346:21)
+    at _populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4306:5)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4278:5
+    at new Promise (<anonymous>)
+    at Function.populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4277:10)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2506:11
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3149:21
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+  path: 'users'
+}
+[2024-02-26T14:35:44.823Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:710:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:33)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:35:44.823Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:710:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:33)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:36:23.899Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:36:33.747Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:36:39.675Z] error: Failed to find application by id: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override. StrictPopulateError: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override.
+    at getModelsMapForPopulate (E:\KAHER-Backend\node_modules\mongoose\lib\helpers\populate\getModelsMapForPopulate.js:50:12)
+    at populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4346:21)
+    at _populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4306:5)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4278:5
+    at new Promise (<anonymous>)
+    at Function.populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4277:10)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2506:11
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3149:21
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+  path: 'users'
+}
+[2024-02-26T14:36:39.675Z] error: Failed to find application by id: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override. StrictPopulateError: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override.
+    at getModelsMapForPopulate (E:\KAHER-Backend\node_modules\mongoose\lib\helpers\populate\getModelsMapForPopulate.js:50:12)
+    at populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4346:21)
+    at _populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4306:5)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4278:5
+    at new Promise (<anonymous>)
+    at Function.populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4277:10)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2506:11
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3149:21
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+  path: 'users'
+}
+[2024-02-26T14:36:39.690Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:710:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:33)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:36:39.690Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:710:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:33)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:37:08.227Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:37:14.660Z] error: Failed to find application by id: Class constructor ObjectId cannot be invoked without 'new' TypeError: Class constructor ObjectId cannot be invoked without 'new'
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:685:32)
+    at Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:59)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:37:14.660Z] error: Failed to find application by id: Class constructor ObjectId cannot be invoked without 'new' TypeError: Class constructor ObjectId cannot be invoked without 'new'
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:685:32)
+    at Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:59)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:37:14.669Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:710:15)
+    at Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:59)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:37:14.669Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:710:15)
+    at Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:59)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:38:31.821Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:38:38.378Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:38:44.684Z] error: Failed to find application by id: Class constructor ObjectId cannot be invoked without 'new' TypeError: Class constructor ObjectId cannot be invoked without 'new'
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:685:32)
+    at Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:59)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:38:44.684Z] error: Failed to find application by id: Class constructor ObjectId cannot be invoked without 'new' TypeError: Class constructor ObjectId cannot be invoked without 'new'
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:685:32)
+    at Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:59)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:38:44.690Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:710:15)
+    at Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:59)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:38:44.690Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:710:15)
+    at Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:59)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:42:22.474Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:42:27.920Z] error: Failed to find application by id: Class constructor ObjectId cannot be invoked without 'new' TypeError: Class constructor ObjectId cannot be invoked without 'new'
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:685:32)
+    at Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:59)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:42:27.920Z] error: Failed to find application by id: Class constructor ObjectId cannot be invoked without 'new' TypeError: Class constructor ObjectId cannot be invoked without 'new'
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:685:32)
+    at Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:59)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:42:27.932Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:710:15)
+    at Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:59)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:42:27.932Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:710:15)
+    at Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:59)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:42:42.659Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:42:49.216Z] error: Failed to find application by id: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override. StrictPopulateError: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override.
+    at getModelsMapForPopulate (E:\KAHER-Backend\node_modules\mongoose\lib\helpers\populate\getModelsMapForPopulate.js:50:12)
+    at populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4346:21)
+    at _populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4306:5)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4278:5
+    at new Promise (<anonymous>)
+    at Function.populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4277:10)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2506:11
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3149:21
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+  path: 'users'
+}
+[2024-02-26T14:42:49.216Z] error: Failed to find application by id: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override. StrictPopulateError: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override.
+    at getModelsMapForPopulate (E:\KAHER-Backend\node_modules\mongoose\lib\helpers\populate\getModelsMapForPopulate.js:50:12)
+    at populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4346:21)
+    at _populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4306:5)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4278:5
+    at new Promise (<anonymous>)
+    at Function.populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4277:10)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2506:11
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3149:21
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+  path: 'users'
+}
+[2024-02-26T14:42:49.232Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:710:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:33)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:42:49.232Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:710:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:33)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:43:01.490Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:43:08.278Z] error: Failed to find application by id: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override. StrictPopulateError: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override.
+    at getModelsMapForPopulate (E:\KAHER-Backend\node_modules\mongoose\lib\helpers\populate\getModelsMapForPopulate.js:50:12)
+    at populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4346:21)
+    at _populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4306:5)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4278:5
+    at new Promise (<anonymous>)
+    at Function.populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4277:10)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2506:11
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3149:21
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+  path: 'users'
+}
+[2024-02-26T14:43:08.278Z] error: Failed to find application by id: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override. StrictPopulateError: Cannot populate path `users` because it is not in your schema. Set the `strictPopulate` option to false to override.
+    at getModelsMapForPopulate (E:\KAHER-Backend\node_modules\mongoose\lib\helpers\populate\getModelsMapForPopulate.js:50:12)
+    at populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4346:21)
+    at _populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4306:5)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4278:5
+    at new Promise (<anonymous>)
+    at Function.populate (E:\KAHER-Backend\node_modules\mongoose\lib\model.js:4277:10)
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2506:11
+    at E:\KAHER-Backend\node_modules\mongoose\lib\query.js:3149:21
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+  path: 'users'
+}
+[2024-02-26T14:43:08.292Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:710:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:33)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:43:08.292Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findLastApplication (E:\KAHER-Backend\lib\database\methods\application.js:710:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\application-details.js:90:33)
+    at async exports.applicationDetails (E:\KAHER-Backend\controllers\application.controller.js:110:20)
+[2024-02-26T14:44:17.227Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:44:37.805Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:45:01.498Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:45:48.006Z] info: Connecting to database: PRODUCTION
+[2024-02-26T14:47:48.851Z] error: Failed to signup: TypeError: Cannot read properties of null (reading 'questions')
+    at Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:78:46)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-02-26T14:47:48.851Z] error: Failed to signup: TypeError: Cannot read properties of null (reading 'questions')
+    at Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:78:46)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-02-26T15:03:33.168Z] info: Connecting to database: PRODUCTION
+[2024-02-26T15:03:51.035Z] info: Connecting to database: PRODUCTION
+[2024-02-26T15:05:26.674Z] info: Connecting to database: PRODUCTION
+[2024-02-26T15:05:56.521Z] info: Connecting to database: PRODUCTION
+[2024-02-26T15:06:10.873Z] info: Connecting to database: PRODUCTION
+[2024-02-26T15:06:15.493Z] error: Failed to signup: TypeError: Cannot read properties of null (reading 'questions')
+    at Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:94:46)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-02-26T15:06:15.493Z] error: Failed to signup: TypeError: Cannot read properties of null (reading 'questions')
+    at Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:94:46)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-02-26T15:06:15.508Z] error: Failed to find application by id: Cast to ObjectId failed for value "fghfghfg" (type string) at path "_id" for model "Application" CastError: Cast to ObjectId failed for value "fghfghfg" (type string) at path "_id" for model "Application"
+    at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:250:11)
+    at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+    at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+    at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:375:32)
+    at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+    at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+    at model.Query._findOne (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2518:8)
+    at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.findById (E:\KAHER-Backend\lib\database\methods\application.js:277:29) {
+  stringValue: '"fghfghfg"',
+  messageFormat: undefined,
+  kind: 'ObjectId',
+  value: 'fghfghfg',
+  path: '_id',
+  reason: BSONError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new ObjectId (E:\KAHER-Backend\node_modules\bson\lib\bson.cjs:2055:23)
+      at castObjectId (E:\KAHER-Backend\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:248:12)
+      at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+      at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+      at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:375:32)
+      at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+      at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+      at model.Query._findOne (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2518:8)
+      at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28),
+  valueType: 'string',
+  model: Model { Application }
+}
+[2024-02-26T15:06:15.508Z] error: Failed to find application by id: Cast to ObjectId failed for value "fghfghfg" (type string) at path "_id" for model "Application" CastError: Cast to ObjectId failed for value "fghfghfg" (type string) at path "_id" for model "Application"
+    at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:250:11)
+    at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+    at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+    at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:375:32)
+    at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+    at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+    at model.Query._findOne (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2518:8)
+    at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.findById (E:\KAHER-Backend\lib\database\methods\application.js:277:29) {
+  stringValue: '"fghfghfg"',
+  messageFormat: undefined,
+  kind: 'ObjectId',
+  value: 'fghfghfg',
+  path: '_id',
+  reason: BSONError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new ObjectId (E:\KAHER-Backend\node_modules\bson\lib\bson.cjs:2055:23)
+      at castObjectId (E:\KAHER-Backend\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:248:12)
+      at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+      at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+      at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:375:32)
+      at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+      at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+      at model.Query._findOne (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2518:8)
+      at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28),
+  valueType: 'string',
+  model: Model { Application }
+}
+[2024-02-26T15:06:39.672Z] info: Connecting to database: PRODUCTION
+[2024-02-26T15:06:43.612Z] error: Failed to signup: TypeError: Cannot read properties of undefined (reading 'includes')
+    at E:\KAHER-Backend\use-cases\response\create-response.js:100:55
+    at Array.every (<anonymous>)
+    at isSubset (E:\KAHER-Backend\use-cases\response\create-response.js:100:25)
+    at Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:102:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-02-26T15:06:43.612Z] error: Failed to signup: TypeError: Cannot read properties of undefined (reading 'includes')
+    at E:\KAHER-Backend\use-cases\response\create-response.js:100:55
+    at Array.every (<anonymous>)
+    at isSubset (E:\KAHER-Backend\use-cases\response\create-response.js:100:25)
+    at Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:102:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-02-26T15:06:43.628Z] error: Failed to find application by id: Cast to ObjectId failed for value "fghfghfg" (type string) at path "_id" for model "Application" CastError: Cast to ObjectId failed for value "fghfghfg" (type string) at path "_id" for model "Application"
+    at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:250:11)
+    at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+    at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+    at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:375:32)
+    at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+    at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+    at model.Query._findOne (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2518:8)
+    at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.findById (E:\KAHER-Backend\lib\database\methods\application.js:277:29) {
+  stringValue: '"fghfghfg"',
+  messageFormat: undefined,
+  kind: 'ObjectId',
+  value: 'fghfghfg',
+  path: '_id',
+  reason: BSONError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new ObjectId (E:\KAHER-Backend\node_modules\bson\lib\bson.cjs:2055:23)
+      at castObjectId (E:\KAHER-Backend\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:248:12)
+      at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+      at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+      at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:375:32)
+      at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+      at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+      at model.Query._findOne (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2518:8)
+      at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28),
+  valueType: 'string',
+  model: Model { Application }
+}
+[2024-02-26T15:06:43.628Z] error: Failed to find application by id: Cast to ObjectId failed for value "fghfghfg" (type string) at path "_id" for model "Application" CastError: Cast to ObjectId failed for value "fghfghfg" (type string) at path "_id" for model "Application"
+    at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:250:11)
+    at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+    at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+    at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:375:32)
+    at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+    at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+    at model.Query._findOne (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2518:8)
+    at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.findById (E:\KAHER-Backend\lib\database\methods\application.js:277:29) {
+  stringValue: '"fghfghfg"',
+  messageFormat: undefined,
+  kind: 'ObjectId',
+  value: 'fghfghfg',
+  path: '_id',
+  reason: BSONError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new ObjectId (E:\KAHER-Backend\node_modules\bson\lib\bson.cjs:2055:23)
+      at castObjectId (E:\KAHER-Backend\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:248:12)
+      at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+      at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+      at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:375:32)
+      at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+      at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+      at model.Query._findOne (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2518:8)
+      at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28),
+  valueType: 'string',
+  model: Model { Application }
+}
+[2024-02-26T15:07:01.893Z] info: Connecting to database: PRODUCTION
+[2024-02-26T15:07:07.133Z] error: Failed to find application by id: Cast to ObjectId failed for value "fghfghfg" (type string) at path "_id" for model "Application" CastError: Cast to ObjectId failed for value "fghfghfg" (type string) at path "_id" for model "Application"
+    at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:250:11)
+    at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+    at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+    at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:375:32)
+    at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+    at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+    at model.Query._findOne (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2518:8)
+    at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.findById (E:\KAHER-Backend\lib\database\methods\application.js:277:29) {
+  stringValue: '"fghfghfg"',
+  messageFormat: undefined,
+  kind: 'ObjectId',
+  value: 'fghfghfg',
+  path: '_id',
+  reason: BSONError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new ObjectId (E:\KAHER-Backend\node_modules\bson\lib\bson.cjs:2055:23)
+      at castObjectId (E:\KAHER-Backend\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:248:12)
+      at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+      at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+      at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:375:32)
+      at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+      at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+      at model.Query._findOne (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2518:8)
+      at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28),
+  valueType: 'string',
+  model: Model { Application }
+}
+[2024-02-26T15:07:07.133Z] error: Failed to find application by id: Cast to ObjectId failed for value "fghfghfg" (type string) at path "_id" for model "Application" CastError: Cast to ObjectId failed for value "fghfghfg" (type string) at path "_id" for model "Application"
+    at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:250:11)
+    at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+    at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+    at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:375:32)
+    at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+    at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+    at model.Query._findOne (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2518:8)
+    at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.findById (E:\KAHER-Backend\lib\database\methods\application.js:277:29) {
+  stringValue: '"fghfghfg"',
+  messageFormat: undefined,
+  kind: 'ObjectId',
+  value: 'fghfghfg',
+  path: '_id',
+  reason: BSONError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new ObjectId (E:\KAHER-Backend\node_modules\bson\lib\bson.cjs:2055:23)
+      at castObjectId (E:\KAHER-Backend\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:248:12)
+      at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+      at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+      at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:375:32)
+      at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+      at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+      at model.Query._findOne (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2518:8)
+      at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28),
+  valueType: 'string',
+  model: Model { Application }
+}
+[2024-02-26T15:08:16.966Z] info: Connecting to database: PRODUCTION
+[2024-02-26T15:08:34.738Z] info: Connecting to database: PRODUCTION
+[2024-02-26T15:12:50.477Z] info: Connecting to database: PRODUCTION
+[2024-02-26T15:13:33.823Z] info: Connecting to database: PRODUCTION
+[2024-02-26T17:22:55.969Z] info: Connecting to database: PRODUCTION
+[2024-03-06T08:02:51.085Z] info: Connecting to database: PRODUCTION
+[2024-03-07T07:08:01.538Z] info: Connecting to database: PRODUCTION
+[2024-03-07T11:55:31.963Z] info: Connecting to database: PRODUCTION
+[2024-03-07T11:58:13.865Z] info: Connecting to database: PRODUCTION
+[2024-03-07T11:58:42.736Z] info: Connecting to database: PRODUCTION
+[2024-03-07T11:59:06.465Z] info: Connecting to database: PRODUCTION
+[2024-03-07T12:14:22.405Z] info: Connecting to database: PRODUCTION
+[2024-03-07T12:15:14.285Z] info: Connecting to database: PRODUCTION
+[2024-03-07T12:15:34.627Z] info: Connecting to database: PRODUCTION
+[2024-03-07T12:19:25.942Z] info: Connecting to database: PRODUCTION
+[2024-03-07T12:20:09.408Z] info: Connecting to database: PRODUCTION
+[2024-03-07T12:20:16.265Z] info: Connecting to database: PRODUCTION
+[2024-03-07T12:20:30.868Z] info: Connecting to database: PRODUCTION
+[2024-03-07T12:21:53.300Z] info: Connecting to database: PRODUCTION
+[2024-03-07T12:22:05.520Z] info: Connecting to database: PRODUCTION
+[2024-03-07T12:22:28.326Z] info: Connecting to database: PRODUCTION
+[2024-03-07T12:22:36.953Z] error: Failed to find application by id: unknown operator: $e MongoServerError: unknown operator: $e
+    at Connection.onMessage (E:\KAHER-Backend\node_modules\mongodb\lib\cmap\connection.js:202:26)
+    at MessageStream.<anonymous> (E:\KAHER-Backend\node_modules\mongodb\lib\cmap\connection.js:61:60)
+    at MessageStream.emit (node:events:518:28)
+    at processIncomingData (E:\KAHER-Backend\node_modules\mongodb\lib\cmap\message_stream.js:124:16)
+    at MessageStream._write (E:\KAHER-Backend\node_modules\mongodb\lib\cmap\message_stream.js:33:9)
+    at writeOrBuffer (node:internal/streams/writable:564:12)
+    at _write (node:internal/streams/writable:493:10)
+    at Writable.write (node:internal/streams/writable:502:10)
+    at TLSSocket.ondata (node:internal/streams/readable:1007:22)
+    at TLSSocket.emit (node:events:518:28) {
+  ok: 0,
+  code: 2,
+  codeName: 'BadValue',
+  '$clusterTime': [Object],
+  operationTime: new Timestamp({ t: 1709814156, i: 15 }),
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2024-03-07T12:22:36.953Z] error: Failed to find application by id: unknown operator: $e MongoServerError: unknown operator: $e
+    at Connection.onMessage (E:\KAHER-Backend\node_modules\mongodb\lib\cmap\connection.js:202:26)
+    at MessageStream.<anonymous> (E:\KAHER-Backend\node_modules\mongodb\lib\cmap\connection.js:61:60)
+    at MessageStream.emit (node:events:518:28)
+    at processIncomingData (E:\KAHER-Backend\node_modules\mongodb\lib\cmap\message_stream.js:124:16)
+    at MessageStream._write (E:\KAHER-Backend\node_modules\mongodb\lib\cmap\message_stream.js:33:9)
+    at writeOrBuffer (node:internal/streams/writable:564:12)
+    at _write (node:internal/streams/writable:493:10)
+    at Writable.write (node:internal/streams/writable:502:10)
+    at TLSSocket.ondata (node:internal/streams/readable:1007:22)
+    at TLSSocket.emit (node:events:518:28) {
+  ok: 0,
+  code: 2,
+  codeName: 'BadValue',
+  '$clusterTime': [Object],
+  operationTime: new Timestamp({ t: 1709814156, i: 15 }),
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2024-03-07T12:22:36.978Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findAllAssignedAppsForInstitution (E:\KAHER-Backend\lib\database\methods\application.js:1081:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\get-assigned-applications.js:59:17)
+    at async exports.getAssignedApplications (E:\KAHER-Backend\controllers\application.controller.js:206:20)
+[2024-03-07T12:22:36.978Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findAllAssignedAppsForInstitution (E:\KAHER-Backend\lib\database\methods\application.js:1081:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\get-assigned-applications.js:59:17)
+    at async exports.getAssignedApplications (E:\KAHER-Backend\controllers\application.controller.js:206:20)
+[2024-03-07T12:22:54.748Z] info: Connecting to database: PRODUCTION
+[2024-03-07T12:23:12.701Z] info: Connecting to database: PRODUCTION
+[2024-03-07T12:23:19.950Z] info: Connecting to database: PRODUCTION
+[2024-03-07T13:37:50.508Z] info: Connecting to database: PRODUCTION
+[2024-03-07T13:38:22.469Z] error: token verification expired
+[2024-03-07T13:38:22.469Z] error: token verification expired
+[2024-03-07T13:39:22.098Z] info: Connecting to database: PRODUCTION
+[2024-03-07T13:40:56.685Z] info: Connecting to database: PRODUCTION
+[2024-03-07T13:43:26.358Z] info: Connecting to database: PRODUCTION
+[2024-03-07T13:43:53.224Z] info: Connecting to database: PRODUCTION
+[2024-03-07T13:44:40.147Z] info: Connecting to database: PRODUCTION
+[2024-03-07T13:44:51.226Z] info: Connecting to database: PRODUCTION
+[2024-03-07T13:47:01.465Z] info: Connecting to database: PRODUCTION
+[2024-03-07T13:48:09.548Z] info: Connecting to database: PRODUCTION
+[2024-03-07T13:50:20.259Z] info: Connecting to database: PRODUCTION
+[2024-03-07T13:50:26.436Z] error: Failed to signup: ReferenceError: Cannot access 'application' before initialization
+    at Object.execute (E:\KAHER-Backend\use-cases\application\submit-application.js:53:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.submitApplications (E:\KAHER-Backend\controllers\application.controller.js:229:20)
+[2024-03-07T13:50:26.436Z] error: Failed to signup: ReferenceError: Cannot access 'application' before initialization
+    at Object.execute (E:\KAHER-Backend\use-cases\application\submit-application.js:53:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.submitApplications (E:\KAHER-Backend\controllers\application.controller.js:229:20)
+[2024-03-07T13:51:02.088Z] info: Connecting to database: PRODUCTION
+[2024-03-07T13:52:04.093Z] info: Connecting to database: PRODUCTION
+[2024-03-07T13:52:09.066Z] info: Connecting to database: PRODUCTION
+[2024-03-07T13:53:32.519Z] info: Connecting to database: PRODUCTION
+[2024-03-07T13:53:53.729Z] info: Connecting to database: PRODUCTION
+[2024-03-07T13:54:01.574Z] info: Connecting to database: PRODUCTION
+[2024-03-07T13:54:43.025Z] info: Connecting to database: PRODUCTION
+[2024-03-07T13:54:49.821Z] info: Connecting to database: PRODUCTION
+[2024-03-07T14:03:03.279Z] info: Connecting to database: PRODUCTION
+[2024-03-07T14:05:06.252Z] info: Connecting to database: PRODUCTION
+[2024-03-07T14:21:16.814Z] info: Connecting to database: PRODUCTION
+[2024-03-07T14:21:23.745Z] info: Connecting to database: PRODUCTION
+[2024-03-07T14:22:07.320Z] info: Connecting to database: PRODUCTION
+[2024-03-07T14:22:13.240Z] error: Failed to signup: ReferenceError: res is not defined
+    at Object.execute (E:\KAHER-Backend\use-cases\users\create-user.js:148:18)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createUser (E:\KAHER-Backend\controllers\user.controller.js:19:20)
+[2024-03-07T14:22:13.240Z] error: Failed to signup: ReferenceError: res is not defined
+    at Object.execute (E:\KAHER-Backend\use-cases\users\create-user.js:148:18)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createUser (E:\KAHER-Backend\controllers\user.controller.js:19:20)
+[2024-03-07T14:22:49.412Z] info: Connecting to database: PRODUCTION
+[2024-03-07T14:23:12.824Z] info: Connecting to database: PRODUCTION
+[2024-03-07T14:23:18.547Z] error: Failed to signup: ReferenceError: res is not defined
+    at Object.execute (E:\KAHER-Backend\use-cases\users\create-user.js:148:18)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createUser (E:\KAHER-Backend\controllers\user.controller.js:19:20)
+[2024-03-07T14:23:18.547Z] error: Failed to signup: ReferenceError: res is not defined
+    at Object.execute (E:\KAHER-Backend\use-cases\users\create-user.js:148:18)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createUser (E:\KAHER-Backend\controllers\user.controller.js:19:20)
+[2024-03-07T14:23:45.241Z] info: Connecting to database: PRODUCTION
+[2024-03-07T14:24:00.571Z] error: Failed to signup: ReferenceError: res is not defined
+    at Object.execute (E:\KAHER-Backend\use-cases\users\create-user.js:204:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createUser (E:\KAHER-Backend\controllers\user.controller.js:19:20)
+[2024-03-07T14:24:00.571Z] error: Failed to signup: ReferenceError: res is not defined
+    at Object.execute (E:\KAHER-Backend\use-cases\users\create-user.js:204:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createUser (E:\KAHER-Backend\controllers\user.controller.js:19:20)
+[2024-03-07T14:24:41.442Z] info: Connecting to database: PRODUCTION
+[2024-03-07T14:24:48.695Z] info: Connecting to database: PRODUCTION
+[2024-03-07T14:24:56.472Z] error: Failed to signup: ReferenceError: res is not defined
+    at Object.execute (E:\KAHER-Backend\use-cases\users\create-user.js:210:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createUser (E:\KAHER-Backend\controllers\user.controller.js:19:20)
+[2024-03-07T14:24:56.472Z] error: Failed to signup: ReferenceError: res is not defined
+    at Object.execute (E:\KAHER-Backend\use-cases\users\create-user.js:210:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createUser (E:\KAHER-Backend\controllers\user.controller.js:19:20)
+[2024-03-07T14:25:26.311Z] info: Connecting to database: PRODUCTION
+[2024-03-07T14:25:31.943Z] info: Connecting to database: PRODUCTION
+[2024-03-07T14:25:42.683Z] error: Failed to signup: TypeError: Cannot read properties of undefined (reading 'length')
+    at Object.execute (E:\KAHER-Backend\use-cases\users\create-user.js:183:50)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createUser (E:\KAHER-Backend\controllers\user.controller.js:19:20)
+[2024-03-07T14:25:42.683Z] error: Failed to signup: TypeError: Cannot read properties of undefined (reading 'length')
+    at Object.execute (E:\KAHER-Backend\use-cases\users\create-user.js:183:50)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createUser (E:\KAHER-Backend\controllers\user.controller.js:19:20)
+[2024-03-07T14:26:00.116Z] info: Connecting to database: PRODUCTION
+[2024-03-07T14:26:07.992Z] error: Failed to signup: ReferenceError: res is not defined
+    at Object.execute (E:\KAHER-Backend\use-cases\users\create-user.js:211:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createUser (E:\KAHER-Backend\controllers\user.controller.js:19:20)
+[2024-03-07T14:26:07.992Z] error: Failed to signup: ReferenceError: res is not defined
+    at Object.execute (E:\KAHER-Backend\use-cases\users\create-user.js:211:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createUser (E:\KAHER-Backend\controllers\user.controller.js:19:20)
+[2024-03-07T14:26:30.260Z] info: Connecting to database: PRODUCTION
+[2024-03-07T14:26:39.407Z] error: Failed to signup: ReferenceError: res is not defined
+    at Object.execute (E:\KAHER-Backend\use-cases\users\create-user.js:211:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createUser (E:\KAHER-Backend\controllers\user.controller.js:19:20)
+[2024-03-07T14:26:39.407Z] error: Failed to signup: ReferenceError: res is not defined
+    at Object.execute (E:\KAHER-Backend\use-cases\users\create-user.js:211:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createUser (E:\KAHER-Backend\controllers\user.controller.js:19:20)
+[2024-03-07T14:27:15.521Z] info: Connecting to database: PRODUCTION
+[2024-03-07T14:27:21.684Z] info: Connecting to database: PRODUCTION
+[2024-03-07T14:27:30.334Z] error: Failed to signup: ReferenceError: res is not defined
+    at Object.execute (E:\KAHER-Backend\use-cases\users\create-user.js:211:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createUser (E:\KAHER-Backend\controllers\user.controller.js:19:20)
+[2024-03-07T14:27:30.334Z] error: Failed to signup: ReferenceError: res is not defined
+    at Object.execute (E:\KAHER-Backend\use-cases\users\create-user.js:211:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createUser (E:\KAHER-Backend\controllers\user.controller.js:19:20)
+[2024-03-07T14:28:08.133Z] info: Connecting to database: PRODUCTION
+[2024-03-07T14:28:16.746Z] error: Failed to signup: ReferenceError: res is not defined
+    at Object.execute (E:\KAHER-Backend\use-cases\users\create-user.js:211:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createUser (E:\KAHER-Backend\controllers\user.controller.js:19:20)
+[2024-03-07T14:28:16.746Z] error: Failed to signup: ReferenceError: res is not defined
+    at Object.execute (E:\KAHER-Backend\use-cases\users\create-user.js:211:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createUser (E:\KAHER-Backend\controllers\user.controller.js:19:20)
+[2024-03-07T14:28:54.397Z] info: Connecting to database: PRODUCTION
+[2024-03-07T14:29:04.111Z] error: Failed to signup: ReferenceError: res is not defined
+    at Object.execute (E:\KAHER-Backend\use-cases\users\create-user.js:211:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createUser (E:\KAHER-Backend\controllers\user.controller.js:19:20)
+[2024-03-07T14:29:04.111Z] error: Failed to signup: ReferenceError: res is not defined
+    at Object.execute (E:\KAHER-Backend\use-cases\users\create-user.js:211:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createUser (E:\KAHER-Backend\controllers\user.controller.js:19:20)
+[2024-03-07T14:29:31.298Z] info: Connecting to database: PRODUCTION
+[2024-03-07T14:30:03.855Z] info: Connecting to database: PRODUCTION
+[2024-03-07T14:30:20.056Z] info: Connecting to database: PRODUCTION
+[2024-03-07T14:30:25.071Z] info: Connecting to database: PRODUCTION
+[2024-03-07T14:30:35.527Z] info: Email sent: 250 OK id=1riElX-00AItW-2w
