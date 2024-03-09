@@ -99,6 +99,8 @@ exports.Create = ({
         const isSubset = (bodyQuestions, formQuestions) =>
           bodyQuestions.every((item) => formQuestions?.includes(item));
 
+        console.log(bodyQuestions, formQuestions);
+
         if (!isSubset(bodyQuestions, formQuestions)) {
           throw new CreateError('Bad request', 422);
         }

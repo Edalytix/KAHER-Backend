@@ -2815,3 +2815,181 @@
 [2024-03-07T14:30:20.056Z] info: Connecting to database: PRODUCTION
 [2024-03-07T14:30:25.071Z] info: Connecting to database: PRODUCTION
 [2024-03-07T14:30:35.527Z] info: Email sent: 250 OK id=1riElX-00AItW-2w
+[2024-03-08T09:15:31.067Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:18:32.793Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:18:48.691Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:19:48.411Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:20:48.617Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:22:15.983Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:24:56.083Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:25:05.265Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:25:15.241Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:25:20.078Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:26:05.320Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:26:55.979Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:31:45.778Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:32:06.308Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:32:12.881Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:32:55.177Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:33:44.595Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:34:47.832Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:35:36.229Z] error: token verification expired
+[2024-03-08T09:35:36.229Z] error: token verification expired
+[2024-03-08T09:35:46.948Z] error: Failed to find application by id: Cannot read properties of null (reading 'workflow') TypeError: Cannot read properties of null (reading 'workflow')
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\application.js:307:43)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\resend-permission.js:39:21)
+    at async exports.resendPermission (E:\KAHER-Backend\controllers\application.controller.js:371:20)
+[2024-03-08T09:35:46.948Z] error: Failed to find application by id: Cannot read properties of null (reading 'workflow') TypeError: Cannot read properties of null (reading 'workflow')
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\application.js:307:43)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\resend-permission.js:39:21)
+    at async exports.resendPermission (E:\KAHER-Backend\controllers\application.controller.js:371:20)
+[2024-03-08T09:35:46.957Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\application.js:343:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\resend-permission.js:39:21)
+    at async exports.resendPermission (E:\KAHER-Backend\controllers\application.controller.js:371:20)
+[2024-03-08T09:35:46.957Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\application.js:343:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\resend-permission.js:39:21)
+    at async exports.resendPermission (E:\KAHER-Backend\controllers\application.controller.js:371:20)
+[2024-03-08T09:37:20.580Z] info: Email sent: 250 OK id=1riWfH-004Q9L-2Y
+[2024-03-08T09:37:46.270Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:38:43.589Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:40:23.005Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:41:16.678Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:41:20.940Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:41:44.250Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:41:54.919Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:42:05.585Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:42:11.609Z] error: Failed to signup: TypeError: Assignment to constant variable.
+    at Object.execute (E:\KAHER-Backend\use-cases\application\resend-permission.js:50:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.resendPermission (E:\KAHER-Backend\controllers\application.controller.js:371:20)
+[2024-03-08T09:42:11.609Z] error: Failed to signup: TypeError: Assignment to constant variable.
+    at Object.execute (E:\KAHER-Backend\use-cases\application\resend-permission.js:50:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.resendPermission (E:\KAHER-Backend\controllers\application.controller.js:371:20)
+[2024-03-08T09:42:24.310Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:43:50.503Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:44:53.953Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:45:11.488Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:45:19.267Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:47:46.676Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:48:12.432Z] info: Email sent: 250 OK id=1riWpn-004aR6-2T
+[2024-03-08T09:48:47.585Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:48:53.974Z] error: Failed to signup: TypeError: Cannot read properties of undefined (reading 'firstName')
+    at Object.execute (E:\KAHER-Backend\use-cases\application\resend-permission.js:150:49)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.resendPermission (E:\KAHER-Backend\controllers\application.controller.js:371:20)
+[2024-03-08T09:48:53.974Z] error: Failed to signup: TypeError: Cannot read properties of undefined (reading 'firstName')
+    at Object.execute (E:\KAHER-Backend\use-cases\application\resend-permission.js:150:49)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.resendPermission (E:\KAHER-Backend\controllers\application.controller.js:371:20)
+[2024-03-08T09:50:12.138Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:50:18.880Z] error: Failed to signup: TypeError: Cannot read properties of undefined (reading 'firstName')
+    at Object.execute (E:\KAHER-Backend\use-cases\application\resend-permission.js:153:49)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.resendPermission (E:\KAHER-Backend\controllers\application.controller.js:371:20)
+[2024-03-08T09:50:18.880Z] error: Failed to signup: TypeError: Cannot read properties of undefined (reading 'firstName')
+    at Object.execute (E:\KAHER-Backend\use-cases\application\resend-permission.js:153:49)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.resendPermission (E:\KAHER-Backend\controllers\application.controller.js:371:20)
+[2024-03-08T09:51:18.325Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:51:24.969Z] error: Failed to signup: TypeError: Cannot read properties of undefined (reading 'firstName')
+    at Object.execute (E:\KAHER-Backend\use-cases\application\resend-permission.js:156:49)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.resendPermission (E:\KAHER-Backend\controllers\application.controller.js:371:20)
+[2024-03-08T09:51:24.969Z] error: Failed to signup: TypeError: Cannot read properties of undefined (reading 'firstName')
+    at Object.execute (E:\KAHER-Backend\use-cases\application\resend-permission.js:156:49)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.resendPermission (E:\KAHER-Backend\controllers\application.controller.js:371:20)
+[2024-03-08T09:57:42.358Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:57:49.166Z] error: Failed to signup: TypeError: Cannot read properties of undefined (reading 'firstName')
+    at Object.execute (E:\KAHER-Backend\use-cases\application\resend-permission.js:156:49)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.resendPermission (E:\KAHER-Backend\controllers\application.controller.js:371:20)
+[2024-03-08T09:57:49.166Z] error: Failed to signup: TypeError: Cannot read properties of undefined (reading 'firstName')
+    at Object.execute (E:\KAHER-Backend\use-cases\application\resend-permission.js:156:49)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.resendPermission (E:\KAHER-Backend\controllers\application.controller.js:371:20)
+[2024-03-08T09:59:35.849Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:59:48.196Z] info: Connecting to database: PRODUCTION
+[2024-03-08T09:59:54.902Z] error: Failed to signup: TypeError: Cannot read properties of undefined (reading 'firstName')
+    at Object.execute (E:\KAHER-Backend\use-cases\application\resend-permission.js:158:49)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.resendPermission (E:\KAHER-Backend\controllers\application.controller.js:371:20)
+[2024-03-08T09:59:54.902Z] error: Failed to signup: TypeError: Cannot read properties of undefined (reading 'firstName')
+    at Object.execute (E:\KAHER-Backend\use-cases\application\resend-permission.js:158:49)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.resendPermission (E:\KAHER-Backend\controllers\application.controller.js:371:20)
+[2024-03-08T10:00:20.690Z] info: Connecting to database: PRODUCTION
+[2024-03-08T10:00:27.442Z] error: Failed to signup: TypeError: Cannot read properties of undefined (reading 'firstName')
+    at Object.execute (E:\KAHER-Backend\use-cases\application\resend-permission.js:158:49)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.resendPermission (E:\KAHER-Backend\controllers\application.controller.js:371:20)
+[2024-03-08T10:00:27.442Z] error: Failed to signup: TypeError: Cannot read properties of undefined (reading 'firstName')
+    at Object.execute (E:\KAHER-Backend\use-cases\application\resend-permission.js:158:49)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.resendPermission (E:\KAHER-Backend\controllers\application.controller.js:371:20)
+[2024-03-08T10:01:52.881Z] info: Connecting to database: PRODUCTION
+[2024-03-08T10:01:58.513Z] info: Connecting to database: PRODUCTION
+[2024-03-08T10:02:03.679Z] error: Failed to signup: TypeError: UserFunction.findOne is not a function
+    at Object.execute (E:\KAHER-Backend\use-cases\application\resend-permission.js:56:32)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.resendPermission (E:\KAHER-Backend\controllers\application.controller.js:371:20)
+[2024-03-08T10:02:03.679Z] error: Failed to signup: TypeError: UserFunction.findOne is not a function
+    at Object.execute (E:\KAHER-Backend\use-cases\application\resend-permission.js:56:32)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.resendPermission (E:\KAHER-Backend\controllers\application.controller.js:371:20)
+[2024-03-08T10:03:30.616Z] info: Connecting to database: PRODUCTION
+[2024-03-08T10:03:47.351Z] info: Connecting to database: PRODUCTION
+[2024-03-08T10:03:57.374Z] info: Email sent: 250 OK id=1riX52-004nw2-28
+[2024-03-08T10:04:10.467Z] info: Connecting to database: PRODUCTION
+[2024-03-08T10:04:35.188Z] info: Connecting to database: PRODUCTION
+[2024-03-08T10:04:39.934Z] info: Connecting to database: PRODUCTION
+[2024-03-08T10:04:46.707Z] info: Connecting to database: PRODUCTION
+[2024-03-08T10:04:56.726Z] info: Connecting to database: PRODUCTION
+[2024-03-08T10:05:07.060Z] info: Email sent: 250 OK id=1riX6A-004oVM-1I
+[2024-03-08T10:05:56.961Z] info: Connecting to database: PRODUCTION
+[2024-03-08T10:06:05.860Z] info: Connecting to database: PRODUCTION
+[2024-03-08T10:35:55.235Z] info: Connecting to database: PRODUCTION
+[2024-03-08T10:45:57.229Z] info: Connecting to database: PRODUCTION
+[2024-03-08T10:49:41.127Z] info: Connecting to database: PRODUCTION
+[2024-03-08T10:50:25.392Z] error: Failed to create exercise entity: CreateError
+    at Object.responses (E:\KAHER-Backend\services\form-validator.service.js:261:15)
+    at E:\KAHER-Backend\entity\response\create-response.js:48:43
+    at Array.forEach (<anonymous>)
+    at Object.generate (E:\KAHER-Backend\entity\response\create-response.js:47:38)
+    at Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:42:14)
+    at exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:26:8)
+    at Layer.handle [as handle_request] (E:\KAHER-Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (E:\KAHER-Backend\node_modules\express\lib\router\route.js:144:13)
+    at module.exports.isLogged (E:\KAHER-Backend\middlewares\is-logged.js:84:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  status: 422,
+  code: 0,
+  message: undefined,
+  date: 2024-03-08T10:50:25.391Z
+}
+[2024-03-08T10:50:25.392Z] error: Failed to create exercise entity: CreateError
+    at Object.responses (E:\KAHER-Backend\services\form-validator.service.js:261:15)
+    at E:\KAHER-Backend\entity\response\create-response.js:48:43
+    at Array.forEach (<anonymous>)
+    at Object.generate (E:\KAHER-Backend\entity\response\create-response.js:47:38)
+    at Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:42:14)
+    at exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:26:8)
+    at Layer.handle [as handle_request] (E:\KAHER-Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (E:\KAHER-Backend\node_modules\express\lib\router\route.js:144:13)
+    at module.exports.isLogged (E:\KAHER-Backend\middlewares\is-logged.js:84:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  status: 422,
+  code: 0,
+  message: undefined,
+  date: 2024-03-08T10:50:25.391Z
+}
+[2024-03-08T10:50:55.414Z] info: Connecting to database: PRODUCTION
+[2024-03-08T10:52:10.399Z] info: Connecting to database: PRODUCTION
+[2024-03-08T11:13:32.135Z] info: Connecting to database: PRODUCTION

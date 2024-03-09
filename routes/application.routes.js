@@ -104,6 +104,11 @@ router.post(
   appMiddlewares.isLogged,
   applicationController.approveApplication
 );
+router.post(
+  '/application/resendemail',
+  appMiddlewares.isLogged,
+  applicationController.resendPermission
+);
 router.get(
   '/admin/application/userapplications',
   middlewares.isLogged,

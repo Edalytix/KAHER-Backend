@@ -21,6 +21,7 @@ const fromInstitutionReports = require('./institution-report');
 const fromWorkflowReports = require('./workflow-report');
 const fromApplicationApprovedReports = require('./application-approved-report');
 const fromApplicationStatusReports = require('./application-status-report');
+const fromResendPermission = require('./resend-permission');
 
 exports.applicationUseCases = {
   createApplications: fromCreateApplications.Create,
@@ -49,4 +50,5 @@ exports.applicationUseCases = {
     fromApplicationApprovedReports.applicationApprovedReport,
   findApplicationStatusReports:
     fromApplicationStatusReports.applicationStatusReport,
+  ResendPermission: fromResendPermission.ResendPermission,
 };
