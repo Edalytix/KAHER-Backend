@@ -126,7 +126,7 @@ exports.updateUser = ({
           delete entity.dob;
         }
 
-        if (params.applications) {
+        if (params.applications.length > 0) {
           const arr = [];
           params.applications.forEach((element) => {
             arr.push(validate.mongoid(element).data.value);
