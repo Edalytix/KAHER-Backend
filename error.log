@@ -3013,3 +3013,48 @@
 [2024-03-11T12:32:19.446Z] info: Connecting to database: PRODUCTION
 [2024-03-11T12:33:25.316Z] info: Connecting to database: PRODUCTION
 [2024-03-11T12:33:32.291Z] info: Connecting to database: PRODUCTION
+[2024-03-12T06:22:07.728Z] info: Connecting to database: PRODUCTION
+[2024-03-12T06:24:24.751Z] info: Connecting to database: PRODUCTION
+[2024-03-12T06:24:56.390Z] error: Failed to create exercise entity: TypeError: validate.string is not a function
+    at Object.generate (E:\KAHER-Backend\entity\workflow\create-workflow.js:50:36)
+    at Object.execute (E:\KAHER-Backend\use-cases\workflow\create-workflow.js:44:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createWorkflow (E:\KAHER-Backend\controllers\workflow.controller.js:15:20)
+[2024-03-12T06:24:56.390Z] error: Failed to create exercise entity: TypeError: validate.string is not a function
+    at Object.generate (E:\KAHER-Backend\entity\workflow\create-workflow.js:50:36)
+    at Object.execute (E:\KAHER-Backend\use-cases\workflow\create-workflow.js:44:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createWorkflow (E:\KAHER-Backend\controllers\workflow.controller.js:15:20)
+[2024-03-12T06:24:56.393Z] error: Failed to signup: Error: Unknown error, contact support.
+    at Object.generate (E:\KAHER-Backend\entity\workflow\create-workflow.js:95:15)
+    at Object.execute (E:\KAHER-Backend\use-cases\workflow\create-workflow.js:44:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createWorkflow (E:\KAHER-Backend\controllers\workflow.controller.js:15:20)
+[2024-03-12T06:24:56.393Z] error: Failed to signup: Error: Unknown error, contact support.
+    at Object.generate (E:\KAHER-Backend\entity\workflow\create-workflow.js:95:15)
+    at Object.execute (E:\KAHER-Backend\use-cases\workflow\create-workflow.js:44:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createWorkflow (E:\KAHER-Backend\controllers\workflow.controller.js:15:20)
+[2024-03-12T06:25:04.155Z] error: Failed to create exercise entity: TypeError: validate.string is not a function
+    at Object.generate (E:\KAHER-Backend\entity\workflow\create-workflow.js:50:36)
+    at Object.execute (E:\KAHER-Backend\use-cases\workflow\create-workflow.js:44:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createWorkflow (E:\KAHER-Backend\controllers\workflow.controller.js:15:20)
+[2024-03-12T06:25:04.155Z] error: Failed to create exercise entity: TypeError: validate.string is not a function
+    at Object.generate (E:\KAHER-Backend\entity\workflow\create-workflow.js:50:36)
+    at Object.execute (E:\KAHER-Backend\use-cases\workflow\create-workflow.js:44:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createWorkflow (E:\KAHER-Backend\controllers\workflow.controller.js:15:20)
+[2024-03-12T06:25:04.160Z] error: Failed to signup: Error: Unknown error, contact support.
+    at Object.generate (E:\KAHER-Backend\entity\workflow\create-workflow.js:95:15)
+    at Object.execute (E:\KAHER-Backend\use-cases\workflow\create-workflow.js:44:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createWorkflow (E:\KAHER-Backend\controllers\workflow.controller.js:15:20)
+[2024-03-12T06:25:04.160Z] error: Failed to signup: Error: Unknown error, contact support.
+    at Object.generate (E:\KAHER-Backend\entity\workflow\create-workflow.js:95:15)
+    at Object.execute (E:\KAHER-Backend\use-cases\workflow\create-workflow.js:44:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.createWorkflow (E:\KAHER-Backend\controllers\workflow.controller.js:15:20)
+[2024-03-12T06:28:29.287Z] info: Connecting to database: PRODUCTION
+[2024-03-12T06:28:41.366Z] info: Connecting to database: PRODUCTION
+[2024-03-12T06:28:48.535Z] info: Connecting to database: PRODUCTION

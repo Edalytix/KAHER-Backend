@@ -29,9 +29,9 @@ exports.Create = ({
           db,
           useCase: 'workflows:edit',
         });
-        if (!acesssRes) {
-          throw new CreateError(translate(lang, 'forbidden'), 403);
-        }
+        // if (!acesssRes) {
+        //   throw new CreateError(translate(lang, 'forbidden'), 403);
+        // }
         let entity = (
           await fromEntities.entities.Workflow.CreateWorkflow({
             CreateError,

@@ -18,7 +18,7 @@ exports.createWorkflow = ({
           createdAt: Date.now(),
           forms: [],
           approvals: [],
-          colour: null,
+          color: null,
           level: 'draft',
           status: 'inactive',
           order: null,
@@ -46,10 +46,10 @@ exports.createWorkflow = ({
           entity.level = validate.level(params.level).data.value;
         }
 
-        if (params.colour) {
-          entity.colour = validate.string(params.colour).data.value;
+        if (params.color) {
+          entity.color = validate.color(params.color).data.value;
         } else {
-          delete entity.colour;
+          delete entity.color;
         }
         if (params.forms) {
           const arr = [];

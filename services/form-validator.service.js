@@ -181,6 +181,14 @@ exports.DataValidator = ({ CreateError, lang, translate }) => {
         throw new CreateError(translate(lang, 'invalid_title'), 422);
       }
     },
+    color(x) {
+      x = String(x);
+      if (/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(x)) {
+        return { msg: 'Valid', data: { value: x } };
+      } else {
+        throw new CreateError(translate(lang, 'invalid_title'), 422);
+      }
+    },
     content(x) {
       x = String(x);
       if (/^[\s\S]{1,300}$/.test(x)) {

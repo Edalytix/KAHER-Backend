@@ -139,7 +139,7 @@ const workflowSchema = new mongoose.Schema({
       return this.applications.length;
     },
   },
-  colour: {
+  color: {
     type: String,
     required: false,
   },
