@@ -17,6 +17,7 @@ exports.updateWorkflow = ({
           applications: [],
           createdAt: Date.now(),
           approvals: [],
+          colour: null,
           level: null,
           status: null,
           order: null,
@@ -46,6 +47,11 @@ exports.updateWorkflow = ({
           entity.level = validate.level(params.level).data.value;
         } else {
           delete entity.level;
+        }
+        if (params.colour) {
+          entity.colour = validate.string(params.colour).data.value;
+        } else {
+          delete entity.colour;
         }
         if (params.approvals) {
           const arr = [];

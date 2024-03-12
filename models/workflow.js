@@ -141,7 +141,7 @@ const workflowSchema = new mongoose.Schema({
   },
   colour: {
     type: String,
-    required: true,
+    required: false,
   },
   createdAt: {
     type: Date,
