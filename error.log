@@ -3118,3 +3118,24 @@
 [2024-03-12T07:26:51.591Z] info: Email sent: 250 OK id=1rjwXD-00ElRb-2r
 [2024-03-12T07:27:28.289Z] info: Connecting to database: PRODUCTION
 [2024-03-12T07:27:47.878Z] info: Email sent: 250 OK id=1rjwY8-00Em3U-0X
+[2024-03-12T07:28:10.384Z] info: Connecting to database: PRODUCTION
+[2024-03-12T07:28:39.844Z] error: Failed to signup: TypeError: Cannot read properties of undefined (reading 'name')
+    at Object.execute (E:\KAHER-Backend\use-cases\application\get-assigned-applications.js:58:39)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.getAssignedApplications (E:\KAHER-Backend\controllers\application.controller.js:206:20)
+[2024-03-12T07:28:39.844Z] error: Failed to signup: TypeError: Cannot read properties of undefined (reading 'name')
+    at Object.execute (E:\KAHER-Backend\use-cases\application\get-assigned-applications.js:58:39)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.getAssignedApplications (E:\KAHER-Backend\controllers\application.controller.js:206:20)
+[2024-03-12T07:28:41.956Z] error: Failed to signup: TypeError: Cannot read properties of undefined (reading 'name')
+    at Object.execute (E:\KAHER-Backend\use-cases\application\get-assigned-applications.js:58:39)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.getAssignedApplications (E:\KAHER-Backend\controllers\application.controller.js:206:20)
+[2024-03-12T07:28:41.956Z] error: Failed to signup: TypeError: Cannot read properties of undefined (reading 'name')
+    at Object.execute (E:\KAHER-Backend\use-cases\application\get-assigned-applications.js:58:39)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.getAssignedApplications (E:\KAHER-Backend\controllers\application.controller.js:206:20)
+[2024-03-12T08:17:01.853Z] info: Email sent: 250 OK id=1rjxJm-00FQHf-0Q
+[2024-03-12T08:18:20.521Z] info: Email sent: 250 OK id=1rjxL2-00FREM-2f
+[2024-03-12T08:19:06.743Z] info: Connecting to database: PRODUCTION
+[2024-03-12T08:21:51.709Z] info: Connecting to database: PRODUCTION

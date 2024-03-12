@@ -38,7 +38,8 @@ const userSchema = new mongoose.Schema({
   employeeId: {
     type: String,
     required: true,
-  },
+    unique: true,
+  }, //
   applications: [
     {
       type: mongoose.Schema.Types.ObjectId,
