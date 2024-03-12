@@ -128,7 +128,7 @@ exports.addUser = ({
           delete entity.dob;
         }
 
-        if (params.applications) {
+        if (params.applications?.length) {
           const arr = [];
           params.applications.forEach((element) => {
             arr.push(validate.mongoid(element).data.value);

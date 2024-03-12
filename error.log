@@ -3058,3 +3058,27 @@
 [2024-03-12T06:28:29.287Z] info: Connecting to database: PRODUCTION
 [2024-03-12T06:28:41.366Z] info: Connecting to database: PRODUCTION
 [2024-03-12T06:28:48.535Z] info: Connecting to database: PRODUCTION
+[2024-03-12T06:28:59.847Z] info: Connecting to database: PRODUCTION
+[2024-03-12T07:13:03.051Z] error: token verification error/tampered
+[2024-03-12T07:13:03.051Z] error: token verification error/tampered
+[2024-03-12T07:14:53.038Z] error: Failed to create exercise entity: TypeError: Cannot read properties of undefined (reading 'length')
+    at Object.generate (E:\KAHER-Backend\entity\users\update-users.js:129:33)
+    at Object.execute (E:\KAHER-Backend\use-cases\users\update-user.js:65:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.updateUser (E:\KAHER-Backend\controllers\user.controller.js:147:20)
+[2024-03-12T07:14:53.038Z] error: Failed to create exercise entity: TypeError: Cannot read properties of undefined (reading 'length')
+    at Object.generate (E:\KAHER-Backend\entity\users\update-users.js:129:33)
+    at Object.execute (E:\KAHER-Backend\use-cases\users\update-user.js:65:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.updateUser (E:\KAHER-Backend\controllers\user.controller.js:147:20)
+[2024-03-12T07:14:53.043Z] error: Failed to signup: Error: Unknown error, contact support.
+    at Object.generate (E:\KAHER-Backend\entity\users\update-users.js:164:15)
+    at Object.execute (E:\KAHER-Backend\use-cases\users\update-user.js:65:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.updateUser (E:\KAHER-Backend\controllers\user.controller.js:147:20)
+[2024-03-12T07:14:53.043Z] error: Failed to signup: Error: Unknown error, contact support.
+    at Object.generate (E:\KAHER-Backend\entity\users\update-users.js:164:15)
+    at Object.execute (E:\KAHER-Backend\use-cases\users\update-user.js:65:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.updateUser (E:\KAHER-Backend\controllers\user.controller.js:147:20)
+[2024-03-12T07:15:22.126Z] info: Connecting to database: PRODUCTION
