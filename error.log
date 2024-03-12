@@ -3082,3 +3082,39 @@
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
     at async exports.updateUser (E:\KAHER-Backend\controllers\user.controller.js:147:20)
 [2024-03-12T07:15:22.126Z] info: Connecting to database: PRODUCTION
+[2024-03-12T07:16:04.079Z] info: Connecting to database: PRODUCTION
+[2024-03-12T07:18:24.217Z] error: token verification error/tampered
+[2024-03-12T07:18:24.217Z] error: token verification error/tampered
+[2024-03-12T07:18:29.677Z] error: token verification error/tampered
+[2024-03-12T07:18:29.677Z] error: token verification error/tampered
+[2024-03-12T07:18:46.070Z] error: token verification error/tampered
+[2024-03-12T07:18:46.070Z] error: token verification error/tampered
+[2024-03-12T07:19:23.521Z] error: token verification error/tampered
+[2024-03-12T07:19:23.521Z] error: token verification error/tampered
+[2024-03-12T07:22:09.474Z] info: Connecting to database: PRODUCTION
+[2024-03-12T07:23:29.961Z] error: Failed to create user details: error is not defined ReferenceError: error is not defined
+    at Object.create (E:\KAHER-Backend\lib\database\methods\user.js:33:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\users\create-user.js:176:21)
+    at async exports.createUser (E:\KAHER-Backend\controllers\user.controller.js:19:20)
+[2024-03-12T07:23:29.961Z] error: Failed to create user details: error is not defined ReferenceError: error is not defined
+    at Object.create (E:\KAHER-Backend\lib\database\methods\user.js:33:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\users\create-user.js:176:21)
+    at async exports.createUser (E:\KAHER-Backend\controllers\user.controller.js:19:20)
+[2024-03-12T07:23:29.965Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.create (E:\KAHER-Backend\lib\database\methods\user.js:59:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\users\create-user.js:176:21)
+    at async exports.createUser (E:\KAHER-Backend\controllers\user.controller.js:19:20)
+[2024-03-12T07:23:29.965Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.create (E:\KAHER-Backend\lib\database\methods\user.js:59:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\users\create-user.js:176:21)
+    at async exports.createUser (E:\KAHER-Backend\controllers\user.controller.js:19:20)
+[2024-03-12T07:24:00.789Z] info: Connecting to database: PRODUCTION
+[2024-03-12T07:24:42.806Z] info: Email sent: 250 OK id=1rjwV9-00Ejqx-0I
+[2024-03-12T07:26:35.004Z] info: Connecting to database: PRODUCTION
+[2024-03-12T07:26:51.591Z] info: Email sent: 250 OK id=1rjwXD-00ElRb-2r
+[2024-03-12T07:27:28.289Z] info: Connecting to database: PRODUCTION
+[2024-03-12T07:27:47.878Z] info: Email sent: 250 OK id=1rjwY8-00Em3U-0X

@@ -150,7 +150,7 @@ exports.Create = ({
         });
 
         const applications = (await ApplicationFunction.findAll()).data.data;
-        console.log(applications);
+
         const approverApplications = [];
 
         for (let index = 0; index < applications.length; index++) {
@@ -167,7 +167,8 @@ exports.Create = ({
               approval.approvalBy.department.toString() ===
                 department.data.department._id.toString()
             ) {
-              approverApplications.push(element._id);
+              if (!approverApplications.includes(element.workflow.uuid))
+                approverApplications.push(element.workflow.uuid);
             }
           }
         }
