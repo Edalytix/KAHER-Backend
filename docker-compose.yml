@@ -21,6 +21,21 @@ services:
     networks:
       - web
 
+
+  surveyor-bdev:
+    build:
+      context: .
+    restart: always
+    container_name: surveyor-bdev
+    image: surveyor-bdev
+    labels:
+      - traefik.http.routers.surveyor-api.rule=Host(`surveyor-api.edalytics.com`)
+      - traefik.http.routers.surveyor-api.tls=true
+      - traefik.http.routers.surveyor-api.tls.certresolver=lets-encrypt
+      - traefik.port=3000
+    networks:
+      - web
+
   kaher-dredis:
     image: bitnami/redis:latest
     restart: always
