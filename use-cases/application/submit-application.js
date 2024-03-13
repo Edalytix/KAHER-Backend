@@ -55,6 +55,14 @@ exports.Submit = ({
             application.workflow.forms[0].response.responses[0].string ||
             '65e5b091c03f5c18e7b9f885';
 
+          var objectIdPattern = /^[0-9a-fA-F]{24}$/;
+
+          // Check if the string matches the pattern
+
+          if (!objectIdPattern.test(appId)) {
+            throw new CreateError(translate(lang, 'invalid_application'), 403);
+          }
+
           const CheckApplication = (await ApplicationFunction.findById(appId))
             .data.application;
           if (CheckApplication.level !== 'approved') {

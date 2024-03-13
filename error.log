@@ -3141,3 +3141,95 @@
 [2024-03-12T08:21:51.709Z] info: Connecting to database: PRODUCTION
 [2024-03-12T11:11:16.878Z] info: Connecting to database: PRODUCTION
 [2024-03-13T06:16:03.426Z] info: Connecting to database: PRODUCTION
+[2024-03-13T06:19:23.102Z] info: Connecting to database: PRODUCTION
+[2024-03-13T10:47:04.176Z] info: Connecting to database: PRODUCTION
+[2024-03-13T11:13:32.594Z] error: Failed to find application by id: Cast to ObjectId failed for value "ABC" (type string) at path "_id" for model "Application" CastError: Cast to ObjectId failed for value "ABC" (type string) at path "_id" for model "Application"
+    at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:250:11)
+    at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+    at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+    at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:375:32)
+    at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+    at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+    at model.Query._findOne (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2518:8)
+    at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.findById (E:\KAHER-Backend\lib\database\methods\application.js:277:29) {
+  stringValue: '"ABC"',
+  messageFormat: undefined,
+  kind: 'ObjectId',
+  value: 'ABC',
+  path: '_id',
+  reason: BSONError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new ObjectId (E:\KAHER-Backend\node_modules\bson\lib\bson.cjs:2055:23)
+      at castObjectId (E:\KAHER-Backend\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:248:12)
+      at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+      at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+      at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:375:32)
+      at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+      at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+      at model.Query._findOne (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2518:8)
+      at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28),
+  valueType: 'string',
+  model: Model { Application }
+}
+[2024-03-13T11:13:32.594Z] error: Failed to find application by id: Cast to ObjectId failed for value "ABC" (type string) at path "_id" for model "Application" CastError: Cast to ObjectId failed for value "ABC" (type string) at path "_id" for model "Application"
+    at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:250:11)
+    at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+    at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+    at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:375:32)
+    at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+    at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+    at model.Query._findOne (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2518:8)
+    at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.findById (E:\KAHER-Backend\lib\database\methods\application.js:277:29) {
+  stringValue: '"ABC"',
+  messageFormat: undefined,
+  kind: 'ObjectId',
+  value: 'ABC',
+  path: '_id',
+  reason: BSONError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new ObjectId (E:\KAHER-Backend\node_modules\bson\lib\bson.cjs:2055:23)
+      at castObjectId (E:\KAHER-Backend\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (E:\KAHER-Backend\node_modules\mongoose\lib\schema\objectid.js:248:12)
+      at SchemaType.applySetters (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1219:12)
+      at SchemaType.castForQuery (E:\KAHER-Backend\node_modules\mongoose\lib\schematype.js:1633:15)
+      at cast (E:\KAHER-Backend\node_modules\mongoose\lib\cast.js:375:32)
+      at Query.cast (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4909:12)
+      at Query._castConditions (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2232:10)
+      at model.Query._findOne (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:2518:8)
+      at model.Query.exec (E:\KAHER-Backend\node_modules\mongoose\lib\query.js:4429:28),
+  valueType: 'string',
+  model: Model { Application }
+}
+[2024-03-13T11:13:32.609Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\application.js:343:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\submit-application.js:58:37)
+    at async exports.submitApplications (E:\KAHER-Backend\controllers\application.controller.js:229:20)
+[2024-03-13T11:13:32.609Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\application.js:343:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\application\submit-application.js:58:37)
+    at async exports.submitApplications (E:\KAHER-Backend\controllers\application.controller.js:229:20)
+[2024-03-13T11:15:08.314Z] info: Connecting to database: PRODUCTION
+[2024-03-13T11:15:17.123Z] info: Connecting to database: PRODUCTION
+[2024-03-13T11:15:43.961Z] info: Connecting to database: PRODUCTION
+[2024-03-13T11:16:21.222Z] info: Connecting to database: PRODUCTION
+[2024-03-13T11:25:21.436Z] info: Connecting to database: PRODUCTION
+[2024-03-13T11:25:43.809Z] error: Failed to signup: TypeError: Cannot read properties of null (reading 'responses')
+    at Object.execute (E:\KAHER-Backend\use-cases\application\submit-application.js:51:55)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.submitApplications (E:\KAHER-Backend\controllers\application.controller.js:229:20)
+[2024-03-13T11:25:43.809Z] error: Failed to signup: TypeError: Cannot read properties of null (reading 'responses')
+    at Object.execute (E:\KAHER-Backend\use-cases\application\submit-application.js:51:55)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.submitApplications (E:\KAHER-Backend\controllers\application.controller.js:229:20)
+[2024-03-13T11:28:52.486Z] info: Connecting to database: PRODUCTION
+[2024-03-13T11:28:58.053Z] info: Connecting to database: PRODUCTION
+[2024-03-13T11:29:21.812Z] info: Connecting to database: PRODUCTION
+[2024-03-13T11:33:04.435Z] info: Connecting to database: PRODUCTION
+[2024-03-13T11:33:42.275Z] info: Connecting to database: PRODUCTION
+[2024-03-13T11:34:50.186Z] info: Connecting to database: PRODUCTION
+[2024-03-13T11:35:07.140Z] info: Connecting to database: PRODUCTION

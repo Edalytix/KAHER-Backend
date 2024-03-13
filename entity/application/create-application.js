@@ -60,9 +60,9 @@ exports.createApplication = ({
           entity.status = validate.status(params.status).data.value;
         }
 
-        if (params.level) {
-          entity.level = validate.applicationlevel(params.level).data.value;
-        }
+        // if (params.level) {
+        //   entity.level = validate.applicationlevel(params.level).data.value;
+        // }
 
         if (params.comments) {
           const arr = [];
