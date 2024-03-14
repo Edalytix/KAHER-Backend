@@ -3253,3 +3253,4 @@
     at async exports.submitApplications (E:\KAHER-Backend\controllers\application.controller.js:229:20)
 [2024-03-14T12:22:36.535Z] info: Connecting to database: PRODUCTION
 [2024-03-14T12:25:17.288Z] info: Connecting to database: PRODUCTION
+[2024-03-14T12:26:09.616Z] info: Connecting to database: PRODUCTION
