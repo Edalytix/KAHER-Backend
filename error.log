@@ -3234,3 +3234,22 @@
 [2024-03-13T11:34:50.186Z] info: Connecting to database: PRODUCTION
 [2024-03-13T11:35:07.140Z] info: Connecting to database: PRODUCTION
 [2024-03-13T11:35:18.279Z] info: Connecting to database: PRODUCTION
+[2024-03-13T11:42:46.162Z] info: Connecting to database: PRODUCTION
+[2024-03-13T15:49:35.829Z] info: Connecting to database: PRODUCTION
+[2024-03-13T15:50:03.452Z] info: Connecting to database: PRODUCTION
+[2024-03-13T16:54:11.805Z] info: Connecting to database: PRODUCTION
+[2024-03-13T16:54:41.523Z] info: Connecting to database: PRODUCTION
+[2024-03-13T16:55:18.501Z] info: Connecting to database: PRODUCTION
+[2024-03-13T16:56:39.060Z] info: Connecting to database: PRODUCTION
+[2024-03-13T17:57:56.662Z] info: Connecting to database: PRODUCTION
+[2024-03-14T12:07:51.715Z] info: Connecting to database: PRODUCTION
+[2024-03-14T12:10:48.056Z] error: Failed to signup: TypeError: Cannot read properties of null (reading 'responses')
+    at Object.execute (E:\KAHER-Backend\use-cases\application\submit-application.js:51:55)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.submitApplications (E:\KAHER-Backend\controllers\application.controller.js:229:20)
+[2024-03-14T12:10:48.056Z] error: Failed to signup: TypeError: Cannot read properties of null (reading 'responses')
+    at Object.execute (E:\KAHER-Backend\use-cases\application\submit-application.js:51:55)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.submitApplications (E:\KAHER-Backend\controllers\application.controller.js:229:20)
+[2024-03-14T12:22:36.535Z] info: Connecting to database: PRODUCTION
+[2024-03-14T12:25:17.288Z] info: Connecting to database: PRODUCTION

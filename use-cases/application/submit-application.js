@@ -44,6 +44,8 @@ exports.Submit = ({
           throw new CreateError(translate(lang, 'forbidden'), 403);
         }
 
+        //
+
         if (
           //This is the ID of the Reimbursment Application.
           application.workflow.uuid === '73f7b925-4cfa-4c8e-b5a1-84df8d672fcc'
