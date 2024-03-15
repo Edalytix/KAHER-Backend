@@ -221,7 +221,9 @@ exports.Submit = ({
             const approvers = await UserFunction.findByParams({
               role: element.approvalBy?.role?._id,
               'department.id': element?.approvalBy?.department?._id.toString(),
+              institution: user.institution._id,
             });
+
             approvers.data.forEach(async (element) => {
               const mail = await mailer({
                 CreateError,

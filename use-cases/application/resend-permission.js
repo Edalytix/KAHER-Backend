@@ -39,7 +39,9 @@ exports.ResendPermission = ({
         const res = await ApplicationFunction.findById(id);
         const application = res.data.application;
 
-        const loggedInApproverID = application.workflow.approvals[0].approvalBy;
+        const loggedInApproverID =
+          application.workflow.approvals[application.currentApprover - 1]
+            .approvalBy;
 
         let loggedInApprover = {};
 
