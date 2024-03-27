@@ -39,31 +39,33 @@ const answerSchema = new mongoose.Schema({
   dropDown: { type: FormQuestionOptionSchema },
   multipleChoice: { type: [FormQuestionOptionSchema] },
   array: [
-    {
-      quid: {
-        type: mongoose.Schema.Types.ObjectId,
+    [
+      {
+        quid: {
+          type: mongoose.Schema.Types.ObjectId,
+        },
+        type: {
+          type: String,
+          enum: [
+            'string',
+            'number',
+            'date',
+            'longString',
+            'department',
+            'user',
+            'doi',
+          ],
+          required: true,
+        },
+        string: { type: String },
+        doi: { type: String },
+        department: { type: mongoose.Schema.Types.ObjectId, ref: 'Department' },
+        user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+        longString: { type: String },
+        number: { type: Number },
+        date: { type: Date },
       },
-      type: {
-        type: String,
-        enum: [
-          'string',
-          'number',
-          'date',
-          'longString',
-          'department',
-          'user',
-          'doi',
-        ],
-        required: true,
-      },
-      string: { type: String },
-      doi: { type: String },
-      department: { type: mongoose.Schema.Types.ObjectId, ref: 'Department' },
-      user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-      longString: { type: String },
-      number: { type: Number },
-      date: { type: Date },
-    },
+    ],
   ],
 });
 // Define the schema for the Response collection

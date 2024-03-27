@@ -3385,3 +3385,177 @@
     at async Object.execute (E:\KAHER-Backend\use-cases\form\create-form.js:54:21)
     at async exports.createForm (E:\KAHER-Backend\controllers\form.controller.js:15:20)
 [2024-03-27T10:35:55.065Z] info: Connecting to database: PRODUCTION
+[2024-03-27T10:49:44.282Z] info: Connecting to database: PRODUCTION
+[2024-03-27T10:50:18.429Z] info: Connecting to database: PRODUCTION
+[2024-03-27T10:54:10.318Z] info: Connecting to database: PRODUCTION
+[2024-03-27T10:57:46.990Z] info: Connecting to database: DEVELOPMENT
+[2024-03-27T11:30:12.321Z] info: Connecting to database: DEVELOPMENT
+[2024-03-27T11:32:22.520Z] error: Failed to find user by id: Cannot read properties of null (reading 'uuid') TypeError: Cannot read properties of null (reading 'uuid')
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:180:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:79:27)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-03-27T11:32:22.520Z] error: Failed to find user by id: Cannot read properties of null (reading 'uuid') TypeError: Cannot read properties of null (reading 'uuid')
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:180:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:79:27)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-03-27T11:32:22.532Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:234:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:79:27)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-03-27T11:32:22.532Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:234:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:79:27)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-03-27T11:35:45.855Z] error: Failed to find user by id: Cannot read properties of null (reading 'uuid') TypeError: Cannot read properties of null (reading 'uuid')
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:180:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:79:27)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-03-27T11:35:45.855Z] error: Failed to find user by id: Cannot read properties of null (reading 'uuid') TypeError: Cannot read properties of null (reading 'uuid')
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:180:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:79:27)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-03-27T11:35:45.861Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:234:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:79:27)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-03-27T11:35:45.861Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:234:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:79:27)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-03-27T11:36:27.563Z] info: Connecting to database: DEVELOPMENT
+[2024-03-27T11:36:42.831Z] error: Failed to find user by id: Cannot read properties of null (reading 'uuid') TypeError: Cannot read properties of null (reading 'uuid')
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:180:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:79:27)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-03-27T11:36:42.831Z] error: Failed to find user by id: Cannot read properties of null (reading 'uuid') TypeError: Cannot read properties of null (reading 'uuid')
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:180:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:79:27)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-03-27T11:36:42.835Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:234:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:79:27)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-03-27T11:36:42.835Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:234:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:79:27)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-03-27T11:37:29.403Z] info: Connecting to database: PRODUCTION
+[2024-03-27T13:07:42.723Z] error: Failed to delete mood by uid: getaddrinfo ENOTFOUND ac-xa0bjyd-shard-00-00.7soe7k6.mongodb.net MongoServerSelectionError: getaddrinfo ENOTFOUND ac-xa0bjyd-shard-00-00.7soe7k6.mongodb.net
+    at Timeout._onTimeout (E:\KAHER-Backend\node_modules\mongodb\lib\sdam\topology.js:278:38)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7) {
+  reason: [TopologyDescription],
+  code: undefined,
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2024-03-27T13:07:42.723Z] error: Failed to delete mood by uid: getaddrinfo ENOTFOUND ac-xa0bjyd-shard-00-00.7soe7k6.mongodb.net MongoServerSelectionError: getaddrinfo ENOTFOUND ac-xa0bjyd-shard-00-00.7soe7k6.mongodb.net
+    at Timeout._onTimeout (E:\KAHER-Backend\node_modules\mongodb\lib\sdam\topology.js:278:38)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7) {
+  reason: [TopologyDescription],
+  code: undefined,
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2024-03-27T13:08:03.743Z] info: Connecting to database: DEVELOPMENT
+[2024-03-27T13:56:57.545Z] error: token verification error/tampered
+[2024-03-27T13:56:57.545Z] error: token verification error/tampered
+[2024-03-27T13:57:19.927Z] error: Failed to find user by id: Cannot read properties of null (reading 'uuid') TypeError: Cannot read properties of null (reading 'uuid')
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:180:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:79:27)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-03-27T13:57:19.927Z] error: Failed to find user by id: Cannot read properties of null (reading 'uuid') TypeError: Cannot read properties of null (reading 'uuid')
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:180:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:79:27)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-03-27T13:57:19.939Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:234:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:79:27)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-03-27T13:57:19.939Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:234:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:79:27)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-03-27T13:58:04.858Z] error: Failed to find user by id: Cannot read properties of null (reading 'uuid') TypeError: Cannot read properties of null (reading 'uuid')
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:180:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:79:27)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-03-27T13:58:04.858Z] error: Failed to find user by id: Cannot read properties of null (reading 'uuid') TypeError: Cannot read properties of null (reading 'uuid')
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:180:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:79:27)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-03-27T13:58:04.866Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:234:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:79:27)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-03-27T13:58:04.866Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:234:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:79:27)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-03-27T13:58:17.995Z] info: Connecting to database: DEVELOPMENT
+[2024-03-27T14:00:35.225Z] info: Connecting to database: DEVELOPMENT
+[2024-03-27T14:00:55.531Z] info: Connecting to database: DEVELOPMENT
+[2024-03-27T14:00:59.473Z] error: Failed to find user by id: Cannot read properties of null (reading 'uuid') TypeError: Cannot read properties of null (reading 'uuid')
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:182:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:79:27)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-03-27T14:00:59.473Z] error: Failed to find user by id: Cannot read properties of null (reading 'uuid') TypeError: Cannot read properties of null (reading 'uuid')
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:182:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:79:27)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-03-27T14:00:59.483Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:236:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:79:27)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-03-27T14:00:59.483Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:236:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:79:27)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-03-27T14:03:48.334Z] error: Failed to find user by id: Cannot read properties of null (reading 'uuid') TypeError: Cannot read properties of null (reading 'uuid')
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:182:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:79:27)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-03-27T14:03:48.334Z] error: Failed to find user by id: Cannot read properties of null (reading 'uuid') TypeError: Cannot read properties of null (reading 'uuid')
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:182:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:79:27)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-03-27T14:03:48.339Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:236:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:79:27)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-03-27T14:03:48.339Z] error: Failed to signup: Error: Please find the Contact Details for support - Contact - It Section, Email - itsection@kledeemeduniversity.edu.in, Contact Number - 244404378/77
+    at Object.findById (E:\KAHER-Backend\lib\database\methods\workflow.js:236:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (E:\KAHER-Backend\use-cases\response\create-response.js:79:27)
+    at async exports.createResponse (E:\KAHER-Backend\controllers\response.controller.js:15:20)
+[2024-03-27T14:04:54.594Z] info: Connecting to database: DEVELOPMENT
+[2024-03-27T14:05:39.470Z] info: Connecting to database: DEVELOPMENT
+[2024-03-27T14:07:14.626Z] info: Connecting to database: PRODUCTION
+[2024-03-27T14:09:33.830Z] info: Connecting to database: PRODUCTION
+[2024-03-27T14:09:45.523Z] info: Connecting to database: PRODUCTION
